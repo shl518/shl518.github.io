@@ -429,9 +429,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">
+                                <span class="chip bg-color">计算机组成</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -452,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    1.5k
                 </div>
                 
 
@@ -477,7 +481,122 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="数字模块"><a href="#数字模块" class="headerlink" title="数字模块"></a>数字模块</h2><h3 id="半加器与全加器"><a href="#半加器与全加器" class="headerlink" title="半加器与全加器"></a>半加器与全加器</h3><ul>
+<li>半加器没有考虑进位，相当于一个异或门</li>
+<li>全加器：</li>
+</ul>
+<h5 id="行波进位加法器"><a href="#行波进位加法器" class="headerlink" title="行波进位加法器"></a>行波进位加法器</h5><p><img src="https://note.youdao.com/yws/api/personal/file/4A82FB8FBB614A8B9EC8E1EAFF53B8E0?method=download&shareKey=13816bb38172af4236b25ae359fcd1eb" alt="1"><br>串行进位，依此串联</p>
+<h5 id="先行进位加法器"><a href="#先行进位加法器" class="headerlink" title="先行进位加法器"></a>先行进位加法器</h5><p><img src="https://note.youdao.com/yws/api/personal/file/FC56D45439FC45748E3F223823C14ED3?method=download&shareKey=43ec1bafebae5e3ba74256c05e5877e9" alt="2"><br>并行进位，提前计算进位，不必等待前一位输出进位后再计算</p>
+<h5 id="前缀加法器"><a href="#前缀加法器" class="headerlink" title="前缀加法器"></a>前缀加法器</h5><p>参加《数字设计与计算机体系结构P149》，实际上应用了前缀的思想，需要的硬件数多，实现速度最快，为对数级。</p>
+<hr>
+<h3 id="减法器"><a href="#减法器" class="headerlink" title="减法器"></a>减法器</h3><p>将负数以补码的形式表示出来，输入到全加器中即可实现。</p>
+<hr>
+<h3 id="比较器"><a href="#比较器" class="headerlink" title="比较器"></a>比较器</h3><ul>
+<li>相等比较器，使用异或门检查每一位是否相等，最后使用与门作与</li>
+<li>量值比较器，二者做减法，检查最高位01，判断是大于等于，还是小于</li>
+</ul>
+<hr>
+<h3 id="ALU算术逻辑单元"><a href="#ALU算术逻辑单元" class="headerlink" title="ALU算术逻辑单元"></a>ALU算术逻辑单元</h3><ul>
+<li>实现加，减法，量值比较，与运算，或运算，是大多数计算机的核心<br><img src="https://note.youdao.com/yws/api/personal/file/E6EC7EAAB72D45CFA794F2453FBAF259?method=download&shareKey=8628617def2fc94f51475d90ce4100f7" alt="3"></li>
+</ul>
+<h3 id="阵列乘法器"><a href="#阵列乘法器" class="headerlink" title="阵列乘法器"></a>阵列乘法器</h3><p><img src="https://note.youdao.com/yws/api/personal/file/D2BA58A290C54D01B4D585E383C3B927?method=download&shareKey=f050174849962641682f0fd3b244de98" alt="4"></p>
+<h3 id="编码器译码器略"><a href="#编码器译码器略" class="headerlink" title="编码器译码器略"></a>编码器译码器略</h3><h3 id="多位选择器"><a href="#多位选择器" class="headerlink" title="多位选择器"></a>多位选择器</h3><ul>
+<li>多位选择器可以正常作为选择功能使用，也可以反着用，把输出作为选择端，输入作为数据端，就可以实现数据端的任意逻辑组合电路<br><img src="https://note.youdao.com/yws/api/personal/file/B84BFAB05D094F1DADF48EB0BF38757C?method=download&shareKey=743fe6bac84f18a902f0b7f1d13b135d" alt="5"></li>
+</ul>
+<hr>
+<h3 id="数据寄存器与数据锁存器"><a href="#数据寄存器与数据锁存器" class="headerlink" title="数据寄存器与数据锁存器"></a>数据寄存器与数据锁存器</h3><p><strong>数据寄存器</strong><br><img src="https://note.youdao.com/yws/api/personal/file/A1631345396F4BFE9B3B82124745AB46?method=download&shareKey=90ad7333df6a28fabd31fffc4eada20c" alt="1"></p>
+<ul>
+<li>由边沿触发的触发器构成（D触发），脉冲敏感型 </li>
+<li>适用于数据有效提前于控制信号</li>
+</ul>
+<pre class="line-numbers language-v" data-language="v"><code class="language-v">always @<span class="token punctuation">(</span>posedge clk <span class="token keyword">or</span> posedge rst<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>数据锁存器</strong></p>
+<ul>
+<li>由电位触发器（D锁存器）组成，电平敏感</li>
+<li>数据有效滞后于控制信号</li>
+</ul>
+<pre class="line-numbers language-v" data-language="v"><code class="language-v">always @<span class="token punctuation">(</span>clk <span class="token keyword">or</span> rst<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<hr>
+<h3 id="移位寄存器"><a href="#移位寄存器" class="headerlink" title="移位寄存器"></a>移位寄存器</h3><h4 id="四位右移寄存器"><a href="#四位右移寄存器" class="headerlink" title="四位右移寄存器"></a>四位右移寄存器</h4><p><img src="https://note.youdao.com/yws/api/personal/file/64638569CC7A4641BB504764B9680022?method=download&shareKey=efa473c569f7ace0f1019069bb1d818f" alt="44"></p>
+<ul>
+<li>由四个D触发组成，数据从左端输入，依此通过低位寄存器，高位触发器的输出送低位触发器的输入</li>
+<li>有两种工作方式<ul>
+<li>串入并出：N位移位寄存器经过N个CP后，最后一个输出恰好为第一个输入，此时从低位到高位的输出正好为完整的输入串，称为并行输出。</li>
+<li>串入串出；每一个输出都会串行输出输入串，只不过后级触发器的输出比前一个触发器要晚一个周期，把处于串入串出的移位寄存器称为<strong>延迟线</strong>。</li>
+</ul>
+</li>
+</ul>
+<h4 id="双向移位寄存器"><a href="#双向移位寄存器" class="headerlink" title="双向移位寄存器"></a>双向移位寄存器</h4><p><strong>通过在触发器的输入端增加门电路来增加控制左右移的功能</strong><br><img src="https://note.youdao.com/yws/api/personal/file/2E83B9F516954A45A6D031A5A34BE929?method=download&shareKey=e7f7bfaec1a208e77a68d61bb6dc6371" alt="3"></p>
+<ul>
+<li>CT74194芯片：一共四个功能，通过S1，S0控制<br><img src="https://note.youdao.com/yws/api/personal/file/7B0E78D4E3C54B8983DDC51D0BB7103D?method=download&shareKey=2e134456bdfc0b4ead27941887df8a94" alt="4"></li>
+</ul>
+<hr>
+<h3 id="计数器"><a href="#计数器" class="headerlink" title="计数器"></a>计数器</h3><h4 id="同步计数器"><a href="#同步计数器" class="headerlink" title="同步计数器"></a>同步计数器</h4><ul>
+<li>功能：计数计时，分频，产生节拍脉冲和序列脉冲</li>
+<li>分类<ul>
+<li>时钟方式：同步计数器，异步计数器</li>
+<li>计数方式：M进制计数器</li>
+<li>状态分类：加法，减法，加&#x2F;减法</li>
+</ul>
+</li>
+<li>同步二进制计数器也称为分频器，实际上CP进行了2，4，8，16分频</li>
+</ul>
+<h4 id="异步计数器"><a href="#异步计数器" class="headerlink" title="异步计数器"></a>异步计数器</h4><ul>
+<li>高位触发器的时钟信号由低位触发器的输出提供，高位触发器的翻转等待低一位的触发器反转后才能进行。</li>
+<li>触发器不同步，出现尖锋脉冲<br><img src="https://note.youdao.com/yws/api/personal/file/DBD3D2E6B38249489973D9D75E1ABD7C?method=download&shareKey=99397cfe426733cb3aa59d593eb75f79" alt="11"></li>
+</ul>
+<hr>
+<h4 id="存储器"><a href="#存储器" class="headerlink" title="存储器"></a>存储器</h4><p>分类：</p>
+<ul>
+<li>按介质：半导体，磁介质，光盘</li>
+<li>按访问方式：随机访问（RAM），顺序访问，直接访问，只读存储器（ROM）</li>
+<li>按功能：<ul>
+<li>高速缓冲存储器（Cache）是介于中央处理器和主存储器之间的高速小容量存储器</li>
+<li>主存储器，一般由半导体存储器</li>
+<li>控制存储器</li>
+<li>辅助存储器，磁存储器，不易失性<br>性能指标：</li>
+</ul>
+</li>
+<li>访问时间<ul>
+<li>对于随机访问存储器，指给定地址到存储器完成读或写操作所需的时间</li>
+<li>其他类型：定位到目标位置的时间</li>
+</ul>
+</li>
+<li>存储周期：两次访问存储单元间的最小时间</li>
+<li>带宽计算<ul>
+<li>随机访问存储器：<code>1/周期</code></li>
+<li>其他类型：<br><img src="https://note.youdao.com/yws/api/personal/file/B0FE9B454B1C477285250D522E9D58D5?method=download&shareKey=20db72df25cbfbf51432cc4b684850e7" alt="1"><br><strong>以下是计算机内部存储系统</strong><br><img src="https://note.youdao.com/yws/api/personal/file/A81342C375A44578988ACAA6DBDB22A7?method=download&shareKey=c18f292d6c0f8f409c4550badd68274f" alt="2"><br>二级存储系统由Cache和主存储器构成</li>
+</ul>
+</li>
+</ul>
+<h4 id="半导体存储器"><a href="#半导体存储器" class="headerlink" title="半导体存储器"></a>半导体存储器</h4><ul>
+<li>随机访问存储器RAM<ul>
+<li>静态随机访问存储器SRAM，集成度低，不必刷新，用作Cache，快</li>
+<li>动态随机访问存储器DRAM，需要刷新，集成度高，用作主存，慢</li>
+</ul>
+</li>
+<li>只读存储器ROM<ul>
+<li>不可在线改写内容</li>
+<li>块擦除存储器Flash ROM</li>
+</ul>
+</li>
+</ul>
+<h5 id="SRAM"><a href="#SRAM" class="headerlink" title="SRAM"></a>SRAM</h5><p><img src="https://note.youdao.com/yws/api/personal/file/A97EABB052554835B7305D54C3215354?method=download&shareKey=02c0561714ff07048fbc84ccb174542f" alt="3"></p>
+<ul>
+<li>字选线决定是否对当前存储单元进行操作</li>
+<li>以A点的电平状态代表0，1</li>
+<li>左右两侧为数据读写线</li>
+</ul>
+<h5 id="DRAM"><a href="#DRAM" class="headerlink" title="DRAM"></a>DRAM</h5><p><img src="https://note.youdao.com/yws/api/personal/file/393230E675D648EBA69E65A96813744F?method=download&shareKey=d55fdbc773da5aa54902e50fa585db80" alt="4"></p>
+<ul>
+<li>采用电容充放电原理</li>
+<li>读出时，将D线充电2.5V，字选线选中，若内部为3.5V高电平，电流从内往外，若内部低电平0V，电流从外往内。（但读出时会对原有状态造成破坏，读出完毕后内部电路变为2.5V的一个中间态，所以需要）</li>
+<li>写入时，将D线置高或低电平，字选线选中，对内部电容进行充放电</li>
+</ul>
+<h5 id="存储芯片内部结构"><a href="#存储芯片内部结构" class="headerlink" title="存储芯片内部结构"></a>存储芯片内部结构</h5><p>存储芯片容量&#x3D;字单元数*每个字单元的位数<br><strong>多个存储位元（存储单元）构成一个字单元，多个字单元构成一个存储芯片，任一时刻可以（也只能）访问1024个独立字单元中的任意一个，每次读写的数据位数是一个字单元的容量（2位）</strong><br>地址线：由字单元的个数决定<br>数据线：因为每次只能读写一个字单元，所以字单元里有几个存储位元，就需要几根数据线<br><img src="https://note.youdao.com/yws/api/personal/file/80CF6339D32143E7A80A4DF8122F4C08?method=download&shareKey=628e6043b1a6ebbad955d94efb92f96b" alt="6"><br>如图，每一个小方块是一个存储位元，我们把行选和列选的管教弄成相同的，这样可以在芯片中重复利用管脚。搭配使用译码器，mos管就可以实现定位到每一个<strong>字单元</strong>进行操作。<br><img src="https://note.youdao.com/yws/api/personal/file/2A9D8D3DA7A141C7B3B7130B23972BB4?method=download&shareKey=c3dc38b55c49e803d56823a07d6ca743" alt="7"><br>如上图，封装时将行选和列选的管教公用，通过控制端选择行选还是列选。</p>
+
                 
             </div>
             <hr/>
@@ -540,7 +659,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">
+                                    <span class="chip bg-color">计算机组成</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -777,6 +900,14 @@
                     </div>
                 </div>
                 
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">
+                        <span class="chip bg-color">计算机组成</span>
+                    </a>
+                    
+                </div>
+                
             </div>
         </div>
         
@@ -975,7 +1106,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">2.6k</span>&nbsp;字
+                class="white-color">19.3k</span>&nbsp;字
             
             
             

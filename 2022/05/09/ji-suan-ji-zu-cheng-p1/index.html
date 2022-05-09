@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Corsica Stars">
+    <meta name="keywords" content="计算机组成P1, Corsica Stars">
     <meta name="description" content="I will be with you from dusk till down.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Corsica Stars</title>
+    <title>计算机组成P1 | Corsica Stars</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">计算机组成P1</h1>
                 </div>
             </div>
         </div>
@@ -429,9 +429,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">
+                                <span class="chip bg-color">计算机组成</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -452,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    11
+                    297
                 </div>
                 
 
@@ -477,8 +481,16 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <hr>
-<p>title: categories<br>date: 2022-05-9 17:25:30<br>type: “categories”<br>layout: “categories”<br>​—</p>
+                <h3 id="课下准备"><a href="#课下准备" class="headerlink" title="课下准备"></a>课下准备</h3><h5 id="关于-signed的理解"><a href="#关于-signed的理解" class="headerlink" title="关于$signed的理解"></a>关于<code>$signed</code>的理解</h5><ul>
+<li>一个表达式如果存在一个无符号数，那么整个表达式都会被当做无符号数</li>
+<li>位选、多位选择器、位拼接的结果是无符号的</li>
+<li>比较表达式的结果是无符号的</li>
+<li>计算表达式时，先得出最外层表达式的符号性，再向表达式内部的操作数传递符号性</li>
+<li>尽量不要用sign搭配三目元算符，可以使用<code>always@（*）</code>搭配位拼接运算符，来实现左移和右移</li>
+</ul>
+<h5 id="三目运算符的使用"><a href="#三目运算符的使用" class="headerlink" title="三目运算符的使用"></a>三目运算符的使用</h5><p>涉及有符号数的运算，尽量不要使用三目运算符，如果三目运算符中包含一个无符号数，那么所有的操作数都会被当作无符号数来运算</p>
+<h5 id="位拼接运算符错误写法"><a href="#位拼接运算符错误写法" class="headerlink" title="位拼接运算符错误写法"></a>位拼接运算符错误写法</h5><p>例如将16位a符号扩展<code>&#123;16&#123;a[15]&#125;,a&#125;</code>是错误的，少写了一层大括号，应该为<code>&#123;&#123;16&#123;a[15]&#125;&#125;,a&#125;</code></p>
+<h5 id="assign用法"><a href="#assign用法" class="headerlink" title="assign用法"></a>assign用法</h5><p>assign 赋值时，右边为运算表达式，左边必须为一个register<br><code>Procedural assignment to a non-register C is not permitted, left-hand side should be reg/integer/time/genvar</code></p>
 
                 
             </div>
@@ -505,7 +517,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://shl518.github.io/categories/index.html">http://shl518.github.io/categories/index.html</a>
+                    <a href="http://shl518.github.io/2022/05/09/ji-suan-ji-zu-cheng-p1/">http://shl518.github.io/2022/05/09/ji-suan-ji-zu-cheng-p1/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -542,7 +554,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">
+                                    <span class="chip bg-color">计算机组成</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -710,18 +726,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/categories/index.html">
+                <a href="/2022/05/09/ji-suan-ji-zu-cheng-p2/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="计算机组成P2">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">计算机组成P2</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -731,9 +746,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-09
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-09
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -742,7 +757,14 @@
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">
+                        <span class="chip bg-color">计算机组成</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -750,16 +772,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/categories/index.html">
+                <a href="/2022/05/09/ji-suan-ji-zu-cheng-p0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="计算机组成P0">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">计算机组成P0</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -780,7 +802,14 @@
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">
+                        <span class="chip bg-color">计算机组成</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>

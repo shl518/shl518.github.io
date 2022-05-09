@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Corsica Stars">
+    <meta name="keywords" content="时序逻辑, Corsica Stars">
     <meta name="description" content="I will be with you from dusk till down.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Corsica Stars</title>
+    <title>时序逻辑 | Corsica Stars</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">时序逻辑</h1>
                 </div>
             </div>
         </div>
@@ -429,9 +429,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">
+                                <span class="chip bg-color">计算机组成</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -452,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    11
+                    1.4k
                 </div>
                 
 
@@ -477,8 +481,206 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <hr>
-<p>title: categories<br>date: 2022-05-9 17:25:30<br>type: “categories”<br>layout: “categories”<br>​—</p>
+                <h3 id="时序逻辑"><a href="#时序逻辑" class="headerlink" title="时序逻辑"></a>时序逻辑</h3><hr>
+<h4 id="RS锁存器"><a href="#RS锁存器" class="headerlink" title="RS锁存器"></a>RS锁存器</h4><h5 id="基本的RS锁存器"><a href="#基本的RS锁存器" class="headerlink" title="基本的RS锁存器"></a>基本的RS锁存器</h5><p>如下图：<br><img src="https://note.youdao.com/yws/api/personal/file/4D339BFD974249A9824B4471781068ED?method=download&shareKey=d00240532aa059cb1e338f2e9688fc0a" alt="a"><br>运用了<strong>双稳态电路</strong>实现了如下功能(低电平有效类型)：</p>
+<table>
+<thead>
+<tr>
+<th align="center">~RD</th>
+<th align="center">~SD</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">触发器保持原状态不变(Q不变)</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">置0（Q&#x3D;0）</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">置1（Q&#x3D;1）</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">不确定状态（由于门延迟而产生了竞争）</td>
+</tr>
+</tbody></table>
+<h5 id="钟控RS锁存器"><a href="#钟控RS锁存器" class="headerlink" title="钟控RS锁存器"></a>钟控RS锁存器</h5><p>加入了时钟信号：<br><img src="https://note.youdao.com/yws/api/personal/file/7CC3B7215DA04563A8638B68EA554E81?method=download&shareKey=78c7a705c7448374089969b6d66619ca" alt="2"><br><img src="https://note.youdao.com/yws/api/personal/file/2E2F7E20214F409DAC16C59E4F6B0D9C?method=download&shareKey=1ebac36d709e326a66c93c541dba16f6" alt="3"><br>当CP&#x3D;0时，RS锁存器输入均为1，保持原状态。<br>CP&#x3D;1时，RS锁存器正常工作。</p>
+<h5 id="钟控D锁存器-钟控RS-反相器"><a href="#钟控D锁存器-钟控RS-反相器" class="headerlink" title="钟控D锁存器(钟控RS+反相器)"></a>钟控D锁存器(钟控RS+反相器)</h5><p>钟控D所存通过加入反向器，保证两个输入不同，避免了出现类似RS锁存器的不确定状态。<br><img src="https://note.youdao.com/yws/api/personal/file/74136CBC854A4D30BB88816D52A4F819?method=download&shareKey=cc83478c2dff963b57f6ebba3f3cf9b8" alt="d"></p>
+<table>
+<thead>
+<tr>
+<th align="center">CP</th>
+<th align="center">D</th>
+<th align="center">function</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">x</td>
+<td align="center">保持原态</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">置1</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">置0</td>
+</tr>
+</tbody></table>
+<hr>
+<h5 id="D触发器"><a href="#D触发器" class="headerlink" title="D触发器"></a>D触发器</h5><p>两个反相的D锁存器构成，持股发起的抓捕富态变化只在时钟的有效沿发生变化（上升沿或下降沿），D锁存器电平敏感，D触发器边沿触发。寄存器便是由多个共享CLK信号的D触发器构成<br><img src="https://note.youdao.com/yws/api/personal/file/D3C16E3318464D0882D76A4F1E72314D?method=download&shareKey=7d5dd1e3b92ece4687d9ab296c05e86b" alt="3"></p>
+<h5 id="带使能端的D触发和带重置功能的D触发"><a href="#带使能端的D触发和带重置功能的D触发" class="headerlink" title="带使能端的D触发和带重置功能的D触发"></a>带使能端的D触发和带重置功能的D触发</h5><p>只需将使能端与在时钟端，或将重置端与在信号输入端。</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/9891E081BB994864808F7909BD3E9830?method=download&shareKey=50112449e9e78249f481ebd4efbfd543" alt="4"><br><img src="https://note.youdao.com/yws/api/personal/file/E0866D7136F049CB94990EA16AA56F15?method=download&shareKey=4e26c0515fab8d20742a1a43b3823ae3" alt="5"></p>
+<hr>
+<h5 id="JK触发器"><a href="#JK触发器" class="headerlink" title="JK触发器"></a>JK触发器</h5><p>将RS&#x3D;11的无序状态转化为了翻转功能:<br><img src="https://note.youdao.com/yws/api/personal/file/F58CCBA967DF40BE9BADE2A15BA2FA59?method=download&shareKey=9613ef863baff5dd7abc5cf126c12164" alt="6"></p>
+<table>
+<thead>
+<tr>
+<th align="center">J</th>
+<th align="center">K</th>
+<th align="center">function</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">保持</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">置0</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">置1</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">翻转（取反）</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="一个Mealy的例子"><a href="#一个Mealy的例子" class="headerlink" title="一个Mealy的例子"></a>一个Mealy的例子</h3><p><img src="https://note.youdao.com/yws/api/personal/file/422D1DB9DB4140BA9E6B5453FE2B9CDB?method=download&shareKey=104cea3899abde8b675917b753690132" alt="9"></p>
+<p>题目中只要求不重复检测，在这里为了练习我们分两种情况讨论(<strong>有限状态机的难点在于画出状态转换图，其他剩下的便是工作量的问题</strong>)</p>
+<hr>
+<p><strong>不重复检测情况</strong>：1101101只算一个1101<br>状态转换图：<br><img src="https://note.youdao.com/yws/api/personal/file/27325F789C93419CA235E475959277AB?method=download&shareKey=3bc8913c778f1cbab26230ede242f4c3" alt="rr"><br>之后为每个状态编码，画出状态转换表，将电路分成两个子电路（状态转换与状态输出，最后加一个寄存器）很容易便可以画出Logisim电路，不做叙述，这里附一个verilog程序，在这个HDL程序内我们利用了<code>Always@(*)</code>搭建组合逻辑，可以学习一下：</p>
+<pre class="line-numbers language-verilog" data-language="verilog"><code class="language-verilog"><span class="token keyword">module</span> <span class="token function">code_checker</span><span class="token punctuation">(</span>
+    <span class="token keyword">input</span> clk<span class="token punctuation">,</span>
+    <span class="token keyword">input</span> data<span class="token punctuation">,</span>
+    <span class="token keyword">input</span> clr<span class="token punctuation">,</span>
+    <span class="token keyword">output</span> <span class="token keyword">reg</span> out
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">parameter</span> S0<span class="token operator">=</span><span class="token number">3'b000</span><span class="token punctuation">;</span>
+<span class="token keyword">parameter</span> S1<span class="token operator">=</span><span class="token number">3'b001</span><span class="token punctuation">;</span>
+<span class="token keyword">parameter</span> S2<span class="token operator">=</span><span class="token number">3'b010</span><span class="token punctuation">;</span>
+<span class="token keyword">parameter</span> S3<span class="token operator">=</span><span class="token number">3'b011</span><span class="token punctuation">;</span>
+<span class="token keyword">parameter</span> S4<span class="token operator">=</span><span class="token number">3'b100</span><span class="token punctuation">;</span>
+<span class="token keyword">reg</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> status<span class="token punctuation">;</span>
+<span class="token important">always @</span><span class="token punctuation">(</span><span class="token keyword">posedge</span> clk <span class="token keyword">or</span> <span class="token keyword">posedge</span> clr<span class="token punctuation">)</span> <span class="token keyword">begin</span> <span class="token comment">//注意这里不仅有时钟上升沿，还有reset信号上升沿</span>
+    <span class="token function">if</span><span class="token punctuation">(</span>clr<span class="token punctuation">)</span><span class="token keyword">begin</span>
+        status <span class="token operator">&lt;=</span> S0<span class="token punctuation">;</span><span class="token comment">//reset</span>
+    <span class="token keyword">end</span>
+    <span class="token keyword">else</span> <span class="token keyword">begin</span>
+        <span class="token keyword">case</span> <span class="token punctuation">(</span>status<span class="token punctuation">)</span>
+            S0<span class="token punctuation">:</span> <span class="token function">if</span><span class="token punctuation">(</span>data <span class="token operator">==</span> <span class="token number">1'b0</span><span class="token punctuation">)</span>status <span class="token operator">&lt;=</span> S0<span class="token punctuation">;</span><span class="token keyword">else</span> status<span class="token operator">&lt;=</span> S1<span class="token punctuation">;</span>
+            S1<span class="token punctuation">:</span> <span class="token function">if</span><span class="token punctuation">(</span>data <span class="token operator">==</span> <span class="token number">1'b1</span><span class="token punctuation">)</span>status <span class="token operator">&lt;=</span> S2<span class="token punctuation">;</span><span class="token keyword">else</span> status <span class="token operator">&lt;=</span> S0<span class="token punctuation">;</span>
+            S2<span class="token punctuation">:</span> <span class="token function">if</span><span class="token punctuation">(</span>data <span class="token operator">==</span> <span class="token number">1'b0</span><span class="token punctuation">)</span>status <span class="token operator">&lt;=</span> S3<span class="token punctuation">;</span><span class="token keyword">else</span> status <span class="token operator">&lt;=</span> S2<span class="token punctuation">;</span>
+            S3<span class="token punctuation">:</span> <span class="token function">if</span><span class="token punctuation">(</span>data <span class="token operator">==</span> <span class="token number">1'b0</span><span class="token punctuation">)</span>status <span class="token operator">&lt;=</span> S0<span class="token punctuation">;</span><span class="token keyword">else</span> status <span class="token operator">&lt;=</span> S4<span class="token punctuation">;</span>
+            S4<span class="token punctuation">:</span> <span class="token function">if</span><span class="token punctuation">(</span>data <span class="token operator">==</span> <span class="token number">1'b1</span><span class="token punctuation">)</span>status <span class="token operator">&lt;=</span> S1<span class="token punctuation">;</span><span class="token keyword">else</span> status <span class="token operator">&lt;=</span> S0<span class="token punctuation">;</span>
+            <span class="token keyword">default</span> <span class="token punctuation">:</span>status <span class="token operator">&lt;=</span>S0<span class="token punctuation">;</span>
+        <span class="token keyword">endcase</span>   <span class="token comment">//case 语法可以不用加begin，end</span>
+    <span class="token keyword">end</span>
+    
+<span class="token keyword">end</span>
+<span class="token important">always @</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token keyword">begin</span>
+    <span class="token keyword">case</span> <span class="token punctuation">(</span>status<span class="token punctuation">)</span>
+        S0<span class="token punctuation">:</span>out <span class="token operator">=</span> <span class="token number">1'b0</span><span class="token punctuation">;</span>
+        S1<span class="token punctuation">:</span>out <span class="token operator">=</span> <span class="token number">1'b0</span><span class="token punctuation">;</span>
+        S2<span class="token punctuation">:</span> out <span class="token operator">=</span> <span class="token number">1'b0</span><span class="token punctuation">;</span>
+        S3<span class="token punctuation">:</span><span class="token function">if</span><span class="token punctuation">(</span>data <span class="token operator">==</span> <span class="token number">1'b1</span><span class="token punctuation">)</span>out <span class="token operator">=</span><span class="token number">1'b1</span><span class="token punctuation">;</span><span class="token keyword">else</span> out <span class="token operator">=</span> <span class="token number">1'b0</span><span class="token punctuation">;</span><span class="token comment">//易错</span>
+        S4<span class="token punctuation">:</span> out <span class="token operator">=</span> <span class="token number">1'b0</span><span class="token punctuation">;</span>
+        <span class="token keyword">default</span><span class="token punctuation">:</span> out <span class="token operator">=</span><span class="token number">1'b0</span><span class="token punctuation">;</span>
+    <span class="token keyword">endcase</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">endmodule</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Mealy编写注意事项：</p>
+<ul>
+<li>有reset信号需要在always@（posedge clk or <strong>posedge clr</strong>）写明。</li>
+<li>mealy状态机的状态输出与输入有关，可以用always建立组合逻辑，建立组合逻辑时建议使用阻塞赋值&#x3D;。</li>
+<li>case语句中一定要写明<code>default</code>状态.</li>
+<li>mealy的组合逻辑与moore不同，不能仅凭当前状态判断输出。</li>
+<li>状态机的case语句判定的一般都是status的变化</li>
+</ul>
+<p><strong>若重复检测</strong>：1101101算两个1101，只要改变一下状态转换图即可<br><img src="https://note.youdao.com/yws/api/personal/file/8ABFDCE30063401D88C8AED395C91FDD?method=download&shareKey=0e8447da9530ba8c28f2f3067e3a7ab3" alt="eee"></p>
+<h3 id="重点–时序电路的时序"><a href="#重点–时序电路的时序" class="headerlink" title="重点–时序电路的时序"></a>重点–时序电路的时序</h3><p><img src="https://note.youdao.com/yws/api/personal/file/4F8B5CAD1D8F41CAA189098BFAED8402?method=download&shareKey=1d46cf3b452e103d2e629dd08fc986f8" alt="a"><br><img src="https://note.youdao.com/yws/api/personal/file/FBC27D856B88469B9396C81F81FC9157?method=download&shareKey=1e97febfd3d6d2a6d33bacf1f6a9d4a6" alt="b"></p>
+<ul>
+<li><strong>同步时序电路的时钟周期与组合逻辑最长路径有关</strong></li>
+</ul>
+<p><img src="https://note.youdao.com/yws/api/personal/file/78584CBDA4564167AB6F78B5A0BBCDBD?method=download&shareKey=844c503bb7c2076ed26635bcc7c09c9d" alt="C"></p>
+<ul>
+<li><strong>保持时间约束与组合逻辑最短路径有关</strong></li>
+</ul>
+<hr>
+<h3 id="数据寄存器与数据锁存器"><a href="#数据寄存器与数据锁存器" class="headerlink" title="数据寄存器与数据锁存器"></a>数据寄存器与数据锁存器</h3><p><strong>数据寄存器</strong><br><img src="https://note.youdao.com/yws/api/personal/file/A1631345396F4BFE9B3B82124745AB46?method=download&shareKey=90ad7333df6a28fabd31fffc4eada20c" alt="1"></p>
+<ul>
+<li>由边沿触发的触发器构成（D触发），脉冲敏感型 </li>
+<li>适用于数据有效提前于控制信号</li>
+</ul>
+<pre class="line-numbers language-v" data-language="v"><code class="language-v">always @<span class="token punctuation">(</span>posedge clk <span class="token keyword">or</span> posedge rst<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>数据锁存器</strong></p>
+<ul>
+<li>由电位触发器（D锁存器）组成，电平敏感</li>
+<li>数据有效滞后于控制信号</li>
+</ul>
+<pre class="line-numbers language-v" data-language="v"><code class="language-v">always @<span class="token punctuation">(</span>clk <span class="token keyword">or</span> rst<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<hr>
+<h3 id="移位寄存器"><a href="#移位寄存器" class="headerlink" title="移位寄存器"></a>移位寄存器</h3><h4 id="四位右移寄存器"><a href="#四位右移寄存器" class="headerlink" title="四位右移寄存器"></a>四位右移寄存器</h4><p><img src="/"></p>
+<ul>
+<li>由四个D触发组成，数据从左端输入，依此通过低位寄存器，高位触发器的输出送低位触发器的输入</li>
+<li>有两种工作方式<ul>
+<li>串入并出：N位移位寄存器经过N个CP后，最后一个输出恰好为第一个输入，此时从低位到高位的输出正好为完整的输入串，称为并行输出。</li>
+<li>串入串出；每一个输出都会串行输出输入串，只不过后级触发器的输出比前一个触发器要晚一个周期，把处于串入串出的移位寄存器称为<strong>延迟线</strong>。</li>
+</ul>
+</li>
+</ul>
+<h4 id="双向移位寄存器"><a href="#双向移位寄存器" class="headerlink" title="双向移位寄存器"></a>双向移位寄存器</h4><p><strong>通过在触发器的输入端增加门电路来增加控制左右移的功能</strong><br><img src="https://note.youdao.com/yws/api/personal/file/2E83B9F516954A45A6D031A5A34BE929?method=download&shareKey=e7f7bfaec1a208e77a68d61bb6dc6371" alt="3"></p>
+<ul>
+<li>CT74194芯片：一共四个功能，通过S1，S0控制<br><img src="https://note.youdao.com/yws/api/personal/file/7B0E78D4E3C54B8983DDC51D0BB7103D?method=download&shareKey=2e134456bdfc0b4ead27941887df8a94" alt="4"></li>
+</ul>
+<hr>
+<h3 id="计数器"><a href="#计数器" class="headerlink" title="计数器"></a>计数器</h3><h4 id="同步计数器"><a href="#同步计数器" class="headerlink" title="同步计数器"></a>同步计数器</h4><ul>
+<li>功能：计数计时，分频，产生节拍脉冲和序列脉冲</li>
+<li>分类<ul>
+<li>时钟方式：同步计数器，异步计数器</li>
+<li>计数方式：M进制计数器</li>
+<li>状态分类：加法，减法，加&#x2F;减法</li>
+</ul>
+</li>
+<li>同步二进制计数器也称为分频器，实际上CP进行了2，4，8，16分频</li>
+</ul>
+<h4 id="异步计数器"><a href="#异步计数器" class="headerlink" title="异步计数器"></a>异步计数器</h4><ul>
+<li>高位触发器的时钟信号由低位触发器的输出提供，高位触发器的翻转等待低一位的触发器反转后才能进行。</li>
+<li>触发器不同步，出现尖锋脉冲<br><img src="https://note.youdao.com/yws/api/personal/file/DBD3D2E6B38249489973D9D75E1ABD7C?method=download&shareKey=99397cfe426733cb3aa59d593eb75f79" alt="11"></li>
+</ul>
 
                 
             </div>
@@ -505,7 +707,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://shl518.github.io/categories/index.html">http://shl518.github.io/categories/index.html</a>
+                    <a href="http://shl518.github.io/2022/05/09/shi-xu-luo-ji/">http://shl518.github.io/2022/05/09/shi-xu-luo-ji/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -542,7 +744,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">
+                                    <span class="chip bg-color">计算机组成</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -710,18 +916,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/categories/index.html">
+                <a href="/2022/05/09/shou-gua-p4-de-zhen-gui-ji-lu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="首挂P4的珍贵记录">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">首挂P4的珍贵记录</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -731,9 +936,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-09
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-09
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -742,7 +947,14 @@
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">
+                        <span class="chip bg-color">计算机组成</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -750,16 +962,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/categories/index.html">
+                <a href="/2022/05/09/verilog-xue-xi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Verilog学习">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">Verilog学习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -780,7 +992,14 @@
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">
+                        <span class="chip bg-color">计算机组成</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>

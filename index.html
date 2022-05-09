@@ -634,6 +634,14 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
+                                数字模块半加器与全加器
+半加器没有考虑进位，相当于一个异或门
+全加器：
+
+行波进位加法器串行进位，依此串联
+先行进位加法器并行进位，提前计算进位，不必等待前一位输出进位后再计算
+前缀加法器参加《数字设计与计算机体系结构P149》，实际上应用
+                            
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
@@ -648,6 +656,14 @@
                         </div>
                     </div>
 
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">
+                            <span class="chip bg-color">计算机组成</span>
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -667,44 +683,11 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-09
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                Lei_Yu
-                                
-                            </span>
-                        </div>
-                    </div>
+                                下次考试的时候需注意：
 
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/05/09/cplus/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="C Plus">
-                            
-                            <span class="card-title">C Plus</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                北航C++复习3.7#include &lt;iostream&gt;
-using namespace std
-&#x2F;&#x2F;tip:封装继承多态(行为关系)
---size control
-#pragma pack(1)压缩为17
+先把所有的模块都生成在一个prj文件里，这样考试开始时可以快速的将各个mips文件复制进去
+做完第一步后，将文件夹复制3次，分别用来解决三个测试，防止写代码的过程中改来改去
+先写一个先写一个MARS，生成txt文件
                             
                         </div>
                         <div class="publish-info">
@@ -723,8 +706,8 @@ using namespace std
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/C-Plus/">
-                            <span class="chip bg-color">C Plus</span>
+                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">
+                            <span class="chip bg-color">计算机组成</span>
                         </a>
                         
                     </div>
@@ -734,29 +717,48 @@ using namespace std
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/05/07/hello-world/">
+                    <a href="/2022/05/09/shi-xu-luo-ji/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="时序逻辑">
                             
-                            <span class="card-title">Hello World</span>
+                            <span class="card-title">时序逻辑</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Welcome to Hexo! This is your very first post. 
-$ hexo deploy
+                                时序逻辑
+RS锁存器基本的RS锁存器如下图：运用了双稳态电路实现了如下功能(低电平有效类型)：
 
-More info: Deployment
 
+
+~RD
+~SD
+功能
+
+
+
+1
+1
+触发器保持原状态不变(Q不变)
+
+
+0
+1
+置0（Q&#x3D;0）
+
+
+1
+0
+置1（Q&#x3D;
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-09
                             </span>
                             <span class="publish-author">
                                 
@@ -768,6 +770,243 @@ More info: Deployment
                     </div>
 
                     
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">
+                            <span class="chip bg-color">计算机组成</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/05/09/verilog-xue-xi/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Verilog学习">
+                            
+                            <span class="card-title">Verilog学习</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                HDL语言（Verilog）学习要点(预习)知识点Z与xHDL用Z表示浮空值，代表高阻状态，即与电路断开，用x代表无效的逻辑电平（未知状态或冲突状态）。
+
+例如在初始化时，状态节点会被初始化为x，代表未知状态。
+例如一条总线被两个使能的三态
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-09
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                Lei_Yu
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">
+                            <span class="chip bg-color">计算机组成</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/05/09/buaa-unix-zuo-ye/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="BUAA_UNIX作业">
+                            
+                            <span class="card-title">BUAA_UNIX作业</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                UNIX课程作业报告1.1 前言本次作业是一个简易shell，它由C语言编写，是一个为用户提供Linux操作系统的命令行式操作界面。本次作业实现的shell具有以下建议功能。
+
+可以运行不带参数的命令，带参数（额外实现）的外部命令
+只能模拟
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-09
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                Lei_Yu
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/UNIX/">
+                            <span class="chip bg-color">UNIX</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/05/09/ji-suan-ji-zu-cheng-p5-yu-p6-de-zong-jie/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="计算机组成P5与P6的总结">
+                            
+                            <span class="card-title">计算机组成P5与P6的总结</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                (阅前声明，我用的分布式译码方法，因此一些修改可能与集中式译码的方式不太一样）
+P5与P6的套路在完成P5与P6的过程中，发现课上考的一些指令都大同小异，先将其整理为四类功能的组合。所有新增指令是这几种功能的相互组合
+
+条件存储 根据不同的
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-09
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                Lei_Yu
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">
+                            <span class="chip bg-color">计算机组成</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/05/09/ji-suan-ji-zu-cheng-p2/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="计算机组成P2">
+                            
+                            <span class="card-title">计算机组成P2</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                查看程序运行指令数的代码java -jar Mars4_5.jar ic xxx.asm
+一维数组取址二维数组取址注意存取字，还是存取字节，要分别正确使用lw,sw;lb,sb;
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-09
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                Lei_Yu
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">
+                            <span class="chip bg-color">计算机组成</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/05/09/ji-suan-ji-zu-cheng-p1/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="计算机组成P1">
+                            
+                            <span class="card-title">计算机组成P1</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                课下准备关于$signed的理解
+一个表达式如果存在一个无符号数，那么整个表达式都会被当做无符号数
+位选、多位选择器、位拼接的结果是无符号的
+比较表达式的结果是无符号的
+计算表达式时，先得出最外层表达式的符号性，再向表达式内部的操作数传递符
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-09
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                Lei_Yu
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">
+                            <span class="chip bg-color">计算机组成</span>
+                        </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
             
@@ -775,6 +1014,30 @@ More info: Deployment
     </article>
 
 </main>
+
+
+<div class="container paging">
+    <div class="row">
+        <div class="col s6 m4 l4">
+            
+            <a class="left btn-floating btn-large disabled">
+                <i class="fas fa-angle-left"></i>
+            </a>
+            
+        </div>
+        <div class="page-info col m4 l4 hide-on-small-only">
+            <div class="center-align b-text-gray">1 / 2</div>
+        </div>
+        <div class="col s6 m4 l4">
+            
+            <a href="/page/2/"
+               class="right btn-floating btn-large waves-effect waves-light bg-color">
+                <i class="fas fa-angle-right"></i>
+            </a>
+            
+        </div>
+    </div>
+</div>
 
 
 
@@ -848,7 +1111,7 @@ More info: Deployment
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">2.6k</span>&nbsp;字
+                class="white-color">19.3k</span>&nbsp;字
             
             
             

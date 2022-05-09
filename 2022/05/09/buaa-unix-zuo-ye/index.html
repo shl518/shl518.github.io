@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Corsica Stars">
+    <meta name="keywords" content="BUAA_UNIX作业, Corsica Stars">
     <meta name="description" content="I will be with you from dusk till down.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Corsica Stars</title>
+    <title>BUAA_UNIX作业 | Corsica Stars</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">BUAA_UNIX作业</h1>
                 </div>
             </div>
         </div>
@@ -429,9 +429,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/UNIX/">
+                                <span class="chip bg-color">UNIX</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -452,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    11
+                    2.6k
                 </div>
                 
 
@@ -477,8 +481,207 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <hr>
-<p>title: categories<br>date: 2022-05-9 17:25:30<br>type: “categories”<br>layout: “categories”<br>​—</p>
+                <h2 id="UNIX课程作业报告"><a href="#UNIX课程作业报告" class="headerlink" title="UNIX课程作业报告"></a>UNIX课程作业报告</h2><h3 id="1-1-前言"><a href="#1-1-前言" class="headerlink" title="1.1 前言"></a>1.1 前言</h3><p>本次作业是一个简易shell，它由C语言编写，是一个为用户提供Linux操作系统的命令行式操作界面。本次作业实现的shell具有以下建议功能。</p>
+<ul>
+<li>可以运行不带参数的命令，带参数（额外实现）的外部命令</li>
+<li>只能模拟实现简单的两个内部命令即<code>history</code>和<code>cd</code>指令</li>
+<li>支持<code>I/O</code>重定向</li>
+<li>支持管道，可以通过管道连接多个命令</li>
+<li>退出时输入<code>exit</code>即可退出</li>
+</ul>
+<p>下面将由顶向下，从顶层架构到实现细节，逐步阐述本次大作业的实现思路。</p>
+<h3 id="2-1-实现架构"><a href="#2-1-实现架构" class="headerlink" title="2.1 实现架构"></a>2.1 实现架构</h3><p>实现架构以流程图的方式给出：</p>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220508224659405.png"></p>
+<p>首先程序开始后进行INIT初始化操作，在本次作业中为了区分cd指令，history指令，管道指令，重定向指令定义了四个全局变量作为四个标记，标记当前读入的指令是哪一种类型的指令。INIT初始化操作便是将这四个标记初始化。</p>
+<p>接着我们便可以开始fgets读入指令，对读入的指令进行解析，解析的功能是将四个标记置位。解析完毕后便可以执行excute函数执行指令。执行完后会再次循环上述过程，如果中途读入了exit指令便会退出程序。</p>
+<h3 id="2-2-具体细节"><a href="#2-2-具体细节" class="headerlink" title="2.2 具体细节"></a>2.2 具体细节</h3><h4 id="2-2-1-cmd结构体："><a href="#2-2-1-cmd结构体：" class="headerlink" title="2.2.1 cmd结构体："></a>2.2.1 <code>cmd</code>结构体：</h4><pre class="line-numbers language-C" data-language="C"><code class="language-C">typedef struct cmd&#123;
+	char *argv[10];
+	int in_redir_fd;
+	int out_redir_fd;
+&#125; command;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>agrv</code>是一个数组指针，其中保存着每个命令的参数，<code>in_redir_fd,out_redir_fd</code>是文件描述符，分别表示该指令的标准输入，标准输出，用于实现管道和重定向。</p>
+<h4 id="2-2-2-cd-命令实现"><a href="#2-2-2-cd-命令实现" class="headerlink" title="2.2.2 cd 命令实现"></a>2.2.2 cd 命令实现</h4><p>cd命令实现较为简单，首先在parse解析时，如果解析到该指令为cd指令，则将pwdflag置1，进入excute函数执行指令后，调用字符串分割函数strtok（）得到cd 后面的path参数，接着直接调用chdir改变进程当前工作目录即可。</p>
+<h4 id="2-2-3-history命令实现"><a href="#2-2-3-history命令实现" class="headerlink" title="2.2.3 history命令实现"></a>2.2.3 history命令实现</h4><p>本次作业实现的history命令可以实现的操作是<code>history n</code>显示最近的n条指令。具体的实现方法是通过一个数组记录最近输入的指令，如果检测到当前读入指令为history则会将该数组内的指令全部输出。</p>
+<h4 id="2-2-4-管道pipe命令"><a href="#2-2-4-管道pipe命令" class="headerlink" title="2.2.4 管道pipe命令"></a>2.2.4 管道pipe命令</h4><p><strong>流程图：</strong></p>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220508224854832.png"></p>
+<p><strong>用到的函数：</strong></p>
+<table>
+<thead>
+<tr>
+<th>用到的函数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>pipe（）</td>
+<td>实现管道</td>
+</tr>
+<tr>
+<td>fork（）</td>
+<td>创建子进程完成管道符号之前的指令</td>
+</tr>
+<tr>
+<td>dup2（）</td>
+<td>实现管道所需要的输出输出重定向</td>
+</tr>
+<tr>
+<td>execvp（）</td>
+<td>执行指令</td>
+</tr>
+<tr>
+<td>strtok（）</td>
+<td>分割字符串，识别命令，识别文件名</td>
+</tr>
+</tbody></table>
+<p><strong>流程与步骤：</strong></p>
+<ul>
+<li><strong>pipe()管道函数的介绍</strong></li>
+</ul>
+<p>int pipe(int fd[2])，该函数创建的管道的两端处于一个进程中间，一个进程在由 pipe()创建管道后，一般再fork一个子进程，然后通过管道实现父子进程间的通信（管道）。管道两端可 分别用描述字fd[0]以及fd[1]来描述，需要注意的是，管道的两端是固定了任务的。即一端只能用于读，由描述字fd[0]表示，称其为管道读端；另 一端则只能用于写，由描述字fd[1]来表示，称其为管道写端。如果试图从管道写端读取数据，或者向管道读端写入数据都将导致错误发生。</p>
+<ul>
+<li><p>首先使用strtok识别出指令</p>
+</li>
+<li><p>接着使用cmd_argvs函数识别每条指令的参数</p>
+</li>
+<li><p>创建子进程完成其中一条指令</p>
+</li>
+</ul>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">close(fd[0]);
+dup2(fd[1],STDOUT_FILENO);&#x2F;&#x2F;修改文件描述符，改变命令输出，实现输出重定向
+close(fd[1]);
+execvp(cmd1.argv[0],cmd1.argv);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>父进程完成另一条指令</li>
+</ul>
+<pre class="line-numbers language-C#" data-language="C#"><code class="language-C#">close(pfd[1]);
+dup2(pfd[0],STDIN_FILENO);&#x2F;&#x2F;修改文件描述符，改变命令输入，实现输入重定向
+close(pfd[0]);
+execvp(cmd2.argv[0],cmd2.argv);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>父进程等待子进程结束后运行下一条命令，这里用到了waitpid（）命令，该命令可以指定等待某一子进程，调用waitpid()函数时，当指定等待的子进程已经停止运行或结束了，则waitpid()会立即返回；但是如果子进程还没有停止运行或结束，则调用waitpid()函数的父进程则会被阻塞，暂停运行。</li>
+</ul>
+<h4 id="2-2-5-输入输出重定向"><a href="#2-2-5-输入输出重定向" class="headerlink" title="2.2.5 输入输出重定向"></a>2.2.5 输入输出重定向</h4><p><strong>用到的函数：</strong></p>
+<table>
+<thead>
+<tr>
+<th>用到的函数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>strtok()</td>
+<td>字符串分割函数，用于识别重定向符号链接的两个命令</td>
+</tr>
+<tr>
+<td>dup2()</td>
+<td>用于实现文件重定向，实现将标准输入输出文件描述符指定向我们定义的filename</td>
+</tr>
+<tr>
+<td>close()</td>
+<td>关闭文件</td>
+</tr>
+<tr>
+<td>open()</td>
+<td>打开我们要重定向到的文件</td>
+</tr>
+<tr>
+<td>execvp()</td>
+<td>执行文件函数，执行UNIX命令</td>
+</tr>
+<tr>
+<td>fork()</td>
+<td>创建子进程用于执行命令</td>
+</tr>
+</tbody></table>
+<p><strong>流程与步骤：</strong></p>
+<ul>
+<li><p>strtok,字符串分割函数，用于获取重定向符号所连接的指令，以及指令中的信息（重定向输出的文件名，重定向输入的文件名等）</p>
+</li>
+<li><p>利用cmd_argvs函数获取cmd的参数</p>
+</li>
+<li><p>使用<code>dup2()</code>函数实现重定向,具体分以下三类</p>
+<ul>
+<li>识别到<code>&gt;</code>重定向标志符，<code>dup2(cmd1.outfd,STDOUT_FILENO);</code>将标准输出的文件描述符指向我们重定向需要输出的文件。</li>
+</ul>
+<pre class="line-numbers language-C#" data-language="C#"><code class="language-C#">if((cmd1.outfd &#x3D; open(instr,OUTFILE,PERM)) &lt; 0)
+&#123;
+	sys_err(&quot;open failed&quot;);
+&#125;
+dup2(cmd1.outfd,STDOUT_FILENO);&#x2F;&#x2F;实现重定向
+close(cmd1.outfd);
+execvp(cmd1.argv[0],cmd1.argv);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>识别到<code>&gt;&gt;</code>文件描述符，依旧使用<code>dup2(cmd1.outfd,STDOUT_FILENO);</code>将标准输出的文件描述符指向我们重定向需要输出的文件,至于如何实现以append的形式输出，我们只需要使用open函数时</li>
+</ul>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">if ((cmd1.outfd &#x3D; open(instr,OUTFILE_APPEND,PERM)) &lt; 0) &#123;&#x2F;&#x2F;实现以APPEND方式打开文件
+    ‘&#x2F;&#x2F;其中OUTFILE_APPEND &#x3D; O_WRONLY|O_CREAT|O_APPEND
+	sys_err(&quot;open failed&quot;);
+&#125;
+dup2(cmd1.outfd,STDOUT_FILENO);&#x2F;&#x2F;实现重定向
+close(cmd1.outfd);
+execvp(cmd1.argv[0],cmd1.argv);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>识别到<code>&lt;</code>文件描述符，使用<code>dup2(cmd1.outfd,STDIN_FILENO);</code>将标准输入的文件描述符指向我们重定向输入的文件。</li>
+</ul>
+<pre class="line-numbers language-C#" data-language="C#"><code class="language-C#">if((cmd1.infd &#x3D; open(instr,O_RDONLY)) &lt; 0)&#123;&#x2F;&#x2F;只读方式打开文件
+	sys_err(&quot;open failed&quot;);
+&#125;
+dup2(cmd1.infd,STDIN_FILENO);&#x2F;&#x2F;重定向输入
+close(cmd1.infd);
+execvp(cmd1.argv[0],cmd1.argv);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>子进程运行命令<code>execvp(cmd, args)</code></p>
+</li>
+<li><p>父进程等待子进程结束后运行下一条命令，这里仍然用到了waitpid（）命令，指定等待某一子进程。</p>
+</li>
+</ul>
+<h3 id="3-1-我学到的"><a href="#3-1-我学到的" class="headerlink" title="3.1 我学到的"></a>3.1 我学到的</h3><h4 id="3-1-1-关于管道"><a href="#3-1-1-关于管道" class="headerlink" title="3.1.1 关于管道"></a>3.1.1 关于管道</h4><p>在操作系统和UNIX课程中我已经了解到了管道的相关概念，但是在本次大作业中具体实现管道这个概念时，我一开始无从下手，查阅相关资料后我了解到在Unix已经实现了一个相关函数pipe（），我们可以利用该函数实现管道。</p>
+<ul>
+<li><p>首先通过该函数创建管道， int pipe(int pipefd[2]); 成功：0；失败：-1，设置errno。函数调用成功返回r&#x2F;w两个文件描述符。无需open，但需手动close。规定：fd[0] → r； fd[1] → w，就像0对应标准输入，1对应标准输出一样。向管道文件读写数据其实是在读写内核缓冲区。管道创建成功以后，创建该管道的进程（父进程）同时掌握着管道的读端和写端。</p>
+</li>
+<li><p>接着采用如下步骤实现父子进程间通信</p>
+<ul>
+<li>父进程调用pipe函数创建管道，得到两个文件描述符fd[0]、fd[1]指向管道22的读端和写端。</li>
+<li>父进程调用fork创建子进程，那么子进程也有两个文件描述符指向同一管道。</li>
+<li>父进程关闭管道读端，子进程关闭管道写端。父进程可以向管道中写入数据，子进程将管道中的数据读出。由于管道是利用环形队列实现的，数据从写端流入管道，从读端流出，这样就实现了进程间通信。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://img-blog.csdn.net/20161223173958916"></p>
+<h4 id="3-1-2-关于重定向"><a href="#3-1-2-关于重定向" class="headerlink" title="3.1.2 关于重定向"></a>3.1.2 关于重定向</h4><p>在Unix课程学习中我了解到，Unix中一切皆文件，包括标准输入设备（键盘）和标准输出设备（显示器）在内的所有计算机硬件都是文件。为了表示和区分已经打开的文件，Unix 会给每个文件分配一个 ID，这个 ID 就是一个整数，被称为文件描述符（File Descriptor）。</p>
+<table>
+<thead>
+<tr>
+<th>文件描述符</th>
+<th>文件名</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>stdin</td>
+<td>标准输入</td>
+</tr>
+<tr>
+<td>1</td>
+<td>stdout</td>
+<td>标准输出</td>
+</tr>
+<tr>
+<td>2</td>
+<td>stderr</td>
+<td>标准错误输出</td>
+</tr>
+</tbody></table>
+<p>而一个程序运行起来，进程会默认打开三个文件，即标准输出，标准输入与标准错误。知道了这些，实现起重定向就比较简单了，只需要使用open（）函数打开我们需要重定向到的文件，接着使用<code>dup2()</code>函数将进程的标准输出或标准输入重定向到该文件即可。</p>
+<h3 id="3-2-扩展功能与优缺点"><a href="#3-2-扩展功能与优缺点" class="headerlink" title="3.2  扩展功能与优缺点"></a>3.2  扩展功能与优缺点</h3><h4 id="3-2-1-命令格式的限制"><a href="#3-2-1-命令格式的限制" class="headerlink" title="3.2.1 命令格式的限制"></a>3.2.1 命令格式的限制</h4><p>在本次大作业中我实现的shell指令与重定向、管道符号必须要用空格隔开，比如<code>cat shell.c &gt; ans.txt</code>不能写作<code>cat shell.c&gt;ans.txt</code>,同时指令的参数不能带引号，比如 <code>grep -n cmd</code> 不能写作<code>grep -n &quot;cmd&quot;</code>。这些显然都是myshell的功能不足之处，这是因为在本次作业中我使用了strtok字符串分割函数实现指令的分割与识别，这必然不能考虑到全面的情况，未来可能可以使用正则表达式匹配的方式覆盖更加全面的的情况。</p>
+<h4 id="3-2-2-实现的连接方式比较简单"><a href="#3-2-2-实现的连接方式比较简单" class="headerlink" title="3.2.2 实现的连接方式比较简单"></a>3.2.2 实现的连接方式比较简单</h4><p>本次大作业实现的shell可以运行的指令比较简单，比如管道只能连接两个指令，不能有过多的管道符号与重定向符号例如<code>cat shell.c | grep -n cmd &gt; ans.txt </code>等。</p>
+<h3 id="4-1-课程感悟与思考"><a href="#4-1-课程感悟与思考" class="headerlink" title="4.1 课程感悟与思考"></a>4.1 课程感悟与思考</h3><p>在本次作业中学习到了关于UNIX的很多知识，这些知识对我学习操作系统有很大的帮助，包括shell命令，文件管理，存储管理这些知识对我</p>
 
                 
             </div>
@@ -505,7 +708,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://shl518.github.io/categories/index.html">http://shl518.github.io/categories/index.html</a>
+                    <a href="http://shl518.github.io/2022/05/09/buaa-unix-zuo-ye/">http://shl518.github.io/2022/05/09/buaa-unix-zuo-ye/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -542,7 +745,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/UNIX/">
+                                    <span class="chip bg-color">UNIX</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -710,18 +917,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/categories/index.html">
+                <a href="/2022/05/09/verilog-xue-xi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Verilog学习">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">Verilog学习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -731,9 +937,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-09
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-09
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -742,7 +948,14 @@
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">
+                        <span class="chip bg-color">计算机组成</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -750,16 +963,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/categories/index.html">
+                <a href="/2022/05/09/ji-suan-ji-zu-cheng-p5-yu-p6-de-zong-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="计算机组成P5与P6的总结">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">计算机组成P5与P6的总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -780,7 +993,14 @@
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">
+                        <span class="chip bg-color">计算机组成</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
