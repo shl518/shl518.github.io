@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="C Plus, Corsica Stars">
+    <meta name="keywords" content="数字模块, Corsica Stars">
     <meta name="description" content="I will be with you from dusk till down.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>C Plus | Corsica Stars</title>
+    <title>数字模块 | Corsica Stars</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">C Plus</h1>
+                    <h1 class="description center-align post-title">数字模块</h1>
                 </div>
             </div>
         </div>
@@ -429,13 +429,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/C-Plus/">
-                                <span class="chip bg-color">C Plus</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -456,7 +452,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    0
                 </div>
                 
 
@@ -481,429 +477,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="北航C-复习"><a href="#北航C-复习" class="headerlink" title="北航C++复习"></a>北航C++复习</h2><h4 id="3-7"><a href="#3-7" class="headerlink" title="3.7"></a>3.7</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
-using namespace std
-&#x2F;&#x2F;tip:封装继承多态(行为关系)
---size control
-#pragma pack(1)压缩为17字节
-struct node&#123;
-    int a:1; &#x2F;&#x2F;a occupy 1 B ,bitwise struct应用于与硬件通信
-    int x;
-    int y;
-    double d;
-    char c; &#x2F;&#x2F;all 32 byte ,以最大字节数分配4*8&#x3D;32
-&#125;;
-&#x2F;&#x2F;tip OS -&gt; API -&gt;application background(database dll multiple-thread) -&gt;GUI
-&#x2F;&#x2F;tip c plus 封装
-&#x2F;&#x2F;tip 访问控制 public private 
-class Student&#123;&#x2F;&#x2F;对象占的空间就是其属性所占空间 sizeof(Student)&#x3D;8B
-private:&#x2F;&#x2F;不写default private
-    int age;
-    char* name;
-    int *p &#x3D; new int();
-public:
-    void initialize(int aage,char* aname);&#x2F;&#x2F;method  declare inside
-    &#x2F;&#x2F;tip constructor 构造器，可以写多个
-    Student(int aage,char* aaname);
-    &#x2F;&#x2F;tip default constructor
-    Student();
-    &#x2F;&#x2F;tip stack and heal 
-    &#x2F;&#x2F;tip
-    ~Student();&#x2F;&#x2F;destructor 析构函数 对象消亡时自动调用，只能有一个，不能写多个重载的析构函数，保证内存的正常分配
-&#125;
-&#x2F;&#x2F;method define outside
-Student::~Student()&#123;
-    delete p;
-&#125;
-Student::Student()&#123;
-    
-&#125;
-void Student::initialize(int age,char* aname )&#123;
-    age &#x3D; aage;&#x2F;&#x2F;hiden this pointer &#x3D;&#x3D;&#x3D; this-&gt;age &#x3D; aage;  this is address of s,point to s
-    name &#x3D; aname;
-&#125;
-Student::Student(int age,char* aname )&#123;
-    age &#x3D; aage;&#x2F;&#x2F;hiden this pointer &#x3D;&#x3D;&#x3D; this-&gt;age &#x3D; aage;  this is address of s,point to s
-    name &#x3D; aname;
-&#125;
-int main()&#123;
-    struct Student s(10,&quot;a&quot;);&#x2F;&#x2F;use constructor，强制初始化
-    &#x2F;&#x2F;or Student* s &#x3D; new Student(10,&#39;a&#39;); 
-    &#x2F;&#x2F;Student s2(); 这种写法是错的
-    &#x2F;&#x2F;Student *s2 &#x3D; new Student();  right
-    &#x2F;&#x2F;s.initialize(20,&quot;aa&quot;);
-    &#x2F;&#x2F;int i &#x3D;4 &#x3D;&#x3D;&#x3D; int i(4);
-&#125;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ul>
-<li>hm: 自学写udp socked</li>
-<li>hm:属性什么时候用值，什么时候用指针</li>
-<li>hm:构造析构例子</li>
-</ul>
-<h4 id="3-14"><a href="#3-14" class="headerlink" title="3.14"></a>3.14</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
-using namespace std
-void fun(int i) &#123;
-    i++;
-&#125;
-void fun2(int&amp; i) &#123;
-    i++;
-&#125;
-class Test &#123;
-    int i;
-    int *j;
-public:
-    Test(int ai,int aj);
-    Test(const Test&amp; t);
-&#125;
-class Test &#123;
-    int i;
-    int *j;
-    Test(const Test&amp; t);&#x2F;&#x2F;tip5 将拷贝构造私有化，所有拷贝构造的行为被编译器拦截，必须进行
-public:
-    Test(int ai,int aj);
-    
-&#125;
-Test::Test(int ai,int aj)&#123;
-    i&#x3D;ai;
-    this-&gt;j &#x3D; aj;
-&#125;
-Test(const Test&amp; t) &#123;
-    this-&gt;i &#x3D; t.i;
-    &#x2F;&#x2F;this-&gt;j &#x3D; t.j;&#x2F;&#x2F;浅拷贝
-    this-&gt;j &#x3D; new int(*t.j)&#x2F;&#x2F;深拷贝，深拷贝
-        
-&#125;
-void fun3(Test t)&#123;
-    
-&#125;
-
-int main() &#123;
-    &#x2F;&#x2F;tip1:引用
-    int a &#x3D; 20;
-    int &amp;r &#x3D; a;&#x2F;&#x2F;引用必须初始化，是一个安全的指针，对于引用操作等价于对啊的操作
-    r++;&#x2F;&#x2F;&#x3D;&#x3D; a++
-    fun(a);&#x2F;&#x2F;a &#x3D; 20,not changed C++编程思想
-    fun2(a);&#x2F;&#x2F;a &#x3D; 21 引用，借值之名，行指针之实
-    &#x2F;&#x2F;引用不可修改
-    int b &#x3D; 30;
-    r &#x3D; b;&#x2F;&#x2F;wrong ,can not be changed &#x3D;&#x3D;&#x3D; 20&#x3D;&#x3D;30
-    &#x2F;&#x2F;tip3
-    Test t1(1,2);
-    Test t2(t1);&#x2F;&#x2F;深拷贝logic copy和浅拷贝 bitwise copy.默认浅拷贝
-    fun3(t1);&#x2F;&#x2F;只要传值就会发生拷贝，传参是把值复制一份，即拷贝
-    &#x2F;&#x2F;tip4 自定义数据类型不要传值，传指针或者引用
-&#125;
-
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h5 id="tip2-内存分配"><a href="#tip2-内存分配" class="headerlink" title="tip2:内存分配"></a>tip2:内存分配</h5><p>代码区（常量等），全局变量区（在main函数运行之前全部清零），runtime memory (stack and heap)</p>
-<ul>
-<li>stack 局部变量，函数局部变量</li>
-<li>heap 存储malloc动态内存分配，malloc常用于<ul>
-<li>人为控制生命周期</li>
-<li>不确定变量有多少个，例如链表的构造</li>
-</ul>
-</li>
-</ul>
-<h3 id="3-21"><a href="#3-21" class="headerlink" title="3.21"></a>3.21</h3><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">#include &lt;iostream&gt;
-using namespace std
-&#x2F;&#x2F;tip1 static 1.将变量声明为此文件全局？永久保存 2.将函数声明为此文件可见 3.实现类之间的数据通信4.实现函数属于类
-&#x2F;&#x2F;区别 static首次使用时构造,全局变量main函数之前构造，两者都在main结束后析构
-extern int global_i;&#x2F;&#x2F;声明此量不在本文件中
-extern void fun1();&#x2F;&#x2F;函数默认其他文件也可见，可以不写extern，但变量外连接必须写
-static void fun2() &#123;&#x2F;&#x2F;该函数只在本文件内使用
-    
-&#125;
-class Static
-&#123;
-    static int i; &#x2F;&#x2F;3.实现类之间的数据通信
-    int j;
-public:
-    &#x2F;&#x2F;3Static(int ai,int aj);
-    Static(int aj);
-    static void fun4();&#x2F;&#x2F;4此函数属于类，不属于对象，可以通过类直接调用  Static::fun4();
-&#125;
-int Static::i &#x3D; 100;&#x2F;&#x2F;3类内部的静态变量外部一次初始化
-Static::fun4()&#123;
-    i++;&#x2F;&#x2F;4 静态类内函数只能操作静态类内变量，因为函数可以通过类直接调用，不能定位非静态j
-    &#x2F;&#x2F;j++;
-&#125;
-Static::Static(int aj) &#123;
-    &#x2F;&#x2F;3i &#x3D; ai;&#x2F;&#x2F;wrong static不能重复初始化
-    j &#x3D; aj;
-&#125;
-void fun()&#123;
-    const static i &#x3D; 0; 
-    i++;
-    cout &lt;&lt; i&lt;&lt; endl;
-&#125;
-int main() &#123;
-    Static::fun4();
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-C#" data-language="C#"><code class="language-C#">#file2
-int global_i &#x3D; 100;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<ul>
-<li><p>static loacl var</p>
-</li>
-<li><p>static fun</p>
-</li>
-<li><p>static datamember</p>
-</li>
-<li><p>static funmember</p>
-</li>
-</ul>
-<h5 id="tip2-设计模式"><a href="#tip2-设计模式" class="headerlink" title="tip2:设计模式"></a>tip2:设计模式</h5><p><strong>单件模式（实现一个类全局只能存在一个对象）</strong></p>
-<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">#include &lt;iostream&gt;
-using namespace std
-
-Class Single 
-&#123;
-    static Single* self;
-	Single();&#x2F;&#x2F;构造函数私有化，不能构造    
-public:
-    static Singlr* get_instance();
-&#125;
-
-Single* Single::self &#x3D; NULL;
-Single* Single:: get_instance()
-&#123;
-    if(self &#x3D;&#x3D; NULL) &#123;
-        self &#x3D; new Single();
-    &#125;
-    return self;
-&#125;
-
-int main() &#123;
-    Single * s &#x3D; Single::get_instance();
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h5 id="hm"><a href="#hm" class="headerlink" title="hm"></a>hm</h5><p>&#x2F;&#x2F;SQLlite 实现借书还书系统</p>
-<p>&#x2F;&#x2F;ORMapping</p>
-<h5 id="tips3-const"><a href="#tips3-const" class="headerlink" title="tips3:const"></a>tips3:const</h5><pre class="line-numbers language-C#" data-language="C#"><code class="language-C#">#include &lt;iostream&gt;
-using namespace std
-&#x2F;&#x2F;1 const parameter
-void fun(const int* a) &#123;
-    (*a) &#x3D; 10;&#x2F;&#x2F;1 error 不能修改常量
-&#125;
-&#x2F;&#x2F;2 const return value
-
-class Const
-&#123;
-    const int i;&#x2F;&#x2F;定义类内常量
-    enum&#x2F;&#x2F;定义类内常量
-    &#123;
-        tcp,udp
-    &#125;;
-    public:
-    const Test* fun2(); &#x2F;&#x2F;3返回值是常量
-    void fun() const;
-    
-&#125;
-
-Test* TEst::fun2()&#123;
-    
-&#125;
-void Const::fun() const&#123;
-    &#x2F;&#x2F;此函数内只读不可写
-&#125;
-int fun3()&#123;
-    return 1;
-&#125;
-
-
-class Account
-&#123;
-    public:
-    Account&amp; operater + (int money);
-    Account&amp; operater ++();
-    Account operater ++(int);&#x2F;&#x2F;强加占位符以区分，必须写int占位
-&#125;
-&#x2F;&#x2F;++a
-Account&amp; Account::operater ++()&#123;
-    this-&gt;balance ++;
-    return *this;
-&#125;
-&#x2F;&#x2F;a++
-Account Account::operater ++(int)&#123;
-    Account a &#x3D; *this;
-    this-&gt;balance++;
-    return a;
-&#125;
-Account&amp; Account::operater+(int money) &#123;
-    this.balance +&#x3D;money;
-    return *this;
-&#125;
-int main() &#123;
-    Const c;
-    c.fun2()-&gt;fun2();&#x2F;&#x2F;error 返回值是const不允许做左值、
-    &#x2F;&#x2F;函数返回BUILD_IN常量，自动为常量
-    fun3()++;&#x2F;&#x2F;error
-    &#x2F;&#x2F;返回自定义，不为常量,需要自己定义
-    const Const c;&#x2F;&#x2F;4const 对象
-    c.fun();&#x2F;&#x2F;error 常量对象不能直接调用函数，加上const就可以调用
-    
-    &#x2F;&#x2F;tips4 new and delete
-    Test* p &#x3D; new Test();
-    &#x2F;&#x2F;new &#x3D;  &#x3D;malloc + constructor
-    &#x2F;&#x2F;delete &#x3D; destructor + free
-    
-    
-    &#x2F;&#x2F;tip5 运算符重载
-    &#x2F;&#x2F;类内部人为定义加减乘除
-    Account a(10);
-    a &#x3D; a+100;&#x2F;&#x2F;&#x3D;相当于拷贝，需要返回&amp;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h3 id="3-28"><a href="#3-28" class="headerlink" title="3.28"></a>3.28</h3><p>&#x2F;&#x2F;effective C++</p>
-<p>&#x2F;&#x2F;继承与组合</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include &lt;iostream&gt;
-using namespace std
-
-class Computer
-&#123;
-    int i;
-    int price;
-    char* brand;
-public:
-    int get_price();
-    void maintain();
-    Computer(int ai);&#x2F;&#x2F;有了这个就没有默认构造
-&#125;
-int Computer::get_price()&#123;
-    return price;
-&#125;
-void Computer::maintain()&#123;
-    cout&lt;&lt;&quot;service&quot;&lt;&lt;endl;
-&#125;
-Computer::Computer(int ai)&#123;
-    i&#x3D;ai;
-&#125;
-class Mac : public Computer  &#x2F;&#x2F;tip1继承写法
-&#123;
-    int j;
-    int year;
-	public：
-    void maintain();
-    Mac(int aj);
-&#125;
-Mac::Mac(int ai,int aj):Computer(ai)&#x2F;&#x2F;写，间隔多个
-    
-&#123;
-    j &#x3D; aj; &#x2F;&#x2F;tip3子类构造调用父类构造
-&#125;
-&#x2F;&#x2F;tip4 外壳的构造首先调用内部成员的构造，和上面语法一样
-&#x2F;&#x2F;tip5 内部成员构造顺序与类内成员声明顺序相符
-&#x2F;&#x2F;tip6 私有继承，父类的所有东西都继承为私有   class Mac: private Computer  私有继承
-&#x2F;&#x2F;私有继承削弱了父类（私有继承，只重写父类一个重载）
-void Mac::maintain()
-&#123;
-    if(year &lt;&#x3D; 1)
-        cout&lt;&lt;&quot;new&quot;&lt;&lt;endl;
-    else
-        Computer::maintain();&#x2F;&#x2F;super() C++一个类可以有多个父类
-    
-    
-&#125;
-&#x2F;&#x2F;tip2 父类方法有重载，子类如果需要重写其中一个，必须把其余重载方法也重写，否则其他重载方法不可使用
-&#x2F;&#x2F;tip7 多重继承
-int main()&#123;
-    
-    
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="4-11"><a href="#4-11" class="headerlink" title="4.11"></a>4.11</h3><h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><ul>
-<li><p>tip1：向上类型转换</p>
-</li>
-<li><p>tip2:binding 绑定 将函数的调用绑定对应的过程，之前所学的函数都是前绑定。后绑定（动态的绑定）实现之后才能实现多态，可以通过虚函数实现</p>
-<ul>
-<li>多态的前提是继承</li>
-<li>没有向上类型转换就没有多态</li>
-<li>多态的实现通过一个类和为其创建的虚函数表vtable实现，虚函数会在对象内创建一个虚指针vptr指向虚函数表，大小会增加一个指针的大小4bytes。</li>
-<li>纯虚函数，一个类含有一个纯虚函数，被称为抽象类abstract class，不允许实例化</li>
-</ul>
-</li>
-<li><p>抽象类的两个用途</p>
-<ul>
-<li>规定本类家族的共性行为</li>
-<li>连接本不相关的多个类家族</li>
-</ul>
-</li>
-<li><p>构造没有多态（父类指针可以指向子类，子类指针不能指向父类），析构函数通常需要实现多态，前面加上virtual</p>
-</li>
-</ul>
-<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">class Pet
-&#123;
-public :
-	virtual void speak()&#x3D;0; &#x2F;&#x2F;父类加上virtual 虚函数实现后绑定，父类的虚函数可以定义为纯虚函数
-&#125;
-void Needle(Pet&amp; pet)&#123; &#x2F;&#x2F;改成传引用
-	pet.speak();&#x2F;&#x2F;此处是多态
-&#125;
-class Dog:public Pet
-&#123;
-public:
-	void speak();&#x2F;&#x2F;这里重写
-&#125;
-int main()&#123;
-	Dog dog;
-	Needle(dog);&#x2F;&#x2F;向上类型转换
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="4-18"><a href="#4-18" class="headerlink" title="4.18"></a>4.18</h3><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;STL standard template library
-&#x2F;&#x2F;vector 
-&#x2F;&#x2F;动态增长的万能容器
-template &lt;class T&gt;
-class Stack
-&#123;
-    int pool[100];
-    int top;
-public:
-    void push(int i);
-    int pop();
-    Stack();
-&#125;
-&#x2F;&#x2F;int stack -----&gt; double stack 
-template &lt;class T&gt;
-class Stack
-&#123;
-    T pool[100];
-    T top;
-public:
-    void push(T i);
-    T pop();
-    Sta n  ck();
-&#125;
-&#x2F;&#x2F;如何支持动态增长，通过拷贝构造，空间不够了找另一个空间拷贝构造
-class Test 
-&#123;
-    static int cnt;&#x2F;&#x2F;static本类所有对象共享
-    public:
- 	Test(const Test&amp; t);&#x2F;&#x2F;拷贝构造
-&#125;
-&#x2F;&#x2F;tip3 迭代器模式，统一对不同容器的存取
-int main()&#123;
-    list&lt;int&gt; v;
-    list&lt;int&gt;::iterator it &#x3D; v.begin;&#x2F;&#x2F;list 类中的迭代器类
-    while(it!&#x3D; v.end())&#123;
-        cout &lt;&lt; *it&lt;&lt;endl;&#x2F;&#x2F;运算符重载
-        it++;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="4-25"><a href="#4-25" class="headerlink" title="4.25"></a>4.25</h3><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">void Fun(int m) throw int
-&#123;
-    if(m &#x3D; 4)
-        throw 1;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
+                
                 
             </div>
             <hr/>
@@ -929,7 +503,7 @@ int main()&#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://shl518.github.io/2022/05/09/cplus/">http://shl518.github.io/2022/05/09/cplus/</a>
+                    <a href="http://shl518.github.io/2022/05/09/shu-zi-mo-kuai/">http://shl518.github.io/2022/05/09/shu-zi-mo-kuai/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -966,11 +540,7 @@ int main()&#123;
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/C-Plus/">
-                                    <span class="chip bg-color">C Plus</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -1142,13 +712,13 @@ int main()&#123;
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/05/09/shou-gua-p4-de-zhen-gui-ji-lu/">
+                <a href="/2022/05/09/xu-ni-cun-chu-xi-tong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="首挂P4的珍贵记录">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="虚拟存储系统">
                         
-                        <span class="card-title">首挂P4的珍贵记录</span>
+                        <span class="card-title">虚拟存储系统</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1179,13 +749,13 @@ int main()&#123;
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/05/07/hello-world/">
+                <a href="/2022/05/09/shou-gua-p4-de-zhen-gui-ji-lu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="首挂P4的珍贵记录">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">首挂P4的珍贵记录</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1196,7 +766,7 @@ int main()&#123;
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-09
                             </span>
                         <span class="publish-author">
                             
