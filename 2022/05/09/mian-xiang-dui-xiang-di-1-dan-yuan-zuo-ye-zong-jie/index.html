@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="计算机组成P5与P6的总结, Corsica Stars">
+    <meta name="keywords" content="面向对象第1单元作业总结, Corsica Stars">
     <meta name="description" content="I will be with you from dusk till down.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>计算机组成P5与P6的总结 | Corsica Stars</title>
+    <title>面向对象第1单元作业总结 | Corsica Stars</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">计算机组成P5与P6的总结</h1>
+                    <h1 class="description center-align post-title">面向对象第1单元作业总结</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">
-                                <span class="chip bg-color">计算机组成</span>
+                            <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+                                <span class="chip bg-color">面向对象</span>
                             </a>
                         
                     </div>
@@ -456,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    5.6k
                 </div>
                 
 
@@ -481,100 +481,311 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong>(阅前声明，我用的分布式译码方法，因此一些修改可能与集中式译码的方式不太一样）</strong></p>
-<h4 id="P5与P6的套路"><a href="#P5与P6的套路" class="headerlink" title="P5与P6的套路"></a>P5与P6的套路</h4><p>在完成P5与P6的过程中，发现课上考的一些指令都大同小异，先将其整理为四类功能的组合。<br>所有新增指令是这几种功能的相互组合</p>
+                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本文是对第一次面向对象课程作业的总结，文章首先总结了本次作业我的总体架构思路，接着分析了三次作业中我的架构迭代历程，之后对于我的最终架构给出了代码度量分析，且分析了架构的优缺点。之后文章分析了在Hack过程中的收获，以及在本次作业设计，编写中我学到的东西，尤其是<strong>关于深浅克隆</strong>这一部分我分享了我认为比较好的一些资料，和我自己的理解，希望uu们不要跟我一样在这一知识点再犯错误。最后文章阐述了本次作业中我的心得体会。文章如有错误，谢谢指正！</p>
+<hr>
+<h3 id="一-总体架构思路"><a href="#一-总体架构思路" class="headerlink" title="一.总体架构思路"></a>一.总体架构思路</h3><p>在本次作业中，我们的最终需求是对一个表达式进行化简计算，并进行一些必要的合并与优化。然而要进行计算，首要任务是进行表达式的解析。总而言之，要完成解析和计算这两个需求，我设计了如下架构，我的架构简而言之是：递归向下解析，自底向上计算，输出前再进行合理优化。形象化的表示一下就是如下的流程图。</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/57F941BFE671421C9AF4B1001A2B78E1?method=download&shareKey=c636f34fcf32c9ad8e157a213642308c"></p>
+<p>在我的架构中，将表达式抽象为了<strong>四个层次</strong>，在作业指导书中，由于已经给出了表达式的形式化表示，我们可以很容易抽象出以下层次：</p>
 <ul>
-<li><h5 id="条件存储-根据不同的条件，从DM中取出的数值不同"><a href="#条件存储-根据不同的条件，从DM中取出的数值不同" class="headerlink" title="条件存储 根据不同的条件，从DM中取出的数值不同"></a>条件存储 根据不同的条件，从DM中取出的数值不同</h5></li>
-<li><h5 id="条件计算-根据不同的条件，ALU执行的运算结果不同"><a href="#条件计算-根据不同的条件，ALU执行的运算结果不同" class="headerlink" title="条件计算 根据不同的条件，ALU执行的运算结果不同"></a>条件计算 根据不同的条件，ALU执行的运算结果不同</h5></li>
-<li><h5 id="条件跳转-根据不同的条件，NPC跳转还是不跳转"><a href="#条件跳转-根据不同的条件，NPC跳转还是不跳转" class="headerlink" title="条件跳转 根据不同的条件，NPC跳转还是不跳转"></a>条件跳转 根据不同的条件，NPC跳转还是不跳转</h5></li>
-<li><h5 id="条件写入寄存器-根据不同的条件，指令写入寄存器的地址不同（根据不同的条件，指令写或不写也归入这一类中，因为我们使用AT法写地址为0就是不写，本质上还是写地址不确定）"><a href="#条件写入寄存器-根据不同的条件，指令写入寄存器的地址不同（根据不同的条件，指令写或不写也归入这一类中，因为我们使用AT法写地址为0就是不写，本质上还是写地址不确定）" class="headerlink" title="条件写入寄存器  根据不同的条件，指令写入寄存器的地址不同（根据不同的条件，指令写或不写也归入这一类中，因为我们使用AT法写地址为0就是不写，本质上还是写地址不确定）"></a>条件写入寄存器  根据不同的条件，指令写入寄存器的地址不同（根据不同的条件，指令写或不写也归入这一类中，因为我们使用AT法写地址为0就是不写，本质上还是写地址不确定）</h5></li>
+<li><p><code>Expr</code>：表达式层</p>
+</li>
+<li><p><code>Term</code>：<code>Expr</code>以<code>+-</code>的形式包含多个<code>Term</code>项层</p>
+</li>
+<li><p><code>Factor</code>：<code>Term</code>项以<code>*</code>形式包含多个<code>Factor</code>因子</p>
+</li>
+<li><p><code>Element</code>:上述三个层次均包含一个属性，其类型是一个<code>Element</code>数组，有了<code>Element</code>层，方便进行自底向上的运算。</p>
+<ul>
+<li><p>在第一次作业中 <code>Element = a*x**b</code></p>
+</li>
+<li><p>在第二、三次作业中 <code>Element = a*x*b*[sin][cos]</code>,其中<code>[sin][cos]</code>指<code>Sin、Cos</code>类的数组</p>
+</li>
 </ul>
-<p>至于为什么目前只看到这几种不同功能之间的组合，是因为P5，P6主要考察我们对于流水线问题的理解，而流水线中最重要的部分就是数据通路中的各个功能元件的使用，和阻塞转发的理解。</p>
-<h4 id="要考察对于功能元件的理解，我们首先想想流水线中有哪些很重要的原件？"><a href="#要考察对于功能元件的理解，我们首先想想流水线中有哪些很重要的原件？" class="headerlink" title="要考察对于功能元件的理解，我们首先想想流水线中有哪些很重要的原件？"></a>要考察对于功能元件的理解，我们首先想想流水线中有哪些很重要的原件？</h4><ol>
-<li><strong>在D级中</strong>，最重要的原件肯定是NPC和GPR，由于GPR没啥可改的，所以NPC是考试的重点，于是便有了条件跳转这种考查方式。</li>
-<li><strong>E级</strong>，肯定是ALU，HILO乘除槽最重要，这俩本质都是一个计算部件，于是便有了条件计算这种考查方式。</li>
-<li><strong>M级</strong>，无可置是DM，于是便有了条件存储这种考查方式。</li>
-<li><strong>W级和F级</strong>都没有什么重要的功能部件，没有特别的考察方式。</li>
+</li>
+</ul>
+<p>有了以上这些层次，我们首先对输入进行递归向下解析，解析出表达式中包含哪些层次，经过自底向上的计算，可以得到每个层次的<code>[Elements]</code>数组，最终得到的<code>Expr</code>表达式的<code>[Elements]</code>数组便是我们得到的初步计算结果，经过合并同类项等优化便可以进行输出。</p>
+<h3 id="二-迭代过程"><a href="#二-迭代过程" class="headerlink" title="二.迭代过程"></a>二.迭代过程</h3><p>在这一部分简要阐述了我的三次迭代心路历程，其中并没有放<code>UML</code>类图，因为三次作业我没有做大规模的重构，三次作业的<code>UML</code>类图重复相似部分较多，我将会在<strong>代码度量分析</strong>一节中分析<code>UML</code>类图，其中标明了每次作业的新增与修改部分。</p>
+<h4 id="2-1第一次作业"><a href="#2-1第一次作业" class="headerlink" title="2.1第一次作业"></a>2.1第一次作业</h4><ul>
+<li><strong>分析</strong></li>
+</ul>
+<p>在第一次作业中，首次上手<code>java</code>作业打了我一个措手不及，因为之前写的都是流程式的程序，开始时构思面向对象式的架构没有很好地思路，属于是一头雾水了，花了很多时间去理解题目并和同学交流，并且在助教给的训练项目中也得到了一些启发，最终构思了上述的程序架构。</p>
+<ul>
+<li><strong>解析方法上</strong>，在<code>HW1</code>中，由于因子层面只有常数因子，变量因子与表达式因子，总的来说类型较少，因此采用了<strong>正则表达式</strong>进行识别，识别流程示意图如下：</li>
+</ul>
+<p><img src="https://note.youdao.com/yws/api/personal/file/B8460413ACA241C7BC617C8C8BBF9BD0?method=download&shareKey=f982690aadfddbd60e53a6b8e044d3e6" alt="HW1"></p>
+<ul>
+<li><p><strong>计算方法上</strong>，在<code>HW1</code>中，涉及到<code>a*x**b</code>之间的乘法与加减法，只需系数与系数的计算，指数与指数的计算，不再赘述，但在这里我<strong>第一次遇到了深克隆和浅克隆的问题</strong>，这个问题在本次作业中多次困扰我，这一问题在之后的Bug部分详细阐述。</p>
+</li>
+<li><p><strong>优化方法上</strong>，由于最后的形式是许多<code>a*x**b</code>进行相加，优化方法上只涉及到合并同类项，之后输出时再进行简单的优化即可，例如指数为1不输出指数，变量因子系数为1不输出系数等。</p>
+</li>
+</ul>
+<h4 id="2-2第二次作业"><a href="#2-2第二次作业" class="headerlink" title="2.2第二次作业"></a>2.2第二次作业</h4><ul>
+<li><strong>分析</strong></li>
+</ul>
+<p>在本次作业中，新增了自变量函数，求和函数，三角函数三种因子,这要求我们对新增的这三种因子进行识别与计算。此外，由于在解析<code>f与sum</code>时需要进行自变量的替换，替换后可能出现表达式括号嵌套的形式，这要求架构中的解析过程要支持嵌套括号的形式，这是本次作业一个潜在的需求。</p>
+<ul>
+<li><strong>重构解析方法</strong>：在本次解析过程中，由于因子的形式多样，如果继续使用正则表达式进行识别，一来<strong>正则表达式很难准确构造</strong>，二来由于<strong>正则式的不准确所带来的潜在Bug</strong>也比较多。因此我对每个层次<strong>解析方法</strong><code>Parse</code>进行了重构，<strong>采用类似栈的方法，对括号层数进行解析，根据当前括号所处的层数和简单的字符判断</strong>，可以依此解析出<code>Term</code>，<code>Factor</code>等层次。这样写的好处是不需要绞尽脑汁构造正则表达式，正确性也容易验证，对于新增的几个因子<ul>
+<li><code>sin，cos</code>，将括号内的内容当做<strong>常数或变量因子</strong>重新解析</li>
+<li><code>f,sum</code>因子，进行字符串的替换，展开等处理后看做<strong>表达式</strong>重新解析</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://note.youdao.com/yws/api/personal/file/7AF67256C2514CF19598F5D26B99EB90?method=download&shareKey=04f263d33be4bd685246b3268522028e" alt="HW2"></p>
+<ul>
+<li><p><strong>修改计算方法</strong>：</p>
+<p>本次作业中的计算，不仅仅是<code>a*x**b</code>之间的乘法与加减法,此时<code>Element</code>是<code>a*x*b*[sin][cos]</code>，需要修改两处：</p>
+<ul>
+<li><code>[Elements]*[Elements]</code>,除了修改系数a，指数b，另需要将二者[sin][cos]数组合并，这里又涉及到了深拷贝与浅拷贝问题。然而<strong>梅开二度</strong>，我在这里又没有意识到犯了浅拷贝这个“错误”，虽然<code>HW2</code>中没有出现问题，但导致我在<code>HW3</code>优化二倍角时出现了错误，这里会在Bug部分详细阐述。</li>
+<li><code>[Elements]+-[Elements]</code>，这里需要修改<code>equals</code>方法，合并同类项时考虑[sin][cos]数组是否一致。</li>
+</ul>
+</li>
+<li><p><strong>新增优化方法</strong>：</p>
+<ul>
+<li>在解析过程中进行初步优化，对于<code>sin(0),cos(0),sin()**0,cos()**0</code>，<strong>在解析的过程中就将其解析为对应常数</strong>，进行初步优化。</li>
+<li>三角函数计算的优化<ul>
+<li>在<code>HW2</code>，因为时间关系，只增加了简单的<code>Acos(B)**2+Asin(B)**2=A</code>的合并，其中<code>A</code>是任意项，<code>B</code>是三角函数内的常数或变量因子。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-3第三次作业"><a href="#2-3第三次作业" class="headerlink" title="2.3第三次作业"></a>2.3第三次作业</h4><ul>
+<li><strong>分析</strong></li>
+</ul>
+<p>在本次作业中，新增了函数间的相互调用，三角函数内嵌套等新需求。关于函数之间的相互调用，在<code>HW2</code>中对于自定义函数的处理方法是，进行自变量的替换后直接看做表达式进行处理，因此<code>HW2</code>架构已经可以实现函数之间的互调用。在本次作业中主要实现了三角函数的内嵌套，相较于第二部分修改较少。</p>
+<ul>
+<li><strong>修改解析方法</strong>，  如上文所述，此次迭代，<strong>只需要修改三角函数内部嵌套部分的解析方式</strong>。显而易见，将括号内部的部分当做<code>Expr</code>表达式继续解析即可。</li>
+</ul>
+<p><img src="https://note.youdao.com/yws/api/personal/file/B2F525E399E9490CB1FA8989B96B8A67?method=download&shareKey=6e17a41843a7f8ff4de21666f5b379e6"></p>
+<ul>
+<li><strong>计算方法</strong>：不需要修改。</li>
+<li><strong>新增优化方法</strong><ul>
+<li>二倍角公式，在<code>HW3</code>中实现了二倍角的简化，<code>2Asin(B)cos(B) = Asin(2B)</code>,<strong>遗憾的是这里将<code>HW2</code>中的Bug显现了出来</strong>，因为在优化时对B进行了系数的加倍，而在计算时采用的<strong>浅克隆方式</strong>，修改B导致了其他某些<code>sin</code>，<code>cos</code>内部的内容也随之修改。</li>
+</ul>
+</li>
+</ul>
+<h3 id="三-代码度量分析"><a href="#三-代码度量分析" class="headerlink" title="三.代码度量分析"></a>三.代码度量分析</h3><p>先放一下<code>HW3</code>最终的<code>UML</code>类图</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/04BAF07845ED401195D6536C1582A325?method=download&shareKey=a2b0020feda0fa741dccb15900e18342"></p>
+<ul>
+<li><p>第二次作业修改了<code>Caculate</code>内的方法，新增<code>Sin,Cos</code>,自定义函数<code>Fun,Sum</code>类，修改了<code>Element</code>属性，其他<code>UML</code>部分与第一次作业基本相同。</p>
+</li>
+<li><p>第三次作业修改了<code>Sin,Cos</code>内部属性，同时更新了<code>Caculate</code>计算方法，其他<code>UML</code>类基本未做变动。</p>
+</li>
+<li><p>优缺点分析</p>
+<ul>
+<li>优点是进行了比较系统的抽象，不同层次代表了表达式中不同的组合，</li>
+<li>缺点是首先<code>Sin，Cos</code>两个类基本相同，可以合并，在编写代码时我为了区分<code>Cos，Sin</code>，创建了两个类，但其实二者基本相同，完全可以合并为一个类，以减少复杂度。此外，代码之间内在的的关联度高，不容易达到“高内聚低耦合”的原则，程序的结构化程度不是很好。</li>
+</ul>
+</li>
+</ul>
+<p>之前我并未接触过代码度量的含义，了解之后学习到其一些指标含义如下：</p>
+<ol>
+<li><code>CogC</code>：认知复杂度，反应一个方法的可理解性，循环分支等结构越多，可理解性越差，数值越高。</li>
+<li><code>ev(G)</code>:基本复杂度是用来衡量程序非结构化程度的。</li>
+<li><code>Iv(G)</code>:模块设计复杂度是用来衡量模块判定结构，即模块和其他模块的调用关系,越高说明模块和其他模块之间的调用关系复杂，耦合程度越高.</li>
+<li><code>v(G)</code>:是用来衡量一个模块判定结构的复杂程度，数量上表现为独立路径的条数,数值越高说明程序越难以维护</li>
 </ol>
-<h4 id="要考察对于转发阻塞的理解，该如何考察呢？"><a href="#要考察对于转发阻塞的理解，该如何考察呢？" class="headerlink" title="要考察对于转发阻塞的理解，该如何考察呢？"></a>要考察对于转发阻塞的理解，该如何考察呢？</h4><p>由于在流水线中我们在所有的该转发的地方都转发了，阻塞只要用AT法，把Tnew，Tuse确定好就可以，总的来说已经很完备，没有什么可以改动的地方。于是便诞生了这样一种考查方式，<strong>如果写地址在一段时间内不确定呢</strong>？这样该如何转发和阻塞呢？<br>这就是我们的条件写寄存器功能，重点考察的是对于转发和阻塞功能的理解。<br>理解了为什么这样考察，有助于我们接下来更好的解题。</p>
-<h3 id="1-如何进行条件判断？"><a href="#1-如何进行条件判断？" class="headerlink" title="1.如何进行条件判断？"></a>1.如何进行条件判断？</h3><p>所有上述四个功能的实现均基于条件判断。只有判断正确，我们才能确定是执行哪个功能？<br>看起来很简单，但这里又是一个很大的坑？**$signed的如何正确应用**<br>这里可以参考学长的博客，里面有关于$signed的理解，$signed搭配三目运算符，搭配小于&lt;,大于&gt;号很容易犯错。例如下面这样一种情况。</p>
-<pre class="line-numbers language-v" data-language="v"><code class="language-v">always @<span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span>begin
-    <span class="token keyword">if</span><span class="token punctuation">(</span>$<span class="token function">signed</span><span class="token punctuation">(</span>ALU_A<span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token number">0</span><span class="token punctuation">)</span>
-    <span class="token comment">//....wrong </span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>$<span class="token function">signed</span><span class="token punctuation">(</span>ALU_A<span class="token punctuation">)</span><span class="token operator">&lt;</span>$<span class="token function">signed</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token comment">//....right</span>
-end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>进行有符号数的大小比较时，最好全部加上<code>$signed</code>符号,因为整个表达式中只要有一个数被判定为无符号数，整个表达式中所有的<code>$signed</code>符号均可能失效，导致结果错误。条件判断目前看来的坑点就在于此。</p>
-<h3 id="2-如何单独解决条件计算功能"><a href="#2-如何单独解决条件计算功能" class="headerlink" title="2.如何单独解决条件计算功能"></a>2.如何单独解决条件计算功能</h3><p>有了条件判断我们便可以执行这四条功能。首先是条件跳转功能，条件跳转只要更改CU控制信号，NPC内部case语句，CMP内部case语句即可。</p>
-<h3 id="3-如何单独解决条件计算指功能"><a href="#3-如何单独解决条件计算指功能" class="headerlink" title="3.如何单独解决条件计算指功能"></a>3.如何单独解决条件计算指功能</h3><p>修改CU控制信号，修改ALU,HILO乘除槽内部逻辑。<br>这里还有一个坑点，老朋友$signed又来了，坑就坑在$signed与乘除法的搭配<br>我们知道verilog乘除法默认是无符号乘除的，如果这时冒出来什么奇奇怪怪的功能要求加减乘除混合<strong>有符号</strong>运算，这里又有一个坑。</p>
-<pre class="line-numbers language-v" data-language="v"><code class="language-v"><span class="token punctuation">&#123;</span>HI<span class="token punctuation">,</span>LO<span class="token punctuation">&#125;</span><span class="token operator">=</span>HI<span class="token operator">+</span>$<span class="token function">signed</span><span class="token punctuation">(</span>A<span class="token punctuation">)</span><span class="token operator">*</span>$<span class="token function">signed</span><span class="token punctuation">(</span>B<span class="token punctuation">)</span><span class="token comment">// wrong</span>
-<span class="token punctuation">&#123;</span>HI<span class="token punctuation">,</span>LO<span class="token punctuation">&#125;</span><span class="token operator">=</span>$<span class="token function">signed</span><span class="token punctuation">(</span>$<span class="token function">signed</span><span class="token punctuation">(</span>HI<span class="token punctuation">)</span><span class="token operator">+</span>$<span class="token function">signed</span><span class="token punctuation">(</span>A<span class="token punctuation">)</span><span class="token operator">*</span>$<span class="token function">signed</span><span class="token punctuation">(</span>B<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">//right</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>跟条件判断中的原因一样，还是<code>$signed</code>符号用法的坑，这时我们最好全都给他套上<code>$signed</code>,以防万一</p>
-<h3 id="4-如何实现条件存储指令"><a href="#4-如何实现条件存储指令" class="headerlink" title="4.如何实现条件存储指令"></a>4.如何实现条件存储指令</h3><p>这个基本没有什么坑，只要修改CU控制信号，DM内部逻辑。</p>
-<h3 id="5-如何实现条件写指令并将其与各种功能搭配"><a href="#5-如何实现条件写指令并将其与各种功能搭配" class="headerlink" title="5.如何实现条件写指令并将其与各种功能搭配"></a>5.如何实现条件写指令并将其与各种功能搭配</h3><p><strong>写在前面，这个是最复杂的</strong></p>
+<p><strong>方法复杂度</strong></p>
+<table>
+<thead>
+<tr>
+<th>PreFun.printans(ArrayList)</th>
+<th>48.0</th>
+<th>3.0</th>
+<th>16.0</th>
+<th>17.0</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>PreFun.mergecs2(ArrayList)</td>
+<td>42.0</td>
+<td>10.0</td>
+<td>9.0</td>
+<td>12.0</td>
+</tr>
+<tr>
+<td>Factor.parse()</td>
+<td>31.0</td>
+<td>4.0</td>
+<td>12.0</td>
+<td>15.0</td>
+</tr>
+<tr>
+<td>Element.matchcs(Element)</td>
+<td>30.0</td>
+<td>9.0</td>
+<td>10.0</td>
+<td>12.0</td>
+</tr>
+<tr>
+<td>Element.Element(String)</td>
+<td>28.0</td>
+<td>1.0</td>
+<td>15.0</td>
+<td>18.0</td>
+</tr>
+<tr>
+<td>Fun.parse()</td>
+<td>26.0</td>
+<td>3.0</td>
+<td>10.0</td>
+<td>11.0</td>
+</tr>
+<tr>
+<td>PreFun.neg(ArrayList)</td>
+<td>19.0</td>
+<td>1.0</td>
+<td>8.0</td>
+<td>8.0</td>
+</tr>
+<tr>
+<td>Expr.parse()</td>
+<td>12.0</td>
+<td>1.0</td>
+<td>8.0</td>
+<td>9.0</td>
+</tr>
+<tr>
+<td>Term.parse()</td>
+<td>12.0</td>
+<td>1.0</td>
+<td>7.0</td>
+<td>8.0</td>
+</tr>
+<tr>
+<td>PreFun.addcos(StringBuilder, Element)</td>
+<td>10.0</td>
+<td>1.0</td>
+<td>6.0</td>
+<td>6.0</td>
+</tr>
+<tr>
+<td>PreFun.addsin(StringBuilder, Element)</td>
+<td>10.0</td>
+<td>1.0</td>
+<td>6.0</td>
+<td>6.0</td>
+</tr>
+<tr>
+<td>PreFun.issingle(ArrayList)</td>
+<td>8.0</td>
+<td>5.0</td>
+<td>11.0</td>
+<td>12.0</td>
+</tr>
+<tr>
+<td>Cos.cossequal(ArrayList, ArrayList)</td>
+<td>7.0</td>
+<td>4.0</td>
+<td>3.0</td>
+<td>4.0</td>
+</tr>
+<tr>
+<td>Element.elementsequal(ArrayList, ArrayList)</td>
+<td>7.0</td>
+<td>4.0</td>
+<td>3.0</td>
+<td>4.0</td>
+</tr>
+<tr>
+<td>PreFun.mergecs(ArrayList)</td>
+<td>7.0</td>
+<td>1.0</td>
+<td>5.0</td>
+<td>5.0</td>
+</tr>
+<tr>
+<td>Sin.sinsequal(ArrayList, ArrayList)</td>
+<td>7.0</td>
+<td>4.0</td>
+<td>3.0</td>
+<td>4.0</td>
+</tr>
+</tbody></table>
+<p><strong>（由于方法较多，篇幅限制只列出了分析结果中数值较大，标红的部分数据。）</strong></p>
+<p><strong>接下来进行代码度量结果的分析</strong>：</p>
 <ul>
-<li>先实现条件写指令与其他功能的搭配。<ul>
-<li>搭配方式（三种功能全都可以搭）：<ul>
-<li>条件跳转+条件写</li>
-<li>条件计算+条件写</li>
-<li>条件存储+条件写</li>
-</ul>
+<li><p>从<strong>方法复杂度</strong>来看，可以看出其集中出现在<code>PreFun</code>内的优化函数上，原因是我在优化过程中采用的<code>for</code>与<code>if-else</code>较多，为优化性能对许多情况进行分别讨论，这导致了复杂度过高，这从某种程度上说明了我在优化部分容易出错的原因。</p>
 </li>
-<li>可以看到，前面4种功能都进行了条件判断，条件写指令需要他们的条件判断信号。因此我们的实现方式如下：</li>
-<li><ol>
-<li>将所有的条件判断信号输出来（指的是从CMP,ALU，DM中输出），配合分布式译码输出的信号生成一个<strong>check信号</strong>，这些check信号都要一级一级传下去，并在每一级输入分布CU，以便条件写功能的实现，代码和具体解释如下。</li>
-</ol>
+<li><p>同时每个类内<code>Parse</code>方法，和<code>Element</code>方法的实现也比较复杂，这是因为<strong>耦合性过强</strong>，例如在我的架构中，他们都是为<strong>解析功能</strong>服务的函数，<code>Expr</code>的<code>parse</code>需要依赖<code>Term</code>中的<code>Parse</code>，而<code>Term</code>的<code>Parse</code>又需要依赖<code>Factor</code>的<code>Parse</code>，<strong>方法之间的依赖性很强</strong>，不容易达到“高内聚低耦合”的原则，程序的结构化程度不是很好。</p>
 </li>
 </ul>
+<h3 id="四-Hack与被Hack"><a href="#四-Hack与被Hack" class="headerlink" title="四.Hack与被Hack"></a>四.Hack与被Hack</h3><h4 id="4-1-个人Bug发现与分析"><a href="#4-1-个人Bug发现与分析" class="headerlink" title="4.1 个人Bug发现与分析"></a>4.1 个人Bug发现与分析</h4><p>关于本次作业的Bug较多的集中在<strong>深克隆与浅克隆</strong>这个问题上，这可能与我的代码架构有关，在对<code>ArrayList</code>操作时使用了较多的<code>add</code>方法。</p>
+<p>在一次作业中我首次遇到了深克隆与浅克隆的问题，但在课下时我已经发现了这个Bug并予以解决。但在第二次作业时，又再一次出现了深克隆浅克隆的问题，这个Bug原因是我在计算<code>[Elements]</code>数组时为了实现合并两数组的[sin][cos]，直接采用了<code>add</code>方法，因为第二次作业我并未对<code>Sin</code>,<code>Cos</code>内部进行操作，所以当时我认为直接采用<code>add</code>方法是正确的，简便的，因而这个Bug在第二次作业时并没有显现。</p>
+<p>然而在第三次作业中，在优化部分我新增了<strong>二倍角优化方法</strong>，直接对<code>Sin</code>,<code>Cos</code>内部项的系数进行了操作，此时我忽略了之前采用<code>add</code>方法合并数组时采用了浅克隆而非深克隆，直接引发了第二次作业所埋下的隐患。<del>以后再也不瞎优化了(bushi</del>,所以有时候不优化，保证正确性可能会更好一点。不过言归正传，这个Bug十分隐蔽，我在课下并没有发现，导致一个强测点直接寄掉。</p>
+<p>这个Bug出现的原因有二：</p>
+<ul>
+<li><p>一方面是因为对于深克隆浅克隆的理解还是不够深刻，在编写代码是没有意识到自己当前所写代码实际上是再进行克隆操作，也没有进一步思考这里的克隆是需要深克隆还是浅克隆，在第二次作业中我采用的浅克隆方式对于<code>HW2</code>的需求来说是<strong>“正确”</strong>的(因为恰巧第二次作业中<code>sin</code>，<code>cos</code>内部只有常数与自变量，不需要对其内部进行操作)，但其实是并<strong>不合理</strong>的，因为在架构中需要新构造一个项，进一步思考不难意识到我们需要的实际上是深克隆，关于深浅克隆的问题，为了加深我自己的理解，将在“我学到的”这一部分进行进一步阐述。</p>
+</li>
+<li><p>另一方面是因为在作业迭代的过程中，上一次作业的某些架构在本次作业中埋下了隐患。在进行作业的迭代时，编写完代码后我只检查了本次修改的，迭代的代码正确性，“理所当然的认为”之前的代码都通过了上一次强测，那肯定是正确的吧。但事实证明这样做法是错误的，我忽略了两次迭代之间的关联性，新增的需求可能会是上次架构中**”正确”但不合理<strong>的操作变为Bug。以后的作业中，应该</strong>有意识的去思考迭代过程中两次架构中有哪些可能产生Bug的关联之处，不能只着眼与本次作业的新增部分、修改部分，**以防止这种现象的发生。</p>
 </li>
 </ul>
-<pre class="line-numbers language-v" data-language="v"><code class="language-v"><span class="token comment">//以下的xxx代表了一条具备条件跳转或条件计算或条件存储功能的指令，我们把它从CU中译出来并输出</span>
-<span class="token comment">//条件跳转指令在D级生成check信号并传下去</span>
-assign D_check <span class="token operator">=</span> xxx<span class="token operator">&amp;&amp;</span><span class="token punctuation">(</span>b_jump<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">//条件计算指令在E级生成check信号并传下去</span>
-assign E_check <span class="token operator">=</span> xxx<span class="token operator">&amp;&amp;</span><span class="token punctuation">(</span>ALUorHILO_judge<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">//条件存储指令在M级生成check信号并传下去</span>
-assign M_check <span class="token operator">=</span> xxx<span class="token operator">&amp;&amp;</span><span class="token punctuation">(</span>DM_judge<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="4-2-互测他人Bug发现与分析"><a href="#4-2-互测他人Bug发现与分析" class="headerlink" title="4.2 互测他人Bug发现与分析"></a>4.2 互测他人Bug发现与分析</h4><p>本次互测发现了其他同学如下几个Bug</p>
+<ul>
+<li><code>-1+1</code>等简单的操作无法输出，这一Bug产生的原因是一些同学的架构进行迭代优化后，由于架构的不合理性，反而无法实现最基本的测试点，这也提醒了我们测试全面覆盖的重要性。</li>
+<li><code>sum</code>上下界定义为了<code>int</code>，而非<code>BigInteger</code>，这一Bug产生的原因我认为可能是没有仔细阅读指导书，先入为主习惯性的将一些整数定义为了<code>int</code>，测试时</li>
+<li><code>sum(i,下界,上界,i**2)</code>出现了问题，这一Bug产生的原因是进行字符串替换时没有加括号，这里的<code>i</code>是常数，只有替换时<strong>加括号</strong>才是正确的形式化表述。</li>
+</ul>
+<h3 id="五-我学到的"><a href="#五-我学到的" class="headerlink" title="五.我学到的"></a>五.我学到的</h3><h4 id="5-1-深克隆与浅克隆"><a href="#5-1-深克隆与浅克隆" class="headerlink" title="5.1 深克隆与浅克隆"></a>5.1 深克隆与浅克隆</h4><p><strong>深克隆与浅克隆</strong>在本次作业中对我的“身心摧残”已在上文阐述，接下来需要进一步深入理解深浅克隆的区别与实现，以防以后出现类似的问题。</p>
+<p><strong>1.首先我们需要知道什么时候我们在进行克隆？</strong></p>
+<ul>
+<li>简而言之，如果此时我们在<strong>根据一个已有数据创建一个新数据</strong>的时候，我们便在进行克隆。<strong>意识到自己正在进行克隆十分重要</strong>，只有意识到了这一点才能进一步去思考深浅克隆的问题。</li>
+</ul>
+<p><strong>2.深浅克隆的区别是什么？</strong></p>
+<ul>
+<li>浅克隆不会克隆原对象中的引用类型，<strong>仅仅拷贝了引用类型的指向</strong>。深克隆则<strong>拷贝了所有</strong>。也就是说深克隆能够做到原对象和新对象之间完全没有影响。</li>
+</ul>
+<p><img src="https://note.youdao.com/yws/api/personal/file/C83105F4641043D08AE35CE665499394?method=download&shareKey=82ec04ad13bd8b9b3650d744bf7675f9"></p>
+<p><strong>3.我在深浅克隆中犯的错误</strong></p>
+<ul>
+<li>首先第一点，我没有意识到自己在进行克隆，之前并没有在代码中了解过克隆这个概念。</li>
+<li>第二点，我在克隆操作中为了实现类中非基本数据类型的属性的克隆（在本次架构中是一个[Elements]数组），错误的使用了<code>addall</code>或<code>add</code>方法，这仅仅拷贝了引用类型的指向，并非深克隆。或从某种意义上讲，这都不是规范的克隆方法。</li>
+</ul>
+<p><strong>4.如何进行规范的克隆？</strong></p>
+<ul>
+<li>分享两篇博客资料，写的比较好，我在这里找到了答案。</li>
+</ul>
+<p>[<a target="_blank" rel="noopener" href="https://blog.csdn.net/jeffleo/article/details/76737560">(40条消息) Java对象克隆——浅克隆和深克隆的区别_JeffCoding的博客-CSDN博客_浅克隆和深克隆的区别</a>]</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/1314xf/p/10139971.html">java 深克隆（深拷贝）与浅克隆（拷贝）详解 - mindcarver - 博客园 (cnblogs.com)</a>(这一篇比较长，其实上一篇对于理解和实用来说就完全足够)</p>
+<p>我来简单总结一下，java中<strong>已经为类准备了clone方法</strong>，我们不需要重复造轮子，要实现规范的<code>clone</code>，还需要以下两点：</p>
+<ul>
+<li><strong>实现Cloneable接口</strong>，只需在类的后面加<strong>implements Cloneable</strong>即可</li>
+<li><strong>Override重写Clone方法</strong>，如何重写在上面两篇博文中都有很好的阐述。</li>
+</ul>
+<p>接下来，我认为重要的是理解为什么要重写<code>Clone</code>方法，对于只包含基本数据类型属性的类来说，<code>clone</code>方法完全够用，不需重写，<code>clone</code>后的新旧对象互不影响。重写<code>Clone</code>方法是为了应对类中<strong>包含了其他自定义的对象属性</strong>这种情况（比如在本次<code>HW2</code>作业中，我在<code>Sin</code>，<code>Cos</code>类中包含了<code>[Elements]</code>数组作为属性），这时<code>Clone</code>方法在拷贝这个属性时，拷贝的只是引用类型的指向，也就是我们所说的浅拷贝，后续再对这个属性进行操作时，便会在不经意间对新旧对象同时操作，这样的Bug很难查找出来，因此在设计时就要予以避免。</p>
+<p>如何进行避免？方法也很简单，只需要在本类中修改重写的<code>Clone</code>方法，包含的其他自定义的对象里面也重写<code>Clone</code>方法，<strong>多个浅拷贝便可以实现深拷贝</strong>。引用第一篇博客中的例子如下（<code>Customer</code>类中包含顾客地址<code>Address</code>类），在两个类中均重写<code>Clone</code>方法，之后再调用<code>Clone</code>方法可以对<code>Customer</code>深克隆。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//Address</span>
+<span class="token annotation punctuation">@Override</span>  
+<span class="token keyword">public</span> <span class="token class-name">Address</span> <span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">CloneNotSupportedException</span> <span class="token punctuation">&#123;</span>  
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token class-name">Address</span><span class="token punctuation">)</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+<span class="token punctuation">&#125;</span>  
+<span class="token comment">//Class Customer（Address是Customer的一个属性成员）</span>
+<span class="token annotation punctuation">@Override</span>  
+<span class="token keyword">public</span> <span class="token class-name">Customer</span> <span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">CloneNotSupportedException</span> <span class="token punctuation">&#123;</span>  
+    <span class="token class-name">Customer</span> customer <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Customer</span><span class="token punctuation">)</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    customer<span class="token punctuation">.</span>address <span class="token operator">=</span> address<span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    <span class="token keyword">return</span> customer<span class="token punctuation">;</span>  
+<span class="token punctuation">&#125;</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<ul>
-<li><ol start="2">
-<li>将check信号输入每一级CU后，根据指令搭配的说明，修改CU中的写地址译码和写数据译码，有了check信号这个概念，这步很简单，需要注意的是，如果我们的check信号不是从一开始的D级就产生，比如说在M级才产生，才输入CU，由于我们使用的是分布式译码，那么我们之前CU里面的check信号是一个x信号，出现不确定错误。这一步避免很简单，只需要在CU里面把<code>==</code>号，改成<code>===</code>号，规避x这类的错误判断</li>
-</ol>
-</li>
-</ul>
-<pre class="line-numbers language-v" data-language="v"><code class="language-v"><span class="token keyword">if</span><span class="token punctuation">(</span>xxx <span class="token operator">&amp;&amp;</span> check <span class="token operator">==</span><span class="token operator">=</span> <span class="token number">1</span>'b1<span class="token punctuation">)</span>
-    RFA3 <span class="token operator">=</span> rt_addr
-<span class="token comment">//.................</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<ul>
-<li><ol start="3">
-<li>最后修改转发阻塞逻辑。我们明显可以看出这几条搭配有一个共同特点，<strong>一段时期不知道写地址是啥，究竟写还是不写？</strong></li>
-</ol>
-<ul>
-<li>条件跳转+条件写,E级知道写地址</li>
-<li>条件计算+条件写,M级知道写地址</li>
-<li>条件存储+条件写,W级知道写地址</li>
-<li>（PS.你可能会问，为什么都延后了一级，我认为在实际情况中，该级的条件判断输出是不稳定的，有一定延迟，把它输入到下一级流水线寄存器才是一个稳定的信号，所以我们按实际情况来想延后了一级）</li>
-</ul>
-</li>
-<li><p><strong>我们规定，在明确写地址后才能转发。不明确写地址前，冒然转发会导致错误，这里搭配阻塞功能，只要可能发生冲突且此时不明确写地址，均阻塞</strong>。</p>
-</li>
-<li><p>接下来我们按照上述逻辑修改阻塞单元。</p>
-<ul>
-<li>条件跳转+条件写,E级知道写地址，不用修改阻塞，因为E级才开始有转发供给者，在这一级转发必不可能有错误。</li>
-<li>条件计算+条件写,M级知道写地址，E级冒然转发可能有错误，可以在这里如果D级可能出现冲突，阻塞一个周期，等待该指令从E到M。</li>
-<li>条件存储+条件写,W级知道写地址，E，M级冒然转发可能有错误，可以在这里如果D级可能出现冲突，阻塞两个周期，等待该指令从E到W。<br>举个例子，这里假设有一条lwso指令，既可能写rt，又可能写$31,我们这样修改E级阻塞.</li>
-</ul>
-</li>
-</ul>
-<pre class="line-numbers language-v" data-language="v"><code class="language-v"><span class="token comment">//stall rs</span>
-wire stall_rs_E <span class="token operator">=</span> <span class="token punctuation">(</span>Tuse_rs <span class="token operator">&lt;</span> Tnew_E<span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span><span class="token punctuation">(</span><span class="token punctuation">(</span>lwso<span class="token punctuation">)</span><span class="token operator">?</span><span class="token punctuation">(</span>D_rs_addr <span class="token operator">==</span> E_rt_addr<span class="token operator">||</span>D_rs_addr <span class="token operator">==</span> <span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">:</span>D_rs_addr <span class="token operator">==</span> E_RFA3<span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span>D_rs_addr<span class="token punctuation">;</span>
-<span class="token comment">//stall_rt_E也是一样的修改</span>
-wire stall_rs <span class="token operator">=</span> stall_rs_E <span class="token operator">|</span> stall_rs_M<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>到此为止我们全部修改完毕，功能可以正常运行<br>最后，这几种功能可以各种搭配，但目前为止还只有搭配条件写的这种方式，希望可以通过对于考察方式的理解，帮助你更好的完成P5，P6的课上测试。</p>
+<p>总而言之，我认为对于java深浅拷贝的这样一种理解很准确：<strong>Java</strong>中定义的<strong>clone</strong>没有深浅之分，都是统一的调用<strong>Object</strong>的<strong>clone</strong>方法。为什么会有深克隆的概念？是<strong>由于我们在实现的过程中刻意的嵌套了<em>clone</em>方法的调用</strong>。也就是说<strong>深克隆就是在需要克隆的对象类型的类中全部实现克隆方法</strong>。</p>
+<h4 id="5-2-去哪里找Bug"><a href="#5-2-去哪里找Bug" class="headerlink" title="5.2 去哪里找Bug"></a>5.2 去哪里找Bug</h4><p>这一点其实在理论课上有讲，我认为总结的是在太好了，这里再将其罗列一下。</p>
+<ul>
+<li>调用是否对返回值进行了接收和检查</li>
+<li>类库及方法的使用是否符合要求</li>
+<li><strong>容器访问的越界保护</strong>（课下自己测试过程中几次出现的数组越界问题）</li>
+<li><strong>对象拷贝是否彻底</strong>（强测出现深浅克隆的Bug）</li>
+<li>数值计算是否溢出</li>
+<li>是否对循环体内对循环变量进行修改</li>
+</ul>
+<p>可以看到，我属于是精准踩雷有木有。所以在静态检查时，可以有意识的去思考以上检查要点，这能帮助我们更快更好的找到Bug，虽然不能覆盖所有Bug，但我觉得可以<strong>覆盖很大一部分</strong>非理解题意错误而导致的Bug。</p>
+<h4 id="5-3-测试数据"><a href="#5-3-测试数据" class="headerlink" title="5.3 测试数据"></a>5.3 测试数据</h4><p>主要采用随机测试的方式，手动构造了一些我认为比较容易Error和Wrong Answer的边界数据，虽然也有一定的Hack量，但Hack成果并没有很显著，如果写个自动评测机可能会更好一点，周末开着自动评测机让其自动Hack，自己可以做其他的事情，<del>多是一件美事啊</del>。所以在这里我反思一下，下一次一定要写个自动评测机，下次一定。</p>
+<h3 id="六-心得体会"><a href="#六-心得体会" class="headerlink" title="六. 心得体会"></a>六. 心得体会</h3><p>通过第一单元的作业，我有以下几点收获</p>
+<ul>
+<li>架构真的很重要，好的架构不仅正确度高，逻辑性强，在DeBug的时候很容易找到Bug的出处，有时候好的架构甚至会实现意想不到的功能，例如实现括号嵌套的支持等等。因此我们在开始动手之前，一定要多与同学进行交流，做好初步的设计工作，之后再逐步优化细节，进行实现。这样既可以减少之后重构的可能性，减少工作量，同时最终实现的效果正确性，准确性也会更好。</li>
+<li>初步体会了面向对象与面向过程程序设计的不同，通过面向对象的程序设计，可以更好的实现代码维护与迭代更新，<strong>一次可能只需要修改某几个类就可以实现更多的需求</strong>，这一点是面向过程设计所做不到的。</li>
+<li>最后一点肯定是更加熟悉了java中的各种语法以及容器的使用，从<code>HW1</code>的无从下手与茫然到慢慢熟练运用java中的常用类与常用功能，很像一个升级打怪的过程，在这个过程中我还是很满足的。第一单元的OO作业从心态和知识上都让我提升了很多，也收获了很多设计，编程经验，期待OO课程中之后的学习！</li>
+</ul>
 
                 
             </div>
@@ -601,7 +812,7 @@ wire stall_rs <span class="token operator">=</span> stall_rs_E <span class="toke
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://shl518.github.io/2022/05/09/ji-suan-ji-zu-cheng-p5-yu-p6-de-zong-jie/">http://shl518.github.io/2022/05/09/ji-suan-ji-zu-cheng-p5-yu-p6-de-zong-jie/</a>
+                    <a href="http://shl518.github.io/2022/05/09/mian-xiang-dui-xiang-di-1-dan-yuan-zuo-ye-zong-jie/">http://shl518.github.io/2022/05/09/mian-xiang-dui-xiang-di-1-dan-yuan-zuo-ye-zong-jie/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -639,8 +850,8 @@ wire stall_rs <span class="token operator">=</span> stall_rs_E <span class="toke
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">
-                                    <span class="chip bg-color">计算机组成</span>
+                                <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+                                    <span class="chip bg-color">面向对象</span>
                                 </a>
                             
                         </div>
@@ -814,13 +1025,13 @@ wire stall_rs <span class="token operator">=</span> stall_rs_E <span class="toke
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/05/09/buaa-unix-zuo-ye/">
+                <a href="/2022/05/09/ji-chong-pv-cao-zuo-wen-ti-zong-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="BUAA_UNIX作业">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="几种PV操作问题总结">
                         
-                        <span class="card-title">BUAA_UNIX作业</span>
+                        <span class="card-title">几种PV操作问题总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -844,8 +1055,8 @@ wire stall_rs <span class="token operator">=</span> stall_rs_E <span class="toke
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/UNIX/">
-                        <span class="chip bg-color">UNIX</span>
+                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">操作系统</span>
                     </a>
                     
                 </div>
@@ -859,13 +1070,13 @@ wire stall_rs <span class="token operator">=</span> stall_rs_E <span class="toke
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/05/09/ji-suan-ji-zu-cheng-p2/">
+                <a href="/2022/05/09/mian-xiang-dui-xiang-di-2-dan-yuan-zuo-ye-zong-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="计算机组成P2">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="面向对象第2单元作业总结">
                         
-                        <span class="card-title">计算机组成P2</span>
+                        <span class="card-title">面向对象第2单元作业总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -889,8 +1100,8 @@ wire stall_rs <span class="token operator">=</span> stall_rs_E <span class="toke
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">
-                        <span class="chip bg-color">计算机组成</span>
+                    <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+                        <span class="chip bg-color">面向对象</span>
                     </a>
                     
                 </div>

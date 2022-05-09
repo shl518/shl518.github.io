@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="计算机组成P5与P6的总结, Corsica Stars">
+    <meta name="keywords" content="几种PV操作问题总结, Corsica Stars">
     <meta name="description" content="I will be with you from dusk till down.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>计算机组成P5与P6的总结 | Corsica Stars</title>
+    <title>几种PV操作问题总结 | Corsica Stars</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">计算机组成P5与P6的总结</h1>
+                    <h1 class="description center-align post-title">几种PV操作问题总结</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">
-                                <span class="chip bg-color">计算机组成</span>
+                            <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                                <span class="chip bg-color">操作系统</span>
                             </a>
                         
                     </div>
@@ -456,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    1.9k
                 </div>
                 
 
@@ -481,100 +481,203 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong>(阅前声明，我用的分布式译码方法，因此一些修改可能与集中式译码的方式不太一样）</strong></p>
-<h4 id="P5与P6的套路"><a href="#P5与P6的套路" class="headerlink" title="P5与P6的套路"></a>P5与P6的套路</h4><p>在完成P5与P6的过程中，发现课上考的一些指令都大同小异，先将其整理为四类功能的组合。<br>所有新增指令是这几种功能的相互组合</p>
-<ul>
-<li><h5 id="条件存储-根据不同的条件，从DM中取出的数值不同"><a href="#条件存储-根据不同的条件，从DM中取出的数值不同" class="headerlink" title="条件存储 根据不同的条件，从DM中取出的数值不同"></a>条件存储 根据不同的条件，从DM中取出的数值不同</h5></li>
-<li><h5 id="条件计算-根据不同的条件，ALU执行的运算结果不同"><a href="#条件计算-根据不同的条件，ALU执行的运算结果不同" class="headerlink" title="条件计算 根据不同的条件，ALU执行的运算结果不同"></a>条件计算 根据不同的条件，ALU执行的运算结果不同</h5></li>
-<li><h5 id="条件跳转-根据不同的条件，NPC跳转还是不跳转"><a href="#条件跳转-根据不同的条件，NPC跳转还是不跳转" class="headerlink" title="条件跳转 根据不同的条件，NPC跳转还是不跳转"></a>条件跳转 根据不同的条件，NPC跳转还是不跳转</h5></li>
-<li><h5 id="条件写入寄存器-根据不同的条件，指令写入寄存器的地址不同（根据不同的条件，指令写或不写也归入这一类中，因为我们使用AT法写地址为0就是不写，本质上还是写地址不确定）"><a href="#条件写入寄存器-根据不同的条件，指令写入寄存器的地址不同（根据不同的条件，指令写或不写也归入这一类中，因为我们使用AT法写地址为0就是不写，本质上还是写地址不确定）" class="headerlink" title="条件写入寄存器  根据不同的条件，指令写入寄存器的地址不同（根据不同的条件，指令写或不写也归入这一类中，因为我们使用AT法写地址为0就是不写，本质上还是写地址不确定）"></a>条件写入寄存器  根据不同的条件，指令写入寄存器的地址不同（根据不同的条件，指令写或不写也归入这一类中，因为我们使用AT法写地址为0就是不写，本质上还是写地址不确定）</h5></li>
+                <h2 id="OS-Homework-4"><a href="#OS-Homework-4" class="headerlink" title="OS Homework 4"></a>OS Homework 4</h2><hr>
+<h3 id="1-1-读者写者问题（写者优先）"><a href="#1-1-读者写者问题（写者优先）" class="headerlink" title="1.1 读者写者问题（写者优先）"></a>1.1 读者写者问题（写者优先）</h3><h4 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h4><ul>
+<li><p>首先读者写者问题肯定需要一个<code>mutex</code>信号量保护缓冲区。</p>
+</li>
+<li><p>用read变量实现写优先，初值是1：当至少有一个写进程准备访问数据区时，用于禁止所有的读进程。</p>
+</li>
+<li><p><code>readcount,writecount</code>两个int变量记录读者写者数量，用于改变<code>read</code>信号量，相应的有<code>rcmutex，wcmutex</code>两个信号量保护他们读写的互斥。</p>
+</li>
 </ul>
-<p>至于为什么目前只看到这几种不同功能之间的组合，是因为P5，P6主要考察我们对于流水线问题的理解，而流水线中最重要的部分就是数据通路中的各个功能元件的使用，和阻塞转发的理解。</p>
-<h4 id="要考察对于功能元件的理解，我们首先想想流水线中有哪些很重要的原件？"><a href="#要考察对于功能元件的理解，我们首先想想流水线中有哪些很重要的原件？" class="headerlink" title="要考察对于功能元件的理解，我们首先想想流水线中有哪些很重要的原件？"></a>要考察对于功能元件的理解，我们首先想想流水线中有哪些很重要的原件？</h4><ol>
-<li><strong>在D级中</strong>，最重要的原件肯定是NPC和GPR，由于GPR没啥可改的，所以NPC是考试的重点，于是便有了条件跳转这种考查方式。</li>
-<li><strong>E级</strong>，肯定是ALU，HILO乘除槽最重要，这俩本质都是一个计算部件，于是便有了条件计算这种考查方式。</li>
-<li><strong>M级</strong>，无可置是DM，于是便有了条件存储这种考查方式。</li>
-<li><strong>W级和F级</strong>都没有什么重要的功能部件，没有特别的考察方式。</li>
-</ol>
-<h4 id="要考察对于转发阻塞的理解，该如何考察呢？"><a href="#要考察对于转发阻塞的理解，该如何考察呢？" class="headerlink" title="要考察对于转发阻塞的理解，该如何考察呢？"></a>要考察对于转发阻塞的理解，该如何考察呢？</h4><p>由于在流水线中我们在所有的该转发的地方都转发了，阻塞只要用AT法，把Tnew，Tuse确定好就可以，总的来说已经很完备，没有什么可以改动的地方。于是便诞生了这样一种考查方式，<strong>如果写地址在一段时间内不确定呢</strong>？这样该如何转发和阻塞呢？<br>这就是我们的条件写寄存器功能，重点考察的是对于转发和阻塞功能的理解。<br>理解了为什么这样考察，有助于我们接下来更好的解题。</p>
-<h3 id="1-如何进行条件判断？"><a href="#1-如何进行条件判断？" class="headerlink" title="1.如何进行条件判断？"></a>1.如何进行条件判断？</h3><p>所有上述四个功能的实现均基于条件判断。只有判断正确，我们才能确定是执行哪个功能？<br>看起来很简单，但这里又是一个很大的坑？**$signed的如何正确应用**<br>这里可以参考学长的博客，里面有关于$signed的理解，$signed搭配三目运算符，搭配小于&lt;,大于&gt;号很容易犯错。例如下面这样一种情况。</p>
-<pre class="line-numbers language-v" data-language="v"><code class="language-v">always @<span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span>begin
-    <span class="token keyword">if</span><span class="token punctuation">(</span>$<span class="token function">signed</span><span class="token punctuation">(</span>ALU_A<span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token number">0</span><span class="token punctuation">)</span>
-    <span class="token comment">//....wrong </span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>$<span class="token function">signed</span><span class="token punctuation">(</span>ALU_A<span class="token punctuation">)</span><span class="token operator">&lt;</span>$<span class="token function">signed</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token comment">//....right</span>
-end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;实现读者写者问题（写者优先）
+int readcount &#x3D; 0 ;&#x2F;&#x2F;记录当前读者数量 
+int writecount &#x3D; 0; &#x2F;&#x2F;记录写者数量
+semaphore rcmutex &#x3D; 1; &#x2F;&#x2F;保护更新readcount变量时的互斥 
+semaphore wcmutex &#x3D; 1;&#x2F;&#x2F;保护更新writecount变量的互斥 
+semaphore read &#x3D; 1;&#x2F;&#x2F;信号量read，初值是1：当至少有一个写进程准备访问数据区时，用于禁止所有的读进程。
+semaphore filemutex &#x3D; 1;&#x2F;&#x2F;临界资源互斥 
 
-<p>进行有符号数的大小比较时，最好全部加上<code>$signed</code>符号,因为整个表达式中只要有一个数被判定为无符号数，整个表达式中所有的<code>$signed</code>符号均可能失效，导致结果错误。条件判断目前看来的坑点就在于此。</p>
-<h3 id="2-如何单独解决条件计算功能"><a href="#2-如何单独解决条件计算功能" class="headerlink" title="2.如何单独解决条件计算功能"></a>2.如何单独解决条件计算功能</h3><p>有了条件判断我们便可以执行这四条功能。首先是条件跳转功能，条件跳转只要更改CU控制信号，NPC内部case语句，CMP内部case语句即可。</p>
-<h3 id="3-如何单独解决条件计算指功能"><a href="#3-如何单独解决条件计算指功能" class="headerlink" title="3.如何单独解决条件计算指功能"></a>3.如何单独解决条件计算指功能</h3><p>修改CU控制信号，修改ALU,HILO乘除槽内部逻辑。<br>这里还有一个坑点，老朋友$signed又来了，坑就坑在$signed与乘除法的搭配<br>我们知道verilog乘除法默认是无符号乘除的，如果这时冒出来什么奇奇怪怪的功能要求加减乘除混合<strong>有符号</strong>运算，这里又有一个坑。</p>
-<pre class="line-numbers language-v" data-language="v"><code class="language-v"><span class="token punctuation">&#123;</span>HI<span class="token punctuation">,</span>LO<span class="token punctuation">&#125;</span><span class="token operator">=</span>HI<span class="token operator">+</span>$<span class="token function">signed</span><span class="token punctuation">(</span>A<span class="token punctuation">)</span><span class="token operator">*</span>$<span class="token function">signed</span><span class="token punctuation">(</span>B<span class="token punctuation">)</span><span class="token comment">// wrong</span>
-<span class="token punctuation">&#123;</span>HI<span class="token punctuation">,</span>LO<span class="token punctuation">&#125;</span><span class="token operator">=</span>$<span class="token function">signed</span><span class="token punctuation">(</span>$<span class="token function">signed</span><span class="token punctuation">(</span>HI<span class="token punctuation">)</span><span class="token operator">+</span>$<span class="token function">signed</span><span class="token punctuation">(</span>A<span class="token punctuation">)</span><span class="token operator">*</span>$<span class="token function">signed</span><span class="token punctuation">(</span>B<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">//right</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+&#x2F;&#x2F;写者 
+writer() &#123;
+	while(1) &#123;
+		P(wcmutex);&#x2F;&#x2F;申请writecount资源 
+		if(!writecount) &#x2F;&#x2F;说明这是第一个写者，这时申请read用于阻塞后续读者 
+			P(read);&#x2F;&#x2F;阻塞读者
+		writecount++;
+		V(wcmutex) &#x2F;&#x2F;释放writecount
+            
+		&#x2F;&#x2F;进入临界区
+		P(filemutex)
+		&#x2F;&#x2F;临界区代码
+		writing();
+		V(filemmutex)
+		&#x2F;&#x2F;出临界区
+            
+		P(wcmutex);
+		writecount--;&#x2F;&#x2F;该写者操作完毕，计数器减一
+		if(!writecount)&#x2F;&#x2F;如果是当前等待队列最后一个写者，释放read锁，不再阻塞读者
+			V(read);
+		V(wcmutex) 
+	&#125;
+&#125;
 
-<p>跟条件判断中的原因一样，还是<code>$signed</code>符号用法的坑，这时我们最好全都给他套上<code>$signed</code>,以防万一</p>
-<h3 id="4-如何实现条件存储指令"><a href="#4-如何实现条件存储指令" class="headerlink" title="4.如何实现条件存储指令"></a>4.如何实现条件存储指令</h3><p>这个基本没有什么坑，只要修改CU控制信号，DM内部逻辑。</p>
-<h3 id="5-如何实现条件写指令并将其与各种功能搭配"><a href="#5-如何实现条件写指令并将其与各种功能搭配" class="headerlink" title="5.如何实现条件写指令并将其与各种功能搭配"></a>5.如何实现条件写指令并将其与各种功能搭配</h3><p><strong>写在前面，这个是最复杂的</strong></p>
-<ul>
-<li>先实现条件写指令与其他功能的搭配。<ul>
-<li>搭配方式（三种功能全都可以搭）：<ul>
-<li>条件跳转+条件写</li>
-<li>条件计算+条件写</li>
-<li>条件存储+条件写</li>
-</ul>
-</li>
-<li>可以看到，前面4种功能都进行了条件判断，条件写指令需要他们的条件判断信号。因此我们的实现方式如下：</li>
-<li><ol>
-<li>将所有的条件判断信号输出来（指的是从CMP,ALU，DM中输出），配合分布式译码输出的信号生成一个<strong>check信号</strong>，这些check信号都要一级一级传下去，并在每一级输入分布CU，以便条件写功能的实现，代码和具体解释如下。</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-<pre class="line-numbers language-v" data-language="v"><code class="language-v"><span class="token comment">//以下的xxx代表了一条具备条件跳转或条件计算或条件存储功能的指令，我们把它从CU中译出来并输出</span>
-<span class="token comment">//条件跳转指令在D级生成check信号并传下去</span>
-assign D_check <span class="token operator">=</span> xxx<span class="token operator">&amp;&amp;</span><span class="token punctuation">(</span>b_jump<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">//条件计算指令在E级生成check信号并传下去</span>
-assign E_check <span class="token operator">=</span> xxx<span class="token operator">&amp;&amp;</span><span class="token punctuation">(</span>ALUorHILO_judge<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">//条件存储指令在M级生成check信号并传下去</span>
-assign M_check <span class="token operator">=</span> xxx<span class="token operator">&amp;&amp;</span><span class="token punctuation">(</span>DM_judge<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#x2F;&#x2F;读者
+reader() &#123;
+	while(1) &#123;
+		P(read);&#x2F;&#x2F;如果有写者在等待，则轮不到读者，读者一直被阻塞
+		P(rcmutex);
+		if(!readcount) &#x2F;&#x2F;只有第一个读者申请临界资源锁，因为要实现共享读，后续读者无需申请，直接进入临界资源读取
+			P(filemutex);
+		readcount++;
+		V(rcmutex);
+		V(read);&#x2F;&#x2F;这是一个理解难点，我们需要及时释放read锁，如果这时来了一个写者就能够继续及时阻塞读者，实现写者优先
+		&#x2F;&#x2F;临界代码 
+		reading();
+		
+		P(rcmutex);
+		readcount--;
+		if(!readcount)&#x2F;&#x2F;如果读者队列已空，释放临界区资源
+			V(file);
+		V(rcmutex); 
+	&#125;
+&#125; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<ul>
-<li><ol start="2">
-<li>将check信号输入每一级CU后，根据指令搭配的说明，修改CU中的写地址译码和写数据译码，有了check信号这个概念，这步很简单，需要注意的是，如果我们的check信号不是从一开始的D级就产生，比如说在M级才产生，才输入CU，由于我们使用的是分布式译码，那么我们之前CU里面的check信号是一个x信号，出现不确定错误。这一步避免很简单，只需要在CU里面把<code>==</code>号，改成<code>===</code>号，规避x这类的错误判断</li>
-</ol>
-</li>
+<h3 id="1-2-寿司店问题"><a href="#1-2-寿司店问题" class="headerlink" title="1.2 寿司店问题"></a>1.2 寿司店问题</h3><h4 id="实现思路："><a href="#实现思路：" class="headerlink" title="实现思路："></a>实现思路：</h4><ul>
+<li>通过eating，waiting记录当前正在eat的线程个数和等待的线程个数。eating用于改变must_wait变量（eating&#x3D;&#x3D;5使，must_wait &#x3D; true，eating&#x3D;&#x3D;0时 为false）。waiting用于放人进来eat，当eating &#x3D;&#x3D; 0时，放n &#x3D; min(5,waiting)个人进来。对这两个变量需要一个mutex即可，因为二者是一个整体，在操作这两个变量是我们需要同时操作。</li>
+<li>must_wait线程在申请时首先判断该变量，该变量为true说明已经有5人</li>
 </ul>
-<pre class="line-numbers language-v" data-language="v"><code class="language-v"><span class="token keyword">if</span><span class="token punctuation">(</span>xxx <span class="token operator">&amp;&amp;</span> check <span class="token operator">==</span><span class="token operator">=</span> <span class="token number">1</span>'b1<span class="token punctuation">)</span>
-    RFA3 <span class="token operator">=</span> rt_addr
-<span class="token comment">//.................</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">int eating &#x3D; 0, waiting &#x3D; 0;
+Semaphore mutex &#x3D; 1, queue &#x3D; 1;
+bool must_wait &#x3D; false;
 
-<ul>
-<li><ol start="3">
-<li>最后修改转发阻塞逻辑。我们明显可以看出这几条搭配有一个共同特点，<strong>一段时期不知道写地址是啥，究竟写还是不写？</strong></li>
-</ol>
-<ul>
-<li>条件跳转+条件写,E级知道写地址</li>
-<li>条件计算+条件写,M级知道写地址</li>
-<li>条件存储+条件写,W级知道写地址</li>
-<li>（PS.你可能会问，为什么都延后了一级，我认为在实际情况中，该级的条件判断输出是不稳定的，有一定延迟，把它输入到下一级流水线寄存器才是一个稳定的信号，所以我们按实际情况来想延后了一级）</li>
-</ul>
-</li>
-<li><p><strong>我们规定，在明确写地址后才能转发。不明确写地址前，冒然转发会导致错误，这里搭配阻塞功能，只要可能发生冲突且此时不明确写地址，均阻塞</strong>。</p>
-</li>
-<li><p>接下来我们按照上述逻辑修改阻塞单元。</p>
-<ul>
-<li>条件跳转+条件写,E级知道写地址，不用修改阻塞，因为E级才开始有转发供给者，在这一级转发必不可能有错误。</li>
-<li>条件计算+条件写,M级知道写地址，E级冒然转发可能有错误，可以在这里如果D级可能出现冲突，阻塞一个周期，等待该指令从E到M。</li>
-<li>条件存储+条件写,W级知道写地址，E，M级冒然转发可能有错误，可以在这里如果D级可能出现冲突，阻塞两个周期，等待该指令从E到W。<br>举个例子，这里假设有一条lwso指令，既可能写rt，又可能写$31,我们这样修改E级阻塞.</li>
-</ul>
-</li>
-</ul>
-<pre class="line-numbers language-v" data-language="v"><code class="language-v"><span class="token comment">//stall rs</span>
-wire stall_rs_E <span class="token operator">=</span> <span class="token punctuation">(</span>Tuse_rs <span class="token operator">&lt;</span> Tnew_E<span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span><span class="token punctuation">(</span><span class="token punctuation">(</span>lwso<span class="token punctuation">)</span><span class="token operator">?</span><span class="token punctuation">(</span>D_rs_addr <span class="token operator">==</span> E_rt_addr<span class="token operator">||</span>D_rs_addr <span class="token operator">==</span> <span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">:</span>D_rs_addr <span class="token operator">==</span> E_RFA3<span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span>D_rs_addr<span class="token punctuation">;</span>
-<span class="token comment">//stall_rt_E也是一样的修改</span>
-wire stall_rs <span class="token operator">=</span> stall_rs_E <span class="token operator">|</span> stall_rs_M<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+Customer()&#123;
+  P(mutex);
+  if (must_wait)&#123;
+    waiting++;
+    V(mutex); &#x2F;&#x2F;对waiting变量的保护可以释放
+    P(queue);	&#x2F;&#x2F; 被阻塞，坐着等待排队，等待被唤醒
+  &#125;
+  else &#123;
+    eating++;
+    must_wait &#x3D; (eating &#x3D;&#x3D; 5) 
+    &#x2F;&#x2F; 一旦我是最后一个来坐下吃导致人满的就要等所有人一起吃完，好难过
+    V(mutex);	&#x2F;&#x2F; 对eating变量的保护可以释放
+  &#125;
+  &#x2F;&#x2F; 上一部分已经解决了进店后是等待还是吃的问题
+  Eat_sushi();&#x2F;&#x2F; else的人和被唤醒的排队者成功进入这一步
+  P(mutex);   &#x2F;&#x2F; 开启对eating, waiting变量保护
+  eating--;		&#x2F;&#x2F; 吃的人-1,如果5个没全吃完，不可以换下一批人吃
+  if (eating &#x3D;&#x3D; 0)&#123; &#x2F;&#x2F; 最后一个吃完的人离开才可以进顾客
+    int n &#x3D; min(5, waiting);	&#x2F;&#x2F; 放顾客进来的数量，不超过5个
+    waiting -&#x3D; n;
+    eating +&#x3D;n;
+    must_wait &#x3D; (eating &#x3D;&#x3D; 5)
+    for(int i &#x3D; 0; i&lt;n; i++)
+      V(queue);  &#x2F;&#x2F; 唤醒排队的n个人继续进程
+  &#125;
+  V(mutex);	&#x2F;&#x2F; 允许下一个吃完的人对变量和队列进行操作
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>到此为止我们全部修改完毕，功能可以正常运行<br>最后，这几种功能可以各种搭配，但目前为止还只有搭配条件写的这种方式，希望可以通过对于考察方式的理解，帮助你更好的完成P5，P6的课上测试。</p>
+<h3 id="1-3-三个进程的奇偶数消费者-生产者问题"><a href="#1-3-三个进程的奇偶数消费者-生产者问题" class="headerlink" title="1.3 三个进程的奇偶数消费者-生产者问题"></a>1.3 三个进程的奇偶数消费者-生产者问题</h3><h4 id="实现思路：-1"><a href="#实现思路：-1" class="headerlink" title="实现思路："></a>实现思路：</h4><ul>
+<li>P1为生产者，P2，P3分别为奇偶数消费者，三者共享一个缓冲区，首先肯定需要一个mutex信号量互斥整个缓冲区，接着需要一个empty信号量让生产者可以申请空缓冲区用于生产，目前为止与普通的生产者消费者模式相同。</li>
+<li>但是由于P2只取奇数，P3只取偶数，因此原先我们用的full信号量相当于要分成两个，odd与even，用于代表当前装有奇数、偶数缓冲区的个数，其跟原先我们使用的full的作用一样。</li>
+</ul>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#define N 100
+Semaphore empty &#x3D; N;  &#x2F;&#x2F; 假设初始条件下缓冲区有N个空位
+Semaphore mutex &#x3D; 1;
+Semaphore odd &#x3D; 0;
+Semaphore even &#x3D; 0;
+
+void P1()&#123;
+  int integer;
+  while(true)&#123;
+    integer &#x3D; produce(); 	&#x2F;&#x2F; 生成一个整数
+    P(empty); 						&#x2F;&#x2F; down(empty)，若empty为0则会被阻塞（等待别人拿走）
+    P(mutex);							&#x2F;&#x2F; 开始互斥，down(mutex)
+    put();								&#x2F;&#x2F; 放入缓冲区
+    V(mutex);							&#x2F;&#x2F; 访问临界区结束，up(mutex)
+    if(integer %2 &#x3D;&#x3D; 0)&#123;
+      V(even);						&#x2F;&#x2F; 是偶数
+    &#125; else &#123;
+      V(odd);							&#x2F;&#x2F; 是奇数
+    &#125;
+  &#125;
+&#125;
+
+void P2()&#123;
+  while(true)&#123;
+    P(odd);							&#x2F;&#x2F; 请求一个奇数，down(odd)
+    P(mutex);						&#x2F;&#x2F; 互斥
+    getodd();
+    V(mutex);
+    V(empty);						&#x2F;&#x2F; 缓冲区多一个位置，up(empty)
+    countodd();
+  &#125;
+&#125;
+
+void P3()&#123;
+  while(true)&#123;
+    P(even);						&#x2F;&#x2F; 请求一个偶数，down(even)
+    P(mutex);						&#x2F;&#x2F; 互斥
+    geteven();
+    V(mutex);
+    V(empty);						&#x2F;&#x2F; 缓冲区多一个位置，up(empty)
+    counteven();
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="1-4-搜索-插入-删除问题-类似读者写者问题"><a href="#1-4-搜索-插入-删除问题-类似读者写者问题" class="headerlink" title="1.4 搜索-插入-删除问题(类似读者写者问题)"></a>1.4 搜索-插入-删除问题(类似读者写者问题)</h3><h4 id="实现思路-1"><a href="#实现思路-1" class="headerlink" title="实现思路:"></a>实现思路:</h4><ul>
+<li>定义信号量No_search &amp; No_insert表示此时没有搜索和插入线程，用于删除线程与插入线程，删除线程与搜算线程互斥，同时由于一个删除线程P(No_insert)以后，其他删除线程再次P(No_insert)便会阻塞，所以No_insert顺便也可以作为删除进程之间互斥。</li>
+<li>信号量<code>insertMutex， searchMutex</code>用于保护searcher,inserter这两个int变量，他俩的作用是记录插入搜索线程的数量，以改变No_search &amp; No_insert（如果数量为零则释放）。</li>
+</ul>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">Semaphore insertMutex &#x3D;1, searchMutex &#x3D; 1; &#x2F;&#x2F; 保护searcher,inserter变量
+Semaphore No_search &#x3D; 1; &#x2F;&#x2F; 顾名思义，为1时没有搜索进程访问
+Semaphore No_insert &#x3D; 1; &#x2F;&#x2F; 为1时没有插入进程访问
+&#x2F;&#x2F;当上述两个信号量同时为1，删除者才可以进行删除操作
+
+int searcher &#x3D; 0, inserter &#x3D; 0;
+void Search()&#123;
+  P(searchMutex);
+    searcher++;
+    if (searcher &#x3D;&#x3D; 1)	&#x2F;&#x2F; 第一个进来的搜索者加锁
+      P(No_search)
+  V(searchMutex);
+  Searching(); &#x2F;&#x2F; 访问临界区，多个搜索无需互斥
+  P(searchMutex);
+  	searcher--;
+  	if (searcher &#x3D;&#x3D; 0)
+      V(No_search);	 &#x2F;&#x2F; 表示此时没有搜索线程在进行，解锁
+  V(searchMutex);
+&#125;
+
+void Insert()&#123;
+  P(insertMutex);
+  	inserter++;
+  	if (inserter &#x3D;&#x3D; 1)
+      P(No_insert);
+  V(insertMutex);
+  
+  P(insertMutex); &#x2F;&#x2F; 既然可以和搜索线程并行，那么不用管Searcher
+  	Inserting();	&#x2F;&#x2F; 访问临界区，多个插入者要互斥访问，一次一个insert
+  V(insertMutex);
+  
+  P(insertMutex);
+  	inserter--;
+  	if (inserter &#x3D;&#x3D; 0)
+      V(No_insert); &#x2F;&#x2F; 解锁，可唤醒删除者
+  V(insertMutex);
+&#125;
+
+void Delete()&#123;	  &#x2F;&#x2F; 删除线程与其他任何线程互斥
+  P(No_search);
+  	P(No_insert); &#x2F;&#x2F; 若为1则可进入，这个信号量顺便也可以当作删除者的互斥保护
+  		Deleting();	&#x2F;&#x2F; 搜索和插入线程都没，成功进入临界区
+  	V(No_insert);
+  V(No_search);	
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>
@@ -601,7 +704,7 @@ wire stall_rs <span class="token operator">=</span> stall_rs_E <span class="toke
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://shl518.github.io/2022/05/09/ji-suan-ji-zu-cheng-p5-yu-p6-de-zong-jie/">http://shl518.github.io/2022/05/09/ji-suan-ji-zu-cheng-p5-yu-p6-de-zong-jie/</a>
+                    <a href="http://shl518.github.io/2022/05/09/ji-chong-pv-cao-zuo-wen-ti-zong-jie/">http://shl518.github.io/2022/05/09/ji-chong-pv-cao-zuo-wen-ti-zong-jie/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -639,8 +742,8 @@ wire stall_rs <span class="token operator">=</span> stall_rs_E <span class="toke
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">
-                                    <span class="chip bg-color">计算机组成</span>
+                                <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                                    <span class="chip bg-color">操作系统</span>
                                 </a>
                             
                         </div>
@@ -814,13 +917,13 @@ wire stall_rs <span class="token operator">=</span> stall_rs_E <span class="toke
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/05/09/buaa-unix-zuo-ye/">
+                <a href="/2022/05/09/2022-cao-zuo-xi-tong-lab2-shi-yan-bao-gao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="BUAA_UNIX作业">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="2022操作系统Lab2实验报告">
                         
-                        <span class="card-title">BUAA_UNIX作业</span>
+                        <span class="card-title">2022操作系统Lab2实验报告</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -844,8 +947,8 @@ wire stall_rs <span class="token operator">=</span> stall_rs_E <span class="toke
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/UNIX/">
-                        <span class="chip bg-color">UNIX</span>
+                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">操作系统</span>
                     </a>
                     
                 </div>
@@ -859,13 +962,13 @@ wire stall_rs <span class="token operator">=</span> stall_rs_E <span class="toke
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/05/09/ji-suan-ji-zu-cheng-p2/">
+                <a href="/2022/05/09/mian-xiang-dui-xiang-di-1-dan-yuan-zuo-ye-zong-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="计算机组成P2">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="面向对象第1单元作业总结">
                         
-                        <span class="card-title">计算机组成P2</span>
+                        <span class="card-title">面向对象第1单元作业总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -889,8 +992,8 @@ wire stall_rs <span class="token operator">=</span> stall_rs_E <span class="toke
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">
-                        <span class="chip bg-color">计算机组成</span>
+                    <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+                        <span class="chip bg-color">面向对象</span>
                     </a>
                     
                 </div>
