@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>C语言实现FCFS，SJF调度算法</title>
+      <link href="/2022/05/11/c-yu-yan-shi-xian-fcfs-sjf-diao-du-suan-fa/"/>
+      <url>/2022/05/11/c-yu-yan-shi-xian-fcfs-sjf-diao-du-suan-fa/</url>
+      
+        <content type="html"><![CDATA[<p>本次内容也是北京航空航天大学OS操作系统第五次课上作业。</p><p><img src="https://note.youdao.com/yws/api/personal/file/69479141906C4090894C0F203F28D306?method=download&shareKey=79efbec86dd0a81e338db7172b17bb6b"></p><p>我所使用的变量顾名知义，不做过多的阐述。</p><pre class="line-numbers language-C" data-language="C"><code class="language-C">#include&lt;stdio.h&gt;#include&lt;stdlib.h&gt;int job_submitted_time[] &#x3D; &#123;0, 1, 2, 3, 12, 12, 12, 12, 200, 200&#125;;int job_required_time[] &#x3D; &#123;4, 3, 2, 1, 6, 5, 4, 3, 1, 1&#125;;int fcfs_result[10];int sjf_result[10];void FCFS (    int number_of_jobs,    const int job_submitted_time [],    const int job_required_time [],    int job_sched_start []) &#123;    int currenttime &#x3D; job_submitted_time[0];    job_sched_start[0] &#x3D; job_submitted_time[0];    currenttime +&#x3D; job_required_time[0];    for(int i&#x3D;1;i&lt;number_of_jobs;i++) &#123;        if(currenttime &gt;&#x3D; job_submitted_time[i]) &#123;            job_sched_start[i] &#x3D; currenttime;        &#125; else &#123;            job_sched_start[i] &#x3D; job_submitted_time[i];            currenttime &#x3D; job_submitted_time[i];        &#125;        currenttime +&#x3D; job_required_time[i];    &#125;&#125;void SJF (    int number_of_jobs,    const int job_submitted_time [],    const int job_required_time [],    int job_sched_start []) &#123;    char record[2005];    memset(record,0,sizeof(record));    int currenttime &#x3D; job_submitted_time[0];    int k &#x3D; number_of_jobs;    int last &#x3D; 0;    &#x2F;&#x2F;int flag &#x3D; 0;    while(k--)&#123;        int mintime &#x3D; (((unsigned int)(-1))&gt;&gt;1);        int recordi &#x3D; -1;                for(int i &#x3D; 0;i &lt; number_of_jobs;i++) &#123;            if(job_submitted_time[i] &gt; currenttime) &#123;                break;            &#125; else if(record[i] !&#x3D; &#39;1&#39;) &#123;                if(job_required_time[i] &lt; mintime) &#123;                    recordi &#x3D; i;                    mintime &#x3D; job_required_time[i];                &#125;            &#125; else if(record[i] &#x3D;&#x3D; &#39;1&#39;) &#123;                if(i &gt; last) &#123;                    last &#x3D; i;                &#125;            &#125;        &#125;        if(recordi &#x3D;&#x3D; -1) &#123;            currenttime &#x3D; job_submitted_time[last + 1];            k++;            continue;        &#125;        record[recordi] &#x3D; &#39;1&#39;;        job_sched_start[recordi] &#x3D; currenttime;        currenttime +&#x3D; job_required_time[recordi];    &#125;&#125;int main() &#123;    int n &#x3D; 10, i;    FCFS(n, job_submitted_time, job_required_time, fcfs_result);    puts(&quot;FCFS results:&quot;);    for (i &#x3D; 0; i &lt; n; ++i) printf(&quot;job % 2d: [% 9d]\n&quot;, i, fcfs_result[i]);    SJF(n, job_submitted_time, job_required_time, sjf_result);    puts(&quot;SJF results:&quot;);    for (i &#x3D; 0; i &lt; n; ++i) printf(&quot;job % 2d: [% 9d]\n&quot;, i, sjf_result[i]);&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 操作系统 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2022操作系统Lab3实验报告</title>
       <link href="/2022/05/09/2022-cao-zuo-xi-tong-lab3-shi-yan-bao-gao/"/>
       <url>/2022/05/09/2022-cao-zuo-xi-tong-lab3-shi-yan-bao-gao/</url>

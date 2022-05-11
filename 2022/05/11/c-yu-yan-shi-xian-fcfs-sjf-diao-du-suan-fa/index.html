@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="MarkDown学习笔记, Corsica">
+    <meta name="keywords" content="C语言实现FCFS，SJF调度算法, Corsica">
     <meta name="description" content="I will be with you from dusk till down.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>MarkDown学习笔记 | Corsica</title>
+    <title>C语言实现FCFS，SJF调度算法 | Corsica</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -321,12 +321,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">MarkDown学习笔记</h1>
+                    <h1 class="description center-align post-title">C语言实现FCFS，SJF调度算法</h1>
                 </div>
             </div>
         </div>
@@ -442,8 +442,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/MarkDown/">
-                                <span class="chip bg-color">MarkDown</span>
+                            <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                                <span class="chip bg-color">操作系统</span>
                             </a>
                         
                     </div>
@@ -458,21 +458,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-05-09
+                    2022-05-11
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-05-09
+                    2022-05-11
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    349
+                    371
                 </div>
                 
 
@@ -497,86 +497,86 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Markdown学习笔记"><a href="#Markdown学习笔记" class="headerlink" title="Markdown学习笔记"></a>Markdown学习笔记</h1><h2 id="date-2021-10-5"><a href="#date-2021-10-5" class="headerlink" title="(date:2021.10.5)"></a>(date:2021.10.5)</h2><hr>
-<h3 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h3><p><em>斜体文本</em><br><strong>粗体文本</strong><br><em><strong>斜粗体文本</strong></em></p>
-<hr>
-<h3 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h3><p>使用三个以上的减号可以建立分割线</p>
-<hr>
-<h3 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h3><p><del>BAIDU</del></p>
-<hr>
-<h3 id="创建脚注"><a href="#创建脚注" class="headerlink" title="创建脚注"></a>创建脚注</h3><p>创建一个脚注[^RUNOOB]</p>
-<hr>
-<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><h4 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h4><p>文字前加一个减号和空格</p>
-<ul>
-<li>第一</li>
-<li>第二</li>
-<li>第三</li>
-</ul>
-<h4 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h4><p>文字前加数字和点.和空格</p>
-<ol>
-<li>第一<ul>
-<li>列表嵌套，前面加4个空格</li>
-</ul>
-</li>
-<li>第二</li>
-<li>第三</li>
-</ol>
-<hr>
-<h3 id="创建区块"><a href="#创建区块" class="headerlink" title="创建区块"></a>创建区块</h3><p>段落开头用&gt;加一个空格</p>
-<blockquote>
-<p>区块引用<br>I have dream</p>
-<p>列表中也可以使用区块</p>
-</blockquote>
-<ul>
-<li><p>第一项</p>
-<blockquote>
-<p>一个区块<br>I have a dream</p>
-</blockquote>
-</li>
-<li><p>第二项</p>
-</li>
-</ul>
-<hr>
-<h3 id="写入代码"><a href="#写入代码" class="headerlink" title="写入代码"></a>写入代码</h3><p>写 <em><strong>函数名称</strong></em> 用反引号将其包起来 <code>printf()</code>函数</p>
-<p>写 <em><strong>函数块</strong></em> 用三个反引号将其包起来并指定一种语言</p>
-<pre class="line-numbers language-C" data-language="C"><code class="language-C">while(all_items[c].a!&#x3D;0)
-    &#123;
-        int a0&#x3D;all_items[c].a,p0&#x3D;all_items[c].p;
-        for(t&#x3D;c+1;all_items[t].p&#x3D;&#x3D;all_items[c].p;t++)
-        &#123;
-            a0+&#x3D;all_items[t].a;
+                <p>本次内容也是北京航空航天大学OS操作系统第五次课上作业。</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/69479141906C4090894C0F203F28D306?method=download&shareKey=79efbec86dd0a81e338db7172b17bb6b"></p>
+<p>我所使用的变量顾名知义，不做过多的阐述。</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+int job_submitted_time[] &#x3D; &#123;0, 1, 2, 3, 12, 12, 12, 12, 200, 200&#125;;
+int job_required_time[] &#x3D; &#123;4, 3, 2, 1, 6, 5, 4, 3, 1, 1&#125;;
+int fcfs_result[10];
+int sjf_result[10];
+void FCFS (
+    int number_of_jobs,
+    const int job_submitted_time [],
+    const int job_required_time [],
+    int job_sched_start []
+) &#123;
+    int currenttime &#x3D; job_submitted_time[0];
+    job_sched_start[0] &#x3D; job_submitted_time[0];
+    currenttime +&#x3D; job_required_time[0];
+    for(int i&#x3D;1;i&lt;number_of_jobs;i++) &#123;
+        if(currenttime &gt;&#x3D; job_submitted_time[i]) &#123;
+            job_sched_start[i] &#x3D; currenttime;
+        &#125; else &#123;
+            job_sched_start[i] &#x3D; job_submitted_time[i];
+            currenttime &#x3D; job_submitted_time[i];
         &#125;
-        printf(&quot;%d %d &quot;,a0,p0);
-        c&#x3D;t;
-    &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        currenttime +&#x3D; job_required_time[i];
+    &#125;
+&#125;
 
-<hr>
-<h3 id="插入链接"><a href="#插入链接" class="headerlink" title="插入链接"></a>插入链接</h3><p>这是一个<strong>链接</strong><a href="https://shl518.github.io/">LeiYu’s Blog</a><br>链接用[链接名称] (链接地址)</p>
-<hr>
-<h3 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h3><p>！[属性文本] （属性文本）</p>
-<p>这是一张图片<img src="https://note.youdao.com/yws/api/personal/file/0472D20B23C24B4B8B57A5D749427AFF?method=download&shareKey=fd611a54037b17b03bba51b4704d00ae" alt="My photo"></p>
-<hr>
-<h3 id="制作表格"><a href="#制作表格" class="headerlink" title="制作表格"></a>制作表格</h3><p>使用|来分割左右，使用-分割上下,使用：来设置对齐方式</p>
-<table>
-<thead>
-<tr>
-<th align="left">表头</th>
-<th align="right">表头</th>
-<th align="center">表头</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">单元格</td>
-<td align="right">单元格</td>
-<td align="center">单元格</td>
-</tr>
-<tr>
-<td align="left">单元格</td>
-<td align="right">单元格</td>
-<td align="center">单元格</td>
-</tr>
-</tbody></table>
-<p>[^RUNOOB]: I have a dream.</p>
+void SJF (
+    int number_of_jobs,
+    const int job_submitted_time [],
+    const int job_required_time [],
+    int job_sched_start []
+) &#123;
+    char record[2005];
+    memset(record,0,sizeof(record));
+    int currenttime &#x3D; job_submitted_time[0];
+    int k &#x3D; number_of_jobs;
+    int last &#x3D; 0;
+    &#x2F;&#x2F;int flag &#x3D; 0;
+    while(k--)&#123;
+        int mintime &#x3D; (((unsigned int)(-1))&gt;&gt;1);
+        int recordi &#x3D; -1;
+        
+        for(int i &#x3D; 0;i &lt; number_of_jobs;i++) &#123;
+            if(job_submitted_time[i] &gt; currenttime) &#123;
+                break;
+            &#125; else if(record[i] !&#x3D; &#39;1&#39;) &#123;
+                if(job_required_time[i] &lt; mintime) &#123;
+                    recordi &#x3D; i;
+                    mintime &#x3D; job_required_time[i];
+                &#125;
+            &#125; else if(record[i] &#x3D;&#x3D; &#39;1&#39;) &#123;
+                if(i &gt; last) &#123;
+                    last &#x3D; i;
+                &#125;
+            &#125;
+        &#125;
+        if(recordi &#x3D;&#x3D; -1) &#123;
+            currenttime &#x3D; job_submitted_time[last + 1];
+            k++;
+            continue;
+        &#125;
+        record[recordi] &#x3D; &#39;1&#39;;
+        job_sched_start[recordi] &#x3D; currenttime;
+        currenttime +&#x3D; job_required_time[recordi];
+    &#125;
+&#125;
+int main() &#123;
+    int n &#x3D; 10, i;
+    FCFS(n, job_submitted_time, job_required_time, fcfs_result);
+    puts(&quot;FCFS results:&quot;);
+    for (i &#x3D; 0; i &lt; n; ++i) printf(&quot;job % 2d: [% 9d]\n&quot;, i, fcfs_result[i]);
+    SJF(n, job_submitted_time, job_required_time, sjf_result);
+    puts(&quot;SJF results:&quot;);
+    for (i &#x3D; 0; i &lt; n; ++i) printf(&quot;job % 2d: [% 9d]\n&quot;, i, sjf_result[i]);
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>
@@ -603,7 +603,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://shl518.github.io/2022/05/09/markdown-xue-xi-bi-ji/">http://shl518.github.io/2022/05/09/markdown-xue-xi-bi-ji/</a>
+                    <a href="http://shl518.github.io/2022/05/11/c-yu-yan-shi-xian-fcfs-sjf-diao-du-suan-fa/">http://shl518.github.io/2022/05/11/c-yu-yan-shi-xian-fcfs-sjf-diao-du-suan-fa/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -641,8 +641,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/MarkDown/">
-                                    <span class="chip bg-color">MarkDown</span>
+                                <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                                    <span class="chip bg-color">操作系统</span>
                                 </a>
                             
                         </div>
@@ -812,17 +812,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/05/09/mips-hui-bian-yu-yan/">
+                <a href="/2022/05/11/c-yu-yan-shi-xian-fcfs-sjf-diao-du-suan-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Mips汇编语言">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="C语言实现FCFS，SJF调度算法">
                         
-                        <span class="card-title">Mips汇编语言</span>
+                        <span class="card-title">C语言实现FCFS，SJF调度算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -832,9 +833,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-11
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -843,11 +844,12 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90Mips/">
-                        <span class="chip bg-color">计算机组成Mips</span>
+                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">操作系统</span>
                     </a>
                     
                 </div>
@@ -861,13 +863,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/05/09/logism-qi-jian/">
+                <a href="/2022/05/09/2022-cao-zuo-xi-tong-lab3-shi-yan-bao-gao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Logism器件">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="2022操作系统Lab3实验报告">
                         
-                        <span class="card-title">Logism器件</span>
+                        <span class="card-title">2022操作系统Lab3实验报告</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -891,8 +893,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90Logism/">
-                        <span class="chip bg-color">计算机组成Logism</span>
+                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">操作系统</span>
                     </a>
                     
                 </div>
