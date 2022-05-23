@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="MarkDown学习笔记, Corsica">
+    <meta name="keywords" content="Stanford_CS231n, Corsica">
     <meta name="description" content="I will be with you from dusk till down.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>MarkDown学习笔记 | Corsica</title>
+    <title>Stanford_CS231n | Corsica</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -321,12 +321,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">MarkDown学习笔记</h1>
+                    <h1 class="description center-align post-title">Stanford_CS231n</h1>
                 </div>
             </div>
         </div>
@@ -442,8 +442,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/MarkDown/">
-                                <span class="chip bg-color">MarkDown</span>
+                            <a href="/tags/DeepLearning/">
+                                <span class="chip bg-color">DeepLearning</span>
                             </a>
                         
                     </div>
@@ -458,21 +458,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-05-09
+                    2022-05-23
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-05-09
+                    2022-05-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    349
+                    429
                 </div>
                 
 
@@ -497,86 +497,34 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Markdown学习笔记"><a href="#Markdown学习笔记" class="headerlink" title="Markdown学习笔记"></a>Markdown学习笔记</h1><h2 id="date-2021-10-5"><a href="#date-2021-10-5" class="headerlink" title="(date:2021.10.5)"></a>(date:2021.10.5)</h2><hr>
-<h3 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h3><p><em>斜体文本</em><br><strong>粗体文本</strong><br><em><strong>斜粗体文本</strong></em></p>
-<hr>
-<h3 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h3><p>使用三个以上的减号可以建立分割线</p>
-<hr>
-<h3 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h3><p><del>BAIDU</del></p>
-<hr>
-<h3 id="创建脚注"><a href="#创建脚注" class="headerlink" title="创建脚注"></a>创建脚注</h3><p>创建一个脚注[^RUNOOB]</p>
-<hr>
-<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><h4 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h4><p>文字前加一个减号和空格</p>
+                <h3 id="KNN-K-nearest-Neighbor-K近邻算法"><a href="#KNN-K-nearest-Neighbor-K近邻算法" class="headerlink" title="KNN(K-nearest-Neighbor) K近邻算法"></a>KNN(K-nearest-Neighbor) K近邻算法</h3><p>K近邻（K-Nearest Neighbor, KNN）是一种最经典和最简单的<em>有监督学习</em>方法之一。K-近邻算法是最简单的分类器，<em>没有显式的学习过程或训练过程</em>，是<em>懒惰学习</em>（Lazy Learning）。当对数据的分布只有很少或者没有任何先验知识时，K 近邻算法是一个不错的选择。</p>
 <ul>
-<li>第一</li>
-<li>第二</li>
-<li>第三</li>
-</ul>
-<h4 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h4><p>文字前加数字和点.和空格</p>
-<ol>
-<li>第一<ul>
-<li>列表嵌套，前面加4个空格</li>
-</ul>
+<li><p>核心就是类似一种投票机制，测试样本附近最近的k个样本中，哪个类型的点多就归为哪一类</p>
 </li>
-<li>第二</li>
-<li>第三</li>
-</ol>
-<hr>
-<h3 id="创建区块"><a href="#创建区块" class="headerlink" title="创建区块"></a>创建区块</h3><p>段落开头用&gt;加一个空格</p>
-<blockquote>
-<p>区块引用<br>I have dream</p>
-<p>列表中也可以使用区块</p>
-</blockquote>
+<li><p>K近邻的难点在于衡量距离？比如两段文本，如何衡量其距离？</p>
+</li>
+</ul>
+<h4 id="1-如何衡量两个对象距离？"><a href="#1-如何衡量两个对象距离？" class="headerlink" title="1. 如何衡量两个对象距离？"></a>1. 如何衡量两个对象距离？</h4><ul>
+<li>L1：Manhattan曼哈顿距离，二维图像来看是一个正方体，正方形所有点距离远点曼哈顿相同。（视频中提到如果你的特征向量有一些具体的含义，那么maybe L1 is a better choice）.Besides, 坐标轴变换对Manhattan Distance 有影响 </li>
+<li>L2: Euclidean欧氏距离，如果特征向量没有更多的含义普遍采用L2，转动坐标系对L2没有影响</li>
+</ul>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220523210259085.png" alt="image-20220523210259085"></p>
 <ul>
-<li><p>第一项</p>
-<blockquote>
-<p>一个区块<br>I have a dream</p>
-</blockquote>
-</li>
-<li><p>第二项</p>
+<li>注：Hyperparameters 无法从数据中学习到的参数，k的选取，距离度量的选取</li>
+</ul>
+<h4 id="2-训练方法"><a href="#2-训练方法" class="headerlink" title="2. 训练方法"></a>2. 训练方法</h4><p><code>train + validation + test</code></p>
+<p>choose best hyperparameters on val ,and evaluate it on test,train is just used as labels </p>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220523214107087.png" alt="image-20220523214107087"></p>
+<p>数据较少的时候更好的训练方法is交叉验证法，继续划分train，train中的每一个部分挨个当作val</p>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220523214203066.png" alt="image-20220523214203066"></p>
+<p>总结</p>
+<ul>
+<li>KNN不适用于图像分类领域<ul>
+<li>KNN导致维度灾难，要实现准确分类，需要的训练数据指数级增长</li>
+<li>反正就是不适合图像！看着就不适合！</li>
+</ul>
 </li>
 </ul>
-<hr>
-<h3 id="写入代码"><a href="#写入代码" class="headerlink" title="写入代码"></a>写入代码</h3><p>写 <em><strong>函数名称</strong></em> 用反引号将其包起来 <code>printf()</code>函数</p>
-<p>写 <em><strong>函数块</strong></em> 用三个反引号将其包起来并指定一种语言</p>
-<pre class="line-numbers language-C" data-language="C"><code class="language-C">while(all_items[c].a!&#x3D;0)
-    &#123;
-        int a0&#x3D;all_items[c].a,p0&#x3D;all_items[c].p;
-        for(t&#x3D;c+1;all_items[t].p&#x3D;&#x3D;all_items[c].p;t++)
-        &#123;
-            a0+&#x3D;all_items[t].a;
-        &#125;
-        printf(&quot;%d %d &quot;,a0,p0);
-        c&#x3D;t;
-    &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<hr>
-<h3 id="插入链接"><a href="#插入链接" class="headerlink" title="插入链接"></a>插入链接</h3><p>这是一个<strong>链接</strong><a href="https://shl518.github.io/">LeiYu’s Blog</a><br>链接用[链接名称] (链接地址)</p>
-<hr>
-<h3 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h3><p>！[属性文本] （属性文本）</p>
-<p>这是一张图片<img src="https://note.youdao.com/yws/api/personal/file/0472D20B23C24B4B8B57A5D749427AFF?method=download&shareKey=fd611a54037b17b03bba51b4704d00ae" alt="My photo"></p>
-<hr>
-<h3 id="制作表格"><a href="#制作表格" class="headerlink" title="制作表格"></a>制作表格</h3><p>使用|来分割左右，使用-分割上下,使用：来设置对齐方式</p>
-<table>
-<thead>
-<tr>
-<th align="left">表头</th>
-<th align="right">表头</th>
-<th align="center">表头</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">单元格</td>
-<td align="right">单元格</td>
-<td align="center">单元格</td>
-</tr>
-<tr>
-<td align="left">单元格</td>
-<td align="right">单元格</td>
-<td align="center">单元格</td>
-</tr>
-</tbody></table>
-<p>[^RUNOOB]: I have a dream.</p>
 
                 
             </div>
@@ -603,7 +551,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://shl518.github.io/2022/05/09/markdown-xue-xi-bi-ji/">http://shl518.github.io/2022/05/09/markdown-xue-xi-bi-ji/</a>
+                    <a href="http://shl518.github.io/2022/05/23/stanford-cs231n/">http://shl518.github.io/2022/05/23/stanford-cs231n/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -641,8 +589,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/MarkDown/">
-                                    <span class="chip bg-color">MarkDown</span>
+                                <a href="/tags/DeepLearning/">
+                                    <span class="chip bg-color">DeepLearning</span>
                                 </a>
                             
                         </div>
@@ -812,17 +760,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/05/09/mips-hui-bian-yu-yan/">
+                <a href="/2022/05/23/stanford-cs231n/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Mips汇编语言">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Stanford_CS231n">
                         
-                        <span class="card-title">Mips汇编语言</span>
+                        <span class="card-title">Stanford_CS231n</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -832,9 +781,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -843,11 +792,12 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90Mips/">
-                        <span class="chip bg-color">计算机组成Mips</span>
+                    <a href="/tags/DeepLearning/">
+                        <span class="chip bg-color">DeepLearning</span>
                     </a>
                     
                 </div>
@@ -861,13 +811,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/05/09/logism-qi-jian/">
+                <a href="/2022/05/23/bei-hang-oslab5-shi-yan-bi-ji/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Logism器件">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="北航OSLab5实验笔记">
                         
-                        <span class="card-title">Logism器件</span>
+                        <span class="card-title">北航OSLab5实验笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -878,7 +828,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-23
                             </span>
                         <span class="publish-author">
                             
@@ -891,8 +841,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90Logism/">
-                        <span class="chip bg-color">计算机组成Logism</span>
+                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">操作系统</span>
                     </a>
                     
                 </div>
