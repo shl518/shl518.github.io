@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="操作系统进程.md, Corsica">
+    <meta name="keywords" content="2022操作系统Lab6实验报告, Corsica">
     <meta name="description" content="I will be with you from dusk till down.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>操作系统进程.md | Corsica</title>
+    <title>2022操作系统Lab6实验报告 | Corsica</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -321,12 +321,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">操作系统进程.md</h1>
+                    <h1 class="description center-align post-title">2022操作系统Lab6实验报告</h1>
                 </div>
             </div>
         </div>
@@ -440,9 +440,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                                <span class="chip bg-color">操作系统</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -454,21 +458,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-05-16
+                    2022-06-20
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-05-16
+                    2022-06-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    1.2k
                 </div>
                 
 
@@ -493,7 +497,96 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="Lab6-实验报告"><a href="#Lab6-实验报告" class="headerlink" title="Lab6 实验报告"></a>Lab6 实验报告</h2><h3 id="1-1-思考题"><a href="#1-1-思考题" class="headerlink" title="1.1 思考题"></a>1.1 思考题</h3><h4 id="label-Thinking-6-1-示例代码中，父进程操作管道的写端，子进程操作管道的读端。如果现在想让父进程作为“读者”，代码应当如何修改？"><a href="#label-Thinking-6-1-示例代码中，父进程操作管道的写端，子进程操作管道的读端。如果现在想让父进程作为“读者”，代码应当如何修改？" class="headerlink" title=":label:Thinking 6.1 示例代码中，父进程操作管道的写端，子进程操作管道的读端。如果现在想让父进程作为“读者”，代码应当如何修改？"></a>:label:Thinking 6.1 示例代码中，父进程操作管道的写端，子进程操作管道的读端。如果现在想让父进程作为“读者”，代码应当如何修改？</h4><p><strong>答：</strong>把原来fd[]数组的0、1互换即可,read,write操作互换即可。</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include &lt;stdlib.h&gt;
+
+#include &lt;unistd.h&gt;
+
+int fildes[2];
+
+&#x2F;* buf size is 100 *&#x2F;
+
+char buf[100];
+
+int status;
+
+int main()&#123;
+
+status &#x3D; pipe(fildes);
+
+if (status &#x3D;&#x3D; -1 ) &#123;
+
+&#x2F;* an error occurred *&#x2F;
+
+printf(&quot;error\n&quot;);
+
+&#125;
+
+switch (fork()) &#123;
+
+case -1: &#x2F;* Handle error *&#x2F;
+
+break;
+
+case 0: &#x2F;* Child - reads from pipe *&#x2F;
+
+close(fildes[0]); &#x2F;* Read end is unused *&#x2F;
+
+write(fildes[1], &quot;Hello world\n&quot;, 12); &#x2F;* Write data on pipe *&#x2F;
+
+
+printf(&quot;child-process Write:%s&quot;,buf); &#x2F;* Print the data *&#x2F;
+
+close(fildes[1]); &#x2F;* Finished with pipe *&#x2F;
+
+exit(EXIT_SUCCESS);
+
+default: &#x2F;* Parent - writes to pipe *&#x2F;
+
+close(fildes[1]); &#x2F;* Write end is unused *&#x2F;
+
+read(fildes[0], buf, 100); &#x2F;* Read data from pipe *&#x2F;
+
+close(fildes[0]); &#x2F;* Child will see EOF *&#x2F;
+
+exit(EXIT_SUCCESS);
+
+&#125;
+
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="label-Thinking-6-2-上面这种不同步修改-pp-ref-而导致的进程竞争问题在-user-x2F-fd-c-中的dup-函数中也存在。请结合代码模仿上述情景，分析一下我们的-dup-函数中为什么会出现预想之外的情况？"><a href="#label-Thinking-6-2-上面这种不同步修改-pp-ref-而导致的进程竞争问题在-user-x2F-fd-c-中的dup-函数中也存在。请结合代码模仿上述情景，分析一下我们的-dup-函数中为什么会出现预想之外的情况？" class="headerlink" title=":label: Thinking 6.2 上面这种不同步修改 pp_ref 而导致的进程竞争问题在 user&#x2F;fd.c 中的dup 函数中也存在。请结合代码模仿上述情景，分析一下我们的 dup 函数中为什么会出现预想之外的情况？"></a>:label: Thinking 6.2 上面这种不同步修改 pp_ref 而导致的进程竞争问题在 user&#x2F;fd.c 中的dup 函数中也存在。请结合代码模仿上述情景，分析一下我们的 dup 函数中为什么会出现预想之外的情况？</h4><p><strong>答：</strong>假设父子进程，有一对管道<code>p[2]</code>，其中父进程关闭<code>p[0]</code>完毕，准备测试<code>ispipeclosed(p[1])</code>。子进程<code>dup(p[1])</code>刚dup完毕fd，还没开始dup Pipe结构体。</p>
+<p>此时<code>p[1]</code>引用数为3，<code>p[0]</code>引用数为1，Pipe结构体所在页因为被map到父进程的<code>p[0]</code>和子进程的<code>p[0]</code>、<code>p[1]</code>的fdData处，引用数也为3，此时pageref(wfd) &#x3D; pageref(pipe)父进程的<code>ispipeclosed(p[1])</code>就会被误判为true。</p>
+<h4 id="label-Thinking-6-3-阅读上述材料并思考：为什么系统调用一定是原子操作呢？如果你觉得不是所有的系统调用都是原子操作，请给出反例。希望能结合相关代码进行分析。"><a href="#label-Thinking-6-3-阅读上述材料并思考：为什么系统调用一定是原子操作呢？如果你觉得不是所有的系统调用都是原子操作，请给出反例。希望能结合相关代码进行分析。" class="headerlink" title=":label:Thinking 6.3 阅读上述材料并思考：为什么系统调用一定是原子操作呢？如果你觉得不是所有的系统调用都是原子操作，请给出反例。希望能结合相关代码进行分析。"></a>:label:Thinking 6.3 阅读上述材料并思考：为什么系统调用一定是原子操作呢？如果你觉得不是所有的系统调用都是原子操作，请给出反例。希望能结合相关代码进行分析。</h4><p><strong>答：</strong>所有的系统调用都是原子操作。用户进程执行syscall后到操作系统完成操作返回的过程中，不会有其他程序执行。系统调用开始时，操作系统就会关闭中断（syscall.S中的CLI指令）。因此系统调用不会被打断。对于sys_ipc_recv，应理解为设置进程进入recv状态，这个设置过程不会被打断，因而也是原子操作。</p>
+<h4 id="label-Thinking-6-4-仔细阅读上面这段话，并思考下列问题"><a href="#label-Thinking-6-4-仔细阅读上面这段话，并思考下列问题" class="headerlink" title=":label:Thinking 6.4 仔细阅读上面这段话，并思考下列问题"></a>:label:Thinking 6.4 仔细阅读上面这段话，并思考下列问题</h4><p>• 按照上述说法控制 pipeclose 中 fd 和 pipe unmap 的顺序，是否可以解决上述场景的进程竞争问题？给出你的分析过程。</p>
+<p><strong>答：</strong>可以，因为原情况出现的原因是：a, b二值, a &gt; b当先减少a再减少b时，就可能会出现a &#x3D;&#x3D; b的中间态。改变顺序后b先减少 a &gt; b &gt; b* 不会出现这种状态。</p>
+<p>• 我们只分析了 close 时的情形，那么对于 dup 中出现的情况又该如何解决？请模仿上述材料写写你的理解。</p>
+<p><strong>答：</strong>dup是类似的，只不过情况变成了先增加b再增加a，改变顺序之后先增加a再增加b，也就不会有这种情况发生。</p>
+<h4 id="label-Thinking-6-5-bss-在-ELF-中并不占空间，但-ELF-加载进内存后，bss-段的数据占据了空间，并且初始值都是-0。请回答你设计的函数是如何实现上面这点的？"><a href="#label-Thinking-6-5-bss-在-ELF-中并不占空间，但-ELF-加载进内存后，bss-段的数据占据了空间，并且初始值都是-0。请回答你设计的函数是如何实现上面这点的？" class="headerlink" title=":label:Thinking 6.5 bss 在 ELF 中并不占空间，但 ELF 加载进内存后，bss 段的数据占据了空间，并且初始值都是 0。请回答你设计的函数是如何实现上面这点的？"></a>:label:Thinking 6.5 bss 在 ELF 中并不占空间，但 ELF 加载进内存后，bss 段的数据占据了空间，并且初始值都是 0。请回答你设计的函数是如何实现上面这点的？</h4><p><strong>答：</strong>Load二进制文件时，根据bss段数据的memsz属性分配对应的内存空间并清零。</p>
+<h4 id="label-Thinking-6-6-为什么我们的-b-的-text-段偏移值都是一样的，为固定值？"><a href="#label-Thinking-6-6-为什么我们的-b-的-text-段偏移值都是一样的，为固定值？" class="headerlink" title=":label:Thinking 6.6 为什么我们的 *.b 的 text 段偏移值都是一样的，为固定值？"></a>:label:Thinking 6.6 为什么我们的 *.b 的 text 段偏移值都是一样的，为固定值？</h4><p><strong>答：</strong>user.lds中有如下内容，规定了.text段在链接中第一个被链接，因此开始位置相同。</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C"> . &#x3D; 0x00400000;
+
+ _text &#x3D; .;    &#x2F;* Text and read-only data *&#x2F;
+ .text : &#123;
+*(.text)
+*(.fixup)
+*(.gnu.warning)
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="label-Thinking-6-7-在哪步，0-和-1-被”-安排”-为标准输入和标准输出？请分析代码执行流程，给出答案。"><a href="#label-Thinking-6-7-在哪步，0-和-1-被”-安排”-为标准输入和标准输出？请分析代码执行流程，给出答案。" class="headerlink" title=":label:Thinking 6.7 在哪步，0 和 1 被” 安排” 为标准输入和标准输出？请分析代码执行流程，给出答案。"></a>:label:Thinking 6.7 在哪步，0 和 1 被” 安排” 为标准输入和标准输出？请分析代码执行流程，给出答案。</h4><p><strong>答：</strong>user&#x2F;init.c中。</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">   <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>r <span class="token operator">=</span> <span class="token function">opencons</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
+	<span class="token function">user_panic</span><span class="token punctuation">(</span><span class="token string">"opencons: %e"</span><span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>r <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+	<span class="token function">user_panic</span><span class="token punctuation">(</span><span class="token string">"first opencons used fd %d"</span><span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>r <span class="token operator">=</span> <span class="token function">dup</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
+	<span class="token function">user_panic</span><span class="token punctuation">(</span><span class="token string">"dup: %d"</span><span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="1-2-实验难点图示"><a href="#1-2-实验难点图示" class="headerlink" title="1.2 实验难点图示"></a>1.2 实验难点图示</h3><p>spawn函数的理解在本次实验中是一个难点，将其流程总结如下。</p>
+<p><img src="https://raw.githubusercontent.com/VOIDMalkuth/BUAA_OS_2019_Code/master/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/Lab6%20Report/spawn.png"></p>
+<h3 id="1-3-心得体会"><a href="#1-3-心得体会" class="headerlink" title="1.3 心得体会"></a>1.3 心得体会</h3><p>本次实验难度一般，难点在于pipe在多进程并发环境下可能出现的一些问题和spawn函数的设计，实验内容方面，真正测试shell才发现我们的系统还是有许多不完善之处，但是这样能让一个小系统跑起来，也是一个很大的收获，最终实现shell后也有很大的成就感。</p>
+
                 
             </div>
             <hr/>
@@ -519,7 +612,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://shl518.github.io/2022/05/16/cao-zuo-xi-tong-jin-cheng/">http://shl518.github.io/2022/05/16/cao-zuo-xi-tong-jin-cheng/</a>
+                    <a href="http://shl518.github.io/2022/06/20/2022-cao-zuo-xi-tong-lab6-shi-yan-bao-gao/">http://shl518.github.io/2022/06/20/2022-cao-zuo-xi-tong-lab6-shi-yan-bao-gao/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -556,7 +649,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                                    <span class="chip bg-color">操作系统</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -728,13 +825,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/05/16/deeplearning-cs231n-ke-cheng-xue-xi-shi-lu/">
+                <a href="/2022/06/20/2022-cao-zuo-xi-tong-lab5-shi-yan-bao-gao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="DeepLearning：CS231n课程学习实录">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="2022操作系统Lab5实验报告">
                         
-                        <span class="card-title">DeepLearning：CS231n课程学习实录</span>
+                        <span class="card-title">2022操作系统Lab5实验报告</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -745,7 +842,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-16
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-20
                         </span>
                         <span class="publish-author">
                             
@@ -754,6 +851,14 @@
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">操作系统</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -765,13 +870,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/05/13/2022-bei-hang-unix-fu-xi-zi-liao/">
+                <a href="/2022/06/20/2022-cao-zuo-xi-tong-lab5-shi-yan-bi-ji/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="2022北航UNIX复习资料">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="2022操作系统Lab5实验笔记">
                         
-                        <span class="card-title">2022北航UNIX复习资料</span>
+                        <span class="card-title">2022操作系统Lab5实验笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -782,7 +887,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-20
                             </span>
                         <span class="publish-author">
                             
@@ -795,8 +900,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8C%97%E8%88%AAUNIX/">
-                        <span class="chip bg-color">北航UNIX</span>
+                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">操作系统</span>
                     </a>
                     
                 </div>

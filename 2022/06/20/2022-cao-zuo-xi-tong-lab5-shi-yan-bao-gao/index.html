@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="操作系统进程.md, Corsica">
+    <meta name="keywords" content="2022操作系统Lab5实验报告, Corsica">
     <meta name="description" content="I will be with you from dusk till down.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>操作系统进程.md | Corsica</title>
+    <title>2022操作系统Lab5实验报告 | Corsica</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -321,12 +321,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">操作系统进程.md</h1>
+                    <h1 class="description center-align post-title">2022操作系统Lab5实验报告</h1>
                 </div>
             </div>
         </div>
@@ -440,9 +440,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                                <span class="chip bg-color">操作系统</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -454,21 +458,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-05-16
+                    2022-06-20
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-05-16
+                    2022-06-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    3.8k
                 </div>
                 
 
@@ -493,7 +497,232 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="Lab5-实验报告"><a href="#Lab5-实验报告" class="headerlink" title="Lab5 实验报告"></a>Lab5 实验报告</h2><h3 id="1-1-思考题"><a href="#1-1-思考题" class="headerlink" title="1.1 思考题"></a>1.1 思考题</h3><h4 id="Thinking-5-1"><a href="#Thinking-5-1" class="headerlink" title="Thinking 5.1"></a>Thinking 5.1</h4><p>:label:<strong>查阅资料，了解 Linux&#x2F;Unix 的 &#x2F;proc 文件系统是什么？有什么作用？ Windows 操作系统又是如何实现这些功能的？proc 文件系统这样的设计有什么好处和可以改进的地方？</strong></p>
+<p><strong>答：</strong>proc文件系统是一个伪文件系统，他只存在内存当中，而不占用外存空间。它以文件系统的方式为访问文件系统内核数据的操作提供接口。用户和应用程序可以通过proc得到系统的信息，并可以改变内核的某些参数。</p>
+<p>其<strong>作用</strong>在于使用一种新的方法在 Linux内核空间和用户间之间进行通信。</p>
+<p>对于Windows，其通过系统调用改变内核运行状态和查看进程信息</p>
+<ul>
+<li><p>好处：对系统调用进一步抽象，用户可以直接通过proc伪文件系统访问内核，降低用户操作复杂度，提升了系统运行效率。</p>
+</li>
+<li><p>缺点：proc伪文件系统需要在内存中实现，占用内存空间。</p>
+</li>
+<li><p>改进：proc伪文件系统由于需要占用内存，我想改进之处在于采用更好的数据结构减少其在内存中的大小，减少占用内存的空间。</p>
+</li>
+</ul>
+<h4 id="Thinking-5-2"><a href="#Thinking-5-2" class="headerlink" title="Thinking 5.2"></a>Thinking 5.2</h4><p>:label:<strong>如果我们通过 kseg0 读写设备，我们对于设备的写入会缓存到 Cache 中。通过 kseg0 访问设备是一种错误的行为，在实际编写代码的时候这么做会引发不可预知的问题。请你思考：这么做这会引起什么问题？对于不同种类的设备（如我们提到的串口设备和 IDE 磁盘）的操作会有差异吗？可以从缓存的性质和缓存刷新的策略来考虑。</strong></p>
+<p><strong>答：</strong>因为内核被放在kseg0区域，该区域需要通过cache访问；如果对设备的写入缓存到cache中，就会导致以后想访问内核时却错误访问了写入设备的内容，导致访问错误。</p>
+<p>对于不同设备的操作有差异，例如串口设备读写比IDE频繁，发生读写错误的概率更高。</p>
+<h4 id="Thinking-5-3"><a href="#Thinking-5-3" class="headerlink" title="Thinking 5.3"></a>Thinking 5.3</h4><p>:label:<strong>比较 MOS 操作系统的文件控制块和 Unix&#x2F;Linux 操作系统的 inode 及相关概念，试述二者的不同之处。</strong></p>
+<p><strong>答：</strong>下图展示了 Unix&#x2F;Linux 操作系统的 inode 存储的重要信息。</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/10E9DB77968D43E6A426E27A251DB455?method=download&shareKey=d75f2b4f48fe7dc3917e58ceebe5c06a"></p>
+<p>可以看到MOS系统的文件控制块与Linux的inode都存储的是文件基本信息。但是我们可以发现inode<strong>不</strong>包含文件名，而Mos系统的文件控制块包含文件名，这便是二者的区别。</p>
+<p><strong>为什么Linux系统inode不需要存储文件名？</strong>是因为，每个inode都有一个号码，操作系统用inode号码来识别不同的文件。Unix&#x2F;Linux系统内部不使用文件名，而使用inode号码来识别文件。对于系统来说，文件名只是inode号码便于识别的别称或者绰号。</p>
+<p>表面上，用户通过文件名，打开文件。实际上，系统内部这个过程分成三步：首先，系统找到这个文件名对应的inode号码；其次，通过inode号码，获取inode信息；最后，根据inode信息，找到文件数据所在的block，读出数据。</p>
+<h4 id="Thinking-5-4"><a href="#Thinking-5-4" class="headerlink" title="Thinking 5.4"></a>Thinking 5.4</h4><p>:label:<strong>查找代码中的相关定义，试回答一个磁盘块中最多能存储多少个文件 控制块？一个目录下最多能有多少个文件？我们的文件系统支持的单个文件最大为 多大？</strong></p>
+<p><strong>答：</strong>文件控制块大小256B，磁盘块4KB，故最多16个控制块</p>
+<p>目录4096KB，一个文件控制块256B，故最多<code>4096KB/256B = 16384</code>个文件；</p>
+<p>十个直接指针指向的磁盘块一共40KB，间接指针最多<code>1024-10 = 1014 </code>个，间接指针的磁盘块大小<code>1014*4KB = 4056KB</code>,总共<code>4056KB+40KB = 4096KB</code>.</p>
+<p>我们的文件系统支持的单个文件最大为4096KB.</p>
+<h4 id="Thinking-5-5"><a href="#Thinking-5-5" class="headerlink" title="Thinking 5.5"></a>Thinking 5.5</h4><p>:label:<strong>请思考，在满足磁盘块缓存的设计的前提下，我们实验使用的内核支持的最大磁盘大小是多少？</strong></p>
+<p><strong>答：</strong>我们的操作系统中，文件系统服务是一个用户进程，一个进程可以拥有4G 的虚拟内存空间，将DISKMAP 到DISKMAP+DISKMAX 这一段虚存地址空间(0x10000000-0x4ffffff) 作为缓冲区，当磁盘读入内存时，用来映射相关的页。由此可见，为了满足块缓存的设计，我们实验使用的内核支持的最大磁盘大小是<code>0x40000000 = 1GB</code>.</p>
+<h4 id="Thinking-5-6"><a href="#Thinking-5-6" class="headerlink" title="Thinking 5.6"></a>Thinking 5.6</h4><p>:label:<strong>如果将 DISKMAX 改成 0xC0000000, 超过用户空间，我们的文件系统还能正常工作吗？为什么？</strong></p>
+<p><strong>答：</strong>不能，因为缓存磁盘块的时候可能会把内核的内容覆盖掉，导致系统运行异常</p>
+<h4 id="Thinking-5-7"><a href="#Thinking-5-7" class="headerlink" title="Thinking 5.7"></a>Thinking 5.7</h4><p>:label:<strong>在 lab5 中，fs&#x2F;fs.h、include&#x2F;fs.h 等文件中出现了许多结构体和宏定 义，写出你认为比较重要或难以理解的部分，并进行解释。</strong></p>
+<p><strong>答：</strong></p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">&#x2F;&#x2F;一些需要理解的宏
+#define BY2BLK		BY2PG &#x2F;&#x2F;一个块的大小正好是一页4096Byte
+#define BIT2BLK		(BY2BLK*8) &#x2F;&#x2F;这里算的是BLK的bit，所以自然是*8
+#define BY2FILE     256 &#x2F;&#x2F;一个file结构体的大小 256Byte
+#define NBLOCK 1024  &#x2F;&#x2F;一个disk里面有1024块
+#define FILE2BLK  (BY2BLK&#x2F;sizeof(struct File)) &#x2F;&#x2F;一个块里面有多少个file结构体<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">&#x2F;&#x2F;需要重点理解的文件控制块结构体
+struct File &#123;
+    u_char f_name[MAXNAMELEN];  &#x2F;&#x2F; filename 件名的最大长度 MAXNAMELEN 值为 128
+    u_int f_size;           &#x2F;&#x2F; file size in bytes
+    u_int f_type;           &#x2F;&#x2F; file type为文件类型，有普通文件 (FTYPE_REG) 和文件夹 (FTYPE_DIR) 两种。
+    u_int f_direct[NDIRECT];&#x2F;&#x2F;f_direct[NDIRECT] 为文件的直接指针，每个文件控制块设有 10 个直接指针，用来记录文件的数据块在磁盘上的位置。
+    &#x2F;&#x2F;每个磁盘块的大小为 4KB，也就是说，这十个直接指针能够表示最大 40KB 的文件，而当文件的大小大于 40KB 时，就需要用到间接指针。
+    u_int f_indirect; &#x2F;&#x2F;f_indirect指向一个间接磁盘块，用来存储许多指针，这些指针指向文件内容的磁盘块。有点像二重指针？指针指向存储指针的磁盘块，这些指针才真正指向文件内容磁盘块。
+
+    struct File *f_dir;     &#x2F;&#x2F; f_dir指向文件所属的文件目录
+    u_char f_pad[BY2FILE - MAXNAMELEN - 4 - 4 - NDIRECT * 4 - 4 - 4];
+    &#x2F;&#x2F;f_pad则是为了让整数个文件结构体占用一个磁盘块，填充结构体中剩下的字节。
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="Thinking-5-8"><a href="#Thinking-5-8" class="headerlink" title="Thinking 5.8"></a>Thinking 5.8</h4><p>:label:<strong>阅读 user&#x2F;file.c，你会发现很多函数中都会将一个 struct Fd* 型的 指针转换为 struct Filefd* 型的指针，请解释为什么这样的转换可行。</strong></p>
+<p><strong>答：</strong>因为在结构体Filefd中储存的第一个元素就是struct Fd。</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">&#x2F;&#x2F; file descriptor + file
+struct Filefd &#123;
+    struct Fd f_fd; &#x2F;&#x2F;结构体Filefd中储存的第一个元素就是struct Fd*。
+    u_int f_fileid;
+    struct File f_file;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>因而对于相匹配的一对struct Fd和struct Filefd，他们的指针实际上指向了相同的虚拟地址，所以可以通过指针转化访问struct Filefd中的其他元素。</p>
+<h4 id="Thinking-5-9"><a href="#Thinking-5-9" class="headerlink" title="Thinking 5.9"></a>Thinking 5.9</h4><p>:label:<strong>在lab4 的实验中我们实现了极为重要的fork 函数。那么fork 前后的父子进程是否会共享文件描述符和定位指针呢？请在完成练习5.8和5.9的基础上编写一个程序进行验证。</strong></p>
+<p><strong>答：</strong>首先在磁盘上挂载一个文件lab5test，接下来是我编写的程序</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include &quot;lib.h&quot;
+  
+void umain()
+&#123;
+    int a &#x3D; 0;
+    int id &#x3D; 0;
+    int fd;
+    if((fd &#x3D; open(&quot;&#x2F;lab5test&quot;,O_RDWR))&lt;0)&#123;
+        user_panic(&quot;open &#x2F;lab5test :%d&quot;,fd);
+    &#125;
+    writef(&quot;father write fd : %d\n&quot;,fd);
+    char  buf[30]&#x3D;&quot;I want to write1&quot;;
+    char buf2[30] &#x3D; &quot;I want to write2&quot;;
+    write(fd,buf,30);
+    write(fd,buf2,30);
+    if((id &#x3D; fork()) &#x3D;&#x3D; 0)&#123;&#x2F;&#x2F; son
+        char sonbuf[30];
+        writef(&quot;son read fd : %d\n&quot;,fd);
+        read(fd,sonbuf,30);
+        writef(&quot;son read %s\n&quot;,sonbuf);
+    &#125;
+    return ;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这是结果</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/0CB56299D5394430941D24A655F73DAA?method=download&shareKey=555281891a8fc52cb56cbf4120a066c6"></p>
+<p>首先可以看到文件描述符fd确实是继承了，再看<strong>子进程读到的数据是一个空串</strong>，说明文件定位指针也继承了，因为如果未继承的话，子进程read又会从头开始读，读到的是“I want to write1”.</p>
+<h4 id="Thinking-5-10"><a href="#Thinking-5-10" class="headerlink" title="Thinking 5.10"></a>Thinking 5.10</h4><p>:label:<strong>请解释Fd, Filefd, Open 结构体及其各个域的作用。比如各个结构体会在哪些过程中被使用，是否对应磁盘上的物理实体还是单纯的内存数据等。说明形式自定，要求简洁明了，可大致勾勒出文件系统数据结构与物理实体的对应关系与设计框架。</strong></p>
+<p><strong>答：</strong></p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">&#x2F;&#x2F; file descriptor
+struct Fd &#123;
+    u_int fd_dev_id;&#x2F;&#x2F;外设id
+    u_int fd_offset;&#x2F;&#x2F;读或写的当前位置
+    u_int fd_omode;&#x2F;&#x2F;打开方式
+&#125;;
+
+
+&#x2F;&#x2F; file descriptor + file
+struct Filefd &#123;
+    struct Fd f_fd; &#x2F;&#x2F;记录了文件描述符
+    u_int f_fileid;&#x2F;&#x2F;记录了文件的id
+    struct File f_file; &#x2F;&#x2F;文件控制块
+&#125;;
+
+struct Open &#123;
+    struct File *o_file; &#x2F;&#x2F;指向了对应的文件控制块
+    u_int o_fileid;     &#x2F;&#x2F; 表示文件id用于在数组opentab中查找对应的Open
+    int o_mode;     &#x2F;&#x2F;记录文件打开的状态
+    struct Filefd *o_ff;    &#x2F;&#x2F;指向对应的Filefd结构体
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在完成课下实验时，上述结构体在open,read,write函数中用到了。</p>
+<h4 id="Thinking-5-11"><a href="#Thinking-5-11" class="headerlink" title="Thinking 5.11"></a>Thinking 5.11</h4><p>:label:<strong>UML时序图中有多种不同形式的箭头，请结合UML 时序图的规范，解释这些不同箭头的差别，并思考我们的操作系统是如何实现对应类型的进程间通信的。</strong></p>
+<p><strong>答：</strong>这个UML时序图里面只涉及两种箭头。</p>
+<ul>
+<li><p>同步消息：<strong>用黑三角箭头搭配黑实线表示</strong></p>
+</li>
+<li><p>返回消息，用黑三角箭头搭配黑色虚线表示</p>
+</li>
+</ul>
+<p>返回消息和同步消息结合使用，进程发出同步消息后等待得到返回消息才可继续执行。</p>
+<p><code>“并思考我们的操作系统是如何实现对应类型的进程间通信的。</code>这个问题表述的不是很清楚？没太看懂，我的理解是解释我们的操作系统是如何利用进程通信实现文件系统服务的。在我们的操作系统中，用户程序在发出文件系统操作请求时，将请求的内容放在对应的结构体（fsreq）中进行消息的传递，fs_serv 进程收到其他进行的IPC 请求后，IPC 传递的消息包含了请求的类型（定义在include&#x2F;fs.h中）和其他必要的参数，根据请求的类型执行相应的文件操作（文件的增、删、改、查等），将结果重新通过IPC 反馈给用户程序。</p>
+<h4 id="Thinking-5-12"><a href="#Thinking-5-12" class="headerlink" title="Thinking 5.12"></a>Thinking 5.12</h4><p>:label:<strong>阅读serv.c&#x2F;serve函数的代码，我们注意到函数中包含了一个死循环for (;;) {…}，为什么这段代码不会导致整个内核进入panic 状态？</strong></p>
+<p><strong>答：</strong>因为调用ipc_recv的时候这个进程会等待其他进程向他发送请求文件系统调用再继续执行，如果没有接收到请求就会在这里一直等待，因此不会造成死循环。</p>
+<h3 id="1-2-实验难点"><a href="#1-2-实验难点" class="headerlink" title="1.2 实验难点"></a>1.2 实验难点</h3><p>实验难点在于多个结构体和需要记忆理解的宏，经过总结，本次实验一共出现了6个重要结构体，加下来将其进行了总结。</p>
+<h4 id="1-2-1-6个重要结构体"><a href="#1-2-1-6个重要结构体" class="headerlink" title="1.2.1 6个重要结构体"></a>1.2.1 6个重要结构体</h4><ul>
+<li>超级块结构体</li>
+</ul>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220520221159768.png" alt="image-20220520221159768"></p>
+<ul>
+<li>Block结构体</li>
+</ul>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">struct Block &#123;
+    uint8_t data[BY2BLK];  &#x2F;&#x2F;数据区512Byte
+    uint32_t type; &#x2F;&#x2F;类型包括下面的enum
+&#125; disk[NBLOCK];
+
+enum &#123;
+    BLOCK_FREE  &#x3D; 0,
+    BLOCK_BOOT  &#x3D; 1,
+    BLOCK_BMAP  &#x3D; 2,
+    BLOCK_SUPER &#x3D; 3,
+    BLOCK_DATA  &#x3D; 4,
+    BLOCK_FILE  &#x3D; 5,
+    BLOCK_INDEX &#x3D; 6,
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>File文件结构体</li>
+</ul>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">struct File &#123;
+    u_char f_name[MAXNAMELEN];  &#x2F;&#x2F; filename 件名的最大长度 MAXNAMELEN 值为 128
+    u_int f_size;           &#x2F;&#x2F; file size in bytes
+    u_int f_type;           &#x2F;&#x2F; file type为文件类型，有普通文件 (FTYPE_REG) 和文件夹 (FTYPE_DIR) 两种。
+    u_int f_direct[NDIRECT];&#x2F;&#x2F;f_direct[NDIRECT] 为文件的直接指针，每个文件控制块设有 10 个直接指针，用来记录文件的数据块在磁盘上的位置。
+    &#x2F;&#x2F;每个磁盘块的大小为 4KB，也就是说，这十个直接指针能够表示最大 40KB 的文件，而当文件的大小大于 40KB 时，就需要用到间接指针。
+    u_int f_indirect; &#x2F;&#x2F;f_indirect指向一个间接磁盘块，用来存储许多指针，这些指针指向文件内容的磁盘块。有点像二重指针？指针指向存储指针的磁盘块，这些指针才真正指向文件内容磁盘块。
+
+    struct File *f_dir;     &#x2F;&#x2F; f_dir指向文件所属的文件目录
+    u_char f_pad[BY2FILE - MAXNAMELEN - 4 - 4 - NDIRECT * 4 - 4 - 4];
+    &#x2F;&#x2F;f_pad则是为了让整数个文件结构体占用一个磁盘块，填充结构体中剩下的字节。
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>设备结构体</li>
+</ul>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">struct Dev &#123;
+    int dev_id;
+    char *dev_name;
+    &#x2F;&#x2F;接下来定义了一些设备操作函数
+    int (*dev_read)(struct Fd *, void *, u_int, u_int);
+    int (*dev_write)(struct Fd *, const void *, u_int, u_int);
+    int (*dev_close)(struct Fd *);
+    int (*dev_stat)(struct Fd *, struct Stat *);
+    int (*dev_seek)(struct Fd *, u_int);
+&#125;;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>文件描述符结构体</li>
+</ul>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// file descriptor</span>
+<span class="token keyword">struct</span> <span class="token class-name">Fd</span> <span class="token punctuation">&#123;</span>
+    u_int fd_dev_id<span class="token punctuation">;</span><span class="token comment">//外设id</span>
+    u_int fd_offset<span class="token punctuation">;</span><span class="token comment">//读或写的当前位置</span>
+    u_int fd_omode<span class="token punctuation">;</span><span class="token comment">//打开方式</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>Filefd结构体</li>
+</ul>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">&#x2F;&#x2F; file descriptor + file
+struct Filefd &#123;
+    struct Fd f_fd;
+    u_int f_fileid;
+    struct File f_file;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>重要的宏</li>
+</ul>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">&#x2F;&#x2F;一些宏
+#define BY2BLK		BY2PG &#x2F;&#x2F;一个块的大小正好是一页4096Byte
+#define BIT2BLK		(BY2BLK*8) &#x2F;&#x2F;这里算的是BLK的bit，所以自然是*8
+#define BY2FILE     256 &#x2F;&#x2F;一个file结构体的大小 256Byte
+#define NBLOCK 1024  &#x2F;&#x2F;一个disk里面有1024块
+#define FILE2BLK  (BY2BLK&#x2F;sizeof(struct File)) &#x2F;&#x2F;一个块里面有多少个file结构体<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="1-2-2-个重要理解函数（主要是花费很长时间理解的两个函数，在这里把他们记录下来）"><a href="#1-2-2-个重要理解函数（主要是花费很长时间理解的两个函数，在这里把他们记录下来）" class="headerlink" title="1.2.2 个重要理解函数（主要是花费很长时间理解的两个函数，在这里把他们记录下来）"></a>1.2.2 个重要理解函数（主要是花费很长时间理解的两个函数，在这里把他们记录下来）</h4><ul>
+<li>fs&#x2F;fs.c: dir_lookup()</li>
+</ul>
+<p>给定一个File* dir自然能找到它对应在内存中的block块。</p>
+<p>然后因为block中放的就是File结构体，所以，遍历一个block块中的File结构体，将file_name一一对比就行。</p>
+<ul>
+<li>fd_lookup(fdnum, Fd)</li>
+</ul>
+<p>给定fdnum，将fd变成要的。这个很重要，有了fd，就有了ffd，有了ffd，就有了file。</p>
+<h3 id="1-3-心得体会"><a href="#1-3-心得体会" class="headerlink" title="1.3 心得体会"></a>1.3 心得体会</h3><p>lab5相对于上次lab4难度有所降低，只要认真阅读代码基本上可以理解。本次作业更让我意识到进程通信的重要性，原来文件系统也可以通过进程通信实现，真是奇妙。lab5的结束也代表着os实验部分进入了尾声，通过这段时间的学习，让我收获最大的就是对C语言的了解更加充分、更加透彻，其次就是对操作系统的工作原理有了具体的理解。</p>
+
                 
             </div>
             <hr/>
@@ -519,7 +748,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://shl518.github.io/2022/05/16/cao-zuo-xi-tong-jin-cheng/">http://shl518.github.io/2022/05/16/cao-zuo-xi-tong-jin-cheng/</a>
+                    <a href="http://shl518.github.io/2022/06/20/2022-cao-zuo-xi-tong-lab5-shi-yan-bao-gao/">http://shl518.github.io/2022/06/20/2022-cao-zuo-xi-tong-lab5-shi-yan-bao-gao/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -556,7 +785,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                                    <span class="chip bg-color">操作系统</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -724,17 +957,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/05/16/deeplearning-cs231n-ke-cheng-xue-xi-shi-lu/">
+                <a href="/2022/06/20/2022-cao-zuo-xi-tong-lab5-shi-yan-bao-gao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="DeepLearning：CS231n课程学习实录">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="2022操作系统Lab5实验报告">
                         
-                        <span class="card-title">DeepLearning：CS231n课程学习实录</span>
+                        <span class="card-title">2022操作系统Lab5实验报告</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -744,9 +978,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-20
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -754,6 +988,15 @@
                             
                         </span>
                     </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">操作系统</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -765,13 +1008,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/05/13/2022-bei-hang-unix-fu-xi-zi-liao/">
+                <a href="/2022/06/20/2022-cao-zuo-xi-tong-lab6-shi-yan-bao-gao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="2022北航UNIX复习资料">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="2022操作系统Lab6实验报告">
                         
-                        <span class="card-title">2022北航UNIX复习资料</span>
+                        <span class="card-title">2022操作系统Lab6实验报告</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -782,7 +1025,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-20
                             </span>
                         <span class="publish-author">
                             
@@ -795,8 +1038,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8C%97%E8%88%AAUNIX/">
-                        <span class="chip bg-color">北航UNIX</span>
+                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">操作系统</span>
                     </a>
                     
                 </div>
