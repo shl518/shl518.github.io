@@ -1,0 +1,1461 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="2022操作系统Lab5实验报告, Corsica">
+    <meta name="description" content="I will be with you from dusk till down.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
+
+    <title>2022操作系统Lab5实验报告 | Corsica</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Corsica</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Corsica</div>
+        <div class="logo-desc">
+            
+            I will be with you from dusk till down.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/shl518" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/shl518" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">2022操作系统Lab5实验报告</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                                <span class="chip bg-color">操作系统</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-06-20
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-03-22
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.8k
+                </div>
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="Lab5-实验报告"><a href="#Lab5-实验报告" class="headerlink" title="Lab5 实验报告"></a>Lab5 实验报告</h2><h3 id="1-1-思考题"><a href="#1-1-思考题" class="headerlink" title="1.1 思考题"></a>1.1 思考题</h3><h4 id="Thinking-5-1"><a href="#Thinking-5-1" class="headerlink" title="Thinking 5.1"></a>Thinking 5.1</h4><p>:label:<strong>查阅资料，了解 Linux&#x2F;Unix 的 &#x2F;proc 文件系统是什么？有什么作用？ Windows 操作系统又是如何实现这些功能的？proc 文件系统这样的设计有什么好处和可以改进的地方？</strong></p>
+<p><strong>答：</strong>proc文件系统是一个伪文件系统，他只存在内存当中，而不占用外存空间。它以文件系统的方式为访问文件系统内核数据的操作提供接口。用户和应用程序可以通过proc得到系统的信息，并可以改变内核的某些参数。</p>
+<p>其<strong>作用</strong>在于使用一种新的方法在 Linux内核空间和用户间之间进行通信。</p>
+<p>对于Windows，其通过系统调用改变内核运行状态和查看进程信息</p>
+<ul>
+<li><p>好处：对系统调用进一步抽象，用户可以直接通过proc伪文件系统访问内核，降低用户操作复杂度，提升了系统运行效率。</p>
+</li>
+<li><p>缺点：proc伪文件系统需要在内存中实现，占用内存空间。</p>
+</li>
+<li><p>改进：proc伪文件系统由于需要占用内存，我想改进之处在于采用更好的数据结构减少其在内存中的大小，减少占用内存的空间。</p>
+</li>
+</ul>
+<h4 id="Thinking-5-2"><a href="#Thinking-5-2" class="headerlink" title="Thinking 5.2"></a>Thinking 5.2</h4><p>:label:<strong>如果我们通过 kseg0 读写设备，我们对于设备的写入会缓存到 Cache 中。通过 kseg0 访问设备是一种错误的行为，在实际编写代码的时候这么做会引发不可预知的问题。请你思考：这么做这会引起什么问题？对于不同种类的设备（如我们提到的串口设备和 IDE 磁盘）的操作会有差异吗？可以从缓存的性质和缓存刷新的策略来考虑。</strong></p>
+<p><strong>答：</strong>因为内核被放在kseg0区域，该区域需要通过cache访问；如果对设备的写入缓存到cache中，就会导致以后想访问内核时却错误访问了写入设备的内容，导致访问错误。</p>
+<p>对于不同设备的操作有差异，例如串口设备读写比IDE频繁，发生读写错误的概率更高。</p>
+<h4 id="Thinking-5-3"><a href="#Thinking-5-3" class="headerlink" title="Thinking 5.3"></a>Thinking 5.3</h4><p>:label:<strong>比较 MOS 操作系统的文件控制块和 Unix&#x2F;Linux 操作系统的 inode 及相关概念，试述二者的不同之处。</strong></p>
+<p><strong>答：</strong>下图展示了 Unix&#x2F;Linux 操作系统的 inode 存储的重要信息。</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/10E9DB77968D43E6A426E27A251DB455?method=download&shareKey=d75f2b4f48fe7dc3917e58ceebe5c06a"></p>
+<p>可以看到MOS系统的文件控制块与Linux的inode都存储的是文件基本信息。但是我们可以发现inode<strong>不</strong>包含文件名，而Mos系统的文件控制块包含文件名，这便是二者的区别。</p>
+<p><strong>为什么Linux系统inode不需要存储文件名？</strong>是因为，每个inode都有一个号码，操作系统用inode号码来识别不同的文件。Unix&#x2F;Linux系统内部不使用文件名，而使用inode号码来识别文件。对于系统来说，文件名只是inode号码便于识别的别称或者绰号。</p>
+<p>表面上，用户通过文件名，打开文件。实际上，系统内部这个过程分成三步：首先，系统找到这个文件名对应的inode号码；其次，通过inode号码，获取inode信息；最后，根据inode信息，找到文件数据所在的block，读出数据。</p>
+<h4 id="Thinking-5-4"><a href="#Thinking-5-4" class="headerlink" title="Thinking 5.4"></a>Thinking 5.4</h4><p>:label:<strong>查找代码中的相关定义，试回答一个磁盘块中最多能存储多少个文件 控制块？一个目录下最多能有多少个文件？我们的文件系统支持的单个文件最大为 多大？</strong></p>
+<p><strong>答：</strong>文件控制块大小256B，磁盘块4KB，故最多16个控制块</p>
+<p>目录4096KB，一个文件控制块256B，故最多<code>4096KB/256B = 16384</code>个文件；</p>
+<p>十个直接指针指向的磁盘块一共40KB，间接指针最多<code>1024-10 = 1014 </code>个，间接指针的磁盘块大小<code>1014*4KB = 4056KB</code>,总共<code>4056KB+40KB = 4096KB</code>.</p>
+<p>我们的文件系统支持的单个文件最大为4096KB.</p>
+<h4 id="Thinking-5-5"><a href="#Thinking-5-5" class="headerlink" title="Thinking 5.5"></a>Thinking 5.5</h4><p>:label:<strong>请思考，在满足磁盘块缓存的设计的前提下，我们实验使用的内核支持的最大磁盘大小是多少？</strong></p>
+<p><strong>答：</strong>我们的操作系统中，文件系统服务是一个用户进程，一个进程可以拥有4G 的虚拟内存空间，将DISKMAP 到DISKMAP+DISKMAX 这一段虚存地址空间(0x10000000-0x4ffffff) 作为缓冲区，当磁盘读入内存时，用来映射相关的页。由此可见，为了满足块缓存的设计，我们实验使用的内核支持的最大磁盘大小是<code>0x40000000 = 1GB</code>.</p>
+<h4 id="Thinking-5-6"><a href="#Thinking-5-6" class="headerlink" title="Thinking 5.6"></a>Thinking 5.6</h4><p>:label:<strong>如果将 DISKMAX 改成 0xC0000000, 超过用户空间，我们的文件系统还能正常工作吗？为什么？</strong></p>
+<p><strong>答：</strong>不能，因为缓存磁盘块的时候可能会把内核的内容覆盖掉，导致系统运行异常</p>
+<h4 id="Thinking-5-7"><a href="#Thinking-5-7" class="headerlink" title="Thinking 5.7"></a>Thinking 5.7</h4><p>:label:<strong>在 lab5 中，fs&#x2F;fs.h、include&#x2F;fs.h 等文件中出现了许多结构体和宏定 义，写出你认为比较重要或难以理解的部分，并进行解释。</strong></p>
+<p><strong>答：</strong></p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">&#x2F;&#x2F;一些需要理解的宏
+#define BY2BLK		BY2PG &#x2F;&#x2F;一个块的大小正好是一页4096Byte
+#define BIT2BLK		(BY2BLK*8) &#x2F;&#x2F;这里算的是BLK的bit，所以自然是*8
+#define BY2FILE     256 &#x2F;&#x2F;一个file结构体的大小 256Byte
+#define NBLOCK 1024  &#x2F;&#x2F;一个disk里面有1024块
+#define FILE2BLK  (BY2BLK&#x2F;sizeof(struct File)) &#x2F;&#x2F;一个块里面有多少个file结构体<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">&#x2F;&#x2F;需要重点理解的文件控制块结构体
+struct File &#123;
+    u_char f_name[MAXNAMELEN];  &#x2F;&#x2F; filename 件名的最大长度 MAXNAMELEN 值为 128
+    u_int f_size;           &#x2F;&#x2F; file size in bytes
+    u_int f_type;           &#x2F;&#x2F; file type为文件类型，有普通文件 (FTYPE_REG) 和文件夹 (FTYPE_DIR) 两种。
+    u_int f_direct[NDIRECT];&#x2F;&#x2F;f_direct[NDIRECT] 为文件的直接指针，每个文件控制块设有 10 个直接指针，用来记录文件的数据块在磁盘上的位置。
+    &#x2F;&#x2F;每个磁盘块的大小为 4KB，也就是说，这十个直接指针能够表示最大 40KB 的文件，而当文件的大小大于 40KB 时，就需要用到间接指针。
+    u_int f_indirect; &#x2F;&#x2F;f_indirect指向一个间接磁盘块，用来存储许多指针，这些指针指向文件内容的磁盘块。有点像二重指针？指针指向存储指针的磁盘块，这些指针才真正指向文件内容磁盘块。
+
+    struct File *f_dir;     &#x2F;&#x2F; f_dir指向文件所属的文件目录
+    u_char f_pad[BY2FILE - MAXNAMELEN - 4 - 4 - NDIRECT * 4 - 4 - 4];
+    &#x2F;&#x2F;f_pad则是为了让整数个文件结构体占用一个磁盘块，填充结构体中剩下的字节。
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="Thinking-5-8"><a href="#Thinking-5-8" class="headerlink" title="Thinking 5.8"></a>Thinking 5.8</h4><p>:label:<strong>阅读 user&#x2F;file.c，你会发现很多函数中都会将一个 struct Fd* 型的 指针转换为 struct Filefd* 型的指针，请解释为什么这样的转换可行。</strong></p>
+<p><strong>答：</strong>因为在结构体Filefd中储存的第一个元素就是struct Fd。</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">&#x2F;&#x2F; file descriptor + file
+struct Filefd &#123;
+    struct Fd f_fd; &#x2F;&#x2F;结构体Filefd中储存的第一个元素就是struct Fd*。
+    u_int f_fileid;
+    struct File f_file;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>因而对于相匹配的一对struct Fd和struct Filefd，他们的指针实际上指向了相同的虚拟地址，所以可以通过指针转化访问struct Filefd中的其他元素。</p>
+<h4 id="Thinking-5-9"><a href="#Thinking-5-9" class="headerlink" title="Thinking 5.9"></a>Thinking 5.9</h4><p>:label:<strong>在lab4 的实验中我们实现了极为重要的fork 函数。那么fork 前后的父子进程是否会共享文件描述符和定位指针呢？请在完成练习5.8和5.9的基础上编写一个程序进行验证。</strong></p>
+<p><strong>答：</strong>首先在磁盘上挂载一个文件lab5test，接下来是我编写的程序</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include &quot;lib.h&quot;
+  
+void umain()
+&#123;
+    int a &#x3D; 0;
+    int id &#x3D; 0;
+    int fd;
+    if((fd &#x3D; open(&quot;&#x2F;lab5test&quot;,O_RDWR))&lt;0)&#123;
+        user_panic(&quot;open &#x2F;lab5test :%d&quot;,fd);
+    &#125;
+    writef(&quot;father write fd : %d\n&quot;,fd);
+    char  buf[30]&#x3D;&quot;I want to write1&quot;;
+    char buf2[30] &#x3D; &quot;I want to write2&quot;;
+    write(fd,buf,30);
+    write(fd,buf2,30);
+    if((id &#x3D; fork()) &#x3D;&#x3D; 0)&#123;&#x2F;&#x2F; son
+        char sonbuf[30];
+        writef(&quot;son read fd : %d\n&quot;,fd);
+        read(fd,sonbuf,30);
+        writef(&quot;son read %s\n&quot;,sonbuf);
+    &#125;
+    return ;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这是结果</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/0CB56299D5394430941D24A655F73DAA?method=download&shareKey=555281891a8fc52cb56cbf4120a066c6"></p>
+<p>首先可以看到文件描述符fd确实是继承了，再看<strong>子进程读到的数据是一个空串</strong>，说明文件定位指针也继承了，因为如果未继承的话，子进程read又会从头开始读，读到的是“I want to write1”.</p>
+<h4 id="Thinking-5-10"><a href="#Thinking-5-10" class="headerlink" title="Thinking 5.10"></a>Thinking 5.10</h4><p>:label:<strong>请解释Fd, Filefd, Open 结构体及其各个域的作用。比如各个结构体会在哪些过程中被使用，是否对应磁盘上的物理实体还是单纯的内存数据等。说明形式自定，要求简洁明了，可大致勾勒出文件系统数据结构与物理实体的对应关系与设计框架。</strong></p>
+<p><strong>答：</strong></p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">&#x2F;&#x2F; file descriptor
+struct Fd &#123;
+    u_int fd_dev_id;&#x2F;&#x2F;外设id
+    u_int fd_offset;&#x2F;&#x2F;读或写的当前位置
+    u_int fd_omode;&#x2F;&#x2F;打开方式
+&#125;;
+
+
+&#x2F;&#x2F; file descriptor + file
+struct Filefd &#123;
+    struct Fd f_fd; &#x2F;&#x2F;记录了文件描述符
+    u_int f_fileid;&#x2F;&#x2F;记录了文件的id
+    struct File f_file; &#x2F;&#x2F;文件控制块
+&#125;;
+
+struct Open &#123;
+    struct File *o_file; &#x2F;&#x2F;指向了对应的文件控制块
+    u_int o_fileid;     &#x2F;&#x2F; 表示文件id用于在数组opentab中查找对应的Open
+    int o_mode;     &#x2F;&#x2F;记录文件打开的状态
+    struct Filefd *o_ff;    &#x2F;&#x2F;指向对应的Filefd结构体
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在完成课下实验时，上述结构体在open,read,write函数中用到了。</p>
+<h4 id="Thinking-5-11"><a href="#Thinking-5-11" class="headerlink" title="Thinking 5.11"></a>Thinking 5.11</h4><p>:label:<strong>UML时序图中有多种不同形式的箭头，请结合UML 时序图的规范，解释这些不同箭头的差别，并思考我们的操作系统是如何实现对应类型的进程间通信的。</strong></p>
+<p><strong>答：</strong>这个UML时序图里面只涉及两种箭头。</p>
+<ul>
+<li><p>同步消息：<strong>用黑三角箭头搭配黑实线表示</strong></p>
+</li>
+<li><p>返回消息，用黑三角箭头搭配黑色虚线表示</p>
+</li>
+</ul>
+<p>返回消息和同步消息结合使用，进程发出同步消息后等待得到返回消息才可继续执行。</p>
+<p><code>“并思考我们的操作系统是如何实现对应类型的进程间通信的。</code>这个问题表述的不是很清楚？没太看懂，我的理解是解释我们的操作系统是如何利用进程通信实现文件系统服务的。在我们的操作系统中，用户程序在发出文件系统操作请求时，将请求的内容放在对应的结构体（fsreq）中进行消息的传递，fs_serv 进程收到其他进行的IPC 请求后，IPC 传递的消息包含了请求的类型（定义在include&#x2F;fs.h中）和其他必要的参数，根据请求的类型执行相应的文件操作（文件的增、删、改、查等），将结果重新通过IPC 反馈给用户程序。</p>
+<h4 id="Thinking-5-12"><a href="#Thinking-5-12" class="headerlink" title="Thinking 5.12"></a>Thinking 5.12</h4><p>:label:<strong>阅读serv.c&#x2F;serve函数的代码，我们注意到函数中包含了一个死循环for (;;) {…}，为什么这段代码不会导致整个内核进入panic 状态？</strong></p>
+<p><strong>答：</strong>因为调用ipc_recv的时候这个进程会等待其他进程向他发送请求文件系统调用再继续执行，如果没有接收到请求就会在这里一直等待，因此不会造成死循环。</p>
+<h3 id="1-2-实验难点"><a href="#1-2-实验难点" class="headerlink" title="1.2 实验难点"></a>1.2 实验难点</h3><p>实验难点在于多个结构体和需要记忆理解的宏，经过总结，本次实验一共出现了6个重要结构体，加下来将其进行了总结。</p>
+<h4 id="1-2-1-6个重要结构体"><a href="#1-2-1-6个重要结构体" class="headerlink" title="1.2.1 6个重要结构体"></a>1.2.1 6个重要结构体</h4><ul>
+<li>超级块结构体</li>
+</ul>
+<p><img src="https://note.youdao.com/yws/api/personal/file/CFAB2AA4D1624F5FAAE29D9299479A2B?method=download&shareKey=76a4319cc51d5109b6533ebc6ff6c268" alt="image-20220520221159768"></p>
+<ul>
+<li>Block结构体</li>
+</ul>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">struct Block &#123;
+    uint8_t data[BY2BLK];  &#x2F;&#x2F;数据区512Byte
+    uint32_t type; &#x2F;&#x2F;类型包括下面的enum
+&#125; disk[NBLOCK];
+
+enum &#123;
+    BLOCK_FREE  &#x3D; 0,
+    BLOCK_BOOT  &#x3D; 1,
+    BLOCK_BMAP  &#x3D; 2,
+    BLOCK_SUPER &#x3D; 3,
+    BLOCK_DATA  &#x3D; 4,
+    BLOCK_FILE  &#x3D; 5,
+    BLOCK_INDEX &#x3D; 6,
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>File文件结构体</li>
+</ul>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">struct File &#123;
+    u_char f_name[MAXNAMELEN];  &#x2F;&#x2F; filename 件名的最大长度 MAXNAMELEN 值为 128
+    u_int f_size;           &#x2F;&#x2F; file size in bytes
+    u_int f_type;           &#x2F;&#x2F; file type为文件类型，有普通文件 (FTYPE_REG) 和文件夹 (FTYPE_DIR) 两种。
+    u_int f_direct[NDIRECT];&#x2F;&#x2F;f_direct[NDIRECT] 为文件的直接指针，每个文件控制块设有 10 个直接指针，用来记录文件的数据块在磁盘上的位置。
+    &#x2F;&#x2F;每个磁盘块的大小为 4KB，也就是说，这十个直接指针能够表示最大 40KB 的文件，而当文件的大小大于 40KB 时，就需要用到间接指针。
+    u_int f_indirect; &#x2F;&#x2F;f_indirect指向一个间接磁盘块，用来存储许多指针，这些指针指向文件内容的磁盘块。有点像二重指针？指针指向存储指针的磁盘块，这些指针才真正指向文件内容磁盘块。
+
+    struct File *f_dir;     &#x2F;&#x2F; f_dir指向文件所属的文件目录
+    u_char f_pad[BY2FILE - MAXNAMELEN - 4 - 4 - NDIRECT * 4 - 4 - 4];
+    &#x2F;&#x2F;f_pad则是为了让整数个文件结构体占用一个磁盘块，填充结构体中剩下的字节。
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>设备结构体</li>
+</ul>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">struct Dev &#123;
+    int dev_id;
+    char *dev_name;
+    &#x2F;&#x2F;接下来定义了一些设备操作函数
+    int (*dev_read)(struct Fd *, void *, u_int, u_int);
+    int (*dev_write)(struct Fd *, const void *, u_int, u_int);
+    int (*dev_close)(struct Fd *);
+    int (*dev_stat)(struct Fd *, struct Stat *);
+    int (*dev_seek)(struct Fd *, u_int);
+&#125;;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>文件描述符结构体</li>
+</ul>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// file descriptor</span>
+<span class="token keyword">struct</span> <span class="token class-name">Fd</span> <span class="token punctuation">&#123;</span>
+    u_int fd_dev_id<span class="token punctuation">;</span><span class="token comment">//外设id</span>
+    u_int fd_offset<span class="token punctuation">;</span><span class="token comment">//读或写的当前位置</span>
+    u_int fd_omode<span class="token punctuation">;</span><span class="token comment">//打开方式</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>Filefd结构体</li>
+</ul>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">&#x2F;&#x2F; file descriptor + file
+struct Filefd &#123;
+    struct Fd f_fd;
+    u_int f_fileid;
+    struct File f_file;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>重要的宏</li>
+</ul>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">&#x2F;&#x2F;一些宏
+#define BY2BLK		BY2PG &#x2F;&#x2F;一个块的大小正好是一页4096Byte
+#define BIT2BLK		(BY2BLK*8) &#x2F;&#x2F;这里算的是BLK的bit，所以自然是*8
+#define BY2FILE     256 &#x2F;&#x2F;一个file结构体的大小 256Byte
+#define NBLOCK 1024  &#x2F;&#x2F;一个disk里面有1024块
+#define FILE2BLK  (BY2BLK&#x2F;sizeof(struct File)) &#x2F;&#x2F;一个块里面有多少个file结构体<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="1-2-2-个重要理解函数（主要是花费很长时间理解的两个函数，在这里把他们记录下来）"><a href="#1-2-2-个重要理解函数（主要是花费很长时间理解的两个函数，在这里把他们记录下来）" class="headerlink" title="1.2.2 个重要理解函数（主要是花费很长时间理解的两个函数，在这里把他们记录下来）"></a>1.2.2 个重要理解函数（主要是花费很长时间理解的两个函数，在这里把他们记录下来）</h4><ul>
+<li>fs&#x2F;fs.c: dir_lookup()</li>
+</ul>
+<p>给定一个File* dir自然能找到它对应在内存中的block块。</p>
+<p>然后因为block中放的就是File结构体，所以，遍历一个block块中的File结构体，将file_name一一对比就行。</p>
+<ul>
+<li>fd_lookup(fdnum, Fd)</li>
+</ul>
+<p>给定fdnum，将fd变成要的。这个很重要，有了fd，就有了ffd，有了ffd，就有了file。</p>
+<h3 id="1-3-心得体会"><a href="#1-3-心得体会" class="headerlink" title="1.3 心得体会"></a>1.3 心得体会</h3><p>lab5相对于上次lab4难度有所降低，只要认真阅读代码基本上可以理解。本次作业更让我意识到进程通信的重要性，原来文件系统也可以通过进程通信实现，真是奇妙。lab5的结束也代表着os实验部分进入了尾声，通过这段时间的学习，让我收获最大的就是对C语言的了解更加充分、更加透彻，其次就是对操作系统的工作原理有了具体的理解。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Lei_Yu</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://shl518.github.io/2022/06/20/2022-cao-zuo-xi-tong-lab5-shi-yan-bao-gao/">http://shl518.github.io/2022/06/20/2022-cao-zuo-xi-tong-lab5-shi-yan-bao-gao/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Lei_Yu</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                                    <span class="chip bg-color">操作系统</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/06/22/mian-xiang-dui-xiang-di-3-dan-yuan-zuo-ye-zong-jie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="面向对象第3单元作业总结">
+                        
+                        <span class="card-title">面向对象第3单元作业总结</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-22
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Lei_Yu
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+                        <span class="chip bg-color">面向对象</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/06/20/2022-cao-zuo-xi-tong-lab6-shi-yan-bao-gao/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="2022操作系统Lab6实验报告">
+                        
+                        <span class="card-title">2022操作系统Lab6实验报告</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Lei_Yu
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">操作系统</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2023</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">Lei_Yu</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">88.4k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/shl518" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:lei_yuyu518@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

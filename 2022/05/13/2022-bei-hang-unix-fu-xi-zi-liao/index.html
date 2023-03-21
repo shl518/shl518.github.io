@@ -1,0 +1,2349 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="2022北航UNIX复习资料, Corsica">
+    <meta name="description" content="I will be with you from dusk till down.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
+
+    <title>2022北航UNIX复习资料 | Corsica</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Corsica</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Corsica</div>
+        <div class="logo-desc">
+            
+            I will be with you from dusk till down.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/shl518" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/shl518" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">2022北航UNIX复习资料</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%8C%97%E8%88%AAUNIX/">
+                                <span class="chip bg-color">北航UNIX</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-05-13
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-03-22
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    14.5k
+                </div>
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>一：</p>
+<p>**1.**UNIX是一类操作系统。狭义理解，UNIX是一个分时操作系统的核心，控制和分配计算机资源（软硬件），协调各应用进程的运行。广义理解，UNIX除了其核心外，还包括一些基本的工具，如编辑器、编译器、文件操作工具、文字处理工具等。更广义地理解，UNIX还包括用户自己开发的各种工具软件。</p>
+<p>**2.**1973年，B语言（一种解释语言）高手 Dennis Ritchie发明C语言，并用C语言重写UNIX系统，产生了第一个UNIX的正式版本—-SYSTEM V。</p>
+<p>**3.**Linux的由来1987年，荷兰阿姆斯特丹Vrije大学Andrew S. Tanenbaum教授（MIT学士，Berkeley博士）为课堂教学编写了Minix系统。1991年，年仅21岁的芬兰赫尔辛基大学的学生Linus Torvalds参考Minix开发了PC版的UNIX，命名为Linux。</p>
+<p><strong>4</strong>.Linux的特点 ①与UNIX兼容，遵从POSIX标准②自由，开源③性能高，安全性强</p>
+<p><strong>5</strong>.什么是操作系统 用户与计算机硬件之间的界面，它是控制、管理计算机系统内各种硬件和软件资源，有效地组织多道程序运行的系统软件(或程序集合)。</p>
+<p>二：</p>
+<p>**1.**基本操作—-登录login: you | password: | $ | $ who | $ who am I &#x2F;&#x2F;or whoami</p>
+<p>$ write <em>username</em> | $ man <em>command</em> | $w<tab><tab>  or wr<tab> | $ logout 或exit</p>
+<p>（|表示分隔，指令中没有|）</p>
+<p><strong>2.</strong> 行编辑器ed | $ ed | a | now type in… | what do you want to type? | . | w tmp | q | $</p>
+<p>a - 从当前行开始添加  i - 在文件的最后一行之前插入新内容 </p>
+<p>o - 把文件输入的最后一行（不论是原来存在的或者插入的）替换成新内容</p>
+<p>. - 退出编辑文件模式进入命令行模式（注意：此时并没有退出 ed 编辑器） </p>
+<p>w - 保存文件    q - 真正退出 ed 编辑器</p>
+<p>①显示命令 p</p>
+<p>p  显示当前行      5  将当前行改为第5行并显示当前行</p>
+<p>m，np 显示m到n行</p>
+<p>.代表当前行，$代表最后一行</p>
+<p>可使用相对行，如 .,.+3p  $-5,$p</p>
+<p>②插入、删除、撤销</p>
+<p>na 从n行后添加</p>
+<p>ni 从n行前插入。i、a都以行首.来结束</p>
+<p>m,nd 删除m至n行</p>
+<p>u 撤销所做的编辑</p>
+<p>③替换</p>
+<p>s&#x2F;old&#x2F;new&#x2F; 把当前行中第一个old替换为new</p>
+<p>s&#x2F;old&#x2F;new&#x2F;g 把当前行中每一个old都替换为new</p>
+<p>1,$ s&#x2F;old&#x2F;new&#x2F;g 把文件中所有的old都替换为new</p>
+<p>④速记符&amp;</p>
+<p>1，$s&#x2F;big&#x2F;very &amp;&#x2F;g 把文件中的big都替换为very big</p>
+<p>s&#x2F;and&#x2F;&amp;&#x2F; 把and改为&amp;</p>
+<p>⑤查找&#x2F;^$&#x2F; 空行</p>
+<p>&#x2F;.&#x2F;  非空行</p>
+<p>&#x2F;^&#x2F;  任意行</p>
+<p>&#x2F;thing&#x2F; 包含字符串thing的行</p>
+<p>&#x2F;^thing&#x2F; 以thing开始的行</p>
+<p>&#x2F;thing$&#x2F;  以thing结尾的行</p>
+<p>&#x2F;^thing$&#x2F; 内容为thing的行</p>
+<p>&#x2F;thing.$&#x2F; 以thing加任意符号结尾的行</p>
+<p>&#x2F;thing.$&#x2F; 以thing.结尾的行</p>
+<p>&#x2F;/thing/&#x2F; 包含&#x2F;thing&#x2F;的行</p>
+<p>&#x2F;[tT]hing&#x2F; 包含thing或Thing的行</p>
+<p>&#x2F;thing[0-9]&#x2F;</p>
+<p>&#x2F;thing[^0-9]&#x2F;</p>
+<p>&#x2F;thing[0-9][^0-9]&#x2F;</p>
+<p>&#x2F;thing1.*thing2&#x2F;</p>
+<p>&#x2F;^thing1.*thing2$&#x2F;</p>
+<p>全局命令g&#x2F;…&#x2F;p 显示所有包含…的行</p>
+<p>g&#x2F;…&#x2F;d 删除所有包含…的行</p>
+<p>g&#x2F;…&#x2F;s&#x2F;&#x2F;rep1&#x2F; 对于包含…的行，将其中第一个替换成rep1</p>
+<p>g&#x2F;…&#x2F;s&#x2F;&#x2F;rep1&#x2F;g 把所有的…替换成rep1</p>
+<p>g&#x2F;…&#x2F;s&#x2F;pat&#x2F;rep1&#x2F; 对于包含…的行，将其中第一个pat替换成rep1</p>
+<p>v&#x2F;^$&#x2F;p 打印所有非空行</p>
+<p>⑥移动、复制</p>
+<p>命令格式：m,nmd m到n行移到d行之后。</p>
+<p>m,ntd  m到n行拷贝到d行之后</p>
+<p>举例说明一下。 [titan@localhost titan]$ <strong>ed</strong>    &#x2F;&#x2F; 激活 <strong>ed</strong> 命令<br> a   &#x2F;&#x2F; 告诉 <strong>ed</strong> 我要编辑新文件<br> My name is Titan.  &#x2F;&#x2F; 输入第一行内容<br> And I love Perl very much.   &#x2F;&#x2F; 输入第二行内容<br> .   &#x2F;&#x2F;返回 <strong>ed</strong> 的命令行状态<br> i   &#x2F;&#x2F;告诉 <strong>ed</strong> 我要在最后一行之前插入内容<br> I am 24.   &#x2F;&#x2F; 将“I am 24.”插入“My name is Titan.”和“And I love Perl very much.”之间<br> .   &#x2F;&#x2F; 返回 <strong>ed</strong> 的命令行状态<br> c   &#x2F;&#x2F; 告诉 <strong>ed</strong> 我要替换最后一行输入内容<br> I am 24 years old.  &#x2F;&#x2F; 将“I am 24.”替换成“I am 24 years old.”（注意：这里替换的是最后输的内容）<br> .   &#x2F;&#x2F; 返回 <strong>ed</strong> 的命令行状态<br> w readme.text   &#x2F;&#x2F; 将文件命名为“readme.text”并保存（注意：如果是编辑已经存在的文件，只需要敲入 w 即可）<br> q   &#x2F;&#x2F; 完全退出 <strong>ed</strong> 编辑器<br> 这是文件的内容是： [titan@localhost titan]$ cat readme.text &lt;-<br> My name is Titan.<br> I am 24 years old.<br> And I love Perl vrey much.<br> [titan@localhost titan]$ </p>
+<p>\3. 文件列表ls    $ ls        $ ls –l &#x2F;&#x2F;详细信息列表</p>
+<p>$ ls –t &#x2F;&#x2F;按修改时间排序        $ ls –lt &#x2F;&#x2F;命令选项可以组合</p>
+<p><strong>4.</strong> 显示文件cat  &#x2F;&#x2F;针对文本文件    </p>
+<p><strong>5.</strong> 移动及重命名： mv file1 file2  &#x2F;&#x2F;文件&#x2F;目录重命名、</p>
+<p>mv -i abc &#x2F;home&#x2F;cdy把当前目录下的abc 移动到&#x2F;home目录下面，并重命名为cdy；-i表示相同名字文件覆盖时询问，若-f则表示覆盖时不询问</p>
+<p>复制： cp file1 file2  &#x2F;&#x2F;将文件file1复制成文件file2</p>
+<p>cp &#x2F;tmp&#x2F;file1  &#x2F;&#x2F;将目录 &#x2F;tmp 下的文档 file1复制到现行目录下，档名仍为 file1</p>
+<p>删除：rm [文件名]</p>
+<p><strong>6.</strong> wc命令:计数,一或多个文档里的字符、单词、行数 1、字符计数中包含了换行符(\n) </p>
+<p> 2、默认输出三个选项(c，l，w),可单独指定 c 字符 l 行 w 单词 </p>
+<p>#wc test1</p>
+<p>7 23 108 test1  &#x2F;&#x2F;7行 23个单词 108个字符(包括”\n”)</p>
+<p>#wc -l test1</p>
+<p>7 test1  &#x2F;&#x2F;-c和-w同理</p>
+<p><strong>7.</strong> $ grep ‘test’ d*<br> 显示所有以d开头的文件中包含 test的行。<br> $ grep ‘test’ aa bb cc<br> 显示在aa，bb，cc文件中匹配test的行。<br> $ grep ‘[a-z]{5}’ aa<br> 显示aa中所有包含每个字符串至少有5个连续小写字符的字符串的行。<br> $ grep ‘w(es)t.<em>\1′ aa<br> 如果west被匹配，则es就被存储到内存中，并标记为1，然后搜索任意个字符(.</em>)，这些字符后面紧跟着 另外一个es(\1)，找到就显示该行。如果用egrep或grep -E，就不用”\”号进行转义，直接写成’w(es)t.*\1′就可以了。</p>
+<p><strong>8.</strong> sort 将文件每一行单词或数字按从a-z顺序输出。-u选项：去除重复词 -r选项：倒序输出 -n选项：按数值排序（这样10才会排在2的后面）</p>
+<p><strong>9.</strong> cmp比较指令cmp prog.o.bak prog.o  &#x2F;&#x2F;输入</p>
+<p>   prog.o.bak  prog.o  differ: char 4, line 1 &#x2F;&#x2F;表示第一行第四个字符不同</p>
+<p>-l cmp -l prog.o.bak prog.o   5 101 141 &#x2F;&#x2F;表示第五个字节在 prog.o.bak 中是八进制 101，在 prog.o 中是 141</p>
+<p>cmp -s prog.c.bak prog.c &#x2F;&#x2F;文件相同，给出值 0，不同，给出值 1，发生错误，给出值 2。</p>
+<p>**10.**diff : diff &#x2F;usr&#x2F;xu mine &#x2F;&#x2F;把目录&#x2F;usr&#x2F;xu 中名为mine的文件与当前目录中的mine文件进行比较。</p>
+<p><strong>11.</strong> <strong>文件目录</strong> $ pwd 显示当前路径（目录） $ cd 改变当前工作目录，或返回个人主目录</p>
+<p><strong>.</strong> 和..目录    $ mkdir 创建子目录   $ rmdir 删除子目录</p>
+<p><strong>12.</strong> <strong>基本操作</strong><strong>—-shell</strong></p>
+<p>①文件名缩写（模式）$ ls <em>.c    $ ls a</em>[1-9].c     $ ls ?.c</p>
+<p>②转义字符\   echo <em>,  echo *,  ls ‘</em>’</p>
+<p>③I&#x2F;O重定向 $ ls &gt; tmp    $ ls -l &gt;tmp     $ ls &gt;&gt;tmp    $ wc &lt;tmp</p>
+<p>标准输入文件，标准输出文件，标准错误输出文件</p>
+<p>④管道   $ who | wc -l  计算所有用户登录的终端数</p>
+<p>$ who | grep pts | wc -l 计算用户所使用的仿真终端数量. &#x2F;&#x2F;管道线上的程序是同时运行的，它们之间存在通信。</p>
+<p>⑤进程 $ who; whoami  多个命令同时运行  $ <em>命令</em>&amp; 后台运行  </p>
+<p>$ ps 显示当前运行的进程       $ kill 终止某个进程</p>
+<p>$ nohup command 注销后仍将运行     $ at hh:mm 定时运行某些命令</p>
+<p>⑥设置shell内部变量值  $ PS1&#x3D;C:\&gt;      $ PS1&#x3D;’<code>whoami</code>:<code>pwd</code> &gt;’</p>
+<p>$ echo $HOME      $ echo $PATH      $ PATH&#x3D;$PATH:$HOME&#x2F;bin</p>
+<p>$ d&#x3D;&#x2F;home&#x2F;lls&#x2F;c        $ cd $d</p>
+<p><strong>三：文件系统</strong></p>
+<p><strong>1.</strong> 文件类型      ① 目录文件：包含其它文件的文件。  ② 常规文件：文本文件、二进制文件（程序、数据库等）。    ③设备文件：键盘、显示器、打印机、硬盘等。</p>
+<p>查看文件类型$ls -l ; 分析文件结构$od -x </p>
+<p><strong>2.</strong> 绝对路径：从根目录出发到某个文件的搜索路径。如：&#x2F;home&#x2F;user1&#x2F;myc&#x2F;p1.c</p>
+<p>相对路径：从当前目录出发到某个文件的搜索路径。如：myc&#x2F;p1.c,  .&#x2F;bin&#x2F;prog1, ..&#x2F;user2&#x2F;file1</p>
+<p><strong>3.</strong> 文件权限</p>
+<p>$ ls –l a.out</p>
+<p> -rwxr-xr-x 1 user1 users 9319 2010-02-09 23:56 a.out</p>
+<p>rwx：读、写、运行</p>
+<p>9个权限位，每3个为一组，分别代表文件所有者、同组用户和其他用户的权限。</p>
+<p>更改文件权限chmod     $ chmod 777 a.out   $ chmod –w a.out</p>
+<p>目录文件权限x： 是否可以存取目录中的文件。 r： 是否可以对目录进行文件列表。可以存取已知的文件。 w：是否可以增加、删除目录中的文件。</p>
+<p><strong>4</strong>. 文件的组成：文件名、i节点、文件内容。i节点中记录文件权限、所有者、修改日期、长度、存放位置等等。<img src="file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image002.png" alt="img"></p>
+<p><img src="file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image004.png" alt="img"></p>
+<p>$ ln file1 file2 &#x2F;&#x2F;给file1所对应的i节点增加一个文件名file2</p>
+<p>$ rm file2 &#x2F;&#x2F;删除文件名file2。对应的i节点和文件内容依然存在。</p>
+<p>$ rm file1 &#x2F;&#x2F;删除文件名file1。由于没有文件名指向该i节点，系统删除该i节点及其对应的文件内容</p>
+<p><strong>5.</strong> 设备文件</p>
+<p>UNIX的精华思想之一就是在文件系统中处理外部设备，按普通文件来处理外设。</p>
+<p>$ ls -l &#x2F;dev          $ echo hello! &gt; &#x2F;dev&#x2F;pts&#x2F;0</p>
+<p>$ cat c&#x2F;sig.c &gt;&#x2F;dev&#x2F;pts&#x2F;1       $ cp tmp &#x2F;dev&#x2F;pts&#x2F;0</p>
+<p><strong>四：流编辑器sed</strong></p>
+<p><strong>1.</strong>$ sed ‘s&#x2F;UNIX&#x2F;Linux&#x2F;g’ file  将file中的UNIX替换成Linux显示在屏幕上，但不改变file本身。</p>
+<p>$ who | sed ‘s&#x2F; .*&#x2F;&#x2F;‘ 显示当前登录用户，只显示用户名。</p>
+<p>$ who am i |sed ‘s&#x2F; .*&#x2F;&#x2F;‘ 获取我的登录名. </p>
+<p>$ sed ‘10q’ file   显示file文件的前10行</p>
+<p>$ sed ‘&#x2F;pattern&#x2F;d’ file   不显示包含pattern的行。</p>
+<p>$ sed -n ‘&#x2F;pattern&#x2F;p’ file 仅显示包含pattern的行。sed默认显示每一行，-n选项关闭自动显示功能。 sed -n ‘&#x2F;pattern&#x2F;p’ file具有过滤功能，与grep pattern file功能相同。</p>
+<p>$ ls -l | sed -n ‘&#x2F;^d&#x2F;p’ 长格式列出当前目录下的子目录</p>
+<p>$ ls -l | sed -n ‘&#x2F;^d&#x2F;p’|sed ‘s&#x2F;.* &#x2F;&#x2F;‘ 列出当前目录下的子目录</p>
+<p>sed的局限性 由于sed处理的是输入流，一旦读入一行，前面的行就过去了，无法再次取回，因此sed不具备行运算的能力。例如 $ sed ‘$-1d’ 是非法的</p>
+<p><strong>2.</strong> <strong>过滤器</strong>grep，fgrep，egrep</p>
+<p>$ grep pattern file  pattern: ed pattern</p>
+<p>$ grep ‘^void’ sig.c 显示sig.c文件中以void开头的行</p>
+<p>$ ls -l | grep ‘^d’  列出当前目录下的子目录</p>
+<p>$ ls -l | grep ‘^d’ | sed ‘s&#x2F;.* &#x2F;&#x2F;‘ 列出当前子目录名</p>
+<p>fgrep功能较弱，但处理大文件的能力强，egrep使用扩展正则表达式，功能强大。</p>
+<p><strong>3.</strong> sort—-排序</p>
+<p>$ ls | sort</p>
+<p><strong>4.</strong> tail、head</p>
+<p>$ tail file 显示file的最后10行</p>
+<p>$ tail -5 file 显示file的最后5行 </p>
+<p>$ head file 显示file的前10行</p>
+<p>$ head -5 file 显示file的前5行</p>
+<p><strong>五：模式匹配与处理语言awk</strong></p>
+<p>一般使用形式：</p>
+<p>$ awk ‘program’ filename</p>
+<p>$ commd | awk ‘program ‘</p>
+<p>program的形式</p>
+<p>pattern1 {action1} pattern2{action2}……</p>
+<p>pattern: ed的正则表达式，逻辑表达式</p>
+<p>action：如print、printf等</p>
+<p>缺省</p>
+<p>$ awk ‘&#x2F;pattern&#x2F;‘ file 显示匹配模式的每一行，功能同grep</p>
+<p>$ awk ‘{print}’ 显示每一行，功能同cat</p>
+<p>记录、字段</p>
+<p>每一行为一条记录，NR为记录数</p>
+<p>每一个非空的字符串为一个字段，使用$1、$2、…标记，$0为整行，NF为字段数</p>
+<p>$ awk ‘{print NR, $0}’ file 显示file，并在行首加上行号</p>
+<p>$ ls –l | awk ‘ &#x2F;^d&#x2F;{print}’ 长格式列出当前目录下的子目录</p>
+<p>$ ls –l | awk ‘ &#x2F;^d&#x2F;{print $8}’ 列出当前目录下的子目录</p>
+<p>打印（显示）</p>
+<p>$ ls –l | awk ‘{print NR, “: “ $1, $8}’</p>
+<p>$ awk ‘{printf(“%d: %s\n”, NR, $0)} ‘ sig.c</p>
+<p>pattern</p>
+<p>字段运算、模式表达式、逻辑表达式</p>
+<p>$ ls –l | awk ‘$5~&#x2F;…..*&#x2F;‘ 列出长度超过999字节的文件</p>
+<p>$ ls –l | awk ‘$5 !~ &#x2F;…..*&#x2F;‘ 列出长度小于等于999字节的文件</p>
+<p>$ ls –l | awk ‘$5&#x3D;&#x3D;”4096”‘ 列出长度为4096字节的文件</p>
+<p>$ ls –l | awk ‘length($5)&gt;3’ 列出长度超过999字节的文件</p>
+<p>$ ls –l | awk ‘!(length($5)&gt;3) ‘ 列出长度小于等于999字节的文件</p>
+<p>特殊pattern</p>
+<p>awk ‘BEGIN{初始化动作}’</p>
+<p>awk ‘END{结束动作}’</p>
+<p>变量和运算</p>
+<p>举例：打印某个文件的行数、单词数和字符数</p>
+<p>$ awk ‘{</p>
+<p>nw +&#x3D; NF</p>
+<p>nc +&#x3D;length($0)+1</p>
+<p>}</p>
+<p>END{</p>
+<p>print NR, nw,nc</p>
+<p>}’ sig.c   &#x2F;&#x2F;这段程序的功能与wc命令的功能完全一样。</p>
+<p>流程控制</p>
+<p>寻找文件中相同的相邻单词</p>
+<p>$ awk ‘NF&gt;0{</p>
+<p>  if ($1&#x3D;&#x3D;lastword)</p>
+<p>   printf(“double %s, line %d:\n%s\n”, $1,NR,$0)</p>
+<p>  for (i&#x3D;2; i&lt;&#x3D;NF; i++)</p>
+<p>​    if ($i&#x3D;&#x3D;$(i-1))</p>
+<p>​     printf(“double %s, line %d:\n%s\n”, $i,NR,$0)</p>
+<p>  lastword&#x3D;$NF</p>
+<p>} ‘ tmp</p>
+<p>流程控制（二）</p>
+<p>while语句</p>
+<p>while (condition){</p>
+<p>  statement1</p>
+<p>  statement2</p>
+<p>  …</p>
+<p>  }</p>
+<p>break:跳出循环</p>
+<p>continue:下一个循环</p>
+<p>next:下一条记录，回到awk程序开始</p>
+<p>exit:跳转至END模式或结束</p>
+<p>内部变量（部分）</p>
+<p>FILENAME 当前输入文件名</p>
+<p>RS  输入记录的分割符（默认为换行符）</p>
+<p>FS  输入字段的分隔符（默认为空格、制表符）</p>
+<p>NF  当前记录的字段数</p>
+<p>NR  当前记录数</p>
+<p>OFS  输出字段的分隔符（默认为空格）</p>
+<p>ORS 输出记录的分隔符（默认为换行）</p>
+<p>内部函数（部分）</p>
+<p>cos(expr) 求余弦</p>
+<p>exp(expr) 求自然指数</p>
+<p>index(s1,s2)  是否字符串s2位于s1中</p>
+<p>int(expr)     取整</p>
+<p>length(s)  求字符串长度</p>
+<p>log(expr)  求自然对数</p>
+<p>sin(expr)  求正玄</p>
+<p>split(s, a, c) 按分隔符c将s放入a[1],a[2],…中</p>
+<p>substr(s,m,n) 求s的子串，从第m个字符开始，共n个字符。</p>
+<p>数组</p>
+<p>$ awk ‘{line[NR] &#x3D; $0}</p>
+<p>​     END{</p>
+<p>​        # do what you want</p>
+<p>​        for (i&#x3D;1; i&lt;&#x3D;NR; i++) print line[i]</p>
+<p>​        } ‘</p>
+<p>流处理程序的约定，当给定文件名时，数据从文件中读取，否则从标准输入读取。这样便于管道和重定向的使用。</p>
+<p>***awk******用于格式化报文或者从文件中抽取数据包***<strong>．</strong><br> 　1.$awk ‘{print $0}’ gefforey.txt | tee gefforey.doc<br> 该命令将在屏幕输出gefforey.txt文件内容并将其内容复制到gefforey.doc文件中．<br> 　2.$awk -F: ‘{print $1}’ gefforey.log<br> 该命令以:为单位读取gefforey.log文件中第一列内容．<br> 　３.$awk ‘BEGIN {print “Name  Belt\n————“} {print $1”\t”$3}’ gefforey.txt<br> 该命令将在屏幕首先输出”Name  Belt”，第二行输出”————“，并在输出文件内容的时候，每列之间间隔一个TAB位．可以在print语句之后加上END {print “end of output”}，那么将会在文件内容输出结束的时候打印”end of output”．<br>    4.$awk ‘$2 ~ &#x2F;^baidu$&#x2F; {print $0}’ gefforey.txt<br> 该命令显示gefforey.txt文件中以空格分隔的第二列字符串是”baidu”的所有行．<br> 　5.$awk ‘{if($2 ~ &#x2F;^baidu$&#x2F;) print $0}’ gefforey.txt<br> 该命令判断如果某行第二列字符串为”baidu”,则打印出该行．<br>    6.$awk ‘{if($2 &lt; $3) print $0}’ gefforey.txt<br> 该命令显示判断如果某行第二列值小于第三列值，则打印该行．awk的条件操作符有：<br> &lt; 小于，&gt; &#x3D; 大于等于，&lt; &#x3D; 小于等于，~ 匹配正则表达式，&#x3D; &#x3D; 等于，!~ 不匹配正则表达式，!&#x3D; 不等于<br> 　7.$awk ‘{if($2 &#x3D;&#x3D;”google1” &amp;&amp; $3&#x3D;&#x3D;”google2”) print $0}’ gefforey.txt<br> 该命令判断如果某行第二列值为”google1”并且第三列值为”google2”，则打印出该行．awk的逻辑表达式有：&amp;&amp; AND，|| O R，! 非．<br> 　8.$awk ‘{print NF,NR,$0} END{print FILENAME}’ gefforey.txt<br> 该命令会输出浏览记录的域个数和已读的记录数，并在输出结尾打印文件名．</p>
+<p><strong>六：vi编辑器</strong></p>
+<p>由BSD UNIX的作者Bill Joy编写</p>
+<p>分两种工作模式：命令模式、编辑模式。a、i、o、O命令进入编辑模式，ESC退出编辑模式。</p>
+<p>在命令模式下，可使用所有的ed命令。</p>
+<p>退出：按住esc+shift+； 然后输入wq</p>
+<p><strong>七：图形界面系统管理</strong></p>
+<p>**1.**X server</p>
+<p>处理输出</p>
+<p>接受X client的输出请求，驱动硬件显示</p>
+<p>处理输入</p>
+<p>接受键盘、鼠标的输入，当作“事件”传送给适当的客户程序。</p>
+<p>窗口管理器</p>
+<p>一个特殊的X客户程序，具有改变窗口大小、位置、堆放层次等功能。</p>
+<p>桌面系统</p>
+<p>另一个特殊的X客户程序，依赖窗口管理器，控制桌面、菜单的位置、风格、效果等。</p>
+<p>\2. X 协议 ： X 系统采用客户-服务器模型，带来如下优点</p>
+<p>X server屏蔽了硬件特性，使得X client和X server之间的X协议是一个完全抽象的协议，具有很强的可移植性</p>
+<p>将X协议构建在网络协议之上，X server和X client可以运行在不同的机器上，这带来了很大的灵活性。</p>
+<p>**3.**提示</p>
+<p>当用户使用X协议登录远程计算机时，本地运行的是X server，远程计算机运行的应用程序是X client。</p>
+<p><strong>4.</strong> X 开发接口</p>
+<p>X Library</p>
+<p>最底层的程序界面，主要功能是存取X protocol的服务</p>
+<p>常见的有：Xlib、Motif、Qt</p>
+<p>X Toolkit</p>
+<p>X Library基础上的拓展，提供大量函数或组件。</p>
+<p>种类很多，有Motif、OpenLook、Gimp、X foums、X Toolkit（Xt）等</p>
+<p><strong>5.</strong> 激活超级用户（root）（非必须）</p>
+<p>为了安全，Ubuntu Linux默认禁用root用户。使用sudo命令可以提升权限，只是有些麻烦。</p>
+<p>$ sudo vi &#x2F;etc&#x2F;gdm&#x2F;gdm.conf    将其中一行“AllowRoot&#x3D;false”改为“AllowRoot&#x3D;true”  &#x2F;&#x2F;也可以通过主菜单“系统”-&gt;“系统管理”-&gt;“登录窗口”进入“登录窗口首选项”，在“安全”选项页中选中“允许本地系统管理员登录”。</p>
+<p>$ sudo passwd root 更改root用户口令  重启系统</p>
+<p><strong>6.</strong> 网络配置</p>
+<p>IP地址、子网掩码、默认网关</p>
+<p># vi &#x2F;etc&#x2F;network&#x2F;interfaces</p>
+<p>auto eth0</p>
+<p>iface eth0 inet static  # or dhcp</p>
+<p>address xxx.xxx.xxx.xxx</p>
+<p>netmask xxx.xxx.xxx.xxx</p>
+<p>gateway xxx.xxx.xxx.xxx</p>
+<p>域名服务器DNS</p>
+<p># vi &#x2F;etc&#x2F;resolv.conf</p>
+<p># Generated by NetworkManager</p>
+<p>nameserver xxx.xxx.xxx.xxx  &#x2F;&#x2F;add it</p>
+<p>nameserver xxx.xxx.xxx.xxx</p>
+<p>……</p>
+<p># &#x2F;etc&#x2F;init.d&#x2F;networking restart  重启网络，配置生效。可使用ifconfig、route等命令查看配置结果。</p>
+<p><strong>7.</strong> 创建WebServer</p>
+<p># apt-get install apache2</p>
+<p><a target="_blank" rel="noopener" href="http://xxx.xxx.xxx.xxx/">http://xxx.xxx.xxx.xxx</a>(Ubuntu Host IP Address)</p>
+<p>共享文件（网络邻居）</p>
+<p># apt-get install samba</p>
+<p>建一个共享文件夹，设权限为777，在文件管理器中使用鼠标右键共享之。</p>
+<p><strong>8.</strong> 用户帐号管理     命令 useradd、adduser、userdel、usermod、passwd</p>
+<p>使用图形界面   增、删、改、查。     修改用户密码、权限。</p>
+<p>组管理    命令 groupadd、addgroup、groupdel、groupmod、gpasswd</p>
+<p>使用图形界面    增、删、改、查。    修改组权限、成员。</p>
+<p><strong>9.</strong> 系统数据文件 &#x2F;etc&#x2F;passwd        &#x2F;etc&#x2F;shadow</p>
+<p>&#x2F;etc&#x2F;group &#x2F;&#x2F;都是文本文件，不要随意修改。</p>
+<p><strong>10.</strong> 磁盘管理概述</p>
+<p>磁盘包括软盘、光盘、硬盘。设备文件分别为：&#x2F;dev&#x2F;fd[01]、&#x2F;dev&#x2F;hd[abcd]（IDE硬盘）、&#x2F;dev&#x2F;sd[abcd]（SCSI硬盘）、&#x2F;dev&#x2F;cdrom</p>
+<p>硬盘必须分区和格式化才可使用。硬盘分区后，每个分区对应的设备名为“硬盘设备名”[1256]，例如&#x2F;dev&#x2F;sda1代表第一块SCSI硬盘的第一个分区。</p>
+<p>硬盘分区：一块硬盘最多可分4个分区，需要分更多的区时，可分一个扩展分区，然后将扩展分区再分为若干逻辑分区。</p>
+<p>管理硬盘分区的命令为fdisk。例如 </p>
+<p># fdisk &#x2F;dev&#x2F;sdb &#x2F;&#x2F;对第二快SCSI硬盘进行分区管理</p>
+<p>格式化分区（创建文件系统）</p>
+<p># mkfs 分区名  &#x2F;&#x2F;分区名：如&#x2F;dev&#x2F;sdb1</p>
+<p># mkfs -t msdos 分区名  &#x2F;&#x2F;指定文件格式，默认文件格式为ext2</p>
+<p>使用文件系统</p>
+<p># mount 分区名 路径 &#x2F;&#x2F;将某硬盘分区挂载到某个目录下，通常该目录为空目录</p>
+<p>卸载文件系统    # umount 分区名或路径 &#x2F;&#x2F;将某硬盘分区和挂载点脱钩</p>
+<p>查看分区挂载情况    # df</p>
+<p><strong>11.</strong> 查看进程</p>
+<p>$ ps &#x2F;&#x2F;查看当前终端启动的进程    $ ps -t 终端名 &#x2F;&#x2F;显示某个终端启动的进程</p>
+<p>$ ps -u 用户名 &#x2F;&#x2F;显示某个用户启动的进程</p>
+<p>$ ps -e      &#x2F;&#x2F;显示所有进程   $ ps -f       &#x2F;&#x2F;显示进程完整信息</p>
+<p>$ ps –ef |grep ‘pattern’ &#x2F;&#x2F;显示你想看到的进程</p>
+<p>结束进程：kill命令语法 kill [-signal] pid  &#x2F;&#x2F;kill命令用来给一个进程发信号，但常用的功能是结束某个进程（发一个可以结束某个进程的信号）。</p>
+<p>kill -l &#x2F;&#x2F;列出可用的信号选项</p>
+<p>例$ .&#x2F;sig</p>
+<p>$ kill -2 pid</p>
+<p>$ kill -14 pid</p>
+<p>$ kill -9 pid     </p>
+<p><strong>八： shell编程</strong></p>
+<p>**1.**将一些有用的命令组合变成实用工具</p>
+<p>ls -l | sed -n ‘&#x2F;^d&#x2F;p’  &#x2F;&#x2F;显示当前目录下的子目录</p>
+<p>$ vi lsdir</p>
+<p>$ sh lsdir</p>
+<p>$ chmod +x lsdir</p>
+<p>$ PATH&#x3D;$HOME&#x2F;bin:$PATH</p>
+<p><strong>2.</strong> 快速编写一些实用的软件</p>
+<p>$ vi mycat</p>
+<p>awk ‘{print NR,“: ”,$0}’ $1  &#x2F;&#x2F;$1 为shell命令的第1个参数</p>
+<p>$ chmod +x mycat</p>
+<p>$ mycat file1</p>
+<p><strong>3.</strong> 位置参数</p>
+<p>测试位置参数</p>
+<p>$ vi test</p>
+<p>echo $0 $1 $2 $3 $4</p>
+<p>$ sh test a1 a2 a3</p>
+<p>   test a1 a2 a3</p>
+<p>位置参数重置</p>
+<p>$ vi test</p>
+<p>echo $0 $1 $2 $3 $4</p>
+<p>set b1 b2</p>
+<p>echo $0 $1 $2 $3 $4</p>
+<p>$ sh test a1 a2 a3</p>
+<p> test a1 a2 a3</p>
+<p> test b1 b2</p>
+<p>\1) set命令可以重置位置参数；2）参数$0是命令名，不可重置；3）set命令重置除$0外所有参数</p>
+<p>位置参数的移动</p>
+<p>$ cat test</p>
+<p>echo $0 $1 $2 $3 $4 $5 $6 $7 $8</p>
+<p>shift</p>
+<p>echo $0 $1 $2 $3 $4 $5 $6 $7 $8</p>
+<p>shift 2</p>
+<p>echo $0 $1 $2 $3 $4 $5 $6 $7 $8</p>
+<p>shift命令可以左移位置参数，但不可移动参数$0</p>
+<p><strong>4.</strong> shell命令行结构</p>
+<p>单个命令$ who      $ date  多个命令$ who; date       $ who; date |wc</p>
+<p>$ (who; date )|wc       $ (who; date)|tee save |wc</p>
+<p>后台命令$ (sleep 5; date)&amp;       $ (sleep 5; date)&amp; who</p>
+<p>命令行特殊符号 &gt; &lt; &gt;&gt; &lt;&lt; ; &amp;      转义 $ echo &gt;</p>
+<p>**5.**命令行模式</p>
+<p>$ echo *      转义 $ echo *</p>
+<p>单引号 $ echo ‘*’ &#x2F;&#x2F;取消所有特殊字符的含义</p>
+<p>双引号 $ echo “*” &#x2F;&#x2F;除$`&#96;外，取消其它特殊字符的含义</p>
+<p><strong>6</strong>. shell元字符集</p>
+<p>&gt;  prog&gt;file标准输出重定向</p>
+<p>&gt;&gt; prog&gt;&gt;file标准输出重定向（添加）</p>
+<p>&lt;  prog&lt;file标准输入重定向</p>
+<p>&lt;&lt;str 即时文件读入，直到str结束</p>
+<p>|   p1|p2  p1的标准输出连接到p2的标准输入</p>
+<p>*   匹配文件名中任意字符串</p>
+<p>?   匹配文件名中任意单个字符</p>
+<p>[ccc] 匹配文件名中单个ccc中的字符。ccc可以指定范围，如0-9，a-z等</p>
+<p>; 命令结束符。p1;p2，先执行p1，再执行p2</p>
+<p>&amp; 后台命令结束符。不等命令结束，立即接受新的命令</p>
+<pre class="line-numbers language-none"><code class="language-none">…&#96;  执行命令…，用执行后的标准输出代替…  例如$ echo &#96;date<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>(…)  在子shell里运行括号里的命令</p>
+<p>$1, $2, …  位置参数</p>
+<p>$var  引用变量var的值</p>
+<p>${var} 同上，在可能引起歧义时，使用{}将变量名括起来。</p>
+<p>\  转义，取消字符的特殊含义</p>
+<p>‘…’ 单引号，字符串，对…中的特殊字符不作解释</p>
+<p>“…” 双引号，字符串，对…中的特殊字符仅解释$`&#96;</p>
+<p>#  注释。从#开始至行尾为注释</p>
+<p>var&#x3D;value 对变量var赋值</p>
+<p>P1 &amp;&amp; p2  运行p1，若成功，运行p2</p>
+<p>P1 || p2   运行p1，若不成功，运行p2</p>
+<p><strong>7.</strong> 引号（单引号、双引号、反引号）</p>
+<p>$ echo don’t do that</p>
+<p>$ echo “don’t do that”</p>
+<p>$ echo “don’t do that, $0”</p>
+<p>$ echo “don’t do that, $0, <code>date</code>“</p>
+<p>$ echo “don’t do that, $0, `date`“</p>
+<p>$ echo ‘don’t do that, $0, <code>date</code>‘</p>
+<p><strong>8.</strong> 重定向</p>
+<p>每个程序启动时自动打开三个文件：标准输入、标准输出和标准错误输出文件，文件描述符分别为0、1、2.</p>
+<p>&gt;和&gt;&gt;将标准输出定向为一个文件，如$who &gt;ttt</p>
+<p>&lt;将标准输出定向为一个文件，如$cat&lt;ttt</p>
+<p>如何重定向标准错误输出？</p>
+<p>$ gcc sig.c &gt;ttt  &#x2F;&#x2F;cat ttt?</p>
+<p>$ gcc sig.c 2&gt;ttt &#x2F;&#x2F;cat ttt?</p>
+<p>$ gcc sig.c &gt;ttt 2&gt;&amp;1 &#x2F;&#x2F;cat ttt?</p>
+<p><strong>9.</strong> &lt;&lt;的用途</p>
+<p>&lt;&lt;定义及时文件的结束符，用于在shell程序中创建文件。</p>
+<p>如下shell程序创建一个文件</p>
+<p>$ cat mkafile</p>
+<p>cat &gt;$1 &lt;&lt;end</p>
+<p>hello world!</p>
+<p>end</p>
+<p>$ sh mkafile ttt</p>
+<p>$ cat ttt</p>
+<p>hello world!</p>
+<p><strong>10</strong>. shell程序的结构</p>
+<p>①if命令</p>
+<p>结构</p>
+<p>if list   #list:命令序列</p>
+<p>then</p>
+<p>  list</p>
+<p>[elif list then list]</p>
+<p>[else list]</p>
+<p>fi</p>
+<p>例1，if list中最后一个命令的返回值</p>
+<p>if gcc &#x2F;home&#x2F;lls&#x2F;c&#x2F;sig.c</p>
+<p>#who</p>
+<p>then</p>
+<p>  echo program is ok!</p>
+<p>else</p>
+<p>  echo bad program</p>
+<p>fi</p>
+<p>例2，判断参数个数cargus</p>
+<p>if test $# -eq 5  &#x2F;&#x2F;$#为shell内部变量，代表参数个数</p>
+<p>then</p>
+<p>  echo there are 5 argus</p>
+<p>elif test $# -gt 5</p>
+<p>then</p>
+<p>  echo more than 5 argus</p>
+<p>else</p>
+<p>  echo less than 5 argus</p>
+<p>fi</p>
+<p>②test命令</p>
+<p>常用于if、while、until命令中的条件判断</p>
+<p>功能：判断文件类型或表达式是否为真</p>
+<p>test –option file模式</p>
+<p>test -e file  &#x2F;&#x2F;文件存在</p>
+<p>test –b file  &#x2F;&#x2F;文件存在且为块设备文件</p>
+<p>test –c file  &#x2F;&#x2F;文件存在且为字符设备文件</p>
+<p>test –d file  &#x2F;&#x2F;文件存在且为目录文件</p>
+<p>test –f file  &#x2F;&#x2F;文件存在且为普通文件</p>
+<p>test expression模式</p>
+<p>test e1  &#x2F;&#x2F;e1为真</p>
+<p>test ! e1  &#x2F;&#x2F;e1为假</p>
+<p>test e1 –a e2  &#x2F;&#x2F;e1,e2都为真</p>
+<p>test e1 –o e2  &#x2F;&#x2F;e1或e2为真</p>
+<p>test f1 –nt f2  &#x2F;&#x2F;文件f1比文件f2新</p>
+<p>test f1 –ot f2  &#x2F;&#x2F;文件f1比文件f2旧</p>
+<p>test –option string模式</p>
+<p>test –n str &#x2F;&#x2F;字符串str非空</p>
+<p>test –z str &#x2F;&#x2F;字符串str为空</p>
+<p>③case命令</p>
+<p>尽量使用case来代替if</p>
+<p>结构</p>
+<p>case word in</p>
+<p>pattern1) list1;;</p>
+<p>pattern2) list2;;</p>
+<p>…</p>
+<p>esac</p>
+<p>例 cargus</p>
+<p>case $# in</p>
+<ol start="5">
+<li></li>
+</ol>
+<p>  echo there are 5 argus;;</p>
+<p>[0-4])</p>
+<p>  echo less than 5 argus;;</p>
+<p>*)</p>
+<p>  echo more than 5 argus</p>
+<p>esac</p>
+<p>例 显示某c文件的前6行</p>
+<p>case $# in</p>
+<ol start="0">
+<li></li>
+</ol>
+<p>  echo usage: ccat file</p>
+<p>  exit 1;;</p>
+<p>esac</p>
+<p>case $1 in</p>
+<p>*.c)</p>
+<p>  echo c file: $1</p>
+<p>  head -6 $1;;</p>
+<p>*)</p>
+<p>  echo the file must be c file</p>
+<p>esac</p>
+<p>④for命令</p>
+<p>结构一</p>
+<p>for variable in 某个集合  &#x2F;&#x2F;集合中元素的个数决定循环的次数</p>
+<p>do</p>
+<p>   list</p>
+<p>done</p>
+<p>例 显示所有命令行参数</p>
+<p>for i in $*</p>
+<p>do</p>
+<p> echo $i</p>
+<p>done</p>
+<p>echo there are $# argus</p>
+<p>结构二   &#x2F;&#x2F;仅bash</p>
+<p>for ((e1;e2;e3))</p>
+<p>do</p>
+<p>  list</p>
+<p>done</p>
+<p>如：</p>
+<p>for ((i&#x3D;0; i&lt;maxnum; i++))</p>
+<p>do</p>
+<p>  ……</p>
+<p>done</p>
+<p>例 倒序显示命令行参数</p>
+<p>j&#x3D;0</p>
+<p>for i in $*</p>
+<p>do</p>
+<p> a[j]&#x3D;$i</p>
+<p> let j&#x3D;$j+1</p>
+<p>done</p>
+<p>for ((i&#x3D;$#-1; i&gt;&#x3D;0; i–))</p>
+<p>do</p>
+<p> echo ${a[i]}</p>
+<p>done</p>
+<p>⑤shell内部变量</p>
+<p>$# 命令行参数个数</p>
+<p>$*  命令行参数集合</p>
+<p>$@ 命令行参数集合 &#x2F;&#x2F;与$*有细微差别</p>
+<p>$?  最后一条命令的返回值</p>
+<p>$$ 当前shell的进程号</p>
+<p>$!  最后一个后台命令的进程号</p>
+<p>$HOME $PATH $PS1 $PS2</p>
+<p>⑥while、until命令</p>
+<p>while命令结构</p>
+<p>while</p>
+<p>  list</p>
+<p>do</p>
+<p>  list</p>
+<p>done</p>
+<p>until命令结构</p>
+<p>until</p>
+<p>  list</p>
+<p>do</p>
+<p>  list</p>
+<p>done</p>
+<p>⑦其它命令</p>
+<p>break 跳出循环</p>
+<p>continue 下一个循环</p>
+<p>exit n 终止shell程序，n为返回值</p>
+<p>trap 设置中断处理命令。例如：</p>
+<p>trap ‘rm –f tmpfile; exit 1’ 1 2 15</p>
+<p>shell编程的优点：充分利用现有资源，快捷</p>
+<p>shell程序的缺点：功能有限，代码不易读，可移植性差</p>
+<p>shell本身是一个普通用户的接口，能提供如此编程环境已经不易。</p>
+<p><strong>变量赋值和引用</strong></p>
+<p>Shell编程中，使用变量无需事先声明，同时变量名的命名须遵循如下规则：</p>
+<p>\1.  首个字符必须为字母（a-z，A-Z） 或者_</p>
+<p>\2.  中间不能有空格，可以使用下划线（_）</p>
+<p>\3.  不能使用其他标点符号</p>
+<p>需要给变量赋值时，可以这么写：</p>
+<p>变量名&#x3D;值 </p>
+<p>要取用一个变量的值，只需在变量名前面加一个$ ( 注意: 给变量赋值的时候，不能在”&#x3D;”两边留空格 )</p>
+<p>#!&#x2F;bin&#x2F;bash</p>
+<p># 对变量赋值：</p>
+<p>a&#x3D;”hello world” #等号两边均不能有空格存在</p>
+<p># 打印变量a的值：</p>
+<p>echo “A is:” $a</p>
+<p>挑个自己喜欢的编辑器，输入上述内容，并保存为文件first，然后执行 chmod +x first 使其可执行，最后输入 .&#x2F;first 执行该脚本。其输出结果如下： </p>
+<p>A is: hello world</p>
+<p>有时候变量名可能会和其它文字混淆，比如：</p>
+<p>num&#x3D;2</p>
+<p>echo “this is the $numnd”</p>
+<p>上述脚本并不会输出”this is the 2nd”而是”this is the “；这是由于shell会去搜索变量numnd的值，而实际上这个变量此时并没有值。这时，我们可以用花括号来告诉shell要打印的是num变量：</p>
+<p>num&#x3D;2</p>
+<p>echo “this is the ${num}nd”</p>
+<p>其输出结果为：this is the 2nd</p>
+<p> 注意花括号的位置：</p>
+<p>num&#x3D;2</p>
+<p>echo “this is the {$num}nd”</p>
+<p>其输出结果为：this is the {2}nd</p>
+<p> 需要注意shell的默认赋值是字符串赋值。比如：</p>
+<p>var&#x3D;1</p>
+<p>var&#x3D;$var+1</p>
+<p>echo $var</p>
+<p>打印出来的不是2而是1＋1。为了达到我们想要的效果有以下几种表达方式：</p>
+<p>let “var+&#x3D;1”</p>
+<p>var&#x3D;”$[$var+1]”</p>
+<p>((var++))</p>
+<p>var&#x3D;$(($var+1))</p>
+<p>var&#x3D;”$(expr “$var” + 1)” #不建议使用</p>
+<p>var&#x3D;”<code>expr &quot;$var&quot; + 1</code>“ #强烈不建议使用，注意加号两边的空格，否则还是按照字符串的方式赋值,<code>为Esc下方的</code>，而不是单引号’。</p>
+<p>注意：前2种方式在bash下有效，在sh下会出错。</p>
+<p>let表示数学运算，expr用于整数值运算，每一项用空格隔开，$[]将中括号内的表达式作为数学运算先计算结果再输出。</p>
+<p>Shell脚本中有许多变量是系统自动设定的，我们将在用到这些变量时再作说明。除了只在脚本内有效的普通shell变量外，还有环境变量，即那些由export关键字处理过的变量。本文不讨论环境变量，因为它们一般只在登录脚本中用到。</p>
+<p><strong>Shell****里的流程控制</strong></p>
+<p><strong>if</strong> <strong>语</strong> <strong>句</strong></p>
+<p>“if”表达式如果条件为真，则执行then后的部分:</p>
+<p>if ….; then</p>
+<p> ….</p>
+<p>elif ….; then</p>
+<p> ….</p>
+<p>else</p>
+<p> ….</p>
+<p>fi</p>
+<p>大多数情况下，可以使用测试命令来对条件进行测试，比如可以比较字符串、判断文件是否存在及是否可读等等……通常用” [ ] “来表示条件测试，注意这里的空格很重要，要确保方括号前后的空格。</p>
+<p><strong>[ -f “somefile” ]</strong> <strong>：判断是否是一个文件</strong></p>
+<p><strong>[ -x “&#x2F;bin&#x2F;ls” ]</strong> <strong>：判断</strong><strong>&#x2F;bin&#x2F;ls****是否存在并有可执行权限</strong></p>
+<p><strong>[ -n “$var” ]</strong> <strong>：判断</strong><strong>$var****变量是否有值</strong></p>
+<p><strong>[ “$a” &#x3D; “$b” ]</strong> <strong>：判断</strong><strong>$a**<strong>和</strong></strong>$b**<strong>是否相等</strong></p>
+<p>执行man test可以查看所有测试表达式可以比较和判断的类型。下面是一个简单的if语句：</p>
+<p>#!&#x2F;bin&#x2F;bash</p>
+<p>if [ ${SHELL} &#x3D; “&#x2F;bin&#x2F;bash” ]; then</p>
+<p>  echo “your login shell is the bash (bourne again shell)”</p>
+<p>else</p>
+<p>  echo “your login shell is not bash but ${SHELL}”</p>
+<p>fi</p>
+<p>变量$SHELL包含有登录shell的名称，我们拿它和&#x2F;bin&#x2F;bash进行比较以判断当前使用的shell是否为bash。</p>
+<p><strong>&amp;&amp;</strong> <strong>和</strong> <strong>||</strong> <strong>操作符</strong></p>
+<p>熟悉C语言的朋友可能会喜欢下面的表达式：</p>
+<p>[ -f “&#x2F;etc&#x2F;shadow” ] &amp;&amp; echo “This computer uses shadow passwords”</p>
+<p>这里的 &amp;&amp; 就是一个快捷操作符，如果左边的表达式为真则执行右边的语句，你也可以把它看作逻辑运算里的与操作。上述脚本表示如果&#x2F;etc&#x2F;shadow文件存在，则打印“This computer uses shadow passwords”。同样shell编程中还可以用或操作(||)，例如：</p>
+<p>#!&#x2F;bin&#x2F;bash</p>
+<p>mailfolder&#x3D;&#x2F;var&#x2F;spool&#x2F;mail&#x2F;james</p>
+<p>[ -r “$mailfolder” ] || { echo “Can not read $mailfolder” ; exit 1; }</p>
+<p>echo “$mailfolder has mail from:”</p>
+<p>grep “^From “ $mailfolder</p>
+<p>该脚本首先判断mailfolder是否可读，如果可读则打印该文件中的”From” 一行。如果不可读则或操作生效，打印错误信息后脚本退出。需要注意的是，这里我们必须使用如下两个命令：</p>
+<p>-打印错误信息</p>
+<p>-退出程序</p>
+<p>我们使用花括号以匿名函数的形式将两个命令放到一起作为一个命令使用；普通函数稍后再作说明。即使不用与和或操作符，我们也可以用if表达式完成任何事情，但是使用与或操作符会更便利很多 。</p>
+<p><strong>case</strong> <strong>语句</strong></p>
+<p>case表达式可以用来匹配一个给定的字符串，而不是数字（可别和C语言里的switch…case混淆）。</p>
+<p>case … in</p>
+<p>  …) do something here </p>
+<p>  ;;</p>
+<p>esac</p>
+<p>file命令可以辨别出一个给定文件的文件类型，如：file lf.gz，其输出结果为：</p>
+<p>lf.gz: gzip compressed data, deflated, original filename,</p>
+<p>last modified: Mon Aug 27 23:09:18 2001, os: Unix</p>
+<p>我们利用这点写了一个名为smartzip的脚本，该脚本可以自动解压bzip2, gzip和zip 类型的压缩文件：</p>
+<p> #!&#x2F;bin&#x2F;bash</p>
+<p> ftype&#x3D;”$(file “$1”)”</p>
+<p> case “$ftype” in</p>
+<p> “$1: Zip archive”*)</p>
+<p>  unzip “$1” ;;</p>
+<p> “$1: gzip compressed”*)</p>
+<p>  gunzip “$1” ;;</p>
+<p> “$1: bzip2 compressed”*)</p>
+<p>  bunzip2 “$1” ;;</p>
+<p> *) echo “File $1 can not be uncompressed with smartzip”;;</p>
+<p> esac</p>
+<p>你可能注意到上面使用了一个特殊变量$1，该变量包含有传递给该脚本的第一个参数值。也就是说，当我们运行：</p>
+<p>smartzip articles.zip</p>
+<p>$1 就是字符串 articles.zip。</p>
+<p><strong>select</strong> <strong>语句</strong></p>
+<p>select表达式是bash的一种扩展应用，擅长于交互式场合。用户可以从一组不同的值中进行选择：</p>
+<p>select var in … ; do</p>
+<p>　break;</p>
+<p>done</p>
+<p>…. now $var can be used ….</p>
+<p>下面是一个简单的示例：</p>
+<p>#!&#x2F;bin&#x2F;bash</p>
+<p>echo “What is your favourite OS?”</p>
+<p>select var in “Linux” “Gnu Hurd” “Free BSD” “Other”; do</p>
+<p> break;</p>
+<p>done</p>
+<p>echo “You have selected $var”</p>
+<p>该脚本的运行结果如下：</p>
+<p>What is your favourite OS?</p>
+<p>\1) Linux</p>
+<p>\2) Gnu Hurd</p>
+<p>\3) Free BSD</p>
+<p>\4) Other</p>
+<p>#? 1</p>
+<p>You have selected Linux</p>
+<p><strong>while&#x2F;for</strong> <strong>循环</strong></p>
+<p>在shell中，可以使用如下循环：</p>
+<p>while …; do</p>
+<p>  ….</p>
+<p>done</p>
+<p>只要测试表达式条件为真，则while循环将一直运行。关键字”break”用来跳出循环，而关键字”continue”则可以跳过一个循环的余下部分，直接跳到下一次循环中。</p>
+<p>for循环会查看一个字符串列表（字符串用空格分隔），并将其赋给一个变量：</p>
+<p>for var in ….; do</p>
+<p>  ….</p>
+<p>done</p>
+<p>下面的示例会把A B C分别打印到屏幕上：</p>
+<p>#!&#x2F;bin&#x2F;bash</p>
+<p>for var in A B C ; do</p>
+<p>  echo “var is $var”</p>
+<p>done</p>
+<p>下面是一个实用的脚本showrpm，其功能是打印一些RPM包的统计信息：</p>
+<p>#!&#x2F;bin&#x2F;bash</p>
+<p># list a content summary of a number of RPM packages</p>
+<p># USAGE: showrpm rpmfile1 rpmfile2 …</p>
+<p># EXAMPLE: showrpm &#x2F;cdrom&#x2F;RedHat&#x2F;RPMS&#x2F;*.rpm</p>
+<p>for rpmpackage in “$@”; do</p>
+<p>  if [ -r “$rpmpackage” ];then</p>
+<p>   echo “&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; $rpmpackage &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;”</p>
+<p>   rpm -qi -p $rpmpackage</p>
+<p>  else</p>
+<p>   echo “ERROR: cannot read file $rpmpackage”</p>
+<p>  fi</p>
+<p>done</p>
+<p>这里出现了第二个特殊变量$@，该变量包含有输入的所有命令行参数值。如果你运行showrpm openssh.rpm w3m.rpm webgrep.rpm，那么 “$@”(有引号) 就包含有 3 个字符串，即openssh.rpm, w3m.rpm和 webgrep.rpm。$*的意思是差不多的。但是只有一个字串。如果不加引号，带空格的参数会被截断。</p>
+<p><strong>Shell****里的一些特殊符号</strong></p>
+<p><strong>引号</strong></p>
+<p>在向程序传递任何参数之前，程序会扩展通配符和变量。这里所谓的扩展是指程序会把通配符（比如*）替换成适当的文件名，把变量替换成变量值。我们可以使用引号来防止这种扩展，先来看一个例子，假设在当前目录下有两个jpg文件：mail.jpg和tux.jpg。</p>
+<p>#!&#x2F;bin&#x2F;bash</p>
+<p>echo *.jpg</p>
+<p>运行结果为：</p>
+<p>mail.jpg tux.jpg</p>
+<p>引号（单引号和双引号）可以防止通配符*的扩展：</p>
+<p>#!&#x2F;bin&#x2F;bash</p>
+<p>echo “*.jpg”</p>
+<p>echo ‘*.jpg’</p>
+<p>其运行结果为：</p>
+<p>*.jpg</p>
+<p>*.jpg</p>
+<p>其中单引号更严格一些，它可以防止任何变量扩展；而双引号可以防止通配符扩展但允许变量扩展：</p>
+<p>#!&#x2F;bin&#x2F;bash</p>
+<p>echo $SHELL</p>
+<p>echo “$SHELL”</p>
+<p>echo ‘$SHELL’</p>
+<p>运行结果为：</p>
+<p>&#x2F;bin&#x2F;bash</p>
+<p>&#x2F;bin&#x2F;bash</p>
+<p>$SHELL</p>
+<p>此外还有一种防止这种扩展的方法，即使用转义字符——反斜杆:\：</p>
+<p>echo *.jpg</p>
+<p>echo $SHELL</p>
+<p>输出结果为：</p>
+<p>*.jpg</p>
+<p>$SHELL</p>
+<p><strong>九：c语言开发环境</strong></p>
+<p><strong>1</strong>. 实例分析</p>
+<p>&#x2F;* traditional first c program *&#x2F;</p>
+<p>#include &lt;stdio.h&gt;</p>
+<p>int main(argc, argv)</p>
+<p>  int argc; char *argv[];</p>
+<p>{</p>
+<p>  printf(“hello world!\n”);</p>
+<p>  return 0;</p>
+<p>}</p>
+<p>注释&#x2F;* traditional first c program <em>&#x2F;，&#x2F;</em>  *&#x2F; 之间为注释，用于阅读，编译器忽略这些内容。</p>
+<p>预编译指令</p>
+<p>#include &lt;stdio.h&gt; 告诉编译程序，在编译之前在“常见位置”寻找stdio.h，将其内容包含到程序中。</p>
+<p>#为预编译指令，告诉编译程序其后的内容在编译之前需要处理。</p>
+<p>include表示包含某个文件</p>
+<p>&lt;&gt;表示“常见位置”，通常为&#x2F;usr&#x2F;include. 如果文件在其它位置，应使用””号。如#include “myhead.h”。</p>
+<p>stdio.h为标准输入&#x2F;输出头文件，其中包含了main函数所使用的printf函数</p>
+<p>主函数</p>
+<p>int main(argc, argv)</p>
+<p>任何c程序必须有一个main函数，程序从main函数开始执行。</p>
+<p>主函数参数</p>
+<p>  int argc; char *argv[];</p>
+<p>主函数参数是命令行的参数，argc是参数的数量，argv是各个参数所组成的数组。</p>
+<p>良好的习惯：对于输入数据，如果给出了输入文件，则从该文件读入数据，否则从标准输入读入数据；对于输出数据，如果给出了输出文件，则输出至该文件，否则输出至标准输出文件。—-这样便于使用管道来连接命令。</p>
+<p>主函数返回值</p>
+<p>  return 0</p>
+<p>主函数最好声明为int类型。如果程序正常结束，主程序的返回值最好为0，否则返回-1或其它值。这样有利于shell编程。</p>
+<p>使用echo命令可以查看最后一条命令的返回值。</p>
+<p>$ .&#x2F;a.out</p>
+<p>$ echo $?</p>
+<p><strong>2.</strong> <strong>c****编译过程：</strong>第一步，预处理。处理预处理指令，如#inlude、#define等，输出预处理后的源文件。第二步，编译。词法和语法分析，如果有错误，则给出提示终止编译；如果没有错误，则将源程序翻译成汇编代码（或其它中间代码）。汇编代码是以助记符来代替机器代码的一种代码。第三步，汇编。将汇编代码转换成机器代码，输出目标文件。第四步，连接。连接各目标文件，生成可执行程序。</p>
+<p><strong>3.</strong> <strong>（UNIX<strong><strong>系统中默认的c</strong></strong>编译器为cc<strong><strong>。在Ubuntu</strong></strong>中，cc<strong><strong>等同于gcc</strong></strong>）</strong></p>
+<p>$ cc hello.c  &#x2F;&#x2F;生成可执行程序 .&#x2F;a.out</p>
+<p>$ cc -o hello hello.c &#x2F;&#x2F;生成可执行程序 hello</p>
+<p>$ cc p1.c p2.c &#x2F;&#x2F;源程序由两个文件组成。编译p1.c和p2.c，生成.&#x2F;a.out</p>
+<p>$ cc -c p1.c &#x2F;&#x2F;编译p1.c，生成目标文件p1.o，不连接。</p>
+<p>$ cc -g hello.c &#x2F;&#x2F;编译hello.c，在目标文件中加入调试信息。</p>
+<p><strong>4.</strong> <strong>程序调试工具gdb</strong></p>
+<p>主要功能包括：1）启动程序，可以按照自定义的要求运行程序。2）可让被调试的程序在你所指定的调置的断点处停住。（断点可以是条件表达式）3）当程序被停住时，可以检查此时你的程序中所发生的事。 4）动态的改变你程序的执行环境。</p>
+<p>采用命令行界面。</p>
+<p>命令简介：(gdb)  &#x2F;&#x2F;gdb 命令提升符</p>
+<p>(gdb) help  &#x2F;&#x2F;显示gdb命令分类</p>
+<p>(gdb) help breakpoints &#x2F;&#x2F;显示断点设置的相关命令</p>
+<p>(gdb) h b  &#x2F;&#x2F;同上。只要不引起歧义，gdb命令可以简写。</p>
+<p>(gdb) he bre &#x2F;&#x2F;同上。</p>
+<p><strong>5.</strong> make：使用默认文件名时，只需执行命令make即可完成编译；使用其它文件名时，需要执行make -f filename来完成编译。</p>
+<p>\6. 编译规则</p>
+<p>一个例子p: p1.o p2.o</p>
+<p>gcc -o p p1.o p2.o</p>
+<p>p1.o: p1.c</p>
+<p>gcc -c p1.c</p>
+<p>p2.o: p2.c</p>
+<p>gcc -c p2.c       上例中包含3条规则，每条规则包含一个文件依赖关系和一条命令。p:p1.o p2.o表示文件p依赖文件p1.o和p2.o，如果这两个文件中的任何一个比文件p新（更改时间更晚），则执行规则中的命令gcc -o p p1.o p2.o</p>
+<p>例1 自动规则</p>
+<p>p: p1.o p2.o</p>
+<p>gcc -o p p1.o p2.o</p>
+<p>$ touch p1.c</p>
+<p>$ make</p>
+<p>对于p1.o和p2.o，make自动生成如下规则 p1.o:p1.c; gcc –c –o p1.o p1.c 和p2.o:p2.c; gcc –c –o p2.o p2.c</p>
+<p>例2</p>
+<p>p: p1.o p2.o</p>
+<p>gcc -o p p1.o p2.o</p>
+<p>p1.o:p1.c</p>
+<p>echo donothing</p>
+<p>$ touch p1.c p2.c</p>
+<p>$ make</p>
+<p>$ make</p>
+<p>由于p1.o的生成规则存在，make采用该规则，不再为这个依赖文件生成规则</p>
+<p>例3</p>
+<p>p: p1.o p2.o</p>
+<p>gcc -o p p1.o p2.o</p>
+<p>sig.o:sig.c</p>
+<p>gcc -c sig.c</p>
+<p>$ touch sig.c</p>
+<p>$ make</p>
+<p>sig.o不是终极目标的依赖文件，其生成规则不采用。</p>
+<p>例4</p>
+<p>p: p1.o p2.o x</p>
+<p>gcc -o p p1.o p2.o</p>
+<p>$ make</p>
+<p>没有创建x的规则，也无法自动创建，错误！</p>
+<p>规则的一般形式</p>
+<p>目标文件：依赖文件1 依赖文件2 …</p>
+<p><tab>命令1  [#注释]</p>
+<p><tab>命令2  [#注释]</p>
+<p>……</p>
+<p>#一条规则可以执行多条命令，每条命令的行首必须是制表符（tab），make文件中可以有注释</p>
+<p><strong>7.</strong> 使用变量</p>
+<p>make文件中可以使用变量，这样更为简洁，避免出错。例如：</p>
+<p># sample 1</p>
+<p>objs &#x3D; main.o kbd.o command.o display.o \</p>
+<p> insert.o search.o files.lo untils.o</p>
+<p>edit:$(objs)</p>
+<p>cc -o edit $(objs)</p>
+<p>#用\将较长的行分解为多行。\取消换行符的作用，其后面不能有空格等字符，否则会出错（很隐蔽的错误）。</p>
+<p>#如果不定义变量，所有.o文件会写两次，繁琐，且容易出错</p>
+<p><strong>8.</strong> 使用隐含规则</p>
+<p>只有依赖关系而没有命令的规则为隐含规则。如</p>
+<p>p1.o : p1.c a.h  # or p1.o : a.h</p>
+<p>p2.o : p2.c b.h  # or p2.o : b.h</p>
+<p>p3.o : p3.c     # or p3.o:  or <null> </p>
+<p>对于隐含规则，make会自动运行相应的命令来生成目标文件。如 gcc -c -o p1.o p1.c</p>
+<p>对于p1.o:p1.c这种自动的依赖关系，可以省略不写。</p>
+<p>只有自动依赖关系的隐含规则可以不写。</p>
+<p>**9.**伪目标规则</p>
+<p>伪目标规则完成某些编译以外的任务，例如：</p>
+<p>clear:</p>
+<p>rm *.o</p>
+<p>dosth:</p>
+<p>echo what you want?</p>
+<p>执行伪目标规则中的命令</p>
+<p>$ make clear</p>
+<p>$ make dosth</p>
+<p>$ make clear dosth</p>
+<p>如果伪目标文件存在，将不会执行预期的操作，因此，最好在make文件中声明伪目标规则</p>
+<p>.PHONY: clear dosth</p>
+<p><strong>10.</strong> 标准c函数</p>
+<p>系统调用：操作系统需要向运行程序提供各种服务，如打开文件、读写文件、分配内存、获取当前时间、执行新的程序等。访问这些服务的接口叫做“系统调用（sysem call）”，或叫做“应用程序接口（API）”、“服务原语”等。</p>
+<p>UNIX每个系统调用都在c库中设置一个具有同样名字的函数。这些函数按照系统要求的技术调用相应的内核服务。例如将若干c参数送入通用寄存器，然后执行某个软中断进入内核的机器指令。从应用的角度，系统调用可视为c函数。</p>
+<p>库函数</p>
+<p>库函数是在系统调用基础上所实现的公共函数。</p>
+<p>一个库函数可能会调用一个或多个系统调用，也可能不使用任何系统调用。例如，printf函数是库函数，它调用write系统调用；strcpy复制一个字符串，不使用系统调用。</p>
+<p>二者的关系</p>
+<p>系统调用是操作系统内核提供的，而库函数是具体编程语言提供的。库函数构建在系统调用基础之上。从编程的角度，编程者可编写其它函数来替换库函数，但无法替换系统调用。系统调用通常提供某种功能的一个最小接口，而库函数通常提供比较复杂的功能。例如，系统调用write提供基本的文件写操作，而printf则提供格式化的写操作。</p>
+<p>约定：在不需要严格区分的前提下，“标准c函数”、“库函数”指所有c语言标准头文件中定义的函数，其中包括库函数和系统调用。</p>
+<p><strong>十：系统调用</strong></p>
+<p>\1. 基本文件I&#x2F;O函数：open、creat、read、write、lseek、close</p>
+<p>术语：不带缓冲的I&#x2F;O（指每一个read、write都调用内核中的一个系统调用），低级例程。</p>
+<p>文件描述符：一个非负的整数，一个结构数组的下标，进程打开的文件表项的下标。</p>
+<p>open、creat函数会返回一个文件描述符</p>
+<p>close：</p>
+<p>#include &lt;unistd.h&gt;</p>
+<p>int close(int filedes)</p>
+<p>返回值：若成功，返回0，出错返回-1</p>
+<p>filedes，文件描述符</p>
+<p>进程终止时，内核自动关闭其打开的所有文件</p>
+<p>lseek</p>
+<p>移动文件“读写指针”（或称“文件偏移量”）。读写操作会自动移动文件读写指针。</p>
+<p>#include &lt;unistd.h&gt;</p>
+<p>off_t lseek(int filedes, off_t offset, int whence)</p>
+<p>off_t 与系统有关，通常是长整型</p>
+<p>filedes 文件描述符</p>
+<p>whence 移动偏移量的方式。0：绝对方式；1：相对方式；2：相对文件尾部</p>
+<p>offset 移动的距离，非绝对方式移动时，可以为负。</p>
+<p>返回值：新的文件偏移量。</p>
+<p>read</p>
+<p>从已打开的文件中读取数据，自动移动文件读写指针。</p>
+<p>#include &lt;unistd.h&gt;</p>
+<p>ssize_t read(int filedes, void *buff, size_t nbytes)</p>
+<p>ssize_t 通常是整型，size_t通常是无符号整型。</p>
+<p>filedes 文件描述符</p>
+<p>buff 存放数据的缓冲区</p>
+<p>nbytes 需要读取的字节数</p>
+<p>返回值：实际读取的字节数。正常读取时，返回值等于nbytes;遇到文件结束时，小于nbytes；出错返回-1</p>
+<p>write</p>
+<p>将数据写入已打开的文件，自动移动文件读写指针。</p>
+<p>#include &lt;unistd.h&gt;</p>
+<p>ssize_t write(int filedes, void *buff, size_t nbytes)</p>
+<p>ssize_t 通常是整型，size_t通常是无符号整型。</p>
+<p>filedes 文件描述符</p>
+<p>buff 存放数据的缓冲区</p>
+<p>nbytes 需要写入的字节数</p>
+<p>返回值：实际写入的字节数。正常写入时，返回值等于nbytes;磁盘空间满时，小于nbytes（这种情况也可以认为是出错）；出错返回-1</p>
+<p><img src="file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image006.png" alt="img"></p>
+<p><img src="file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image008.png" alt="img"></p>
+<p><img src="file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image010.png" alt="img"></p>
+<p><img src="file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image011.png" alt="img"></p>
+<p><strong>2.</strong> <strong>dup2</strong></p>
+<p>#include &lt;unistd.h&gt;</p>
+<p>int dup2(int filedes1, int filedes2)</p>
+<p>将文件描述符filedes1的表项复制给filedes2的表项。如果filedes2已经打开，则先将其关闭。</p>
+<p>返回值：正常返回filedes2，出错返回-1</p>
+<p>**3.**原子操作 例1 多个进程添写同一个日志文件</p>
+<p>有问题的代码：</p>
+<p>lseek(fd, 0L, 2)</p>
+<p>write(fd, buf, nbytes)</p>
+<p>正确的做法：</p>
+<p>open时，使用O_APPEND选项</p>
+<p>write时，不需要调用lseek，直接写。</p>
+<p>例2 多个进程创建可能重名的临时文件</p>
+<p>有问题的代码：</p>
+<p>if （open（tmpfile, O_WRONLY)&lt;0)</p>
+<p>   creat(tmpfile, mode)</p>
+<p>正确的做法：</p>
+<p>open(tmpfile, O_CREAT|O_WRONLY|O_TRUNC, mode)</p>
+<p>最好的做法是保证没有重名的临时文件。</p>
+<p><strong>3.</strong> 文件属性和目录</p>
+<p>文件属性</p>
+<p>属性结构</p>
+<p>struct stat {</p>
+<p> mode _t   st_mode;  &#x2F;&#x2F;文件类型和权限</p>
+<p> ino_t     st_ino;   &#x2F;&#x2F;i节点号</p>
+<p> dev_t     st_dev;   &#x2F;&#x2F;文件系统设备号（磁盘和分区）</p>
+<p> dev_t     st_rdev;  &#x2F;&#x2F;设备文件的设备号</p>
+<p> nlink_t    st_nlink;  &#x2F;&#x2F;链接数</p>
+<p> uid_t     st_uid;   &#x2F;&#x2F;文件所有者的用户ID</p>
+<p>gid_t     st_gid;   &#x2F;&#x2F;文件所有者的组ID</p>
+<p> off_t     st_size;   &#x2F;&#x2F;文件长度（字节数），普通文件</p>
+<p> time_t    st_atime;  &#x2F;&#x2F;最后一次访问的时间</p>
+<p> time_t    st_mtime; &#x2F;&#x2F;最后一次修改文件内容的时间</p>
+<p> time_t    st_ctime;  &#x2F;&#x2F;最后一次修改文件属性的时间</p>
+<p> }</p>
+<p>函数</p>
+<p>#include &lt;sys&#x2F;stat.h&gt;</p>
+<p>int stat(const char *pathname, struct stat *buf)</p>
+<p>int fstat(int filedes, struct stat *buf)</p>
+<p>文件类型</p>
+<p>类型：普通文件、目录文件、字符设备文件、块设备文件、 FIFO、符号链接、套接字</p>
+<p>判断文件类型</p>
+<p>S_ISREG(mode_t mode)  &#x2F;&#x2F;是否普通文件</p>
+<p>S_ISDIR(mode_t mode)  &#x2F;&#x2F;是否目录文件</p>
+<p>S_ISCHR(mode_t mode)  &#x2F;&#x2F;是否字符设备文件</p>
+<p>S_ISBLK(mode_t mode)  &#x2F;&#x2F;是否块设备文件</p>
+<p>S_ISFIFO(mode_t mode) &#x2F;&#x2F;是否管道文件</p>
+<p>S_ISLNK(mode_t mode)  &#x2F;&#x2F;是否符号链接</p>
+<p>S_SOCK(mode_t mode)  &#x2F;&#x2F;是否套接字</p>
+<p>文件的权限</p>
+<p>9个普通权限位</p>
+<p>S_IRUSER, S_IWUSER, S_IXUSER &#x2F;&#x2F;用户权限位</p>
+<p>S_IRGRP,  S_IWGRP,  S_IXGRP  &#x2F;&#x2F;用户组权限位</p>
+<p>S_IROTH,  S_IWOTH, S_IXOTH  &#x2F;&#x2F;其他用户权限位</p>
+<p>3个特殊权限位（针对可执行文件）</p>
+<p>S_ISUID 执行时设置有效用户ID，如passwd命令文件</p>
+<p>S_ISGID 执行时设置有效用户组ID</p>
+<p>S_SVTX  第一次执行时，保存正文，即常驻内存。</p>
+<p>函数</p>
+<p>int chmod(const char *pathname, mode_t mode)</p>
+<p>int fchmod(int filedes, mode_t mode)</p>
+<p>创建新文件</p>
+<p>新文件的用户ID、组ID等于创建进程的有效用户ID和组ID</p>
+<p>新文件的权限由指定权限和屏蔽字共同决定。</p>
+<p>指定权限，open和creat函数中给出的权限。</p>
+<p>屏蔽字（umask值），被umask屏蔽的权限位即使在open或creat中指定了也会被屏蔽掉。</p>
+<p>#include &lt;sys&#x2F;stat.h&gt;</p>
+<p>mode_t umask(mode_t mode)</p>
+<p>umask函数设置当前屏蔽字，返回以前的屏蔽字。</p>
+<p>普通文件操作函数</p>
+<p># include &lt;unistd.h&gt;</p>
+<p>int link(const char *existingpath, const char *newpath) 创建一个新的目录项newpath，指向一个现有的文件existingpath。</p>
+<p>int unlink(const char *pathname) 删除一个目录项，对应文件的链接数减1。</p>
+<p>#include &lt;stdio.h&gt;</p>
+<p>int remove(const char *pathname) 删除一个文件或目录的链接。</p>
+<p>int rename(const char *oldname, const char *newname) 文件或目录更名</p>
+<p>目录文件操作函数</p>
+<p># include &lt;sys&#x2F;stat.h&gt;</p>
+<p>int mkdir(const char *pathname, mode_t mode) 创建一个目录</p>
+<p># include &lt;unistd.h&gt;</p>
+<p>int rmdir(const char *pathname) 删除一个空目录。</p>
+<p>目录文件读函数 &#x2F;&#x2F;只有内核才可以写</p>
+<p>#include &lt;dirent.h&gt;</p>
+<p>DIR *opendir(const char *pathname)</p>
+<p>struct dirent *readdir(DIR *dp)</p>
+<p>int closedir(DIR *dp)</p>
+<p>void seekdir(DIR *dp, long loc)</p>
+<p>位置函数</p>
+<p>改变进程的当前工作目录 &#x2F;&#x2F;cd命令</p>
+<p># include &lt;unistd.h&gt;</p>
+<p>int chdir(const char *pathname)</p>
+<p>int fchdir(int filedes)</p>
+<p>获取当前工作目录 &#x2F;&#x2F;pwd命令</p>
+<p>#include &lt;unistd.h&gt;</p>
+<p>char *getcwd(char *buff, size_t size)</p>
+<p><strong>4.</strong> 进程控制</p>
+<p>进程ID(进程号)</p>
+<p>#include &lt;unistd.h&gt;</p>
+<p>pid_t getpid(void)  获取调用者的进程ID</p>
+<p>pid_t getppid(void) 获取调用者的父进程ID。</p>
+<p>创建进程（fork）</p>
+<p>#include &lt;unistd.h&gt;</p>
+<p>pid_t fork(void)</p>
+<p>功能：创建一个新的进程，新进程是旧进程的副本。旧进程叫父进程，新进程叫子进程。</p>
+<p>返回值：fork函数调用一次，返回两次。在父进程中返回子进程的ID，在子进程中返回0，出错返回-1</p>
+<p>if ((pid&#x3D;fork()) &#x3D;0) {</p>
+<p>  …… &#x2F;&#x2F;子进程代码}</p>
+<p>else if (pid&gt;0){</p>
+<p>  …… &#x2F;&#x2F;父进程代码}</p>
+<p>else{</p>
+<p>  …… &#x2F;&#x2F;fork 出错 }</p>
+<p>执行程序（exec）</p>
+<p>父进程fork一个子进程后，子进程往往需要调用一个exec函数来运行一个新程序。</p>
+<p>exec函数用一个新程序替换调用进程原有的代码、数据、堆栈等，新程序从头开始执行。exec不产生新的进程，所有调用前后的进程号不发生变化。</p>
+<p>exec函数</p>
+<p>#include &lt;unistd.h&gt;</p>
+<p>int execl(const char *pathname, const char *arg0,…,(char *)0)</p>
+<p>int execv(const char *pathname, char *const argv[])</p>
+<p>int execle(const char *pathname, const char *arg0,…,(char *)0, char *const envp[])</p>
+<p>int execve(const char *pathname, char *const argv[], char *const envp[])</p>
+<p>int execlp(const char *filename, const char *arg0,…,(char *)0)</p>
+<p>int execvp(cons char *filename, char *const argv[])</p>
+<p>说明：</p>
+<p>\1) execl和execlp比较直观，类似命令行输入，推荐使用。</p>
+<p>2）execve是系统调用，其他是库函数。</p>
+<p>3）返回值：正常不返回，出错返回-1</p>
+<p>文件共享</p>
+<p>fork之后，所有父进程打开的文件描述符都被复制到子进程中。父子进程相同的文件描述符指向相同的内核文件表，具有相同的文件偏移量。如果父子进程同时操作相同的文件，则需要同步机制，否则会产生混乱。</p>
+<p>一般情况下，应该尽量回避父子进程同时操作相同文件的情况。1）父进程等待子进程结束后再运行；2）父子进程运行不同的程序段，使用不同的文件。</p>
+<p>创建进程的目的</p>
+<p>1）并行。网络服务中，父进程等待请求，创建子进程来响应请求。</p>
+<p>2）运行新程序。例如shell，不断地在fork和exec</p>
+<p>进程结束</p>
+<p>正常结束</p>
+<p>main函数执行完</p>
+<p>main函数中执行return</p>
+<p>任意位置执行exit、_exit、_Exit</p>
+<p>非正常结束</p>
+<p>收到某个信号而结束</p>
+<p>无论进程如何结束，都会执行内核中的一段代码：关闭所有打开文件，释放占用的内存。</p>
+<p>进程结束时，内核会保存其终止状态，直到该进程的父进程取走其状态。</p>
+<p>父进程结束，其子进程成为孤儿进程，由进程1（init进程）领养。</p>
+<p>子进程先于父进程结束，如果父进程未取走其状态，则该进程仍然占有一定的内核资源，成为“僵死进程”。</p>
+<p>由于僵死进程占用资源，因此当一个长期运行的服务类程序调用fork后，应处理僵死进程。</p>
+<p>wait函数</p>
+<p>#include &lt;sys&#x2F;wait.h&gt;</p>
+<p>pid_t  wait(int *statloc)</p>
+<p>pid_t  waitpid(pid_t pid, int *statloc, int options)</p>
+<p>waitid、wait3、wait4等</p>
+<p><strong>5.</strong> 进程间通信</p>
+<p>进程间通信包括：半双工管道、半双工命名管道（FIFO）、全双工管道、全双工命名管道、消息队列、信号量、共享存储、套接字、STREAMS，Linux支持以上全部，其他UNIX一般只支持一部分。</p>
+<p>套接字可支持不同主机的进程间通信（网络通信），其他为主机内通信。主机内通信常用半双工管道，网络通信常用套接字。</p>
+<p>半双工管道：所有UNIX系统都提供的一种通信方式。</p>
+<p>特点：1）半双工的工作方式。通信方向是双向的，但只能选择其中一种。2）只能在具有公共祖先的进程之间使用。通常是父子进程之间。</p>
+<p>函数</p>
+<p>#include &lt;unistd.h&gt;</p>
+<p>int pipe(int filedes[2])</p>
+<p>创建一个管道，若成功返回0，不成功返回-1；</p>
+<p>由参数filesdes返回两个文件描述符: filedes[0]、filesdes[1]， filedes[0]为读而打开， filedes[1]为写而打开。</p>
+<p><img src="file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image013.png" alt="img"></p>
+<p>创建管道之后的情形如上图所示。将数据写入fd[1]，从fd[0]中读出。</p>
+<p>管道在单个进程中没有意义，通常在pipe函数之后，立刻会调用fork，产生一个子进程，情形如下图所示：</p>
+<p><img src="file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image014.png" alt="img"></p>
+<p>代码示例（父进程写，子进程读）：</p>
+<p>int fd[2]; char line[MAXLINE];</p>
+<p>pipe(fd);</p>
+<p>if (pid&#x3D;fork() &gt;0){  &#x2F;&#x2F;父进程</p>
+<p>  close(fd[0]);</p>
+<p>  write(fd[1],”hello world!\n”, 12); }</p>
+<p>else if (pid&#x3D;&#x3D;0)｛  &#x2F;&#x2F;子进程</p>
+<p>  close(fd[1]);</p>
+<p>  read(fd[0], line, MAXLINE); }</p>
+<p>利用管道连接父子进程的标准输出和输入：</p>
+<p>if (pid&#x3D;fork() &gt;0){  &#x2F;&#x2F;父进程</p>
+<p>  close(fd[0]);</p>
+<p>  dup2(fd[1],1); }</p>
+<p>else if (pid&#x3D;0)｛  &#x2F;&#x2F;子进程</p>
+<p>  close(fd[1]);</p>
+<p>  dup2（fd[0],0);</p>
+<p>  execlp(……) }</p>
+<p>……    &#x2F;&#x2F;父进程代码</p>
+<p>命名管道FIFO：命名管道是一种文件</p>
+<p>$ mkfifo f1</p>
+<p>$ ls -l f1</p>
+<p>$ cat &lt;f1</p>
+<p>$ ls -l&gt;f1</p>
+<p>函数</p>
+<p>#include &lt;sys&#x2F;stat.h&gt;</p>
+<p>int mkfifo(const char *pathname, mode_t mode)</p>
+<p><strong>6.</strong> 信号</p>
+<p>信号是一种异步事件，通常是非正常情况，如：人为终止进程、除数为0、非法内存访问等。所谓“异步”，指信号的出现是随机的。</p>
+<p>信号的产生：人为按下中断键 Ctrl_C ；用户使用kill命令；进程调用kill函数；程序运行错误，除数为0、非法内存访问</p>
+<p>软件产生的信号：闹钟超时、写一个读端已关闭的管道、网络传来带外数据。—-这些基本是可以预见的信号。</p>
+<p>信号的处理</p>
+<p>系统默认处理或忽略</p>
+<p>捕捉信号 通知内核在某种信号发生时调用一个用户函数。</p>
+<p>signal函数</p>
+<p>#inclucde &lt;signal.h&gt;</p>
+<p>void (*singnal(int signo, void (*func)(int)))(int)</p>
+<p>解释</p>
+<p>void (*func)(int) 一个函数指针，所指向的函数需要一个整型参数，无返回值。</p>
+<p>singnal(int signo, void (*func)(int)), signal函数有两个参数，一个整型，一个函数指针。</p>
+<p>void (*signal(…))(int) signal的返回值也是一个函数指针，所指向的函数需要一个整型参数，无返回值。</p>
+<p>signal函数的使用</p>
+<p>void my_sig(int);</p>
+<p>int main(){</p>
+<p> signal(SIGINT, my_sig);</p>
+<p> …}</p>
+<p>void my_sig(int signo){</p>
+<p>…}</p>
+<p>alarm函数</p>
+<p>#include &lt;unistd.h&gt;</p>
+<p>unsigned int alarm(unsigned int seconds)</p>
+<p>按秒设置下一次闹钟的时间。</p>
+<p>返回值，如果以前设置过闹钟，再次设置时返回上一次设置时间的余数；否则返回0。</p>
+<p>alarm函数设置的时间到达时，产生SIGALRM信号。该信号的默认动作是终止程序。</p>
+<p>信号捕捉实例(sig.c)</p>
+<p> signal(SIGINT, my_sig);</p>
+<p> signal(SIGALRM, my_sig);</p>
+<p>void my_sig(int signo){</p>
+<p> if (signo&#x3D;&#x3D;SIGINT){</p>
+<p>   …</p>
+<p>   }</p>
+<p>   else if(signo&#x3D;&#x3D;SIGALRM){</p>
+<p>   …</p>
+<p>   }</p>
+<p>}</p>
+<p>进程控制中的信号处理</p>
+<p>fork时，子进程继承父进程的信号处理。</p>
+<p>exec时，恢复系统默认设置。</p>
+<p>重入问题</p>
+<p>printf不可重入，大多数标准IO库函数不可重入。</p>
+<p>信号处理程序应尽可能简单，尽可能不用库函数。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Lei_Yu</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://shl518.github.io/2022/05/13/2022-bei-hang-unix-fu-xi-zi-liao/">http://shl518.github.io/2022/05/13/2022-bei-hang-unix-fu-xi-zi-liao/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Lei_Yu</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%8C%97%E8%88%AAUNIX/">
+                                    <span class="chip bg-color">北航UNIX</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/05/16/cao-zuo-xi-tong-jin-cheng/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="操作系统进程.md">
+                        
+                        <span class="card-title">操作系统进程.md</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-16
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Lei_Yu
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/05/11/c-yu-yan-shi-xian-fcfs-sjf-diao-du-suan-fa/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="C语言实现FCFS，SJF调度算法">
+                        
+                        <span class="card-title">C语言实现FCFS，SJF调度算法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Lei_Yu
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">操作系统</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2023</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">Lei_Yu</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">88.4k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/shl518" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:lei_yuyu518@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

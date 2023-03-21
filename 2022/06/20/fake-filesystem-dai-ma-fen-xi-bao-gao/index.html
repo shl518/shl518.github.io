@@ -1,0 +1,1555 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="2022 C++课程大作业—Fake_FileSystem 代码分析报告, Corsica">
+    <meta name="description" content="I will be with you from dusk till down.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
+
+    <title>2022 C++课程大作业—Fake_FileSystem 代码分析报告 | Corsica</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Corsica</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Corsica</div>
+        <div class="logo-desc">
+            
+            I will be with you from dusk till down.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/shl518" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/shl518" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">2022 C++课程大作业—Fake_FileSystem 代码分析报告</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Cpp/">
+                                <span class="chip bg-color">Cpp</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-06-20
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-03-22
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.8k
+                </div>
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="C-课程大作业——Fake-FileSystem-代码分析报告"><a href="#C-课程大作业——Fake-FileSystem-代码分析报告" class="headerlink" title="C++课程大作业——Fake_FileSystem 代码分析报告"></a>C++课程大作业——Fake_FileSystem 代码分析报告</h2><h2 id="label-前言"><a href="#label-前言" class="headerlink" title=":label: 前言"></a>:label: 前言</h2><p>文件系统的内容是本学习我的一门核心专业课操作系统中，重点学习的理论知识，我也在操作系统课下实验中利用C和Linux实现过一个简单的文件系统。在翻阅<code>Github</code>上面的源码时，我发现了这一有趣的项目Fake_FileSystem ，其利用<code>cpp</code>的架构实现了一个伪文件系统，逻辑清晰，涉及了许多cpp的oop知识例如封装，继承，多态，构造，解析，重载，虚函数，工厂模式等等知识，是一个不错的学习模板和范例，因此本次作业选用这个源码来作分析和学习。</p>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220620160922473.png" alt="image-20220620160922473"></p>
+<p>可以看到虽然Fake_FileSystem 的star星数不多，这可能是因为其里面的内容<strong>涉及到许多操作系统有关的知识</strong>，比如数据块，Block0引导块，FAT文件分配表，FCB文件控制块，等等这些文件系统的底层知识可能为没有学习过操作系统的读者带来一定的难度。总而言之，幸运的是本学期我刚刚学过操作系统，所以勉强有了阅读这份代码的“资格”。</p>
+<p><code>Fake_Sysytem</code>大体的逻辑就是用<code>Cpp+面向对象</code>的思想，实现了包括文件系统底层涉及到的Block0（文件系统引导块）、FAT（文件分配表）、File（文件）、Document（目录）、UserOpen（打开文件表）等一系列基本类，<strong>FileSystem这一核心文件系统类</strong>、CommandFactory这一工厂模式的命令行类（内部实现了多种文件系统操作命令），和最终与用户进行交互的Bash（终端）类。</p>
+<ul>
+<li>实现的主要命令如下</li>
+</ul>
+<p>可以看到由于是一个简单的伪文件系统，不能实现所有操作系统中文件系统的功能，但一些常见的文件操作功能可以很好地实现，比如目录操作：mkdir,rmdir,cd,ls;文件操作:create,open,close,write,rm等;</p>
+<table>
+<thead>
+<tr>
+<th>命令名</th>
+<th>参数1</th>
+<th>参数2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>mkdir</code></td>
+<td>绝对路径</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rmdir</code></td>
+<td>绝对路径</td>
+<td></td>
+</tr>
+<tr>
+<td><code>cd</code></td>
+<td>绝对路径</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ls</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>create</code></td>
+<td>绝对路径</td>
+<td></td>
+</tr>
+<tr>
+<td><code>open</code></td>
+<td>绝对路径</td>
+<td></td>
+</tr>
+<tr>
+<td><code>write</code></td>
+<td>-c -co -a</td>
+<td>标识符（open返回）</td>
+</tr>
+<tr>
+<td><code>close</code></td>
+<td>标识符</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rm</code></td>
+<td>绝对路径</td>
+<td></td>
+</tr>
+<tr>
+<td><code>save</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>👉源代码请您移步这里：<a target="_blank" rel="noopener" href="https://github.com/laCorse/Lacorse_Fake_Filesystem">Fake_FileSystem</a></p>
+<h2 id="label-1-1-整体架构"><a href="#label-1-1-整体架构" class="headerlink" title=":label: 1.1 整体架构"></a>:label: 1.1 整体架构</h2><p>首先先放一张整体架构的类图，接下来进行分析。</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/8BF122BE36974C4C8A1839D745F7ABAD?method=download&shareKey=9f278f414fe0a6f80cca2155d39a20d2" alt="image-20220620180616138"></p>
+<p>可以看到整个架构被明显的分为了三个部分，其实这便是伪文件系统的三个组成部分。</p>
+<ul>
+<li>左边是命令工厂，其中与Bash终端直接交互的是CommandFactory命令工厂，采用工厂模式，在类内部自己决定使用哪种工厂命令，这些工厂命令包括ls，exit，open，close等等，这些工厂命令<strong>继承</strong>一个共同的基类CommandBase实现多态，之后会在1.2中详细讲到。</li>
+<li>右边是伪文件系统，这一部分基本都与操作系统的理论知识相关，包括记录打开文件的UserOpen（打开文件表），记录数据块分配情况的FAT（文件分配表），初始化磁盘的引导块Block0等。其中FileSystem是最终实现的核心类，这个类与Bash终端进行交互。</li>
+<li>最下边是Bash类，<strong>main.cpp运行这个类中的Run函数</strong>，开始运行整个文件系统，Bash类“类如其名”，就是终端的意思。</li>
+</ul>
+<p><img src="https://note.youdao.com/yws/api/personal/file/7B0EE40946274D2A92198871E496D3D1?method=download&shareKey=b3584f8b400d4ac0dc4bb7479a6338a0" alt="2"></p>
+<p>最后，我们将整个文件系统运行逻辑简化如下，可以更加清晰的理解。</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/47E8D7DF35AE4AD18E58FC42F45F0A88?method=download&shareKey=ed65bdafd5177f124644ca43d7155118" alt="image-20220620184310512"></p>
+<h2 id="label-1-2-细节分析"><a href="#label-1-2-细节分析" class="headerlink" title=":label: 1.2 细节分析"></a>:label: 1.2 细节分析</h2><p>接下来我们将运用课上所学的各种知识来分析代码中的<strong>封装，多态，继承，构造，析构，拷贝构造，重载，重写等等知识点</strong>，主要结合代码片段来分析。</p>
+<h3 id="1-2-1-封装性"><a href="#1-2-1-封装性" class="headerlink" title="1.2.1 封装性"></a>1.2.1 封装性</h3><p>封装性几乎在该项目中处处都能得到体现，因为本项目毕竟是一个面向对象逻辑的项目，肯定处处都透露着封装性这一面向对象的基本思想。我就以整体架构中的<strong>伪文件系统</strong>这一部分来阐述封装性在代码中的体现。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">&#x2F;&#x2F;Filesystem核心类节选
+&#x2F;**
+ * @class 核心文件系统 
+ *&#x2F;
+
+class Filesystem &#123;
+private:
+    &#x2F;&#x2F;!是否已经初始化
+    bool initialized_;
+    &#x2F;&#x2F;!文件块的起始地址,分配SIZE(1024000字节)大小的空间给该指针(存储也利用该指针)。
+    char *ptrToContent;
+    &#x2F;&#x2F;!分别指向各个块地址，第一块为引导块，2~3块为FAT1,4~5为FAT2，剩余995块为数据区。
+    char *blocks[BLOCKNUM];
+    &#x2F;&#x2F;!打开的文件列表
+    Useropen *openFiles[MAXOPENFILE];
+    int fd &#x3D; 0;
+    &#x2F;&#x2F;!引导块,托管blocks[0]
+    BLOCK0 *pblock0;
+    &#x2F;&#x2F;!FAT1&#x2F;2
+    Fat *pfat1;
+    Fat *pfat2;
+
+    &#x2F;&#x2F;!root dir
+    Document *proot;
+    Document *plastdir;
+    &#x2F;&#x2F;!保存当前目录的信息
+    currentData currentData;
+public:
+    Document() &#123;&#125;;
+    Document(char *block)
+    &#123;
+        pos &#x3D; block;
+        constexpr int size &#x3D; BLOCKSIZE&#x2F;sizeof(Fcb);
+        for(int i&#x3D;0;i&lt;size;i++)
+        &#123;
+            char *tmp &#x3D; pos+i*sizeof(Fcb);
+            Fcb * tmpFcb &#x3D; (Fcb *)tmp;
+            &#x2F;&#x2F;memcpy(&amp;tmpFcb,tmp,sizeof(Fcb));
+            if (tmpFcb-&gt;free &#x3D;&#x3D; 1)
+            &#123;
+                fcbList.push_back(*tmpFcb);
+            &#125;
+        &#125;
+
+    &#125;;
+&#125;;
+&#x2F;&#x2F;..............................................................<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>上面是Filesystem核心类代码的节选，可以看到内部有private的私有成员，和一部分public的方法，这些成员的私有化便很好的体现了封装性，我认为其作用有以下2点。</p>
+<ul>
+<li><strong>隐藏实现细节，提供公共的访问方式</strong>：<strong>使用面向对象封装性可以很好的实现文件系统的“隐藏细节”这一思想</strong>。在实际的文件系统中，它对程序员隐藏实现细节，程序员在日常工作时感受不到他的存在，但文件系统默默的在幕后为我们“当牛做马”，此外程序员在使用文件系统时可以执行一些文件系统提供的、封装好的系统调用接口来间接实现操作系统的功能。而在这里我们实现的的“伪文件系统”Filesystem便利用封装性模拟了这一点，我们将一些功能封装到Filesystem中，而不需要知道类中的这个方法的逻辑原理，文件系统Filesystem只需要给User一个对外的接口，User只需要能够调用这个方法就可以实现文件系统的操作，同时User也无法对FileSystem内部的成员进行直接更改。</li>
+<li><strong>提高安全性</strong>：文件系统本身就是一个安全性很高的系统，我们程序员一般不能对操作系统内核进行随意的修改，否则我们的电脑系统就“乱了套”。<strong>封装性也很好的提供了安全性</strong>，我们不能对Filesystem类内部的成员变量进行随意的修改，只能通过调用Filesystem内的public方法，而这些方法由于是Filesystem自己提供的，所以保证文件系统是安全的。</li>
+</ul>
+<h3 id="1-2-2-继承性和多态性"><a href="#1-2-2-继承性和多态性" class="headerlink" title="1.2.2 继承性和多态性"></a>1.2.2 继承性和多态性</h3><p>继承性和多态性主要在命令工厂这一部分得到实现。接下来节选了命令工厂中的命令基类，和继承他的几个命令类。这里命令子类可以继承符类的参数parameter属性，和fakeFs文件系统的智能指针。</p>
+<p>同时命令子类中，也重写了Execute()方法，以实现对应的命令执行方法，多态性使命令子类可以表现出不同的Execute()行为，这里我们注意到<strong>使用了虚函数进行了方法重写</strong>，这里的原因我们之后在1.2.5中会讲到。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">&#x2F;&#x2F;基类
+class CommandBase
+&#123;
+protected:
+    vector&lt;string&gt; parameter;
+    shared_ptr&lt;Filesystem&gt; fakeFs;
+public:
+    CommandBase(vector&lt;string&gt; cmdPara,shared_ptr&lt;Filesystem&gt; fs):parameter(cmdPara),fakeFs(fs)
+    &#123;&#125;
+
+    virtual void Execute()&#x3D;0;  &#x2F;&#x2F;这里用了虚函数！！！！！！！！！！！！！！！！！！
+    virtual ~CommandBase()&#123;&#125;;
+
+    &#x2F;**
+     * @brief 在指定目录下创建文件
+     * @param filename 名字
+     * @param attribute 指定文件类型是文件还是目录
+     * @return
+     *&#x2F;
+    int touch(string &amp; filename, int attribute);
+
+    &#x2F;**
+     * @brief 打开一个文件并读入到当前打开文件中,并分配一个openfilelist的下标作为描述符
+     *&#x2F;
+    int open(string &amp; filename);
+
+&#125;;
+
+&#x2F;&#x2F;命令子类继承基类CommandBase
+&#x2F;&#x2F;mkdir命令
+class Mkdir :public CommandBase
+&#123;
+
+public:
+    Mkdir(vector&lt;string&gt; cmdPara,shared_ptr&lt;Filesystem&gt; fs):CommandBase(cmdPara, fs)
+    &#123;&#125;
+
+    virtual void Execute();
+&#125;;
+&#x2F;&#x2F;cd 命令
+class Cd :public CommandBase
+&#123;
+
+public:
+    Cd(vector&lt;string&gt; cmdPara,shared_ptr&lt;Filesystem&gt; fs):CommandBase(cmdPara, fs)
+    &#123;&#125;
+
+    virtual void Execute();
+&#125;;
+&#x2F;&#x2F;.............................<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="1-2-3-运算符重载"><a href="#1-2-3-运算符重载" class="headerlink" title="1.2.3 运算符重载"></a>1.2.3 运算符重载</h3><p>运算符重载也在很多地方得到了体现，这里节选FAT类里的一处。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">&#x2F;&#x2F;FAT文件分配表代码节选
+class Fat
+&#123;
+        typedef unsigned short Filelist;
+
+public:
+    Filelist filelist[BLOCKNUM];
+    char * postion;
+    &#x2F;**
+     * @brief 重载了下[]，便于直接访问
+     * @param id
+     * @return
+     *&#x2F;
+    unsigned short&amp; operator[](int id)
+    &#123;
+        return filelist[id];
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>由于我们访问FAT文件分配表其实是访问其内部的<code>filelist</code>这一数组成员。如果不进行运算符重载，我们还需要编写对应的方法进行访问，比较麻烦。进行运算符重载之后可以直接<code>FAT[i]</code>进行访问，十分方便。</p>
+<h3 id="1-2-4-虚函数实现重写"><a href="#1-2-4-虚函数实现重写" class="headerlink" title="1.2.4 虚函数实现重写"></a>1.2.4 虚函数实现重写</h3><p>指向基类的指针在操作它的多态类对象时，会根据不同的类对象，调用其相应的函数，这个函数就是虚函数。这点在命令基类CommandBase和他的许多命令子类中的Execute()虚函数中得到很好地体现。</p>
+<p>为什么要用虚函数进行实现呢？首先因为Bash调用命令工厂解析命令后，返回的是指向命令子类的父类指针（CommandBase*）。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">class CommandFactory
+&#123;
+public:
+
+    unique_ptr&lt;CommandBase&gt; SmartCreateCmd(string command,vector&lt;string&gt; parameter,shared_ptr&lt;Filesystem&gt; fs)
+    &#123;
+        if (command &#x3D;&#x3D; &quot;mkdir&quot;)
+            return unique_ptr&lt;CommandBase&gt;(new Mkdir(parameter,fs)); &#x2F;&#x2F;返回的是指向命令子类的父类CommandBase指针
+        else if(command &#x3D;&#x3D; &quot;rmdir&quot;)
+            return unique_ptr&lt;CommandBase&gt;(new Rmdir(parameter,fs));
+        else if(command &#x3D;&#x3D; &quot;cd&quot;)
+            return unique_ptr&lt;CommandBase&gt;(new Cd(parameter,fs));<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>而我们在执行命令时<code>cmd -&gt; Execute()</code>采用的是指针来调用函数，这时必须要求我们在命令类中将Execute()函数定义为虚函数来实现多态，这样才能保证<code>cmd -&gt; Execute()</code>执行的是子类重写好的Execute函数，而不是父类中的。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">void LacorseBash::Run()
+&#123;
+    alwaysTrue &#x3D; true;
+    while (alwaysTrue)
+    &#123;
+        Show();
+        Read();
+        &#x2F;&#x2F;执行
+        cmd -&gt; Execute(); &#x2F;&#x2F;cmd是解析好的父类CommandBase指针，但他指向对应的命令子类,这时必须要求我们在命令类中将Execute（）函数定义为虚函数,否则执行的是父类的Execute（）
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="1-2-5-拷贝构造"><a href="#1-2-5-拷贝构造" class="headerlink" title="1.2.5 拷贝构造"></a>1.2.5 拷贝构造</h3><p>拷贝构造在Document文件目录类中有很好的体现。在我们对目录文件进行拷贝构造时，由于功能实现要求，我们希望只将需要拷贝的Document类中的Free的FCB块进行拷贝。这需要我们重写拷贝构造函数如下。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">
+class Document &#123;
+&#x2F;&#x2F;节选
+vector&lt;Fcb&gt; fcbList;
+char *pos;
+    
+Document(Document &amp; doc)
+    &#123;
+        doc.save();
+        pos &#x3D; doc.pos;
+
+        constexpr int size &#x3D; BLOCKSIZE&#x2F;sizeof(Fcb);
+        for(int i&#x3D;0;i&lt;size;i++)
+        &#123;
+            char *tmp &#x3D; pos+i*sizeof(Fcb);
+            Fcb * tmpFcb &#x3D; (Fcb *)tmp;
+            if (tmpFcb-&gt;free &#x3D;&#x3D; 1)
+            &#123;
+                fcbList.push_back(*tmpFcb);&#x2F;&#x2F;只拷贝Free的FCB文件控制块，其他的跳过！
+            &#125;
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="1-2-6-析构函数"><a href="#1-2-6-析构函数" class="headerlink" title="1.2.6 析构函数"></a>1.2.6 析构函数</h3><p>析构函数很多类中都有写到。这里主要以文件系统类Filesystem的析构函数为例进行介绍。这里重写析构函数的原因有两个：</p>
+<ul>
+<li>Filesystem内部有许多成员变量也分配了内存，这些内存在Filesystem被销毁后不会自动释放，所以非常有必要再添加一个析构函数，专门用来释放已经分配的内存。</li>
+<li>同时我们实现的伪文件系统额外实现了一个功能，就是<strong>将系统运行结束后文件系统Filesystem中的内容记录到文件中</strong>，作为最终的输出记录结果，这也要求我们在析构Filesystem前实现这一功能。</li>
+</ul>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">~Filesystem()&#123; &#x2F;&#x2F;析构函数
+    SaveFileSys();&#x2F;&#x2F;系统运行结束后文件系统Filesystem中的内容记录到文件中
+    &#x2F;&#x2F;释放成员内存
+    delete pblock0;
+    delete pfat1;
+    delete pfat2;
+    delete proot;
+    delete []ptrToContent;
+&#125;
+
+void Filesystem::SaveFileSys()
+&#123;
+    ofstream outFile(&quot;.&#x2F;lacorse_Fs_bak1.dat&quot;, ios::out | ios::binary);
+    outFile.write(ptrToContent, SIZE);
+    outFile.close();
+    cout &lt;&lt; &quot;[Save]Save File System succeed!&quot; &lt;&lt; endl;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="1-2-7-工厂模式"><a href="#1-2-7-工厂模式" class="headerlink" title="1.2.7 工厂模式"></a>1.2.7 工厂模式</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class CommandFactory
+&#123;
+public:
+
+    unique_ptr&lt;CommandBase&gt; SmartCreateCmd(string command,vector&lt;string&gt; parameter,shared_ptr&lt;Filesystem&gt; fs)
+    &#123;
+        if (command &#x3D;&#x3D; &quot;mkdir&quot;)
+            return unique_ptr&lt;CommandBase&gt;(new Mkdir(parameter,fs));
+        else if(command &#x3D;&#x3D; &quot;rmdir&quot;)
+            return unique_ptr&lt;CommandBase&gt;(new Rmdir(parameter,fs));
+        else if(command &#x3D;&#x3D; &quot;cd&quot;)
+            return unique_ptr&lt;CommandBase&gt;(new Cd(parameter,fs));
+        else if(command &#x3D;&#x3D; &quot;ls&quot;)
+            return unique_ptr&lt;CommandBase&gt;(new Ls(parameter,fs));
+        else if(command &#x3D;&#x3D; &quot;create&quot;)
+            return unique_ptr&lt;CommandBase&gt;(new Create(parameter,fs));
+        else if(command &#x3D;&#x3D; &quot;rm&quot;)
+            return unique_ptr&lt;CommandBase&gt;(new Rm(parameter,fs));
+        else if(command &#x3D;&#x3D; &quot;open&quot;)
+            return unique_ptr&lt;CommandBase&gt;(new Open(parameter,fs));
+        else if(command &#x3D;&#x3D; &quot;close&quot;)
+            return unique_ptr&lt;CommandBase&gt;(new Close(parameter,fs));
+        else if(command &#x3D;&#x3D; &quot;write&quot;)
+            return unique_ptr&lt;CommandBase&gt;(new Write(parameter,fs));
+        else if(command &#x3D;&#x3D; &quot;save&quot;)
+            return unique_ptr&lt;CommandBase&gt;(new Exit(parameter,fs));
+        else
+            return unique_ptr&lt;CommandBase&gt;(new Empty(parameter,fs));
+
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>工厂模式在命令工厂里也得到了很好的体现。<strong>工厂方法模式一种创建对象的模式,应用在超类和多个子类之间的情况，这种模式将创建对象的责任转移到工厂类</strong>。这里我们的工厂类就是CommandFactory，Bash中端调用CommandFactory类解析命令，并<strong>把创建对应命令子类（Mkdir，Rmdir，Cd等）的任务交给了工厂类</strong>。可以看到我们在CommandFactory类中利用if-else语句逻辑解析对应命令，并创建对应的命令子类。</p>
+<p>这是工厂模式的体现，好处是通过工厂模式，我们把对象创建的具体逻辑给隐藏起来了，交给工厂统一管理，这样不仅减少了代码量，以后如果想改代码的话，只需要改一处即可，也方便我们日常的维护。</p>
+<h2 id="label-1-3-总结"><a href="#label-1-3-总结" class="headerlink" title=":label: 1.3 总结"></a>:label: 1.3 总结</h2><p>最后对这一学期的课程和本次作业做一个总结。对于本次作业而言，在阅读代码的过程中我复习了许多课上的知识，封装继承多态，拷贝构造函数，重写重载，析构构造等等知识点，也体会到了工厂模式带来的解耦，利于维护等优点。总而言之，这个Fake_FileSystem项目利用了许多cpp面向对象的基本思想，自底向上很好的实现了文件系统的一些功能，不仅模拟了文件系统底层的实现，还封装了上层对应的命令接口，二者通过Bash终端进行交互，架构和实现都很完美，是一份不错的学习范例，我学到了很多，也同时复习了课上的许多知识，这再次印证了理论与实践相互结合、相辅相成的魅力。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Lei_Yu</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://shl518.github.io/2022/06/20/fake-filesystem-dai-ma-fen-xi-bao-gao/">http://shl518.github.io/2022/06/20/fake-filesystem-dai-ma-fen-xi-bao-gao/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Lei_Yu</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Cpp/">
+                                    <span class="chip bg-color">Cpp</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/06/20/2022-cao-zuo-xi-tong-lab5-shi-yan-bi-ji/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="2022操作系统Lab5实验笔记">
+                        
+                        <span class="card-title">2022操作系统Lab5实验笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-20
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Lei_Yu
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">操作系统</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/05/23/stanford-cs231n/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Stanford_CS231n">
+                        
+                        <span class="card-title">Stanford_CS231n</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Lei_Yu
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/DeepLearning/">
+                        <span class="chip bg-color">DeepLearning</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2023</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">Lei_Yu</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">88.4k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/shl518" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:lei_yuyu518@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

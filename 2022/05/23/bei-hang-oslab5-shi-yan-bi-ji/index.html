@@ -1,0 +1,2031 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="北航OSLab5实验笔记, Corsica">
+    <meta name="description" content="I will be with you from dusk till down.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
+
+    <title>北航OSLab5实验笔记 | Corsica</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Corsica</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Corsica</div>
+        <div class="logo-desc">
+            
+            I will be with you from dusk till down.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/shl518" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/shl518" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">北航OSLab5实验笔记</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                                <span class="chip bg-color">操作系统</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-05-23
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-03-22
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.7k
+                </div>
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="Lab5-实验笔记"><a href="#Lab5-实验笔记" class="headerlink" title="Lab5 实验笔记"></a>Lab5 实验笔记</h2><h4 id="两个系统调用函数用于读写设备（这两个函数成功的话返回0）"><a href="#两个系统调用函数用于读写设备（这两个函数成功的话返回0）" class="headerlink" title="两个系统调用函数用于读写设备（这两个函数成功的话返回0）"></a>两个系统调用函数用于读写设备（这两个函数成功的话返回0）</h4><pre class="line-numbers language-C" data-language="C"><code class="language-C">&#x2F;&#x2F;占位符 要写的数据的所处虚拟地址 写入的设备dev的地址（注意这里传入时不加A0000000） 长度
+int sys_write_dev(int sysno, u_int va, u_int dev, u_int len)
+&#123;
+        &#x2F;&#x2F; Your code here
+        if ((0x10000000 &lt;&#x3D; dev &amp;&amp; dev + len &lt;&#x3D; 0x1000000)
+        || (0x13000000 &lt;&#x3D; dev &amp;&amp; dev + len &lt;&#x3D; 0x13004200)
+        || (0x15000000 &lt;&#x3D; dev &amp;&amp; dev + len &lt;&#x3D; 0x15000200)) &#123;
+        bcopy((char *)va, (char *)(dev + 0xA0000000), len);
+        return 0;
+    &#125;
+    return -E_INVAL;
+&#125;
+int sys_read_dev(int sysno, u_int va, u_int dev, u_int len)
+&#123;
+        &#x2F;&#x2F; Your code here
+        if ((0x10000000 &lt;&#x3D; dev &amp;&amp; dev + len &lt;&#x3D; 0x10000000 + 0x20)
+        || (0x13000000 &lt;&#x3D; dev &amp;&amp; dev + len &lt;&#x3D; 0x13000000 + 0x4200)
+        || (0x15000000 &lt;&#x3D; dev &amp;&amp; dev + len &lt;&#x3D; 0x15000000 + 0x200)) &#123;
+        bcopy((char *)(dev + 0xA0000000), (char *)va, len);
+        return 0;
+    &#125;
+    return -E_INVAL;
+&#125;
+
+&#x2F;&#x2F;用户系统调用时调用下面这两个函数（与上面两个内核态函数一一对应）
+int
+syscall_write_dev(u_int va, u_int dev, u_int len)
+&#123;
+	return msyscall(SYS_write_dev, va, dev, len, 0, 0);
+&#125;
+
+int
+syscall_read_dev(u_int va, u_int dev, u_int len)
+&#123;
+	return msyscall(SYS_read_dev, va, dev, len, 0, 0);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220520211751066.png" alt="image-20220520211751066"></p>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220520211803831.png" alt="image-20220520211803831"></p>
+<p><strong>注意这里所有的操作都是按照虚拟地址来的</strong></p>
+<p>接着我们就可以仿照上述驱动程序写我们系统中的用户态程序，我们采用调用读写设备的系统调用可以同样实现上述功能。</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">void
+ide_read(u_int diskno, u_int secno, void *dst, u_int nsecs)
+&#123;
+	&#x2F;&#x2F; 0x200: the size of a sector: 512 bytes.
+	int offset_begin &#x3D; secno * 0x200;
+	int offset_end &#x3D; offset_begin + nsecs * 0x200;
+	int offset &#x3D; 0;
+
+	int tmp;
+
+	while (offset_begin + offset &lt; offset_end) &#123;
+		&#x2F;&#x2F; Your code here
+		&#x2F;&#x2F; error occurred, then panic.
+		tmp &#x3D; diskno;
+        
+		&#x2F;&#x2F; IDE 的id 放进去 不成功的话系统调用返回的不是0 产生pannic
+		if (syscall_write_dev((int)&amp;tmp, 0x13000010, 4)) user_panic(&quot;error in ide_read()\n&quot;);
+		&#x2F;&#x2F; 放入offset
+		tmp &#x3D; offset_begin + offset;
+		if (syscall_write_dev((int)&amp;tmp, 0x13000000, 4)) user_panic(&quot;error in ide_read()\n&quot;);
+		&#x2F;&#x2F; start read.放0进去读
+		tmp &#x3D; 0;
+		if (syscall_write_dev((int)&amp;tmp, 0x13000020, 4)) user_panic(&quot;error in ide_read()\n&quot;);
+		&#x2F;&#x2F; get result.取出返回值
+		if (syscall_read_dev((int)&amp;tmp, 0x13000030, 4)) user_panic(&quot;error in ide_read()\n&quot;);
+        &#x2F;&#x2F;返回值0失败，1成功证明可以读
+		if (tmp &#x3D;&#x3D; 0) user_panic(&quot;error in ide_read()&quot;);
+        &#x2F;&#x2F;1证明可以读，开始读
+		if (syscall_read_dev((int)(dst + offset), 0x13004000, 512)) user_panic(&quot;error in ide_read()\n&quot;);
+        &#x2F;&#x2F;下一个sector
+		offset +&#x3D; 0x200;
+	&#125;
+&#125;
+
+&#x2F;&#x2F;write流程一样
+void
+ide_write(u_int diskno, u_int secno, void *src, u_int nsecs)
+&#123;
+	&#x2F;&#x2F; Your code here
+	int offset_begin &#x3D; secno * 0x200;
+	int offset_end &#x3D; offset_begin + nsecs * 0x200;
+	int offset &#x3D; 0;
+
+	&#x2F;&#x2F; DO NOT DELETE WRITEF !!!
+	writef(&quot;diskno: %d\n&quot;, diskno);
+
+	int tmp;
+
+	while (offset_begin + offset &lt; offset_end) &#123;
+		&#x2F;&#x2F; Your code here
+	    &#x2F;&#x2F; copy data from source array to disk buffer.
+		&#x2F;&#x2F; error occurred, then panic.
+		if (syscall_write_dev((int)(src + offset), 0x13004000, 512)) user_panic(&quot;error in ide_write()&quot;);
+		&#x2F;&#x2F; select id&#x2F;
+		tmp &#x3D; diskno;
+		if (syscall_write_dev((int)&amp;tmp, 0x13000010, 4)) user_panic(&quot;error in ide_write()&quot;);
+		&#x2F;&#x2F; offset.
+		tmp &#x3D; offset_begin + offset;
+		if (syscall_write_dev((int)&amp;tmp, 0x13000000, 4)) user_panic(&quot;error in ide_write()&quot;);
+		&#x2F;&#x2F; start to write
+		tmp &#x3D; 1;
+		if (syscall_write_dev((int)&amp;tmp, 0x13000020, 4)) user_panic(&quot;error in ide_write()&quot;);
+		&#x2F;&#x2F; get status.
+		if (syscall_read_dev((int)&amp;tmp, 0x13000030, 4)) user_panic(&quot;error in ide_write()&quot;);
+		if (tmp &#x3D;&#x3D; 0) user_panic(&quot;error in ide_write()&quot;);
+		offset +&#x3D; 0x200;
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>注意dev地址传入时不需要加A000000，直接传入规定好的设备地址即可，在系统调用里会加上A0000000</li>
+</ul>
+<h3 id="接下来编写文件系统"><a href="#接下来编写文件系统" class="headerlink" title="接下来编写文件系统"></a>接下来编写文件系统</h3><p>这里提到了磁盘块的概念，操作系统将多个相邻扇区合并为一个概念“磁盘块”进行操作（因为扇区实在太多无法一个一个操作，合并在一起以块为单位更好操作）</p>
+<p>从图中可以看到，MOS 操作系统把磁盘最开始的一个磁盘块0 (4096 字节) 当作启动扇区和分区表使用。接下来的一个磁盘块1作为超级块 (Super Block)，用来描述文件系 统的基本信息，如 Magic Number、磁盘大小以及根目录的位置。</p>
+<p>认识一下<strong>超级块的结构体</strong> —————————结构体</p>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220520221159768.png" alt="image-20220520221159768"></p>
+<p>在文件系统中，我们将<strong>使用位图 (Bitmap) 法</strong>来管理空闲的磁盘资源，用一个二进制位 bit 标识磁盘中的每个磁盘块的使用情况（实验中，<strong>1 表示空闲</strong>）。</p>
+<p>在这里涉及到一些宏和</p>
+<pre class="line-numbers language-C#" data-language="C#"><code class="language-C#">&#x2F;&#x2F;一些宏
+#define BY2BLK		BY2PG &#x2F;&#x2F;一个块的大小正好是一页4096Byte
+#define BIT2BLK		(BY2BLK*8) &#x2F;&#x2F;这里算的是BLK的bit，所以自然是*8
+#define BY2FILE     256 &#x2F;&#x2F;一个file结构体的大小 256Byte
+#define NBLOCK 1024  &#x2F;&#x2F;一个disk里面有1024块
+#define FILE2BLK  (BY2BLK&#x2F;sizeof(struct File)) &#x2F;&#x2F;一个块里面有多少个file结构体<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>认识一下<strong>block结构体</strong>——————————–又是一个结构体</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">struct Block &#123;
+    uint8_t data[BY2BLK];  &#x2F;&#x2F;数据区512Byte
+    uint32_t type; &#x2F;&#x2F;类型包括下面的enum
+&#125; disk[NBLOCK];
+
+enum &#123;
+    BLOCK_FREE  &#x3D; 0,
+    BLOCK_BOOT  &#x3D; 1,
+    BLOCK_BMAP  &#x3D; 2,
+    BLOCK_SUPER &#x3D; 3,
+    BLOCK_DATA  &#x3D; 4,
+    BLOCK_FILE  &#x3D; 5,
+    BLOCK_INDEX &#x3D; 6,
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>首先初始化init_disk，下面解析这个初始化函数</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">void init_disk() &#123;
+    int i, r, diff;
+	
+    &#x2F;&#x2F; Step 1: Mark boot sector block.
+    disk[0].type &#x3D; BLOCK_BOOT;
+	&#x2F;&#x2F;nbitblock是bitmap的BLK数目，我们首先得把这个算出来然后才能开始初始化
+    
+    &#x2F;&#x2F;计算nbitblock，正常算的话直接NBLOCK&#x2F;BIT2BLK ,但是这里因为是整除会向下取整，那我们得额外加上一个BIT2BLK相当于手动加一个块向上取整，保证所有的块都有对应的bit 
+    nbitblock &#x3D; (NBLOCK + BIT2BLK - 1) &#x2F; BIT2BLK;
+    
+    nextbno &#x3D; 2 + nbitblock;
+
+    &#x2F;&#x2F; Step 2: Initialize bitmap blocks.初始化为空闲1（写0xff,一个字节全1）
+    
+    &#x2F;&#x2F;首先type声明这是一个MAP，这里之前在这个文件里enum过
+    for(i &#x3D; 0; i &lt; nbitblock; ++i) &#123;
+        disk[2+i].type &#x3D; BLOCK_BMAP; &#x2F;&#x2F;加2因为bitmap从第二个块开始
+    &#125;
+    for(i &#x3D; 0; i &lt; nbitblock; ++i) &#123; 
+        memset(disk[2+i].data, 0xff, BY2BLK);
+    &#125;
+    
+    &#x2F;&#x2F;如果位图还有剩余，不能将最后一块位图块中靠后的一部分内容标记为空闲，因为这些位所对应的磁盘块并不存在，不可被使用。因此，将所有的位图块的每一位都置为 1 之后，还需要根据实际情况，将位图不存在的部分设为0。
+    if(NBLOCK !&#x3D; nbitblock * BIT2BLK) &#123;
+        diff &#x3D; NBLOCK % BIT2BLK &#x2F; 8;&#x2F;&#x2F;最后一部分留的没对齐的尾巴的字节数
+        memset(disk[2+(nbitblock-1)].data+diff, 0x00, BY2BLK - diff);&#x2F;&#x2F;BY2BLK - diff剩余的空白的全置位0
+    &#125;
+
+    &#x2F;&#x2F; Step 3: Initialize super block.
+    disk[1].type &#x3D; BLOCK_SUPER;
+    super.s_magic &#x3D; FS_MAGIC;
+    super.s_nblocks &#x3D; NBLOCK;
+    super.s_root.f_type &#x3D; FTYPE_DIR;
+    strcpy(super.s_root.f_name, &quot;&#x2F;&quot;);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>初始化玩位图之后便可以<strong>调用int block_is_free(u_int blockno)函数查看块是否空闲</strong></p>
+<ul>
+<li>1空闲，0不空闲</li>
+</ul>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">&#x2F;&#x2F; Overview:
+&#x2F;&#x2F;  Check to see if the block &#39;blockno&#39; is free via bitmap.
+&#x2F;&#x2F;
+&#x2F;&#x2F; Post-Condition:
+&#x2F;&#x2F;  Return 1 if the block is free, else 0.
+int
+block_is_free(u_int blockno)
+&#123;
+    if (super &#x3D;&#x3D; 0 || blockno &gt;&#x3D; super-&gt;s_nblocks) &#123; &#x2F;&#x2F;异常情况或者超出范围
+        return 0;
+    &#125;
+
+    if (bitmap[blockno &#x2F; 32] &amp; (1 &lt;&lt; (blockno % 32))) &#123;  &#x2F;&#x2F;位运算
+        return 1;
+    &#125;
+
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>调用void free_block(u_int blockno)释放一个块（对应位置位1）</li>
+</ul>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">void
+free_block(u_int blockno)
+&#123;
+    &#x2F;&#x2F; Step 1: Check if the parameter &#96;blockno&#96; is valid (&#96;blockno&#96; can&#39;t be zero).
+    if (blockno &#x3D;&#x3D; 0 || blockno &gt;&#x3D; super-&gt;s_nblocks) &#123;
+        user_panic(&quot;blockno is zero&quot;);
+    &#125;
+    &#x2F;&#x2F; Step 2: Update the flag bit in bitmap.
+    &#x2F;&#x2F; you can use bit operation to update flags, such as  a |&#x3D; (1 &lt;&lt; n) .
+    bitmap[blockno &#x2F; 32] |&#x3D; (1 &lt;&lt; (blockno % 32));
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>同时思考为什么参数 blockno 的值不能为0？</p>
+<p>0块是最开始的一个磁盘块 (4096 字节) 当作启动扇区和分区表使用，启动扇区的程序都丢失了还用什么磁盘？？？？？？</p>
+<h3 id="初始化完成后接下来了解文件系统详细结构"><a href="#初始化完成后接下来了解文件系统详细结构" class="headerlink" title="初始化完成后接下来了解文件系统详细结构"></a>初始化完成后接下来了解文件系统详细结构</h3><p>先来看<strong>文件File结构体</strong> —————————————-又是一个结构体</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">struct</span> <span class="token class-name">File</span> <span class="token punctuation">&#123;</span>
+    u_char f_name<span class="token punctuation">[</span>MAXNAMELEN<span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment">// filename 件名的最大长度 MAXNAMELEN 值为 128</span>
+    u_int f_size<span class="token punctuation">;</span>           <span class="token comment">// file size in bytes</span>
+    u_int f_type<span class="token punctuation">;</span>           <span class="token comment">// file type为文件类型，有普通文件 (FTYPE_REG) 和文件夹 (FTYPE_DIR) 两种。</span>
+    u_int f_direct<span class="token punctuation">[</span>NDIRECT<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">//f_direct[NDIRECT] 为文件的直接指针，每个文件控制块设有 10 个直接指针，用来记录文件的数据块在磁盘上的位置。</span>
+    <span class="token comment">//每个磁盘块的大小为 4KB，也就是说，这十个直接指针能够表示最大 40KB 的文件，而当文件的大小大于 40KB 时，就需要用到间接指针。</span>
+    u_int f_indirect<span class="token punctuation">;</span> <span class="token comment">//f_indirect指向一个间接磁盘块，用来存储许多指针，这些指针指向文件内容的磁盘块。有点像二重指针？指针指向存储指针的磁盘块，这些指针才真正指向文件内容磁盘块。</span>
+
+    <span class="token keyword">struct</span> <span class="token class-name">File</span> <span class="token operator">*</span>f_dir<span class="token punctuation">;</span>     <span class="token comment">// f_dir指向文件所属的文件目录</span>
+    u_char f_pad<span class="token punctuation">[</span>BY2FILE <span class="token operator">-</span> MAXNAMELEN <span class="token operator">-</span> <span class="token number">4</span> <span class="token operator">-</span> <span class="token number">4</span> <span class="token operator">-</span> NDIRECT <span class="token operator">*</span> <span class="token number">4</span> <span class="token operator">-</span> <span class="token number">4</span> <span class="token operator">-</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token comment">//f_pad则是为了让整数个文件结构体占用一个磁盘块，填充结构体中剩下的字节。</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://os.buaa.edu.cn/assets/courseware/v1/5957f2bb1dda8e8a3751b953392228b3/asset-v1:BUAA+B3I062270+2022_SPRING+type@asset+block/lab5-pic-3.png" alt="[lab5-file block]"></p>
+<ul>
+<li><p>上面是关于间接指针的理解，注意为了简化计算，我们不使用间接磁盘块的前十个指针。所以图中间接磁盘块里的指针是从10开始用的。</p>
+</li>
+<li><p>对于普通的文件，其指向的磁盘块存储着文件内容，而<strong>对于目录文件来说，其指向的磁盘块存储着该目录下各个文件对应的的文件控制块</strong>。当我们要查找某个文件时，首先从超级块中读取根目录的文件控制块，然后沿着目标路径，挨个查看当前目录所包含的文件是否与下一级目标文件同名，如此便能查找到最终的目标文件。</p>
+</li>
+</ul>
+<p>接下来学习利用<strong>create_file</strong>创建一个文件</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">&#x2F;&#x2F;该函数传入一个目录文件的指针，在该目录下创建一个文件,并返回该创建好的文件的控制块的指针
+struct File *create_file(struct File *dirf) &#123;
+    struct File *dirblk;
+    int i, bno, found;
+    int nblk &#x3D; dirf-&gt;f_size &#x2F; BY2BLK; &#x2F;&#x2F;目录目前有多少个块，这些磁盘块存储着该目录下各个文件对应的的文件控制块
+
+    &#x2F;&#x2F; Your code here
+    &#x2F;&#x2F;接下来找目录里面可以放空闲的文件控制块的位置
+    &#x2F;&#x2F;分两种情况，第一种是目录的磁盘块里面还有位置可以放一个文件控制块
+    &#x2F;&#x2F;第二种是目录里面没有位置了，要使用bno &#x3D; make_link_block(dirf, nblk);分配一个新的BLK，在这个块里放文件控制块
+    
+    &#x2F;&#x2F;这是第一种
+    for (i &#x3D; 0; i &lt; nblk; i++) &#123;
+        &#x2F;&#x2F;首先根据块的顺序号取得块号
+        if (i &lt; NDIRECT) &#123; &#x2F;&#x2F;如果这个块是直接的
+            bno &#x3D; dirf-&gt;f_direct[i];
+        &#125; else &#123; &#x2F;&#x2F;如果这个块是间接的
+            bno &#x3D; ((uint32_t *)(disk[dirf-&gt;f_indirect].data))[i];
+        &#125;
+        &#x2F;&#x2F;根据块号从disk里面取到目录块的内容，始终要记住目录快里面存储文件的控制块
+        dirblk &#x3D; (struct File *)(disk[bno].data);&#x2F;&#x2F;这里相当于把取出来的内容转化成数组了  相当于  Struct File dirblk[] &#x3D; .......，因为这里把取出来的内容转化成FIle*指针了
+        for (j &#x3D; 0; j &lt; FILE2BLK; j++) &#123; &#x2F;&#x2F;如果这些控制块里有没有用过的（判断标准是文件名为空），那么就找到了！返回它的地址
+            if (dirblk[j].f_name[0] &#x3D;&#x3D; &#39;\0&#39;) &#123; 
+                return &amp;dirblk[j];
+            &#125;
+        &#125;
+    &#125;
+&#x2F;&#x2F;找了半天没有找到，证明目录dirf里面所有块全都用完了，再分配一个空闲块里面存储文件控制块并返回这个文件控制块
+    &#x2F;&#x2F;分配一个新的到目录文件的控制块的nblk号位
+    bno &#x3D; make_link_block(dirf, nblk);
+    return (struct File *)disk[bno].data;
+
+&#125;
+
+&#x2F;&#x2F;调这个函数分配新的disk块，传一个目录文件控制块指针进来，我们要分一个新的disk块连接到dirf的nblk号位上
+int make_link_block(struct File *dirf, int nblk) &#123;
+    &#x2F;&#x2F;取一个新的type类型空闲块
+    int bno &#x3D; next_block(BLOCK_FILE);
+    &#x2F;&#x2F;链接到nblk号位
+    save_block_link(dirf, nblk, bno);
+    &#x2F;&#x2F;文件大小增加
+    dirf-&gt;f_size +&#x3D; BY2BLK;
+    &#x2F;&#x2F;返回新分配的的空闲块号
+    return bno;
+&#125;
+
+&#x2F;&#x2F;nextbno是个全局变量代表下一个空闲disk块，这个函数实际上就是在维护这个变量
+&#x2F;&#x2F;我们需要一个type类型的块，在这里取一个空闲块设置它的type，更新nextbno，返回空闲块号
+int next_block(int type) &#123;
+    disk[nextbno].type &#x3D; type;
+	return nextbno++;
+&#125;
+
+void save_block_link(struct File *f, int nblk, int bno)
+&#123;
+    assert(nblk &lt; NINDIRECT); &#x2F;&#x2F; if not, file is too large !
+	&#x2F;&#x2F;如果是直接块链接到直接块
+    if(nblk &lt; NDIRECT) &#123;
+        f-&gt;f_direct[nblk] &#x3D; bno;
+    &#125;
+    else &#123;&#x2F;&#x2F;不是的话连接到间接快
+        if(f-&gt;f_indirect &#x3D;&#x3D; 0) &#123;&#x2F;&#x2F;如果间接指针还没有分配给他分配一个
+            &#x2F;&#x2F; create new indirect block.
+            f-&gt;f_indirect &#x3D; next_block(BLOCK_INDEX);
+        &#125;
+        ((uint32_t *)(disk[f-&gt;f_indirect].data))[nblk] &#x3D; bno;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>以上内容都是fsformat.c里面的内容用于创建磁盘镜像真正使用的操作磁盘的函数在fs.c内</p>
+<hr>
+<p>下面是fs.c的内容</p>
+<p>接下来学习磁盘块到内存映射的实现过程</p>
+<p>首先是一些常用函数，怎么这么多啊？？？？？？？</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">&#x2F;&#x2F;blockno转对应虚拟地址，其实就是加上基地址DISKMAP
+u_int
+diskaddr(u_int blockno)
+&#123;
+    if (super &amp;&amp; blockno &gt;&#x3D; super-&gt;s_nblocks) &#123;
+        user_panic(&quot;reading non-existent block %08x\n&quot;, blockno);
+    &#125;
+    return DISKMAP + (blockno * BY2BLK);
+&#125;
+
+&#x2F;&#x2F;这个函数检查块是否已经在内存里映射过了
+int
+map_block(u_int blockno)
+&#123;
+    &#x2F;&#x2F; Step 1: Decide whether this block has already mapped to a page of physical memory.
+
+    &#x2F;&#x2F;如果已经映射过了就返回0
+    &#x2F;&#x2F;调用block_is_mapped(blockno)这个函数，如果映射过返回对应虚拟地址，没映射过返回0
+    if (block_is_mapped(blockno)) &#123;
+        return 0;
+    &#125;
+	&#x2F;&#x2F;没有影射过那就系统调用 映射一下
+    return syscall_mem_alloc(0, diskaddr(blockno), PTE_V | PTE_R);&#x2F;&#x2F;第一个参数是envid，0的话代指当前进程
+&#125;
+
+&#x2F;&#x2F;该函数用于解除磁盘块和物理内存之间的映射关系，回收内存，注意要回收！就是接触映射的时候要把虚拟内存里面的内容回收到磁盘里。
+void
+unmap_block(u_int blockno)
+&#123;
+    int r;
+    u_int addr;
+    &#x2F;&#x2F; 如果根本没有映射过就不用回收，直接返回
+    addr &#x3D; block_is_mapped(blockno);
+    if (addr &#x3D;&#x3D; 0) &#123;
+        return;
+    &#125;
+    &#x2F;&#x2F; 如果虚拟内存里填过东西要回收到磁盘里
+    if (!block_is_free(blockno) &amp;&amp; block_is_dirty(blockno)) &#123;
+        write_block(blockno); &#x2F;&#x2F;把va里面的东西回收进来
+    &#125;
+    r &#x3D; syscall_mem_unmap(0, addr);&#x2F;&#x2F;解除绑定
+    if (r &lt; 0) &#123;
+        user_panic(&quot;unmap_block failed&quot;);
+    &#125;
+    &#x2F;&#x2F; Step 4: validate result of this unmap operation.
+    user_assert(!block_is_mapped(blockno));
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>接下来是一个调用更多的函数</p>
+<ul>
+<li><code>int dir_lookup(struct File *dir, char *name, struct File **file)</code>在目录文件中找到名叫name的文件，并在让*file指向他</li>
+</ul>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">&#x2F;&#x2F;Try to find a file named &quot;name&quot; in dir.  If so, set *file to it.
+int
+dir_lookup(struct File *dir, char *name, struct File **file)
+&#123;
+	int r;
+	u_int i, j, nblock;
+	void *blk;
+	struct File *f;
+
+	&#x2F;&#x2F; Step 1: Calculate nblock: how many blocks this dir have.
+	nblock &#x3D; ROUND(dir-&gt;f_size, BY2BLK) &#x2F; BY2BLK;
+
+	for (i &#x3D; 0; i &lt; nblock; i++) &#123;
+		&#x2F;&#x2F; Step 2: Read the i&#39;th block of the dir.
+		&#x2F;&#x2F; Hint: Use file_get_block.调用下面这个函数得到f的filebno个块对应的内存中的虚拟地址（这个函数附带的作用是保证把这个块读到内存映射里面，接下来我们就可以在内存中操作磁盘数据映射）
+		r &#x3D; file_get_block(dir, i, &amp;blk);&#x2F;&#x2F;这个blk是对应的虚拟地址
+		if (r &lt; 0) &#123;
+			return r;
+		&#125;
+
+		&#x2F;&#x2F; Step 3: Find target file by file name in all files on this block.
+		&#x2F;&#x2F; If we find the target file, set the result to *file and set f_dir field.
+        &#x2F;&#x2F;得到blk这个虚拟地址就可以开始指针操作了
+        &#x2F;&#x2F;FILE2BLK是一个宏，指一个块里面有多少file结构体
+		for (j &#x3D; 0; j &lt; FILE2BLK; j++) &#123;
+			f &#x3D; ((struct File *)blk) + j; &#x2F;&#x2F;把目录磁盘块里file结构体挨个取出来
+            &#x2F;&#x2F;注意这时我们已经开始在内存映射中操作了，现在是在内存中
+			if (strcmp((char *)f-&gt;f_name, name) &#x3D;&#x3D; 0) &#123;
+				f-&gt;f_dir &#x3D; dir;
+				*file &#x3D; f;
+				return 0;
+			&#125;
+		&#125;
+	&#125;
+
+	return -E_NOT_FOUND;
+&#125;
+
+&#x2F;&#x2F;这个函数用于得到f的第filebno个块的块号，并保证把这块读进内存里，blk返回该快对应的虚拟地址
+&#x2F;&#x2F; Overview:
+&#x2F;&#x2F;	Set *blk to point at the filebno&#39;th block in file f.
+int
+file_get_block(struct File *f, u_int filebno, void **blk)
+&#123;
+	int r;
+	u_int diskbno;
+	u_int isnew;
+
+	&#x2F;&#x2F; Step 1: find the disk block number is &#96;f&#96; using &#96;file_map_block&#96;.
+	if ((r &#x3D; file_map_block(f, filebno, &amp;diskbno, 1)) &lt; 0) &#123;
+		return r;
+	&#125;
+
+	&#x2F;&#x2F; Step 2: read the data
+	if ((r &#x3D; read_block(diskbno, blk, &amp;isnew)) &lt; 0) &#123;
+		return r;
+	&#125;
+	return 0;
+&#125;
+
+&#x2F;&#x2F;将blockno读到对应的内存映射里，在blk里面返回其在内存中的虚拟地址，注意这里是虚拟地址！！！
+int
+read_block(u_int blockno, void **blk, u_int *isnew)
+&#123;
+	u_int va;
+
+	&#x2F;&#x2F;两个异常情况
+    &#x2F;&#x2F; 1 超出范围
+	if (super &amp;&amp; blockno &gt;&#x3D; super-&gt;s_nblocks) &#123;
+		user_panic(&quot;reading non-existent block %08x\n&quot;, blockno);
+	&#125;
+	&#x2F;&#x2F; 2 空闲块怎么读？ you are crazy！
+	if (bitmap &amp;&amp; block_is_free(blockno)) &#123;
+		user_panic(&quot;reading free block %08x\n&quot;, blockno);
+	&#125;
+
+	&#x2F;&#x2F; 虚拟地址找出来
+	va &#x3D; diskaddr(blockno);
+
+	&#x2F;&#x2F; Step 4: read disk and set *isnew.
+	&#x2F;&#x2F; Hint: if this block is already mapped, just set *isnew, else alloc memory and
+	&#x2F;&#x2F; read data from IDE disk (use &#96;syscall_mem_alloc&#96; and &#96;ide_read&#96;).
+	&#x2F;&#x2F; We have only one IDE disk, so the diskno of ide_read should be 0.
+    &#x2F;&#x2F;如果没有map过map一下
+	if (block_is_mapped(blockno)) &#123;	&#x2F;&#x2F;the block is in memory
+		if (isnew) &#123;
+			*isnew &#x3D; 0;
+		&#125;
+	&#125; else &#123;			&#x2F;&#x2F;the block is not in memory
+		if (isnew) &#123;
+			*isnew &#x3D; 1;
+		&#125;
+		syscall_mem_alloc(0, va, PTE_V | PTE_R);
+		ide_read(0, blockno * SECT2BLK, (void *)va, SECT2BLK);
+	&#125;
+
+	&#x2F;&#x2F; Step 5: if blk !&#x3D; NULL, set &#96;va&#96; to *blk.这里是虚拟地址！！
+	if (blk) &#123;
+		*blk &#x3D; (void *)va;
+	&#125;
+	return 0;
+&#125;
+
+
+&#x2F;&#x2F;这个函数先用file_block_walk找到了f第filebno个块对应的块号，然后做了一些简单额外操作，就是这个块号如果是0的话证明还没有分配，给他分配一下并记录到f的控制块内，*diskbno存储这个块号
+&#x2F;&#x2F; OVerview:
+&#x2F;&#x2F;	Set *diskbno to the disk block number for the filebno&#39;th block in file f.
+&#x2F;&#x2F; 	If alloc is set and the block does not exist, allocate it.
+int
+file_map_block(struct File *f, u_int filebno, u_int *diskbno, u_int alloc)
+&#123;
+	int r;
+	u_int *ptr;
+
+	&#x2F;&#x2F; Step 1: find the pointer for the target block.
+	if ((r &#x3D; file_block_walk(f, filebno, &amp;ptr, alloc)) &lt; 0) &#123;
+		return r;
+	&#125;
+
+	&#x2F;&#x2F; Step 2: if the block not exists, and create is set, alloc one.
+	if (*ptr &#x3D;&#x3D; 0) &#123;
+		if (alloc &#x3D;&#x3D; 0) &#123;
+			return -E_NOT_FOUND;
+		&#125;
+
+		if ((r &#x3D; alloc_block()) &lt; 0) &#123;
+			return r;
+		&#125;
+		*ptr &#x3D; r;
+	&#125;
+
+	&#x2F;&#x2F; Step 3: set the pointer to the block in *diskbno and return 0.
+	*diskbno &#x3D; *ptr;
+	return 0;
+&#125;
+
+&#x2F;&#x2F;这个函数用于找到f的第filebno个块的块号，在**ppdiskno里存储这个块号，这个块号有可能是0，因为还没有分配，注意如果alloc还要有特殊操作this function will allocate an indirect block if necessary.
+&#x2F;&#x2F; Overview:
+&#x2F;&#x2F;	Like pgdir_walk but for files. 
+&#x2F;&#x2F;	Find the disk block number slot for the &#39;filebno&#39;th block in file &#39;f&#39;. Then, set 
+&#x2F;&#x2F;	&#39;*ppdiskbno&#39; to point to that slot. The slot will be one of the f-&gt;f_direct[] entries,
+&#x2F;&#x2F; 	or an entry in the indirect block.
+&#x2F;&#x2F; 	When &#39;alloc&#39; is set, this function will allocate an indirect block if necessary.
+int
+file_block_walk(struct File *f, u_int filebno, u_int **ppdiskbno, u_int alloc)
+&#123;
+	int r;
+	u_int *ptr;
+	void *blk;
+
+	if (filebno &lt; NDIRECT) &#123;
+		&#x2F;&#x2F; Step 1: if the target block is corresponded to a direct pointer, just return the
+		&#x2F;&#x2F; 	disk block number.
+		ptr &#x3D; &amp;f-&gt;f_direct[filebno];
+	&#125; else if (filebno &lt; NINDIRECT) &#123;
+		&#x2F;&#x2F; Step 2: if the target block is corresponded to the indirect block, but there&#39;s no
+		&#x2F;&#x2F;	indirect block and &#96;alloc&#96; is set, create the indirect block.
+		if (f-&gt;f_indirect &#x3D;&#x3D; 0) &#123;
+			if (alloc &#x3D;&#x3D; 0) &#123;
+				return -E_NOT_FOUND;
+			&#125;
+
+			if ((r &#x3D; alloc_block()) &lt; 0) &#123;
+				return r;
+			&#125;
+			f-&gt;f_indirect &#x3D; r;
+		&#125;
+
+		&#x2F;&#x2F; Step 3: read the new indirect block to memory. 
+		if ((r &#x3D; read_block(f-&gt;f_indirect, &amp;blk, 0)) &lt; 0) &#123;
+			return r;
+		&#125;
+		ptr &#x3D; (u_int *)blk + filebno;
+	&#125; else &#123;
+		return -E_INVAL;
+	&#125;
+
+	&#x2F;&#x2F; Step 4: store the result into *ppdiskbno, and return 0.
+	*ppdiskbno &#x3D; ptr;
+	return 0;
+&#125;
+
+&#x2F;&#x2F;这个函数用于在位图中找一个空闲块返回其块号
+int
+alloc_block_num(void)
+&#123;
+	int blockno;
+	&#x2F;&#x2F; walk through this bitmap, find a free one and mark it as used, then sync
+	&#x2F;&#x2F; this block to IDE disk (using &#96;write_block&#96;) from memory.
+	for (blockno &#x3D; 3; blockno &lt; super-&gt;s_nblocks; blockno++) &#123;
+		if (bitmap[blockno &#x2F; 32] &amp; (1 &lt;&lt; (blockno % 32))) &#123;	&#x2F;&#x2F;the block is free
+			bitmap[blockno &#x2F; 32] &amp;&#x3D; ~(1 &lt;&lt; (blockno % 32));&#x2F;&#x2F;这里把空闲位取消掉
+            &#x2F;&#x2F;下面这句话纯纯有病，直接把2块写回disk不就行了，加个blockno &#x2F; BIT2BLK有个卵用？
+			write_block(blockno &#x2F; BIT2BLK + 2); &#x2F;&#x2F; write 2块即bitmap块 to disk.
+			return blockno;
+		&#125;
+	&#125;
+	&#x2F;&#x2F; no free blocks.
+	return -E_NO_DISK;
+&#125;
+
+&#x2F;&#x2F;分配一个块并把它map到虚拟空间里去
+int
+alloc_block(void)
+&#123;
+	int r, bno;
+	&#x2F;&#x2F; Step 1: find a free block.找到空闲块调用上面那个函数
+	if ((r &#x3D; alloc_block_num()) &lt; 0) &#123; &#x2F;&#x2F; failed.
+		return r;
+	&#125;
+	bno &#x3D; r;
+
+	&#x2F;&#x2F; Step 2: map this block into memory. 
+	if ((r &#x3D; map_block(bno)) &lt; 0) &#123; &#x2F;&#x2F;map这个块
+		free_block(bno);&#x2F;&#x2F;map不成功的话把它free掉，因为alloc_block_num()函数里把它的空闲位取消掉了
+		return r;
+	&#125;
+
+	&#x2F;&#x2F; Step 3: return block number.
+	return bno;
+&#125;
+
+
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="接下来将这些函数进一步封装为我们常用的open-write，close的等函数"><a href="#接下来将这些函数进一步封装为我们常用的open-write，close的等函数" class="headerlink" title="接下来将这些函数进一步封装为我们常用的open,write，close的等函数"></a>接下来将这些函数进一步封装为我们常用的open,write，close的等函数</h4><p>首先又来了三个结构体</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">&#x2F;&#x2F; Device struct:
+&#x2F;&#x2F; It is used to read and write data from corresponding device.
+&#x2F;&#x2F; We can use the five functions to handle data.
+&#x2F;&#x2F; There are three devices in this OS: file, console and pipe.
+struct Dev &#123;
+    int dev_id;
+    char *dev_name;
+    int (*dev_read)(struct Fd *, void *, u_int, u_int);
+    int (*dev_write)(struct Fd *, const void *, u_int, u_int);
+    int (*dev_close)(struct Fd *);
+    int (*dev_stat)(struct Fd *, struct Stat *);
+    int (*dev_seek)(struct Fd *, u_int);
+&#125;;
+
+&#x2F;&#x2F; file descriptor
+struct Fd &#123;
+    u_int fd_dev_id;&#x2F;&#x2F;外设id
+    u_int fd_offset;&#x2F;&#x2F;读或写的当前位置
+    u_int fd_omode;&#x2F;&#x2F;打开方式
+&#125;;
+
+&#x2F;&#x2F; State
+struct Stat &#123;
+    char st_name[MAXNAMELEN];
+    u_int st_size;
+    u_int st_isdir;
+    struct Dev *st_dev;
+&#125;;
+
+&#x2F;&#x2F; file descriptor + file
+struct Filefd &#123;
+    struct Fd f_fd;
+    u_int f_fileid;
+    struct File f_file;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>接下来是open函数</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">int
+open(const char *path, int mode)
+&#123;
+	struct Fd *fd;
+	struct Filefd *ffd;
+	u_int size, fileid;
+	int r;
+	u_int va;
+	u_int i;
+
+	&#x2F;&#x2F; Step 1: Alloc a new Fd, return error code when fail to alloc.
+	&#x2F;&#x2F; Hint: Please use fd_alloc.
+	&#x2F;&#x2F;先来一个fd，用fd——alloc
+	r &#x3D; fd_alloc(&amp;fd); &#x2F;&#x2F; this is a whole 4KB space
+	if (r &lt; 0) &#123;
+		return r;
+	&#125;
+
+	&#x2F;&#x2F; Step 2: Get the file descriptor of the file to open.
+	&#x2F;&#x2F; Hint: Read fsipc.c, and choose a function.
+    &#x2F;&#x2F;利用进程通信要求文件系统进程将文件的相关信息写入fd空间中
+	r &#x3D; fsipc_open(path, mode, fd);
+	if (r &lt; 0) &#123;
+		return r;
+	&#125;
+
+
+	&#x2F;&#x2F; Step 3: Set the start address storing the file&#39;s content. Set size and fileid correctly.
+	&#x2F;&#x2F; Hint: Use fd2data to get the start address.
+    &#x2F;&#x2F;有了fd，强转一下就是ffd，ffd有文件id，文件size信息，map的时候需要文件id信息。
+	ffd &#x3D; (struct Filefd *)fd;
+	va &#x3D; fd2data(fd);&#x2F;&#x2F;这个va就是文件放内容的地方，利用fd2data函数
+	fileid &#x3D; ffd-&gt;f_fileid;
+	size &#x3D; ffd-&gt;f_file.f_size;
+
+
+	&#x2F;&#x2F; Step 4: Alloc memory, map the file content into memory.
+    &#x2F;&#x2F;map一下
+	for (i &#x3D; 0; i &lt; size; i +&#x3D; BY2BLK) &#123;
+		r &#x3D; fsipc_map(fileid, i, va + i);
+		if (r &lt; 0) &#123;
+			return r;
+		&#125;
+	&#125;
+	
+
+	&#x2F;&#x2F; Step 5: Return the number of file descriptor.
+	return fd2num(fd); &#x2F;&#x2F;返回文件描述符的编号
+
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>接下来是write和read函数</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">int
+write(int fdnum, const void *buf, u_int n)
+&#123;
+	int r;
+	struct Dev *dev;
+	struct Fd *fd;
+	&#x2F;&#x2F;利用lookup函数找到对应的fd和dev
+	if ((r &#x3D; fd_lookup(fdnum, &amp;fd)) &lt; 0
+		||  (r &#x3D; dev_lookup(fd-&gt;fd_dev_id, &amp;dev)) &lt; 0) &#123;
+		return r;
+	&#125;
+	&#x2F;&#x2F;不能写的话报错
+	if ((fd-&gt;fd_omode &amp; O_ACCMODE) &#x3D;&#x3D; O_RDONLY) &#123;
+		writef(&quot;[%08x] write %d -- bad mode\n&quot;, env-&gt;env_id, fdnum);
+		return -E_INVAL;
+	&#125;
+	&#x2F;&#x2F;这个不用管
+	if (debug) writef(&quot;write %d %p %d via dev %s\n&quot;,
+						  fdnum, buf, n, dev-&gt;dev_name);
+	&#x2F;&#x2F;利用dev内的函数指针把buf内容写入文件，注意这里要传入fd内的文件offset
+	r &#x3D; (*dev-&gt;dev_write)(fd, buf, n, fd-&gt;fd_offset);
+	
+    &#x2F;&#x2F;更新fd内的offset
+	if (r &gt; 0) &#123;
+		fd-&gt;fd_offset +&#x3D; r;
+	&#125;
+
+	return r;
+&#125;
+
+&#x2F;&#x2F;跟write一模一样，调用的dev的函数不一样
+int
+read(int fdnum, void *buf, u_int n)
+&#123;
+	int r;
+	struct Dev *dev;
+	struct Fd *fd;
+
+	&#x2F;&#x2F; Similar to &#39;write&#39; function.
+	&#x2F;&#x2F; Step 1: Get fd and dev.
+    &#x2F;&#x2F;跟write函数一样，先得把fd和dev读出来
+	if ((r &#x3D; fd_lookup(fdnum, &amp;fd)) &lt; 0
+		||  (r &#x3D; dev_lookup(fd-&gt;fd_dev_id, &amp;dev)) &lt; 0) &#123;
+		return r;
+	&#125;
+	&#x2F;&#x2F; Step 2: Check open mode.
+    &#x2F;&#x2F;只能写的话就不能读
+	if ((fd-&gt;fd_omode &amp; O_ACCMODE) &#x3D;&#x3D; O_WRONLY) &#123;
+		writef(&quot;[%08x] read %d -- bad mode\n&quot;, env-&gt;env_id, fdnum);
+		return -E_INVAL;
+	&#125;
+	if (debug) writef(&quot;read %d %p %d via dev %s\n&quot;,
+						  fdnum, buf, n, dev-&gt;dev_name);
+	&#x2F;&#x2F; Step 3: Read starting from seek position.
+	r &#x3D; (*dev-&gt;dev_read)(fd, buf, n, fd-&gt;fd_offset);
+	&#x2F;&#x2F; Step 4: Update seek position and set &#39;\0&#39; at the end of buf.
+	if (r &gt; 0) &#123;
+		fd-&gt;fd_offset +&#x3D; r;
+	&#125;
+	((char *)buf)[r] &#x3D; &#39;\0&#39;;
+
+	return r;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>接下来是我们的重点理解之处，那就是其实我们的文件系统实际上是通过进程通信实现的，我们使用fs.c(filesystem)中的一系列进程通信函数来告知文件系统进程如何操作文件实验中以remove操作展现了进程通信实现文件操作是如何实现的。</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">&#x2F;&#x2F;进程调用这个封装好的接口删除文件，实际上就是执行一个系统调用
+int
+remove(const char *path)
+&#123;
+	&#x2F;&#x2F; Your code here.
+	&#x2F;&#x2F; Call fsipc_remove.
+	return fsipc_remove(path);
+&#125;
+
+&#x2F;&#x2F;这就是那个系统调用告诉文件系统进程要删除文件
+int
+fsipc_remove(const char *path)
+&#123;
+	struct Fsreq_remove *req; &#x2F;&#x2F;每一个操作都有一个专门的结构体声明
+    
+	&#x2F;&#x2F; Step 1: Check the length of path, decide if the path is valid.
+	if (strlen(path) &gt;&#x3D; MAXPATHLEN) &#123;
+		return -E_BAD_PATH;
+	&#125;
+	&#x2F;&#x2F; Step 2: Transform fsipcbuf to struct Fsreq_remove*
+    
+    &#x2F;&#x2F;有一个专门的fsipcbuf缓冲区用于存放req，使用时要将其强制转换对应类型的请求
+	req &#x3D; (struct Fsreq_remove *)fsipcbuf;
+    
+    &#x2F;&#x2F;放一些信息进去
+	&#x2F;&#x2F; Step 3: Copy path to path in req.
+	strcpy((char *)req-&gt;req_path, path);
+
+    &#x2F;&#x2F;掉fsipc传入参数，第一个参数是操作类型
+	&#x2F;&#x2F; Step 4: Send request to fs server with IPC.
+	return fsipc(FSREQ_REMOVE, req, 0, 0);
+&#125;
+
+&#x2F;&#x2F;文件系统进程接收到删除文件的req就执行这个函数，底层实际上是执行了一个file_remove(path);函数
+void
+serve_remove(u_int envid, struct Fsreq_remove *rq)
+&#123;
+	int r;
+	char path[MAXPATHLEN];
+
+	&#x2F;&#x2F; Step 1: Copy in the path, making sure it&#39;s terminated.
+	&#x2F;&#x2F; Notice: add \0 to the tail of the path
+	strcpy(path, (char *)rq-&gt;req_path);
+
+	&#x2F;&#x2F; Step 2: Remove file from file system and response to user-level process.
+	&#x2F;&#x2F; Call file_remove and ipc_send an approprite value to corresponding env.
+	r &#x3D; file_remove(path);
+	ipc_send(envid, r, 0, 0);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Lei_Yu</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://shl518.github.io/2022/05/23/bei-hang-oslab5-shi-yan-bi-ji/">http://shl518.github.io/2022/05/23/bei-hang-oslab5-shi-yan-bi-ji/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Lei_Yu</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                                    <span class="chip bg-color">操作系统</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/05/23/stanford-cs231n/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Stanford_CS231n">
+                        
+                        <span class="card-title">Stanford_CS231n</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-23
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Lei_Yu
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/DeepLearning/">
+                        <span class="chip bg-color">DeepLearning</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/05/16/deeplearning-cs231n-ke-cheng-xue-xi-shi-lu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="DeepLearning：CS231n课程学习实录">
+                        
+                        <span class="card-title">DeepLearning：CS231n课程学习实录</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Lei_Yu
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2023</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">Lei_Yu</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">88.4k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/shl518" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:lei_yuyu518@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

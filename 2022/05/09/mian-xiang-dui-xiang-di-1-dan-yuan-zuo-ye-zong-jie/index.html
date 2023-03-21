@@ -1,0 +1,1541 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="面向对象第1单元作业总结, Corsica">
+    <meta name="description" content="I will be with you from dusk till down.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
+
+    <title>面向对象第1单元作业总结 | Corsica</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Corsica</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Corsica</div>
+        <div class="logo-desc">
+            
+            I will be with you from dusk till down.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/shl518" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/shl518" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">面向对象第1单元作业总结</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+                                <span class="chip bg-color">面向对象</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-05-09
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-03-22
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5.6k
+                </div>
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本文是对第一次面向对象课程作业的总结，文章首先总结了本次作业我的总体架构思路，接着分析了三次作业中我的架构迭代历程，之后对于我的最终架构给出了代码度量分析，且分析了架构的优缺点。之后文章分析了在Hack过程中的收获，以及在本次作业设计，编写中我学到的东西，尤其是<strong>关于深浅克隆</strong>这一部分我分享了我认为比较好的一些资料，和我自己的理解，希望uu们不要跟我一样在这一知识点再犯错误。最后文章阐述了本次作业中我的心得体会。文章如有错误，谢谢指正！</p>
+<hr>
+<h3 id="一-总体架构思路"><a href="#一-总体架构思路" class="headerlink" title="一.总体架构思路"></a>一.总体架构思路</h3><p>在本次作业中，我们的最终需求是对一个表达式进行化简计算，并进行一些必要的合并与优化。然而要进行计算，首要任务是进行表达式的解析。总而言之，要完成解析和计算这两个需求，我设计了如下架构，我的架构简而言之是：递归向下解析，自底向上计算，输出前再进行合理优化。形象化的表示一下就是如下的流程图。</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/57F941BFE671421C9AF4B1001A2B78E1?method=download&shareKey=c636f34fcf32c9ad8e157a213642308c"></p>
+<p>在我的架构中，将表达式抽象为了<strong>四个层次</strong>，在作业指导书中，由于已经给出了表达式的形式化表示，我们可以很容易抽象出以下层次：</p>
+<ul>
+<li><p><code>Expr</code>：表达式层</p>
+</li>
+<li><p><code>Term</code>：<code>Expr</code>以<code>+-</code>的形式包含多个<code>Term</code>项层</p>
+</li>
+<li><p><code>Factor</code>：<code>Term</code>项以<code>*</code>形式包含多个<code>Factor</code>因子</p>
+</li>
+<li><p><code>Element</code>:上述三个层次均包含一个属性，其类型是一个<code>Element</code>数组，有了<code>Element</code>层，方便进行自底向上的运算。</p>
+<ul>
+<li><p>在第一次作业中 <code>Element = a*x**b</code></p>
+</li>
+<li><p>在第二、三次作业中 <code>Element = a*x*b*[sin][cos]</code>,其中<code>[sin][cos]</code>指<code>Sin、Cos</code>类的数组</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>有了以上这些层次，我们首先对输入进行递归向下解析，解析出表达式中包含哪些层次，经过自底向上的计算，可以得到每个层次的<code>[Elements]</code>数组，最终得到的<code>Expr</code>表达式的<code>[Elements]</code>数组便是我们得到的初步计算结果，经过合并同类项等优化便可以进行输出。</p>
+<h3 id="二-迭代过程"><a href="#二-迭代过程" class="headerlink" title="二.迭代过程"></a>二.迭代过程</h3><p>在这一部分简要阐述了我的三次迭代心路历程，其中并没有放<code>UML</code>类图，因为三次作业我没有做大规模的重构，三次作业的<code>UML</code>类图重复相似部分较多，我将会在<strong>代码度量分析</strong>一节中分析<code>UML</code>类图，其中标明了每次作业的新增与修改部分。</p>
+<h4 id="2-1第一次作业"><a href="#2-1第一次作业" class="headerlink" title="2.1第一次作业"></a>2.1第一次作业</h4><ul>
+<li><strong>分析</strong></li>
+</ul>
+<p>在第一次作业中，首次上手<code>java</code>作业打了我一个措手不及，因为之前写的都是流程式的程序，开始时构思面向对象式的架构没有很好地思路，属于是一头雾水了，花了很多时间去理解题目并和同学交流，并且在助教给的训练项目中也得到了一些启发，最终构思了上述的程序架构。</p>
+<ul>
+<li><strong>解析方法上</strong>，在<code>HW1</code>中，由于因子层面只有常数因子，变量因子与表达式因子，总的来说类型较少，因此采用了<strong>正则表达式</strong>进行识别，识别流程示意图如下：</li>
+</ul>
+<p><img src="https://note.youdao.com/yws/api/personal/file/B8460413ACA241C7BC617C8C8BBF9BD0?method=download&shareKey=f982690aadfddbd60e53a6b8e044d3e6" alt="HW1"></p>
+<ul>
+<li><p><strong>计算方法上</strong>，在<code>HW1</code>中，涉及到<code>a*x**b</code>之间的乘法与加减法，只需系数与系数的计算，指数与指数的计算，不再赘述，但在这里我<strong>第一次遇到了深克隆和浅克隆的问题</strong>，这个问题在本次作业中多次困扰我，这一问题在之后的Bug部分详细阐述。</p>
+</li>
+<li><p><strong>优化方法上</strong>，由于最后的形式是许多<code>a*x**b</code>进行相加，优化方法上只涉及到合并同类项，之后输出时再进行简单的优化即可，例如指数为1不输出指数，变量因子系数为1不输出系数等。</p>
+</li>
+</ul>
+<h4 id="2-2第二次作业"><a href="#2-2第二次作业" class="headerlink" title="2.2第二次作业"></a>2.2第二次作业</h4><ul>
+<li><strong>分析</strong></li>
+</ul>
+<p>在本次作业中，新增了自变量函数，求和函数，三角函数三种因子,这要求我们对新增的这三种因子进行识别与计算。此外，由于在解析<code>f与sum</code>时需要进行自变量的替换，替换后可能出现表达式括号嵌套的形式，这要求架构中的解析过程要支持嵌套括号的形式，这是本次作业一个潜在的需求。</p>
+<ul>
+<li><strong>重构解析方法</strong>：在本次解析过程中，由于因子的形式多样，如果继续使用正则表达式进行识别，一来<strong>正则表达式很难准确构造</strong>，二来由于<strong>正则式的不准确所带来的潜在Bug</strong>也比较多。因此我对每个层次<strong>解析方法</strong><code>Parse</code>进行了重构，<strong>采用类似栈的方法，对括号层数进行解析，根据当前括号所处的层数和简单的字符判断</strong>，可以依此解析出<code>Term</code>，<code>Factor</code>等层次。这样写的好处是不需要绞尽脑汁构造正则表达式，正确性也容易验证，对于新增的几个因子<ul>
+<li><code>sin，cos</code>，将括号内的内容当做<strong>常数或变量因子</strong>重新解析</li>
+<li><code>f,sum</code>因子，进行字符串的替换，展开等处理后看做<strong>表达式</strong>重新解析</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://note.youdao.com/yws/api/personal/file/7AF67256C2514CF19598F5D26B99EB90?method=download&shareKey=04f263d33be4bd685246b3268522028e" alt="HW2"></p>
+<ul>
+<li><p><strong>修改计算方法</strong>：</p>
+<p>本次作业中的计算，不仅仅是<code>a*x**b</code>之间的乘法与加减法,此时<code>Element</code>是<code>a*x*b*[sin][cos]</code>，需要修改两处：</p>
+<ul>
+<li><code>[Elements]*[Elements]</code>,除了修改系数a，指数b，另需要将二者[sin][cos]数组合并，这里又涉及到了深拷贝与浅拷贝问题。然而<strong>梅开二度</strong>，我在这里又没有意识到犯了浅拷贝这个“错误”，虽然<code>HW2</code>中没有出现问题，但导致我在<code>HW3</code>优化二倍角时出现了错误，这里会在Bug部分详细阐述。</li>
+<li><code>[Elements]+-[Elements]</code>，这里需要修改<code>equals</code>方法，合并同类项时考虑[sin][cos]数组是否一致。</li>
+</ul>
+</li>
+<li><p><strong>新增优化方法</strong>：</p>
+<ul>
+<li>在解析过程中进行初步优化，对于<code>sin(0),cos(0),sin()**0,cos()**0</code>，<strong>在解析的过程中就将其解析为对应常数</strong>，进行初步优化。</li>
+<li>三角函数计算的优化<ul>
+<li>在<code>HW2</code>，因为时间关系，只增加了简单的<code>Acos(B)**2+Asin(B)**2=A</code>的合并，其中<code>A</code>是任意项，<code>B</code>是三角函数内的常数或变量因子。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-3第三次作业"><a href="#2-3第三次作业" class="headerlink" title="2.3第三次作业"></a>2.3第三次作业</h4><ul>
+<li><strong>分析</strong></li>
+</ul>
+<p>在本次作业中，新增了函数间的相互调用，三角函数内嵌套等新需求。关于函数之间的相互调用，在<code>HW2</code>中对于自定义函数的处理方法是，进行自变量的替换后直接看做表达式进行处理，因此<code>HW2</code>架构已经可以实现函数之间的互调用。在本次作业中主要实现了三角函数的内嵌套，相较于第二部分修改较少。</p>
+<ul>
+<li><strong>修改解析方法</strong>，  如上文所述，此次迭代，<strong>只需要修改三角函数内部嵌套部分的解析方式</strong>。显而易见，将括号内部的部分当做<code>Expr</code>表达式继续解析即可。</li>
+</ul>
+<p><img src="https://note.youdao.com/yws/api/personal/file/B2F525E399E9490CB1FA8989B96B8A67?method=download&shareKey=6e17a41843a7f8ff4de21666f5b379e6"></p>
+<ul>
+<li><strong>计算方法</strong>：不需要修改。</li>
+<li><strong>新增优化方法</strong><ul>
+<li>二倍角公式，在<code>HW3</code>中实现了二倍角的简化，<code>2Asin(B)cos(B) = Asin(2B)</code>,<strong>遗憾的是这里将<code>HW2</code>中的Bug显现了出来</strong>，因为在优化时对B进行了系数的加倍，而在计算时采用的<strong>浅克隆方式</strong>，修改B导致了其他某些<code>sin</code>，<code>cos</code>内部的内容也随之修改。</li>
+</ul>
+</li>
+</ul>
+<h3 id="三-代码度量分析"><a href="#三-代码度量分析" class="headerlink" title="三.代码度量分析"></a>三.代码度量分析</h3><p>先放一下<code>HW3</code>最终的<code>UML</code>类图</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/04BAF07845ED401195D6536C1582A325?method=download&shareKey=a2b0020feda0fa741dccb15900e18342"></p>
+<ul>
+<li><p>第二次作业修改了<code>Caculate</code>内的方法，新增<code>Sin,Cos</code>,自定义函数<code>Fun,Sum</code>类，修改了<code>Element</code>属性，其他<code>UML</code>部分与第一次作业基本相同。</p>
+</li>
+<li><p>第三次作业修改了<code>Sin,Cos</code>内部属性，同时更新了<code>Caculate</code>计算方法，其他<code>UML</code>类基本未做变动。</p>
+</li>
+<li><p>优缺点分析</p>
+<ul>
+<li>优点是进行了比较系统的抽象，不同层次代表了表达式中不同的组合，</li>
+<li>缺点是首先<code>Sin，Cos</code>两个类基本相同，可以合并，在编写代码时我为了区分<code>Cos，Sin</code>，创建了两个类，但其实二者基本相同，完全可以合并为一个类，以减少复杂度。此外，代码之间内在的的关联度高，不容易达到“高内聚低耦合”的原则，程序的结构化程度不是很好。</li>
+</ul>
+</li>
+</ul>
+<p>之前我并未接触过代码度量的含义，了解之后学习到其一些指标含义如下：</p>
+<ol>
+<li><code>CogC</code>：认知复杂度，反应一个方法的可理解性，循环分支等结构越多，可理解性越差，数值越高。</li>
+<li><code>ev(G)</code>:基本复杂度是用来衡量程序非结构化程度的。</li>
+<li><code>Iv(G)</code>:模块设计复杂度是用来衡量模块判定结构，即模块和其他模块的调用关系,越高说明模块和其他模块之间的调用关系复杂，耦合程度越高.</li>
+<li><code>v(G)</code>:是用来衡量一个模块判定结构的复杂程度，数量上表现为独立路径的条数,数值越高说明程序越难以维护</li>
+</ol>
+<p><strong>方法复杂度</strong></p>
+<table>
+<thead>
+<tr>
+<th>PreFun.printans(ArrayList)</th>
+<th>48.0</th>
+<th>3.0</th>
+<th>16.0</th>
+<th>17.0</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>PreFun.mergecs2(ArrayList)</td>
+<td>42.0</td>
+<td>10.0</td>
+<td>9.0</td>
+<td>12.0</td>
+</tr>
+<tr>
+<td>Factor.parse()</td>
+<td>31.0</td>
+<td>4.0</td>
+<td>12.0</td>
+<td>15.0</td>
+</tr>
+<tr>
+<td>Element.matchcs(Element)</td>
+<td>30.0</td>
+<td>9.0</td>
+<td>10.0</td>
+<td>12.0</td>
+</tr>
+<tr>
+<td>Element.Element(String)</td>
+<td>28.0</td>
+<td>1.0</td>
+<td>15.0</td>
+<td>18.0</td>
+</tr>
+<tr>
+<td>Fun.parse()</td>
+<td>26.0</td>
+<td>3.0</td>
+<td>10.0</td>
+<td>11.0</td>
+</tr>
+<tr>
+<td>PreFun.neg(ArrayList)</td>
+<td>19.0</td>
+<td>1.0</td>
+<td>8.0</td>
+<td>8.0</td>
+</tr>
+<tr>
+<td>Expr.parse()</td>
+<td>12.0</td>
+<td>1.0</td>
+<td>8.0</td>
+<td>9.0</td>
+</tr>
+<tr>
+<td>Term.parse()</td>
+<td>12.0</td>
+<td>1.0</td>
+<td>7.0</td>
+<td>8.0</td>
+</tr>
+<tr>
+<td>PreFun.addcos(StringBuilder, Element)</td>
+<td>10.0</td>
+<td>1.0</td>
+<td>6.0</td>
+<td>6.0</td>
+</tr>
+<tr>
+<td>PreFun.addsin(StringBuilder, Element)</td>
+<td>10.0</td>
+<td>1.0</td>
+<td>6.0</td>
+<td>6.0</td>
+</tr>
+<tr>
+<td>PreFun.issingle(ArrayList)</td>
+<td>8.0</td>
+<td>5.0</td>
+<td>11.0</td>
+<td>12.0</td>
+</tr>
+<tr>
+<td>Cos.cossequal(ArrayList, ArrayList)</td>
+<td>7.0</td>
+<td>4.0</td>
+<td>3.0</td>
+<td>4.0</td>
+</tr>
+<tr>
+<td>Element.elementsequal(ArrayList, ArrayList)</td>
+<td>7.0</td>
+<td>4.0</td>
+<td>3.0</td>
+<td>4.0</td>
+</tr>
+<tr>
+<td>PreFun.mergecs(ArrayList)</td>
+<td>7.0</td>
+<td>1.0</td>
+<td>5.0</td>
+<td>5.0</td>
+</tr>
+<tr>
+<td>Sin.sinsequal(ArrayList, ArrayList)</td>
+<td>7.0</td>
+<td>4.0</td>
+<td>3.0</td>
+<td>4.0</td>
+</tr>
+</tbody></table>
+<p><strong>（由于方法较多，篇幅限制只列出了分析结果中数值较大，标红的部分数据。）</strong></p>
+<p><strong>接下来进行代码度量结果的分析</strong>：</p>
+<ul>
+<li><p>从<strong>方法复杂度</strong>来看，可以看出其集中出现在<code>PreFun</code>内的优化函数上，原因是我在优化过程中采用的<code>for</code>与<code>if-else</code>较多，为优化性能对许多情况进行分别讨论，这导致了复杂度过高，这从某种程度上说明了我在优化部分容易出错的原因。</p>
+</li>
+<li><p>同时每个类内<code>Parse</code>方法，和<code>Element</code>方法的实现也比较复杂，这是因为<strong>耦合性过强</strong>，例如在我的架构中，他们都是为<strong>解析功能</strong>服务的函数，<code>Expr</code>的<code>parse</code>需要依赖<code>Term</code>中的<code>Parse</code>，而<code>Term</code>的<code>Parse</code>又需要依赖<code>Factor</code>的<code>Parse</code>，<strong>方法之间的依赖性很强</strong>，不容易达到“高内聚低耦合”的原则，程序的结构化程度不是很好。</p>
+</li>
+</ul>
+<h3 id="四-Hack与被Hack"><a href="#四-Hack与被Hack" class="headerlink" title="四.Hack与被Hack"></a>四.Hack与被Hack</h3><h4 id="4-1-个人Bug发现与分析"><a href="#4-1-个人Bug发现与分析" class="headerlink" title="4.1 个人Bug发现与分析"></a>4.1 个人Bug发现与分析</h4><p>关于本次作业的Bug较多的集中在<strong>深克隆与浅克隆</strong>这个问题上，这可能与我的代码架构有关，在对<code>ArrayList</code>操作时使用了较多的<code>add</code>方法。</p>
+<p>在一次作业中我首次遇到了深克隆与浅克隆的问题，但在课下时我已经发现了这个Bug并予以解决。但在第二次作业时，又再一次出现了深克隆浅克隆的问题，这个Bug原因是我在计算<code>[Elements]</code>数组时为了实现合并两数组的[sin][cos]，直接采用了<code>add</code>方法，因为第二次作业我并未对<code>Sin</code>,<code>Cos</code>内部进行操作，所以当时我认为直接采用<code>add</code>方法是正确的，简便的，因而这个Bug在第二次作业时并没有显现。</p>
+<p>然而在第三次作业中，在优化部分我新增了<strong>二倍角优化方法</strong>，直接对<code>Sin</code>,<code>Cos</code>内部项的系数进行了操作，此时我忽略了之前采用<code>add</code>方法合并数组时采用了浅克隆而非深克隆，直接引发了第二次作业所埋下的隐患。<del>以后再也不瞎优化了(bushi</del>,所以有时候不优化，保证正确性可能会更好一点。不过言归正传，这个Bug十分隐蔽，我在课下并没有发现，导致一个强测点直接寄掉。</p>
+<p>这个Bug出现的原因有二：</p>
+<ul>
+<li><p>一方面是因为对于深克隆浅克隆的理解还是不够深刻，在编写代码是没有意识到自己当前所写代码实际上是再进行克隆操作，也没有进一步思考这里的克隆是需要深克隆还是浅克隆，在第二次作业中我采用的浅克隆方式对于<code>HW2</code>的需求来说是<strong>“正确”</strong>的(因为恰巧第二次作业中<code>sin</code>，<code>cos</code>内部只有常数与自变量，不需要对其内部进行操作)，但其实是并<strong>不合理</strong>的，因为在架构中需要新构造一个项，进一步思考不难意识到我们需要的实际上是深克隆，关于深浅克隆的问题，为了加深我自己的理解，将在“我学到的”这一部分进行进一步阐述。</p>
+</li>
+<li><p>另一方面是因为在作业迭代的过程中，上一次作业的某些架构在本次作业中埋下了隐患。在进行作业的迭代时，编写完代码后我只检查了本次修改的，迭代的代码正确性，“理所当然的认为”之前的代码都通过了上一次强测，那肯定是正确的吧。但事实证明这样做法是错误的，我忽略了两次迭代之间的关联性，新增的需求可能会是上次架构中**”正确”但不合理<strong>的操作变为Bug。以后的作业中，应该</strong>有意识的去思考迭代过程中两次架构中有哪些可能产生Bug的关联之处，不能只着眼与本次作业的新增部分、修改部分，**以防止这种现象的发生。</p>
+</li>
+</ul>
+<h4 id="4-2-互测他人Bug发现与分析"><a href="#4-2-互测他人Bug发现与分析" class="headerlink" title="4.2 互测他人Bug发现与分析"></a>4.2 互测他人Bug发现与分析</h4><p>本次互测发现了其他同学如下几个Bug</p>
+<ul>
+<li><code>-1+1</code>等简单的操作无法输出，这一Bug产生的原因是一些同学的架构进行迭代优化后，由于架构的不合理性，反而无法实现最基本的测试点，这也提醒了我们测试全面覆盖的重要性。</li>
+<li><code>sum</code>上下界定义为了<code>int</code>，而非<code>BigInteger</code>，这一Bug产生的原因我认为可能是没有仔细阅读指导书，先入为主习惯性的将一些整数定义为了<code>int</code>，测试时</li>
+<li><code>sum(i,下界,上界,i**2)</code>出现了问题，这一Bug产生的原因是进行字符串替换时没有加括号，这里的<code>i</code>是常数，只有替换时<strong>加括号</strong>才是正确的形式化表述。</li>
+</ul>
+<h3 id="五-我学到的"><a href="#五-我学到的" class="headerlink" title="五.我学到的"></a>五.我学到的</h3><h4 id="5-1-深克隆与浅克隆"><a href="#5-1-深克隆与浅克隆" class="headerlink" title="5.1 深克隆与浅克隆"></a>5.1 深克隆与浅克隆</h4><p><strong>深克隆与浅克隆</strong>在本次作业中对我的“身心摧残”已在上文阐述，接下来需要进一步深入理解深浅克隆的区别与实现，以防以后出现类似的问题。</p>
+<p><strong>1.首先我们需要知道什么时候我们在进行克隆？</strong></p>
+<ul>
+<li>简而言之，如果此时我们在<strong>根据一个已有数据创建一个新数据</strong>的时候，我们便在进行克隆。<strong>意识到自己正在进行克隆十分重要</strong>，只有意识到了这一点才能进一步去思考深浅克隆的问题。</li>
+</ul>
+<p><strong>2.深浅克隆的区别是什么？</strong></p>
+<ul>
+<li>浅克隆不会克隆原对象中的引用类型，<strong>仅仅拷贝了引用类型的指向</strong>。深克隆则<strong>拷贝了所有</strong>。也就是说深克隆能够做到原对象和新对象之间完全没有影响。</li>
+</ul>
+<p><img src="https://note.youdao.com/yws/api/personal/file/C83105F4641043D08AE35CE665499394?method=download&shareKey=82ec04ad13bd8b9b3650d744bf7675f9"></p>
+<p><strong>3.我在深浅克隆中犯的错误</strong></p>
+<ul>
+<li>首先第一点，我没有意识到自己在进行克隆，之前并没有在代码中了解过克隆这个概念。</li>
+<li>第二点，我在克隆操作中为了实现类中非基本数据类型的属性的克隆（在本次架构中是一个[Elements]数组），错误的使用了<code>addall</code>或<code>add</code>方法，这仅仅拷贝了引用类型的指向，并非深克隆。或从某种意义上讲，这都不是规范的克隆方法。</li>
+</ul>
+<p><strong>4.如何进行规范的克隆？</strong></p>
+<ul>
+<li>分享两篇博客资料，写的比较好，我在这里找到了答案。</li>
+</ul>
+<p>[<a target="_blank" rel="noopener" href="https://blog.csdn.net/jeffleo/article/details/76737560">(40条消息) Java对象克隆——浅克隆和深克隆的区别_JeffCoding的博客-CSDN博客_浅克隆和深克隆的区别</a>]</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/1314xf/p/10139971.html">java 深克隆（深拷贝）与浅克隆（拷贝）详解 - mindcarver - 博客园 (cnblogs.com)</a>(这一篇比较长，其实上一篇对于理解和实用来说就完全足够)</p>
+<p>我来简单总结一下，java中<strong>已经为类准备了clone方法</strong>，我们不需要重复造轮子，要实现规范的<code>clone</code>，还需要以下两点：</p>
+<ul>
+<li><strong>实现Cloneable接口</strong>，只需在类的后面加<strong>implements Cloneable</strong>即可</li>
+<li><strong>Override重写Clone方法</strong>，如何重写在上面两篇博文中都有很好的阐述。</li>
+</ul>
+<p>接下来，我认为重要的是理解为什么要重写<code>Clone</code>方法，对于只包含基本数据类型属性的类来说，<code>clone</code>方法完全够用，不需重写，<code>clone</code>后的新旧对象互不影响。重写<code>Clone</code>方法是为了应对类中<strong>包含了其他自定义的对象属性</strong>这种情况（比如在本次<code>HW2</code>作业中，我在<code>Sin</code>，<code>Cos</code>类中包含了<code>[Elements]</code>数组作为属性），这时<code>Clone</code>方法在拷贝这个属性时，拷贝的只是引用类型的指向，也就是我们所说的浅拷贝，后续再对这个属性进行操作时，便会在不经意间对新旧对象同时操作，这样的Bug很难查找出来，因此在设计时就要予以避免。</p>
+<p>如何进行避免？方法也很简单，只需要在本类中修改重写的<code>Clone</code>方法，包含的其他自定义的对象里面也重写<code>Clone</code>方法，<strong>多个浅拷贝便可以实现深拷贝</strong>。引用第一篇博客中的例子如下（<code>Customer</code>类中包含顾客地址<code>Address</code>类），在两个类中均重写<code>Clone</code>方法，之后再调用<code>Clone</code>方法可以对<code>Customer</code>深克隆。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//Address</span>
+<span class="token annotation punctuation">@Override</span>  
+<span class="token keyword">public</span> <span class="token class-name">Address</span> <span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">CloneNotSupportedException</span> <span class="token punctuation">&#123;</span>  
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token class-name">Address</span><span class="token punctuation">)</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+<span class="token punctuation">&#125;</span>  
+<span class="token comment">//Class Customer（Address是Customer的一个属性成员）</span>
+<span class="token annotation punctuation">@Override</span>  
+<span class="token keyword">public</span> <span class="token class-name">Customer</span> <span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">CloneNotSupportedException</span> <span class="token punctuation">&#123;</span>  
+    <span class="token class-name">Customer</span> customer <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Customer</span><span class="token punctuation">)</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    customer<span class="token punctuation">.</span>address <span class="token operator">=</span> address<span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    <span class="token keyword">return</span> customer<span class="token punctuation">;</span>  
+<span class="token punctuation">&#125;</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>总而言之，我认为对于java深浅拷贝的这样一种理解很准确：<strong>Java</strong>中定义的<strong>clone</strong>没有深浅之分，都是统一的调用<strong>Object</strong>的<strong>clone</strong>方法。为什么会有深克隆的概念？是<strong>由于我们在实现的过程中刻意的嵌套了<em>clone</em>方法的调用</strong>。也就是说<strong>深克隆就是在需要克隆的对象类型的类中全部实现克隆方法</strong>。</p>
+<h4 id="5-2-去哪里找Bug"><a href="#5-2-去哪里找Bug" class="headerlink" title="5.2 去哪里找Bug"></a>5.2 去哪里找Bug</h4><p>这一点其实在理论课上有讲，我认为总结的是在太好了，这里再将其罗列一下。</p>
+<ul>
+<li>调用是否对返回值进行了接收和检查</li>
+<li>类库及方法的使用是否符合要求</li>
+<li><strong>容器访问的越界保护</strong>（课下自己测试过程中几次出现的数组越界问题）</li>
+<li><strong>对象拷贝是否彻底</strong>（强测出现深浅克隆的Bug）</li>
+<li>数值计算是否溢出</li>
+<li>是否对循环体内对循环变量进行修改</li>
+</ul>
+<p>可以看到，我属于是精准踩雷有木有。所以在静态检查时，可以有意识的去思考以上检查要点，这能帮助我们更快更好的找到Bug，虽然不能覆盖所有Bug，但我觉得可以<strong>覆盖很大一部分</strong>非理解题意错误而导致的Bug。</p>
+<h4 id="5-3-测试数据"><a href="#5-3-测试数据" class="headerlink" title="5.3 测试数据"></a>5.3 测试数据</h4><p>主要采用随机测试的方式，手动构造了一些我认为比较容易Error和Wrong Answer的边界数据，虽然也有一定的Hack量，但Hack成果并没有很显著，如果写个自动评测机可能会更好一点，周末开着自动评测机让其自动Hack，自己可以做其他的事情，<del>多是一件美事啊</del>。所以在这里我反思一下，下一次一定要写个自动评测机，下次一定。</p>
+<h3 id="六-心得体会"><a href="#六-心得体会" class="headerlink" title="六. 心得体会"></a>六. 心得体会</h3><p>通过第一单元的作业，我有以下几点收获</p>
+<ul>
+<li>架构真的很重要，好的架构不仅正确度高，逻辑性强，在DeBug的时候很容易找到Bug的出处，有时候好的架构甚至会实现意想不到的功能，例如实现括号嵌套的支持等等。因此我们在开始动手之前，一定要多与同学进行交流，做好初步的设计工作，之后再逐步优化细节，进行实现。这样既可以减少之后重构的可能性，减少工作量，同时最终实现的效果正确性，准确性也会更好。</li>
+<li>初步体会了面向对象与面向过程程序设计的不同，通过面向对象的程序设计，可以更好的实现代码维护与迭代更新，<strong>一次可能只需要修改某几个类就可以实现更多的需求</strong>，这一点是面向过程设计所做不到的。</li>
+<li>最后一点肯定是更加熟悉了java中的各种语法以及容器的使用，从<code>HW1</code>的无从下手与茫然到慢慢熟练运用java中的常用类与常用功能，很像一个升级打怪的过程，在这个过程中我还是很满足的。第一单元的OO作业从心态和知识上都让我提升了很多，也收获了很多设计，编程经验，期待OO课程中之后的学习！</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Lei_Yu</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://shl518.github.io/2022/05/09/mian-xiang-dui-xiang-di-1-dan-yuan-zuo-ye-zong-jie/">http://shl518.github.io/2022/05/09/mian-xiang-dui-xiang-di-1-dan-yuan-zuo-ye-zong-jie/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Lei_Yu</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+                                    <span class="chip bg-color">面向对象</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/05/09/ji-chong-pv-cao-zuo-wen-ti-zong-jie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="几种PV操作问题总结">
+                        
+                        <span class="card-title">几种PV操作问题总结</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-09
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Lei_Yu
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">操作系统</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/05/09/mian-xiang-dui-xiang-di-2-dan-yuan-zuo-ye-zong-jie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="面向对象第2单元作业总结">
+                        
+                        <span class="card-title">面向对象第2单元作业总结</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Lei_Yu
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+                        <span class="chip bg-color">面向对象</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2023</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">Lei_Yu</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">88.4k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/shl518" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:lei_yuyu518@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

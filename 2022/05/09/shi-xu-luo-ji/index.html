@@ -1,0 +1,1436 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="时序逻辑, Corsica">
+    <meta name="description" content="I will be with you from dusk till down.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
+
+    <title>时序逻辑 | Corsica</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Corsica</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Corsica</div>
+        <div class="logo-desc">
+            
+            I will be with you from dusk till down.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/shl518" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/shl518" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">时序逻辑</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">
+                                <span class="chip bg-color">计算机组成</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-05-09
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-03-22
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.4k
+                </div>
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="时序逻辑"><a href="#时序逻辑" class="headerlink" title="时序逻辑"></a>时序逻辑</h3><hr>
+<h4 id="RS锁存器"><a href="#RS锁存器" class="headerlink" title="RS锁存器"></a>RS锁存器</h4><h5 id="基本的RS锁存器"><a href="#基本的RS锁存器" class="headerlink" title="基本的RS锁存器"></a>基本的RS锁存器</h5><p>如下图：<br><img src="https://note.youdao.com/yws/api/personal/file/4D339BFD974249A9824B4471781068ED?method=download&shareKey=d00240532aa059cb1e338f2e9688fc0a" alt="a"><br>运用了<strong>双稳态电路</strong>实现了如下功能(低电平有效类型)：</p>
+<table>
+<thead>
+<tr>
+<th align="center">~RD</th>
+<th align="center">~SD</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">触发器保持原状态不变(Q不变)</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">置0（Q&#x3D;0）</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">置1（Q&#x3D;1）</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">不确定状态（由于门延迟而产生了竞争）</td>
+</tr>
+</tbody></table>
+<h5 id="钟控RS锁存器"><a href="#钟控RS锁存器" class="headerlink" title="钟控RS锁存器"></a>钟控RS锁存器</h5><p>加入了时钟信号：<br><img src="https://note.youdao.com/yws/api/personal/file/7CC3B7215DA04563A8638B68EA554E81?method=download&shareKey=78c7a705c7448374089969b6d66619ca" alt="2"><br><img src="https://note.youdao.com/yws/api/personal/file/2E2F7E20214F409DAC16C59E4F6B0D9C?method=download&shareKey=1ebac36d709e326a66c93c541dba16f6" alt="3"><br>当CP&#x3D;0时，RS锁存器输入均为1，保持原状态。<br>CP&#x3D;1时，RS锁存器正常工作。</p>
+<h5 id="钟控D锁存器-钟控RS-反相器"><a href="#钟控D锁存器-钟控RS-反相器" class="headerlink" title="钟控D锁存器(钟控RS+反相器)"></a>钟控D锁存器(钟控RS+反相器)</h5><p>钟控D所存通过加入反向器，保证两个输入不同，避免了出现类似RS锁存器的不确定状态。<br><img src="https://note.youdao.com/yws/api/personal/file/74136CBC854A4D30BB88816D52A4F819?method=download&shareKey=cc83478c2dff963b57f6ebba3f3cf9b8" alt="d"></p>
+<table>
+<thead>
+<tr>
+<th align="center">CP</th>
+<th align="center">D</th>
+<th align="center">function</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">x</td>
+<td align="center">保持原态</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">置1</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">置0</td>
+</tr>
+</tbody></table>
+<hr>
+<h5 id="D触发器"><a href="#D触发器" class="headerlink" title="D触发器"></a>D触发器</h5><p>两个反相的D锁存器构成，持股发起的抓捕富态变化只在时钟的有效沿发生变化（上升沿或下降沿），D锁存器电平敏感，D触发器边沿触发。寄存器便是由多个共享CLK信号的D触发器构成<br><img src="https://note.youdao.com/yws/api/personal/file/D3C16E3318464D0882D76A4F1E72314D?method=download&shareKey=7d5dd1e3b92ece4687d9ab296c05e86b" alt="3"></p>
+<h5 id="带使能端的D触发和带重置功能的D触发"><a href="#带使能端的D触发和带重置功能的D触发" class="headerlink" title="带使能端的D触发和带重置功能的D触发"></a>带使能端的D触发和带重置功能的D触发</h5><p>只需将使能端与在时钟端，或将重置端与在信号输入端。</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/9891E081BB994864808F7909BD3E9830?method=download&shareKey=50112449e9e78249f481ebd4efbfd543" alt="4"><br><img src="https://note.youdao.com/yws/api/personal/file/E0866D7136F049CB94990EA16AA56F15?method=download&shareKey=4e26c0515fab8d20742a1a43b3823ae3" alt="5"></p>
+<hr>
+<h5 id="JK触发器"><a href="#JK触发器" class="headerlink" title="JK触发器"></a>JK触发器</h5><p>将RS&#x3D;11的无序状态转化为了翻转功能:<br><img src="https://note.youdao.com/yws/api/personal/file/F58CCBA967DF40BE9BADE2A15BA2FA59?method=download&shareKey=9613ef863baff5dd7abc5cf126c12164" alt="6"></p>
+<table>
+<thead>
+<tr>
+<th align="center">J</th>
+<th align="center">K</th>
+<th align="center">function</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">保持</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">置0</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">置1</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">翻转（取反）</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="一个Mealy的例子"><a href="#一个Mealy的例子" class="headerlink" title="一个Mealy的例子"></a>一个Mealy的例子</h3><p><img src="https://note.youdao.com/yws/api/personal/file/422D1DB9DB4140BA9E6B5453FE2B9CDB?method=download&shareKey=104cea3899abde8b675917b753690132" alt="9"></p>
+<p>题目中只要求不重复检测，在这里为了练习我们分两种情况讨论(<strong>有限状态机的难点在于画出状态转换图，其他剩下的便是工作量的问题</strong>)</p>
+<hr>
+<p><strong>不重复检测情况</strong>：1101101只算一个1101<br>状态转换图：<br><img src="https://note.youdao.com/yws/api/personal/file/27325F789C93419CA235E475959277AB?method=download&shareKey=3bc8913c778f1cbab26230ede242f4c3" alt="rr"><br>之后为每个状态编码，画出状态转换表，将电路分成两个子电路（状态转换与状态输出，最后加一个寄存器）很容易便可以画出Logisim电路，不做叙述，这里附一个verilog程序，在这个HDL程序内我们利用了<code>Always@(*)</code>搭建组合逻辑，可以学习一下：</p>
+<pre class="line-numbers language-verilog" data-language="verilog"><code class="language-verilog"><span class="token keyword">module</span> <span class="token function">code_checker</span><span class="token punctuation">(</span>
+    <span class="token keyword">input</span> clk<span class="token punctuation">,</span>
+    <span class="token keyword">input</span> data<span class="token punctuation">,</span>
+    <span class="token keyword">input</span> clr<span class="token punctuation">,</span>
+    <span class="token keyword">output</span> <span class="token keyword">reg</span> out
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">parameter</span> S0<span class="token operator">=</span><span class="token number">3'b000</span><span class="token punctuation">;</span>
+<span class="token keyword">parameter</span> S1<span class="token operator">=</span><span class="token number">3'b001</span><span class="token punctuation">;</span>
+<span class="token keyword">parameter</span> S2<span class="token operator">=</span><span class="token number">3'b010</span><span class="token punctuation">;</span>
+<span class="token keyword">parameter</span> S3<span class="token operator">=</span><span class="token number">3'b011</span><span class="token punctuation">;</span>
+<span class="token keyword">parameter</span> S4<span class="token operator">=</span><span class="token number">3'b100</span><span class="token punctuation">;</span>
+<span class="token keyword">reg</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> status<span class="token punctuation">;</span>
+<span class="token important">always @</span><span class="token punctuation">(</span><span class="token keyword">posedge</span> clk <span class="token keyword">or</span> <span class="token keyword">posedge</span> clr<span class="token punctuation">)</span> <span class="token keyword">begin</span> <span class="token comment">//注意这里不仅有时钟上升沿，还有reset信号上升沿</span>
+    <span class="token function">if</span><span class="token punctuation">(</span>clr<span class="token punctuation">)</span><span class="token keyword">begin</span>
+        status <span class="token operator">&lt;=</span> S0<span class="token punctuation">;</span><span class="token comment">//reset</span>
+    <span class="token keyword">end</span>
+    <span class="token keyword">else</span> <span class="token keyword">begin</span>
+        <span class="token keyword">case</span> <span class="token punctuation">(</span>status<span class="token punctuation">)</span>
+            S0<span class="token punctuation">:</span> <span class="token function">if</span><span class="token punctuation">(</span>data <span class="token operator">==</span> <span class="token number">1'b0</span><span class="token punctuation">)</span>status <span class="token operator">&lt;=</span> S0<span class="token punctuation">;</span><span class="token keyword">else</span> status<span class="token operator">&lt;=</span> S1<span class="token punctuation">;</span>
+            S1<span class="token punctuation">:</span> <span class="token function">if</span><span class="token punctuation">(</span>data <span class="token operator">==</span> <span class="token number">1'b1</span><span class="token punctuation">)</span>status <span class="token operator">&lt;=</span> S2<span class="token punctuation">;</span><span class="token keyword">else</span> status <span class="token operator">&lt;=</span> S0<span class="token punctuation">;</span>
+            S2<span class="token punctuation">:</span> <span class="token function">if</span><span class="token punctuation">(</span>data <span class="token operator">==</span> <span class="token number">1'b0</span><span class="token punctuation">)</span>status <span class="token operator">&lt;=</span> S3<span class="token punctuation">;</span><span class="token keyword">else</span> status <span class="token operator">&lt;=</span> S2<span class="token punctuation">;</span>
+            S3<span class="token punctuation">:</span> <span class="token function">if</span><span class="token punctuation">(</span>data <span class="token operator">==</span> <span class="token number">1'b0</span><span class="token punctuation">)</span>status <span class="token operator">&lt;=</span> S0<span class="token punctuation">;</span><span class="token keyword">else</span> status <span class="token operator">&lt;=</span> S4<span class="token punctuation">;</span>
+            S4<span class="token punctuation">:</span> <span class="token function">if</span><span class="token punctuation">(</span>data <span class="token operator">==</span> <span class="token number">1'b1</span><span class="token punctuation">)</span>status <span class="token operator">&lt;=</span> S1<span class="token punctuation">;</span><span class="token keyword">else</span> status <span class="token operator">&lt;=</span> S0<span class="token punctuation">;</span>
+            <span class="token keyword">default</span> <span class="token punctuation">:</span>status <span class="token operator">&lt;=</span>S0<span class="token punctuation">;</span>
+        <span class="token keyword">endcase</span>   <span class="token comment">//case 语法可以不用加begin，end</span>
+    <span class="token keyword">end</span>
+    
+<span class="token keyword">end</span>
+<span class="token important">always @</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token keyword">begin</span>
+    <span class="token keyword">case</span> <span class="token punctuation">(</span>status<span class="token punctuation">)</span>
+        S0<span class="token punctuation">:</span>out <span class="token operator">=</span> <span class="token number">1'b0</span><span class="token punctuation">;</span>
+        S1<span class="token punctuation">:</span>out <span class="token operator">=</span> <span class="token number">1'b0</span><span class="token punctuation">;</span>
+        S2<span class="token punctuation">:</span> out <span class="token operator">=</span> <span class="token number">1'b0</span><span class="token punctuation">;</span>
+        S3<span class="token punctuation">:</span><span class="token function">if</span><span class="token punctuation">(</span>data <span class="token operator">==</span> <span class="token number">1'b1</span><span class="token punctuation">)</span>out <span class="token operator">=</span><span class="token number">1'b1</span><span class="token punctuation">;</span><span class="token keyword">else</span> out <span class="token operator">=</span> <span class="token number">1'b0</span><span class="token punctuation">;</span><span class="token comment">//易错</span>
+        S4<span class="token punctuation">:</span> out <span class="token operator">=</span> <span class="token number">1'b0</span><span class="token punctuation">;</span>
+        <span class="token keyword">default</span><span class="token punctuation">:</span> out <span class="token operator">=</span><span class="token number">1'b0</span><span class="token punctuation">;</span>
+    <span class="token keyword">endcase</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">endmodule</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Mealy编写注意事项：</p>
+<ul>
+<li>有reset信号需要在always@（posedge clk or <strong>posedge clr</strong>）写明。</li>
+<li>mealy状态机的状态输出与输入有关，可以用always建立组合逻辑，建立组合逻辑时建议使用阻塞赋值&#x3D;。</li>
+<li>case语句中一定要写明<code>default</code>状态.</li>
+<li>mealy的组合逻辑与moore不同，不能仅凭当前状态判断输出。</li>
+<li>状态机的case语句判定的一般都是status的变化</li>
+</ul>
+<p><strong>若重复检测</strong>：1101101算两个1101，只要改变一下状态转换图即可<br><img src="https://note.youdao.com/yws/api/personal/file/8ABFDCE30063401D88C8AED395C91FDD?method=download&shareKey=0e8447da9530ba8c28f2f3067e3a7ab3" alt="eee"></p>
+<h3 id="重点–时序电路的时序"><a href="#重点–时序电路的时序" class="headerlink" title="重点–时序电路的时序"></a>重点–时序电路的时序</h3><p><img src="https://note.youdao.com/yws/api/personal/file/4F8B5CAD1D8F41CAA189098BFAED8402?method=download&shareKey=1d46cf3b452e103d2e629dd08fc986f8" alt="a"><br><img src="https://note.youdao.com/yws/api/personal/file/FBC27D856B88469B9396C81F81FC9157?method=download&shareKey=1e97febfd3d6d2a6d33bacf1f6a9d4a6" alt="b"></p>
+<ul>
+<li><strong>同步时序电路的时钟周期与组合逻辑最长路径有关</strong></li>
+</ul>
+<p><img src="https://note.youdao.com/yws/api/personal/file/78584CBDA4564167AB6F78B5A0BBCDBD?method=download&shareKey=844c503bb7c2076ed26635bcc7c09c9d" alt="C"></p>
+<ul>
+<li><strong>保持时间约束与组合逻辑最短路径有关</strong></li>
+</ul>
+<hr>
+<h3 id="数据寄存器与数据锁存器"><a href="#数据寄存器与数据锁存器" class="headerlink" title="数据寄存器与数据锁存器"></a>数据寄存器与数据锁存器</h3><p><strong>数据寄存器</strong><br><img src="https://note.youdao.com/yws/api/personal/file/A1631345396F4BFE9B3B82124745AB46?method=download&shareKey=90ad7333df6a28fabd31fffc4eada20c" alt="1"></p>
+<ul>
+<li>由边沿触发的触发器构成（D触发），脉冲敏感型 </li>
+<li>适用于数据有效提前于控制信号</li>
+</ul>
+<pre class="line-numbers language-v" data-language="v"><code class="language-v">always @<span class="token punctuation">(</span>posedge clk <span class="token keyword">or</span> posedge rst<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>数据锁存器</strong></p>
+<ul>
+<li>由电位触发器（D锁存器）组成，电平敏感</li>
+<li>数据有效滞后于控制信号</li>
+</ul>
+<pre class="line-numbers language-v" data-language="v"><code class="language-v">always @<span class="token punctuation">(</span>clk <span class="token keyword">or</span> rst<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<hr>
+<h3 id="移位寄存器"><a href="#移位寄存器" class="headerlink" title="移位寄存器"></a>移位寄存器</h3><h4 id="四位右移寄存器"><a href="#四位右移寄存器" class="headerlink" title="四位右移寄存器"></a>四位右移寄存器</h4><p><img src="/"></p>
+<ul>
+<li>由四个D触发组成，数据从左端输入，依此通过低位寄存器，高位触发器的输出送低位触发器的输入</li>
+<li>有两种工作方式<ul>
+<li>串入并出：N位移位寄存器经过N个CP后，最后一个输出恰好为第一个输入，此时从低位到高位的输出正好为完整的输入串，称为并行输出。</li>
+<li>串入串出；每一个输出都会串行输出输入串，只不过后级触发器的输出比前一个触发器要晚一个周期，把处于串入串出的移位寄存器称为<strong>延迟线</strong>。</li>
+</ul>
+</li>
+</ul>
+<h4 id="双向移位寄存器"><a href="#双向移位寄存器" class="headerlink" title="双向移位寄存器"></a>双向移位寄存器</h4><p><strong>通过在触发器的输入端增加门电路来增加控制左右移的功能</strong><br><img src="https://note.youdao.com/yws/api/personal/file/2E83B9F516954A45A6D031A5A34BE929?method=download&shareKey=e7f7bfaec1a208e77a68d61bb6dc6371" alt="3"></p>
+<ul>
+<li>CT74194芯片：一共四个功能，通过S1，S0控制<br><img src="https://note.youdao.com/yws/api/personal/file/7B0E78D4E3C54B8983DDC51D0BB7103D?method=download&shareKey=2e134456bdfc0b4ead27941887df8a94" alt="4"></li>
+</ul>
+<hr>
+<h3 id="计数器"><a href="#计数器" class="headerlink" title="计数器"></a>计数器</h3><h4 id="同步计数器"><a href="#同步计数器" class="headerlink" title="同步计数器"></a>同步计数器</h4><ul>
+<li>功能：计数计时，分频，产生节拍脉冲和序列脉冲</li>
+<li>分类<ul>
+<li>时钟方式：同步计数器，异步计数器</li>
+<li>计数方式：M进制计数器</li>
+<li>状态分类：加法，减法，加&#x2F;减法</li>
+</ul>
+</li>
+<li>同步二进制计数器也称为分频器，实际上CP进行了2，4，8，16分频</li>
+</ul>
+<h4 id="异步计数器"><a href="#异步计数器" class="headerlink" title="异步计数器"></a>异步计数器</h4><ul>
+<li>高位触发器的时钟信号由低位触发器的输出提供，高位触发器的翻转等待低一位的触发器反转后才能进行。</li>
+<li>触发器不同步，出现尖锋脉冲<br><img src="https://note.youdao.com/yws/api/personal/file/DBD3D2E6B38249489973D9D75E1ABD7C?method=download&shareKey=99397cfe426733cb3aa59d593eb75f79" alt="11"></li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Lei_Yu</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://shl518.github.io/2022/05/09/shi-xu-luo-ji/">http://shl518.github.io/2022/05/09/shi-xu-luo-ji/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Lei_Yu</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">
+                                    <span class="chip bg-color">计算机组成</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/05/09/shou-gua-p4-de-zhen-gui-ji-lu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="首挂P4的珍贵记录">
+                        
+                        <span class="card-title">首挂P4的珍贵记录</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-09
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Lei_Yu
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">
+                        <span class="chip bg-color">计算机组成</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/05/09/verilog-xue-xi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Verilog学习">
+                        
+                        <span class="card-title">Verilog学习</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Lei_Yu
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">
+                        <span class="chip bg-color">计算机组成</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2023</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">Lei_Yu</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">88.4k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/shl518" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:lei_yuyu518@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

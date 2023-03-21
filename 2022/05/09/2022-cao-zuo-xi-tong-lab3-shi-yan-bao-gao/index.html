@@ -1,0 +1,1492 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="2022操作系统Lab3实验报告, Corsica">
+    <meta name="description" content="I will be with you from dusk till down.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
+
+    <title>2022操作系统Lab3实验报告 | Corsica</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Corsica</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Corsica</div>
+        <div class="logo-desc">
+            
+            I will be with you from dusk till down.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/shl518" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/shl518" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">2022操作系统Lab3实验报告</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                                <span class="chip bg-color">操作系统</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-05-09
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-03-22
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4k
+                </div>
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="Lab3实验报告"><a href="#Lab3实验报告" class="headerlink" title="Lab3实验报告"></a>Lab3实验报告</h2><h3 id="思考题"><a href="#思考题" class="headerlink" title="思考题"></a>思考题</h3><h4 id="Thinking-3-1：为什么要判断e-gt-env-id-x3D-envid？"><a href="#Thinking-3-1：为什么要判断e-gt-env-id-x3D-envid？" class="headerlink" title="Thinking 3.1：为什么要判断e-&gt;env_id !&#x3D; envid？"></a>Thinking 3.1：为什么要判断e-&gt;env_id !&#x3D; envid？</h4><p><strong>答：</strong>因为上一步通过索引取envs数组中的第“id”个进程块e时，去掉了envid的前22位，而只取了后10位。因此，e-&gt;env_id !&#x3D; envid这一步确定进程e的id确实是传入的envid。后10位在生成的时候只与进程页的物理位置有关，idx &#x3D; e - envs。而前面22位才是保证进程unique的关键（由调用次数决定，可以保证unique）。要保证一个进程的id号完全对应，看后十位不够，还得对比前22位也确实是一样的。如果没有这步判断会造成错误：可能输入的id并不是进程id号，而仅仅是进程的物理位置与另一个进程相同。</p>
+<h4 id="Thinking-3-2-结合include-x2F-mmu-h-中的地址空间布局，思考env-setup-vm-函数："><a href="#Thinking-3-2-结合include-x2F-mmu-h-中的地址空间布局，思考env-setup-vm-函数：" class="headerlink" title="Thinking 3.2 结合include&#x2F;mmu.h 中的地址空间布局，思考env_setup_vm 函数："></a>Thinking 3.2 <strong>结合include&#x2F;mmu.h 中的地址空间布局，思考env_setup_vm 函数：</strong></h4><p><strong>• UTOP 和ULIM 的含义分别是什么，UTOP 和ULIM 之间的区域与UTOP以下的区域相比有什么区别？</strong></p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/4A0C910BE613420AAF5DE98A3128D499?method=download&shareKey=126757fe2c93df1e59e885f1f66e2d82" alt="a"></p>
+<p><strong>答：</strong>我们的虚拟内存空间使用的是2G&#x2F;2G模式（如图）。</p>
+<ul>
+<li>UTOP是user exception stack 的高位地址，UTOP以下是进程自己使用的；</li>
+<li>ULIM是INterrupts &amp; Exception的低位地址，ULIM以上包括kesg0，kseg1,是内核使用的。</li>
+<li>UTOP与ULIM中间一部分，分别是User VPT、PAGES、ENVS。这三部分也是各有用处，PAGES对应的是之前物理页框数组pages，ENVS对应的是进程数组envs，而User VPT对应的是进程自己的页表，这一部分是内核主动暴露给进程使用的空间。<ul>
+<li>在本次实验中，UTOP和ULIM中间这一部分与UTOP的区别是，初始化进程页表时，UTOP以下的空间是进程自己使用，没有使用前这一部分对应页表清零。而中间这一部分已经由内核映射到<code>boot_pgdir</code>中，需要从boot_pgdir中直接拷贝。</li>
+</ul>
+</li>
+</ul>
+<p><strong>• 请结合系统自映射机制解释代码中pgdir[PDX(UVPT)]&#x3D;env_cr3的含义。</strong></p>
+<p><strong>答</strong>：cr3记录页目录自身的物理地址，根据自映射的机制，在页目录的第<code>PTBase/4MB</code>项(由于进程页目录的宏定义为UVPT，且除以4MB相当于取32位的前10位，所以就相当于<strong>PDX(UVPT)</strong>)，该项存储的便是页目录自身的物理地址，因此我们要将页目录该处设为传入插入cr3,即<code>pgdir[PDX(UVPT)]=env_cr3</code>。</p>
+<p><strong>• 谈谈自己对进程中物理地址和虚拟地址的理解。</strong></p>
+<p><strong>答：</strong>每个进程看到的都只能是虚拟地址空间，进程需要的物理地址空间存储在进程的页表当中。物理地址空间是硬件决定，虚拟空间则是人为约定。对于不同的进程来说。每个进程都有着各自独立的虚拟地址空间，这样进程切换时不同的进程对相同的虚拟地址空间进行访问时互不影响，而且可以方便的实现数据共享。</p>
+<h4 id="Thinking-3-3-找到-user-data-这一参数的来源，思考它的作用。没有这个参数可不可以？为什么？（可以尝试说明实际的应用场景，举一个实际的库中的例子）"><a href="#Thinking-3-3-找到-user-data-这一参数的来源，思考它的作用。没有这个参数可不可以？为什么？（可以尝试说明实际的应用场景，举一个实际的库中的例子）" class="headerlink" title="Thinking 3.3  找到 user_data 这一参数的来源，思考它的作用。没有这个参数可不可以？为什么？（可以尝试说明实际的应用场景，举一个实际的库中的例子）"></a>Thinking 3.3  <strong>找到 user_data 这一参数的来源，思考它的作用。没有这个参数可不</strong>可以？为什么？（可以尝试说明实际的应用场景，举一个实际的库中的例子）</h4><p><strong>答：</strong> <strong>来源及作用</strong>：</p>
+<ul>
+<li>来源</li>
+</ul>
+<p>首先在env.c中的load_icode函数中调用了load_elf函数，这里user_data传入的是<code>(void *)e</code>,即目标进程e的控制块PCB指针。</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">&#x2F;* Step 3: load the binary using elf loader. *&#x2F;
+    r &#x3D; load_elf(binary, size, &amp;entry_point, (void *)e, load_icode_mapper);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li>作用</li>
+</ul>
+<p>接着load_elf调用load_icode_mapper，并把user_data传给了load_icode_mapper，在load_icode_mapper中我们可以看到，它将user_data类型转换为了PCB块，通过PCB获得了当前要操作的进程的所有信息，之后便可以进行使用。</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">struct</span> <span class="token class-name">Env</span> <span class="token operator">*</span>env <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">Env</span> <span class="token operator">*</span><span class="token punctuation">)</span>user_data<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这个参数的存在方便我们通过函数指针向更内层的函数传值，没有它不可以，通过上述分析来源与作用我们可以知道，没有user_data，load_icode_mapper无法得知PCB信息，也无法进行加载操作。</p>
+<ul>
+<li>例子</li>
+</ul>
+<p>在stdlib库中</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">void qsort(void*base, size_t num, size_t width, int(__cdecl*compare)(const void*,const void*));<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>第三个参数告诉了程序应当如何分割base起始的内存数据，方便调用传入的比较函数进行排序操作。</p>
+<h4 id="Thinking-3-4-结合load-icode-mapper-的参数以及二进制镜像的大小，考虑该函数可能会面临哪几种复制的情况？你是否都考虑到了？"><a href="#Thinking-3-4-结合load-icode-mapper-的参数以及二进制镜像的大小，考虑该函数可能会面临哪几种复制的情况？你是否都考虑到了？" class="headerlink" title="Thinking 3.4  结合load_icode_mapper 的参数以及二进制镜像的大小，考虑该函数可能会面临哪几种复制的情况？你是否都考虑到了？"></a>Thinking 3.4  <strong>结合load_icode_mapper 的参数以及二进制镜像的大小，考虑该函数可能会面临哪几种复制的情况？你是否都考虑到了？</strong></h4><p><strong>答</strong>：可能的情况有以下几种，<strong>容易出错的地方我认为在第一页和最后一页的拷贝上，因为这里是两部分的交集，需要慎重考虑</strong>。</p>
+<p>关于<code>.text &amp; .data</code>：</p>
+<ul>
+<li>第一页，如果offset&gt;那么0,那么需要考虑这一页offset之前的部分已经装填过内容，不能进行alloc，insert新的页面，否则会清零。我们只需要拷贝<code>offset</code>后面的部分。如果offset&#x3D;&#x3D;0，那么就不用考虑那么多，正常申请页面进行拷贝。</li>
+<li>最后一页，如果前半部分属于.text &amp; .data，后半部分属于.bss，这会影响到bss的拷贝，在拷贝bss时需要额外考虑这种情况。</li>
+</ul>
+<p>关于<code>.bss</code>：</p>
+<ul>
+<li>第一页，如上所述，需要同前半段的<code>.test &amp; .data</code>段协同考虑，也需要计算offset，跟.text &amp; .data部分的考虑方式相同，如果offset&gt;0,不能申请页面，只拷贝部分，如果offse&#x3D;&#x3D;0，正常申请页面拷贝。</li>
+<li>最后一页，即前半部分属于<code>.bss</code>，后半段在需要复制的内容之外。</li>
+</ul>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">struct Env *env &#x3D; (struct Env*)user_data;
+&#x2F;*如果va不在开头，那么求出va相对于页面开头的偏移*&#x2F;
+u_long offset &#x3D; va-ROUNDDOWN(va,BY2PG);
+&#x2F;*得到进程的页目录*&#x2F;
+Pde* pgdir &#x3D; env-&gt;env_pgdir;
+int size&#x3D;0;
+&#x2F;*如果offset&gt;0那么显然va不在开头*&#x2F;
+if(offset&gt;0)&#123;
+    &#x2F;*检查va是否已经对应了一个物理页面*&#x2F;
+    p&#x3D;page_lookup(pgdir,va,NULL);
+    &#x2F;*如果没有，就分配一个*&#x2F;
+    if(p&#x3D;&#x3D;NULL)&#123;
+        r&#x3D;page_alloc(&amp;p);
+        if(r&lt;0)&#123;
+            return r;
+        &#125;
+        page_insert(pgdir,p,va,PTE_R);
+    &#125;
+    &#x2F;*这里比较页面p剩余内存大小和bin_size，
+     *如果页面剩余大小就能装下bin_size
+     *那就是情况(1)，这样一来就直接全拷贝进去就可以了*&#x2F;
+    size &#x3D; BY2PG-offset;
+    size &#x3D; (bin_size&lt;size)?bin_size:size;
+    bcopy((void *)bin,(void *)(page2kva(p)+offset),size);
+&#125;
+&#x2F;*如果内存是第一种情况，那么size&#x3D;&#x3D;bin_size，
+ *此时不会进入循环，如果是二三种情况，则会进入循环*&#x2F;
+i&#x3D;size;
+for(;i&lt;bin_size;i+&#x3D;size)&#123;
+    &#x2F;*因为这里是从页面的开头开始写的，
+     *我们直接申请一个新的页面*&#x2F;
+    r&#x3D;page_alloc(&amp;p);
+    if(r&lt;0)&#123;
+        return r;
+    &#125;
+    page_insert(pgdir,p,va+i,PTE_R);
+    &#x2F;*这里size的用法如下，
+     *i为已经读取了的字节，bin_size-i是还要读取的字节
+     *如果BY2PG&gt;(bin_size-i)的话，我们就再写一页，
+     *否则，我们就只把剩下的字节写入，
+     *size&#x3D;bin_size-i，这次循环末尾就会把i设置为
+     *bin_size，从而跳出循环*&#x2F;
+    size(BY2PG&lt;(bin_size-i))?BY2PG:(bin_size-i);
+    bcopy((void *)(bin+i),(void *)(page2kva(p)),size);
+&#125;
+&#x2F;*sgsize考虑方法与上面相同*&#x2F;
+offset &#x3D; va+i-ROUNDDOWN(va+i,BY2PG);
+if(offset &gt; 0)&#123;
+    p&#x3D;page_looup(pgdir,(va+i),NULL);
+    if(p&#x3D;&#x3D;NULL)&#123;
+        r&#x3D;page_alloc(&amp;p);
+        if(r&lt;0)&#123;
+            return r;
+        &#125;
+        page_insert(pgdir,p,va+i,PTE_R);
+    &#125;
+    size&#x3D;BY2PG-offset;
+    size&#x3D;((sgsize-i)&lt;size)?(sgsize-i):size;
+    bzero((void*)(page2kva(p)+offset),size);
+    i&#x3D;i+size;
+&#125;
+while(i&lt;sgsize)&#123;
+    r&#x3D;page_alloc(&amp;p);
+    if(r&lt;0)&#123;
+        return r;
+    &#125;
+    page_insert(pgdir,p,va+i,PTE_R);
+    size&#x3D;(BY2PG&lt;(sgsize-i))?BY2PG:(sgsize-i);
+    bzero((void *)page2kva(p),size);
+    i&#x3D;i+size;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="Thinking-3-5-思考上面这一段话，并根据自己在lab2-中的理解，回答："><a href="#Thinking-3-5-思考上面这一段话，并根据自己在lab2-中的理解，回答：" class="headerlink" title="Thinking 3.5 思考上面这一段话，并根据自己在lab2 中的理解，回答："></a><strong>Thinking 3.5 思考上面这一段话，并根据自己在lab2 中的理解，回答：</strong></h4><p><strong>•</strong> <strong>你认为这里的 env_tf.pc 存储的是物理地址还是虚拟地址?</strong></p>
+<p><strong>答：</strong>虚拟地址。</p>
+<p><strong>• 你觉得entry_point其值对于每个进程是否一样？该如何理解这种统一或不同？</strong></p>
+<p><strong>答：</strong>阅读代码我们得知，该值是从<code>load_elf</code>中的<code>*entry_point = ehdr-&gt;e_entry;</code>语句中进行赋值，我们从elf文件的同一个部分读取入口值赋给entry_point，因此它对于每个进程是一样的，elf文件结构的统一决定了该值的统一。</p>
+<h4 id="Thinking-3-6-请查阅相关资料解释，上面提到的epc是什么？为什么要将env-tf-pc设置为epc呢？"><a href="#Thinking-3-6-请查阅相关资料解释，上面提到的epc是什么？为什么要将env-tf-pc设置为epc呢？" class="headerlink" title="Thinking 3.6 请查阅相关资料解释，上面提到的epc是什么？为什么要将env_tf.pc设置为epc呢？"></a><strong>Thinking 3.6</strong> <strong>请查阅相关资料解释，上面提到的epc是什么？为什么要将env_tf.pc设置为epc呢？</strong></h4><p><strong>答：</strong>《计算机组成》中介绍过EPC寄存器就是用来存放异常中断发生时进程正在执行的指令的地址的。其作用是处理完中断后可以返回到之前的位置继续执行。</p>
+<h4 id="Thinking-3-7-关于-TIMESTACK，请思考以下问题："><a href="#Thinking-3-7-关于-TIMESTACK，请思考以下问题：" class="headerlink" title="Thinking 3.7 关于 TIMESTACK，请思考以下问题："></a><strong>Thinking 3.7</strong> <strong>关于 TIMESTACK，请思考以下问题：</strong></h4><p><strong>•</strong> <strong>操作系统在何时将什么内容存到了 TIMESTACK 区域</strong></p>
+<p><strong>答：</strong>操作系统在发生中断时将进程的状态保存到<code>TIMESTACK</code>中，分析如下。</p>
+<p>在stackframe.S有这样一段代码</p>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">.macro get_sp
+	mfc0	k1, CP0_CAUSE
+	andi	k1, 0x107C
+	xori	k1, 0x1000
+	bnez	k1, 1f
+	nop
+	li	sp, 0x82000000 &#x2F;&#x2F;测到是中断异常则将栈指针置于TIMESTACK处
+	j	2f
+	nop
+1:
+	bltz	sp, 2f
+	nop
+	lw	sp, KERNEL_SP
+	nop
+
+2:	nop
+
+
+.endm<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这段代码的功能为获取栈指针的值，若检测到是中断异常则将栈指针置于<code>TIMESTACK</code>处，这样在发生中断时我们就能将当前进程的状态存入<code>TIMESTACK</code>处，从而进行保存。</p>
+<p><strong>•</strong> <strong>TIMESTACK 和 env_asm.S 中所定义的 KERNEL_SP 的含义有何不同</strong></p>
+<p>将栈指针设在<code>TIMESTACK</code>还是<code>KERNEL_SP</code>与<code>CP0_CAUSE</code>有关，在发生中断时将进程的状态保存到<code>TIMESTACK</code>中，在发生系统调用时，将进程的状态保存到<code>KERNEL_SP</code>中。</p>
+<h4 id="Thinking-3-8-试找出上述-5-个异常处理函数的具体实现位置。"><a href="#Thinking-3-8-试找出上述-5-个异常处理函数的具体实现位置。" class="headerlink" title="Thinking 3.8 试找出上述 5 个异常处理函数的具体实现位置。"></a><strong>Thinking 3.8</strong> <strong>试找出上述 5 个异常处理函数的具体实现位置。</strong></h4><p><strong>答：</strong><code>handle_int</code>可以在genex.S中直接找到。其定义为如下代码</p>
+<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">NESTED(handle_int, TF_SIZE, sp)
+.set    noat
+
+&#x2F;&#x2F;1: j 1b
+nop
+
+SAVE_ALL
+CLI
+.set    at
+mfc0    t0, CP0_CAUSE
+mfc0    t2, CP0_STATUS
+and t0, t2
+
+andi    t1, t0, STATUSF_IP4
+bnez    t1, timer_irq
+nop
+END(handle_int)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>通过grep查找，可以找到<code>handle_tlb,handle_mod,handle_reversed</code>三个函数都与genex.S有关，但是我在genex.S中并未找到定义他们的代码。但是我在最后找到了与他们相关的函数，<code>do_reserved</code>与<code>handle_reversed</code>相关，<code>handle_tlb</code>与<code>do_refill</code>相关。虽然没有完全明白这里mips代码的含义，但是可以推测，除了<code>handle_sys</code>的另外四个函数都定义在<code>genex.S</code>中。</p>
+<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">BUILD_HANDLER reserved do_reserved cli
+BUILD_HANDLER tlb   do_refill   cli
+BUILD_HANDLER mod   page_fault_handler cli<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>关于<code>handle_sys</code>函数，我们可以直接找到他在syscall.S中实现。</p>
+<h4 id="Thinking-3-9-阅读-kclock-asm-S-和-genex-S-两个文件，并尝试说出-set-timer-和timer-irq-函数中每行汇编代码的作用"><a href="#Thinking-3-9-阅读-kclock-asm-S-和-genex-S-两个文件，并尝试说出-set-timer-和timer-irq-函数中每行汇编代码的作用" class="headerlink" title="Thinking 3.9 阅读 kclock_asm.S 和 genex.S 两个文件，并尝试说出 set_timer 和timer_irq 函数中每行汇编代码的作用"></a><strong>Thinking 3.9 阅读 kclock_asm.S 和 genex.S 两个文件，并尝试说出 set_timer 和timer_irq 函数中每行汇编代码的作用</strong></h4><p><strong>答：</strong></p>
+<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">#include &lt;asm&#x2F;regdef.h&gt;
+#include &lt;asm&#x2F;cp0regdef.h&gt;
+#include &lt;asm&#x2F;asm.h&gt;
+#include &lt;kclock.h&gt;
+
+
+
+.macro  setup_c0_status set clr
+    .set    push
+    mfc0    t0, CP0_STATUS
+    or  t0, \set|\clr
+    xor t0, \clr
+    mtc0    t0, CP0_STATUS
+    .set    pop
+.endm
+
+    .text
+LEAF(set_timer)
+
+    li t0, 0xc8
+    sb t0, 0xb5000100
+    &#x2F;&#x2F;向0xb5000100 位置写入0xc8,设置时钟频率1 秒钟中断200次
+    sw  sp, KERNEL_SP &#x2F;&#x2F;栈指针调到KERNEL_SP
+setup_c0_status STATUS_CU0|0x1001 0&#x2F;&#x2F;设置SR寄存器，使能时钟中断
+    jr ra
+
+    nop
+END(set_timer)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>timer_irq函数</li>
+</ul>
+<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">timer_irq:
+1:	j	sched_yield &#x2F;&#x2F;跳转到我们实现的sched_ yield函数
+	nop
+	&#x2F;*li t1, 0xff
+	lw    t0, delay
+	addu  t0, 1
+	sw	t0, delay
+	beq	t0,t1,1f	
+	nop*&#x2F;
+	j	ret_from_exception &#x2F;&#x2F;从中断和异常返回
+	nop<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="Thinking-3-10-阅读相关代码，思考操作系统是怎么根据时钟周期切换进程的。"><a href="#Thinking-3-10-阅读相关代码，思考操作系统是怎么根据时钟周期切换进程的。" class="headerlink" title="Thinking 3.10 阅读相关代码，思考操作系统是怎么根据时钟周期切换进程的。"></a><strong>Thinking 3.10 阅读相关代码，思考操作系统是怎么根据时钟周期切换进程的。</strong></h4><p><strong>答：</strong>操作系统中，设置了一个进程就绪队列，并且给每一个进程添加了一个时间片，时间片在实验中即为进程的优先级priority，这个时间片起到计时的作用，时间片的时间走完，则代表该进程需要执行时钟中断操作，此时将这个进程移动到就绪队列的尾端，并复原其时间片，再让就绪队列靠前的RUNNABLE的进程执行相应的时间片段，按照这种规律实现循环往复，从而做到根据时钟周期切换进程。</p>
+<hr>
+<h3 id="实验难点"><a href="#实验难点" class="headerlink" title="实验难点"></a>实验难点</h3><h4 id="难点1：初始化新进程虚拟地址空间，即env-setup-vm函数的填写"><a href="#难点1：初始化新进程虚拟地址空间，即env-setup-vm函数的填写" class="headerlink" title="难点1：初始化新进程虚拟地址空间，即env_setup_vm函数的填写"></a>难点1：初始化新进程虚拟地址空间，即<code>env_setup_vm</code>函数的填写</h4><p><img src="https://img2020.cnblogs.com/blog/2324282/202104/2324282-20210422151222369-1152440206.png"></p>
+<p>这个函数的编写需要我们充分理解地址空间的划分。我们的虚拟内存空间使用的是2G&#x2F;2G模式.</p>
+<ul>
+<li>UTOP以下是进程自己使用的，在还没用的情况下自然是清零。</li>
+<li>ULIM以上是内核使用的，自然应该从boot_pgdir中直接拷贝。</li>
+<li>主要是中间一部分，分别是User VPT、PAGES、ENVS。这三部分也是各有用处，PAGES对应的是之前物理页框数组pages，ENVS对应的是进程数组envs，也要从boot_pgdir中拷贝，而User VPT对应的是进程自己的页表，需要之后手动设置。</li>
+</ul>
+<h4 id="难点2：load-icode-mapper的编写需要考虑到多种情况"><a href="#难点2：load-icode-mapper的编写需要考虑到多种情况" class="headerlink" title="难点2：load_icode_mapper的编写需要考虑到多种情况"></a>难点2：load_icode_mapper的编写需要考虑到多种情况</h4><p><img src="https://img-blog.csdnimg.cn/20200416091854392.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JpeXVlaml1emhhbw==,size_16,color_FFFFFF,t_70"></p>
+<p>上图只是部分情况，在编写这一部分函数是需要充分考虑各种情况，必须进行充分的构思之后才可以正确的编写代码，尤其是text段与bss段的开始和结尾部分，有几种我没有考虑到，从而花费了一些时间来debug，这进一步告诉我们提前架构与设计，考虑各种情况的重要性。</p>
+<h4 id="难点三：sched-yield进程调度算法的编写"><a href="#难点三：sched-yield进程调度算法的编写" class="headerlink" title="难点三：sched_yield进程调度算法的编写"></a>难点三：sched_yield进程调度算法的编写</h4><p>进程的调度函数sched_yeild也是本次实验的难点之一，总结的该函数主要的步骤为如下几步：</p>
+<ol>
+<li>设置两个队列，其中一个为目前的进程调度队列<code>q0</code>，另一个为一个空队列<code>q1</code>。</li>
+<li>首先判断当前队列指针指向的队首进程的<code>env_status</code>.<ul>
+<li>若为<code>ENV_FREE</code>，将该进程从队列中移除</li>
+<li>若为<code>ENV_NOT_RUNNABLE</code>，将其插入另一个队列的尾部</li>
+<li>若为<code>ENV_RUNNABLE</code>，判断这个进程的时间片是否用完，若用完则复原其时间片并将其插入到另一个队列尾部</li>
+<li>当一个队列为空时，通过<code>point = 1-point</code>将指针转移到另一个队列队首</li>
+</ul>
+</li>
+</ol>
+<h3 id="体会与感悟"><a href="#体会与感悟" class="headerlink" title="体会与感悟"></a>体会与感悟</h3><ul>
+<li>需要提前架构好设计，考虑到各种情况，不能急着写代码</li>
+</ul>
+<p>在load_icode_mapper里，我因为少考虑了一些情况而花费了许多时间去debug。关于提前设计不能只在脑中构思，这样的凭空构思很容易少考虑情况，在纸上进行一些简单的绘图和记录，能够列举更全面的情况，根据这样的构思设计编代码，正确性会更高。</p>
+<ul>
+<li>理论课的重要性</li>
+</ul>
+<p>在本次Lab3-extra的实验中，我因为理论课知识的不扎实而完美的理解错了题意😇，没有做出Extra，遗憾的错过了加分机会。在Extra实验中，需要我们实现PV原语操作，题目中有两种资源分别用1,2表示，且他们的数目可以有多个。然而，由于我理论课知识的缺失，在我的设计架构中，我用flag1，flag2来记录他们是否持有资源1，资源2，但我错误的认为一个进程拥有某一资源的数目只能唯一（即一个进程不能拥有多个资源1），导致了我只要释放一个资源，其对应的flag变为0，这在现在看来显然是错误的（属于是追悔莫及了），我应该将flag换成一个计数器count，进程拥有count1，count2记录拥有资源1，资源2的数目，根据count1,count2就可以正常的进行设计和输出status。</p>
+<p>这次实验中，我对进程的理解更加深刻了，结合理论课知识的学习，我在实验课上更加了解了一个进程在操作系统中是如何组织，如何创建，如何运行，发生异常如何处理等实际过程，是一种理论课所无法带来的直观感，我想这也是实验课的价值所在。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Lei_Yu</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://shl518.github.io/2022/05/09/2022-cao-zuo-xi-tong-lab3-shi-yan-bao-gao/">http://shl518.github.io/2022/05/09/2022-cao-zuo-xi-tong-lab3-shi-yan-bao-gao/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Lei_Yu</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                                    <span class="chip bg-color">操作系统</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/05/11/c-yu-yan-shi-xian-fcfs-sjf-diao-du-suan-fa/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="C语言实现FCFS，SJF调度算法">
+                        
+                        <span class="card-title">C语言实现FCFS，SJF调度算法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Lei_Yu
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">操作系统</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/05/09/2022-cao-zuo-xi-tong-lab2-shi-yan-bao-gao/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="2022操作系统Lab2实验报告">
+                        
+                        <span class="card-title">2022操作系统Lab2实验报告</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Lei_Yu
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">操作系统</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2023</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">Lei_Yu</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">88.4k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/shl518" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:lei_yuyu518@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

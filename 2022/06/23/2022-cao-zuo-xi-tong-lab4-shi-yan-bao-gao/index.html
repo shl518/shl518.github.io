@@ -1,0 +1,1456 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="2022操作系统Lab4实验报告, Corsica">
+    <meta name="description" content="I will be with you from dusk till down.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
+
+    <title>2022操作系统Lab4实验报告 | Corsica</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Corsica</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Corsica</div>
+        <div class="logo-desc">
+            
+            I will be with you from dusk till down.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/shl518" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/shl518" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">2022操作系统Lab4实验报告</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                                <span class="chip bg-color">操作系统</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-06-23
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-03-22
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.4k
+                </div>
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="Lab4实验报告"><a href="#Lab4实验报告" class="headerlink" title="Lab4实验报告"></a>Lab4实验报告</h2><h3 id="1-1-思考题"><a href="#1-1-思考题" class="headerlink" title="1.1 思考题"></a>1.1 思考题</h3><p><strong>Thinking 4.1</strong>. <em>思考并回答下面的问题：</em></p>
+<ul>
+<li><em>内核在保存现场的时候是如何避免破坏通用寄存器的？</em></li>
+</ul>
+<p>:label:<strong>答</strong>：查阅相关代码，发现其实在Lab3的时候我们就已经见识到了这个问题的答案，那就是通过SAVE_ALL宏来保存用户态的所有寄存器到栈帧里。在Lab3的handle_int函数里我们就可以见到他的身影，之后如果再使用这些通用寄存器并进行改写，也不会对已经存储的值造成影响。</p>
+<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">NESTED(handle_int, TF_SIZE, sp)
+.set	noat
+nop
+
+SAVE_ALL #在这里在这里在这里,我将用户态的所有寄存器到栈帧里
+CLI
+.set	at
+mfc0	t0, CP0_CAUSE
+mfc0	t2, CP0_STATUS
+and	t0, t2
+
+andi	t1, t0, STATUSF_IP4
+bnez	t1, timer_irq
+nop
+END(handle_int)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><em>系统陷入内核调用后可以直接从当时的$a0-$a3参数寄存器中得到用户调用msyscall留下的信息吗？</em></li>
+</ul>
+<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">lw a0, TF_REG4(sp) #a0
+lw a1, TF_REG5(sp) #a1
+lw a2, TF_REG6(sp) #a2
+lw a3, TF_REG7(sp) #a3
+addiu sp, sp, -24
+sw t3, 16(sp)
+sw t4, 20(sp)
+   
+   
+   jalr    t2    #跳转到对应的系统调用函数
+   nop<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>:label:<strong>答</strong>：可以，阅读代码我们可以发现在handle_sys函数里，msyscall里的6个参数，前四个被保存在了a0-a3，后两个保存在了栈内8字节空间内。紧接着handle_sys函数执行内核态对应的系统调用，a0−a3寄存器的值没有被改变过，因此可以直接使用。</p>
+<ul>
+<li><em>我们是怎么做到让sys开头的函数“认为”我们提供了和用户调用msyscall时同样的参数的？</em></li>
+</ul>
+<p>:label:<strong>答</strong>：这个问题其实可以用上一个问题的答案来解释，原因在于使用了handle_sys函数将msyscall前四个参数放在对应的a0-a3寄存器上，后两个参数存在栈上的相同位置。</p>
+<ul>
+<li><em>内核处理系统调用的过程对Trapframe做了哪些更改？这种修改对应的用户态的变化是？</em></li>
+</ul>
+<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">lw		t0, TF_EPC(sp)
+addiu	t0, t0, 4 #EPC &#x3D; EPC + 4
+sw		t0, TF_EPC(sp)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>:label:<strong>答</strong>：在handle_sys代码里可以找到答案，即修改了EPC的值，用户态返回的时候可以继续执行下一条指令</p>
+<p><strong>Thinking 4.2</strong>. 思考下面的问题，并对这个问题谈谈你的理解： 请回顾 lib&#x2F;env.c 文件中 <code>mkenvid()</code> 函数的实现，该函数不会返回 0，请结合系统调用和 IPC 部分的实现 与 <code>envid2env()</code> 函数的行为进行解释。</p>
+<p>:label:<strong>答</strong>：因为envid2env里面对于id&#x3D;0的进程返回当前进程curenv，我们要用envid &#x3D; 0特殊标识curenv。有了这个特殊标识以后就向envid2env传入0而快速的得到当前进程的env块。</p>
+<p><strong>另一个更重要的原因</strong>在于实现fork.c过程中，我们要求子进程返回<code>newenvid = 0</code>而父进程<code>newenvid !=0</code>（阅读代码我们发现父进程返回的newenvid其实是子进程的真实envid）。<code>mkenvid()</code> 函数不会返回 0的原因在于不能让任何一个进程的envid &#x3D; 0，否则在返回newenvid的时候就可能父进程也返回0，子进程也返回0，无法区分父子进程。</p>
+<p><strong>Thinking 4.3</strong>. <em>思考下面的问题，并对这两个问题谈谈你的理解：</em></p>
+<ul>
+<li><em>子进程完全按照 fork() 之后父进程的代码执行，说明了什么？</em></li>
+</ul>
+<p>:label:<strong>答</strong>：说明子进程和父进程共享代码段。</p>
+<ul>
+<li><em>但是子进程却没有执行 fork() 之前父进程的代码，又说明了什么？</em></li>
+</ul>
+<p>:label:<strong>答</strong>：说明子进程恢复到的上下文位置是fork函数</p>
+<p><strong>Thinking 4.4</strong>. <em>关于 fork 函数的两个返回值，下面说法正确的是：</em></p>
+<p><em>A、fork 在父进程中被调用两次，产生两个返回值</em></p>
+<p><em>B、fork 在两个进程中分别被调用一次，产生两个不同的返回值</em></p>
+<p><em>C、fork 只在父进程中被调用了一次，在两个进程中各产生一个返回值</em></p>
+<p><em>D、fork 只在子进程中被调用了一次，在两个进程中各产生一个返回值</em></p>
+<p>:label:<strong>答</strong>：C</p>
+<p><strong>Thinking 4.5</strong>. <em>我们并不应该对所有的用户空间页都使用<code>duppage</code>进行映射。那么究竟哪些用户空间页应该映射，哪些不应该呢？ 请结合本章的后续描述、mm&#x2F;pmap.c 中 <code>mips_vm_init</code> 函数进行的页面映射以及 include&#x2F;mmu.h 里的内存布局图进行思考。</em></p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/F2B59E4132B6478E8B36A8880D1A8322?method=download&shareKey=cfa1ccb508bd72c7b0a0729d99bdfa72" alt="image-20220514210021387"></p>
+<p>:label:<strong>答</strong>:</p>
+<ul>
+<li>UTOP以上的用户空间对于用户进程来说不可改变；系统空间对于每个进程来说是相同且不可改变的，因此UTOP以上空间不用进行保护；</li>
+<li>UXSTACKTOP - BY2PG到UXSTACKTOP的空间是用户进程的异常栈，若进行写时复制保护可能陷入死循环，因此不能被保护。</li>
+<li>USTACKTOP到USTACKTOP + BY2PG的空间在空间分布图上是Invalid memory，用不到所以无需保护。</li>
+<li>去除上述这些，需要保护的是在0与USTACKTOP之间且在父进程中有效的页面。并且在<strong>如下代码</strong>中我们看到也确实如此。</li>
+</ul>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">&#x2F;&#x2F;fork.c
+if(newenvid)&#123;
+        for (i &#x3D; 0; i &lt; VPN(USTACKTOP); i++) &#123; &#x2F;&#x2F;0 --- USTACKTOP之间！！！！！！！！！！！！！！
+            if ((((Pde *)(*vpd))[i &gt;&gt; 10] &amp; PTE_V) &amp;&amp; (((Pte *)(*vpt))[i] &amp; PTE_V)) &#123;
+                duppage(newenvid, i);
+            &#125;
+        &#125;
+        syscall_mem_alloc(newenvid, UXSTACKTOP - BY2PG, PTE_V|PTE_R);
+        syscall_set_pgfault_handler(newenvid, __asm_pgfault_handler, UXSTACKTOP);
+        syscall_set_env_status(newenvid, ENV_RUNNABLE);
+    &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p><strong>Thinking 4.6</strong>. <em>在遍历地址空间存取页表项时你需要使用到vpd和vpt这两个“指针的指针”，请参考 user&#x2F;entry.S 和 include&#x2F;mmu.h 中的相关实现，思考并回答这几个问题：</em></p>
+<p>:label:<strong>答</strong>：首先我们可以在mmu.h中找到他们的定义</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">extern volatile Pte* vpt[]; 
+extern volatile Pde* vpd[]; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li><em>vpt和vpd的作用是什么？怎样使用它们？</em></li>
+</ul>
+<p>:label:<strong>答</strong>：vpt存放着二级页表，vpd存放着一级页表，使用时把它们当作数组头。对于虚拟地址va，<code>（*vpd）[PDX(va)]</code>为二级页表的物理地址，<code>(*vpt)[PTX(va)]</code>为va对应的物理页面。此外，我们在duppage里这样使用它。总而言之，我们可以通过vpt,vpd访问一级页目录与二级页表。</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">duppage(u_int envid, u_int pn)
+&#123;
+    u_int addr;
+    u_int perm;
+    int flag &#x3D; 0;
+    addr &#x3D; pn &lt;&lt; PGSHIFT;
+    perm &#x3D; (*vpt)[pn] &amp; (BY2PG - 1);&#x2F;&#x2F;使用(*vpt)[pn]取出对应页表项！！！！！！！！
+    if ((perm &amp; PTE_R) &amp;&amp; !(perm &amp; PTE_LIBRARY)) &#123;
+        perm |&#x3D; PTE_COW;
+        flag &#x3D; 1;
+    &#125;
+    syscall_mem_map(0, addr, envid, addr, perm);
+    if (flag) syscall_mem_map(0, addr, 0, addr, perm);
+    &#x2F;&#x2F;  user_panic(&quot;duppage not implemented&quot;);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><em>从实现的角度谈一下为什么进程能够通过这种方式来存取自身的页表？</em></li>
+</ul>
+<p>:label:<strong>答</strong>：</p>
+<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">#entry.S
+.globl vpt 
+ vpt:     
+     .word UVPT 
+     .globl vpd 
+vpd:     
+     .word (UVPT+(UVPT&gt;&gt;12)*4) #自映射机制 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在entry.S中定义vpt，vpd,很明显这里使用了自映射机制。vpt指向了UVPT是进程页表所在之处,vpd通过自映射机制指向了<code>(UVPT+(UVPT&gt;&gt;12)*4)</code>,是自映射机制下的一级页表地址。通过这样的定义，进程能够通过这种方式来存取自身的页表。</p>
+<ul>
+<li><em>它们是如何体现自映射设计的？</em></li>
+</ul>
+<p>:label:<strong>答</strong>：上一问已经谈到，在<code>entry.S</code>的对vpd定义里可以明显看到自映射机制的存在。</p>
+<ul>
+<li><em>进程能够通过这种方式来修改自己的页表项吗？</em></li>
+</ul>
+<p>:label:<strong>答</strong>：不可以，用户进程无权限直接修改页表项。如果非要修改的话，我们在<code>duppage</code>里使用了系统调用<code>syscall_mem_map</code>的这种方式进行修改。</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">static void duppage(u_int envid, u_int pn)
+&#123;
+    u_int addr;
+    u_int perm;
+    int flag &#x3D; 0;
+    addr &#x3D; pn &lt;&lt; PGSHIFT;
+    perm &#x3D; (*vpt)[pn] &amp; (BY2PG - 1);
+    if ((perm &amp; PTE_R) &amp;&amp; !(perm &amp; PTE_LIBRARY)) &#123;
+        perm |&#x3D; PTE_COW;
+        flag &#x3D; 1;
+    &#125;
+    syscall_mem_map(0, addr, envid, addr, perm);
+    if (flag) syscall_mem_map(0, addr, 0, addr, perm);
+    &#x2F;&#x2F;上面这句话通过系统调用syscall_mem_map的方式陷入内核，进程间接通过内核修改了页表项，但是无论如何进程不能通过vpt，vpd直接修改页表项
+    &#x2F;&#x2F;  user_panic(&quot;duppage not implemented&quot;);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p><strong>Thinking 4.7</strong>. <code>page_fault_handler</code> 函数中，你可能注意到了一个向异常处理栈复制Trapframe运行现场的过程，请思考并回答这几个问题：</p>
+<ul>
+<li>这里实现了一个支持类似于“中断重入”的机制，而在什么时候会出现这种“中断重入”？</li>
+</ul>
+<p>:label:<strong>答</strong>：</p>
+<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">BUILD_HANDLER mod page_fault_handler cli<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>通过全局grep可以发现在全文中只有一处汇编调用了<code>page_fault_handler</code>，即handle_mod，而该中断处理函数与写时复制的中断缺页有关，所以间接说明 写时复制时可能导致中断重入。在用户发生写时复制引发的缺页中断并进行处理时，可能会再次发生缺页中断，从而“中断重入”。</p>
+<ul>
+<li>内核为什么需要将异常的现场Trapframe复制到用户空间？</li>
+</ul>
+<p>:label:<strong>答</strong>：因为指导书也提到：</p>
+<p><strong>“事实上，我们的MOS操作系统按照微内核的设计理念， 尽可能地将功能实现在用户空间中，其中也包括了页写入异常的处理，因此主要的处理过程是在用户态下完成的。”</strong></p>
+<p>因此我们在用户进程处理此缺页中断，需要将现场的信息保存在用户态。再具体来看，页写入异常处理会返回到entry.S中的 <code>__asm_pgfault_handler</code>函数。</p>
+<p>这个函数在用户态下，从内核返回后，此时的栈指针是由内核设置的，处于异常处理栈中，且指向一个由内核复制好的 Trapframe 结构体的底部,<strong>我们需要使用之前复制到异常处理栈中的TrapFrame里面的信息跳转到真正的异常处理函数</strong>。如果之前内核没有吧现场的TrapFrame复制到异常处理栈，那么我们在这里也无法跳转到真正的异常处理函数。</p>
+<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">__asm_pgfault_handler:
+lw      a0, TF_BADVADDR(sp)
+lw      t1, __pgfault_handler
+jalr    t1
+nop
+
+lw      v1, TF_LO(sp)
+mtlo    v1
+lw      v0, TF_HI(sp)
+lw      v1, TF_EPC(sp)
+mthi    v0
+mtc0    v1, CP0_EPC
+lw      $31, TF_REG31(sp)
+
+lw      $1, TF_REG1(sp)
+lw      k0, TF_EPC(sp)
+jr      k0
+lw      sp, TF_REG29(sp)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p><strong>Thinking 4.8</strong>. 到这里我们大概知道了这是一个由用户程序处理并由用户程序自身来恢复运行现场的过程，请思考并回答以下几个问题：</p>
+<ul>
+<li>在用户态处理页写入异常，相比于在内核态处理有什么优势？</li>
+</ul>
+<p>:label:<strong>答</strong>：这里应用了微内核的设计理念，具有微内核的优势即具有可扩展性，灵活性，同时具有可靠性与安全性，能够易于进行移植。</p>
+<ul>
+<li>从通用寄存器的用途角度讨论，在可能被中断的用户态下进行现场的恢复，要如何做到不破坏现场中的通用寄存器？</li>
+</ul>
+<p>:label:<strong>答</strong>：首先使用存放函数调用返回值的$v0, v1恢复非通用寄存器，之后通过v1恢复非通用寄存器，之后通过sp恢复通用寄存器，最后恢复$sp，保证了恢复后个寄存器值正确。</p>
+<p><strong>Thinking 4.9</strong>. <em>请思考并回答以下几个问题：</em></p>
+<ul>
+<li>为什么需要将<code>set_pgfault_handler</code>的调用放置在<code>syscall_env_alloc</code>之前？</li>
+</ul>
+<p>:label:<strong>答</strong>：syscall_env_alloc过程中也可能需要进行异常处理。</p>
+<ul>
+<li>如果放置在写时复制保护机制完成之后会有怎样的效果？</li>
+</ul>
+<p>:label:<strong>答</strong>：此时进程给__pgfault_handler变量赋值时就会触发缺页中断，但中断处理没有设置好，故无法进行正常处理。</p>
+<ul>
+<li>子进程是否需要对在entry.S定义的字__pgfault_handler赋值？</li>
+</ul>
+<p>:label:<strong>答</strong>：不需要，子进程已经复制了父进程中__pgfault_handler变量值。</p>
+<h3 id="1-2-实验难点"><a href="#1-2-实验难点" class="headerlink" title="1.2 实验难点"></a>1.2 实验难点</h3><h4 id="1-2-1难点一-系统调用的流程理解"><a href="#1-2-1难点一-系统调用的流程理解" class="headerlink" title="1.2.1难点一 系统调用的流程理解"></a>1.2.1难点一 系统调用的流程理解</h4><p>系统调用是为了用户能够使用一部分内核提供的标准接口，同时不会破坏内核的正常运行。理解本次作业系统调用的流程是完成整个系统调用部分的关键。下面是帮助理解的流程图。</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/6137CDDF844746B2BDE2121A82403B4D?method=download&shareKey=f08006b63ee83ad2cf1346314a114b90" alt="image-20220531164442906"></p>
+<h4 id="1-2-2-难点二-关于fork流程的理解"><a href="#1-2-2-难点二-关于fork流程的理解" class="headerlink" title="1.2.2 难点二 关于fork流程的理解"></a>1.2.2 难点二 关于fork流程的理解</h4><p>关于fork的理解是本次实验的一大难点，涉及函数很多，同时要灵活应用刚刚完成的系统调用部分。这里是我在完成fork部分填写的时候总结的fork相关流程和页写入异常的实现操作。有了这些流程的概念，脑子里会更清晰整体的思路。</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/1009BAA3F9E445159836B9D6F4A13DF7?method=download&shareKey=e5eeabc96d3183e0fb8efbecac5967a1" alt="9b7db18b82d428e1a5cf819f6070007"></p>
+<h3 id="1-3-心得体会"><a href="#1-3-心得体会" class="headerlink" title="1.3 心得体会"></a>1.3 心得体会</h3><p>这次实验对于我来说感到很困难，相对于前几个单元的实验，涉及到了更多函数的填写，涉及到了更多汇编文件的理解（汇编文件的理解一直是我的弱点），尤其是后半部分的fork操作部分难度很高。在这一部分我再一次体会到思路清晰的好处，一定要自己梳理一遍各个文件，各个函数之间的关系，也要梳理一遍完成某一功能需要怎样的流程，围绕各个功能是如何实现的这一中心点来梳理会有更加清晰的思路与框架。正是因为我在课下实验中梳理了一遍fork和系统调用实现的流程，在课上考试时我明显感受到我能很快的定位某一函数的位置，某一函数的功能和这个函数与其他函数的关系与用法，我想这便是自己梳理一遍的好处所在，同时使用这个方法，我阅读代码的能力也得到了很大的提升。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Lei_Yu</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://shl518.github.io/2022/06/23/2022-cao-zuo-xi-tong-lab4-shi-yan-bao-gao/">http://shl518.github.io/2022/06/23/2022-cao-zuo-xi-tong-lab4-shi-yan-bao-gao/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Lei_Yu</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                                    <span class="chip bg-color">操作系统</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/06/27/web-scraping/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Web_Scraping">
+                        
+                        <span class="card-title">Web_Scraping</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-27
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Lei_Yu
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">
+                        <span class="chip bg-color">网络爬虫</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/06/22/mian-xiang-dui-xiang-di-4-dan-yuan-zuo-ye-zong-jie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="面向对象第4单元作业总结">
+                        
+                        <span class="card-title">面向对象第4单元作业总结</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Lei_Yu
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+                        <span class="chip bg-color">面向对象</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2023</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">Lei_Yu</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">88.4k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/shl518" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:lei_yuyu518@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
